@@ -1,6 +1,20 @@
 <?php
 class wfHelp {
-  public static function isLocalhost(){if($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '89.221.253.94'){return true;}else{return false;}} // Why not REMOTE_HOST, 150219???
+  /**
+   * Check if host is localhost by name, address or theme/config/settings.yml(is_localhost=true).
+   * @return boolean
+   */
+  public static function isLocalhost(){
+    $is_localhost = false;
+    if(isset($GLOBALS['sys']['settings']['is_localhost']) && $GLOBALS['sys']['settings']['is_localhost']){
+      $is_localhost = true;
+    }
+    if(strstr($_SERVER['HTTP_HOST'], 'localhost') || $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $is_localhost){
+      return true;
+    }else{
+      return false;
+    }
+  }
   public static function print_r($arr, $exit = false){
       if(wfHelp::isLocalhost()){
           echo "\n".'<pre>'."\n";
