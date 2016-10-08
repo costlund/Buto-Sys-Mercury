@@ -37,12 +37,22 @@ class wfHelp {
         if($lable){
           echo '<b>'.$lable.'</b><br>';
         }
-        if(gettype($arr)=='object'){$arr = $arr->get();}
+        if(gettype($arr)=='object'){
+          $arr = $arr->get();
+        }
         echo sfYaml::dump($arr, 99);      
-          echo '</pre>'."\n";
-        if($exit){exit();}
+        echo '</pre>'."\n";
+        if($exit){
+          exit();          
+        }
       }
   }
+  /**
+   * Get an array as yml data.
+   * @param type $arr
+   * @param type $show_for_all
+   * @return string
+   */
   public static function getYmlDump($arr, $show_for_all = true){
       if($show_for_all || wfHelp::isLocalhost()){
         $arr = sfYaml::dump($arr, 99);
@@ -54,6 +64,12 @@ class wfHelp {
         //return str_replace("\n", '<br>', sfYaml::dump($arr, 99));      
       }else{return '';}
   }
+  /**
+   * Do an echo depending on is localhost.
+   * @param type $str
+   * @param type $exit
+   * @return type
+   */
   public static function echoecho($str, $exit = false){
       if(wfHelp::isLocalhost()){
           echo $str;
@@ -61,10 +77,17 @@ class wfHelp {
       }
       return null;
   }
+  /**
+   * Hello World!
+   * @return type
+   */
   public static function helloWorld(){
       return wfHelp::echoecho('Hello world.', true);
   }
-  
+  /**
+   * Detect screen setting in cookie or user agent.
+   * @return string
+   */
   public static function detectScreen(){
       if(isset($_COOKIE['screen'])){
           if($_COOKIE['screen']=='mobile'){
@@ -80,7 +103,10 @@ class wfHelp {
         }
       }
   }
-  
+  /**
+   * Detect screen via cookie.
+   * @return string
+   */
   public static function detectScreenViaCookie(){
       if(isset($_COOKIE['screen'])){
           if($_COOKIE['screen']=='mobile'){
@@ -92,6 +118,10 @@ class wfHelp {
         return null;
       }
   }
+  /**
+   * Detect screen via user agent.
+   * @return string
+   */
   public static function detectScreenViaBrowser(){
     if(strstr($_SERVER['HTTP_USER_AGENT'], 'Android') || strstr($_SERVER['HTTP_USER_AGENT'], 'iPhone')){
         return 'mobile';
@@ -99,7 +129,11 @@ class wfHelp {
         return 'pc';
     }
   }
-  
+  /**
+   * Check if boolean or array.
+   * @param type $s
+   * @return string
+   */
   public static function handleBoolean($s){
         if(is_bool($s)){
             return ($s)?'true':'false';
