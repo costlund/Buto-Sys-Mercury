@@ -90,7 +90,12 @@ class wfUser {
     
     return $role;
   }
-    
+  
+
+  public static function getSession(){
+    wfPlugin::includeonce('wf/array');
+    return new PluginWfArray($_SESSION);
+  }  
     
 }
 

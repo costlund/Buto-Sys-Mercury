@@ -191,7 +191,7 @@ class wfDocument {
     foreach ($element as $key => $value) {
       if(!in_array($key, $allowed_keys) && !strstr($key, 'zzz')){ // zzz is WF developers method to set things in sleep :-)
         wfHelp::yml_dump($element);
-        throw new Exception("None supported key $key.");
+        throw new Exception("None supported key $key. Are you passing an object and missing the get() method?");
       }
     }
     
@@ -480,7 +480,8 @@ class wfDocument {
       //if(array_search($element['type'], $this->element_one_line)===false){ echo "\n"; }
       if(isset($element['innerHTML']) && !is_array($element['innerHTML'])){
         
-        $innerHTML = wfSettings::replaceTheme($element['innerHTML']);
+        $innerHTML = $element['innerHTML'];
+        $innerHTML = wfSettings::replaceTheme($innerHTML);
         $innerHTML = wfSettings::getGlobalsFromString($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
         

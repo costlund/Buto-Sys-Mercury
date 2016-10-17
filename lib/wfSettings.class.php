@@ -293,20 +293,9 @@ class wfSettings {
    */
   public static function getSettings($path, $path_to_key = null){
     $settings = array();
-    //$settings = null;
-    //$filename = dirname(__FILE__).'/../..'.str_replace('[theme]', wfSettings::getTheme(), $path);
-    
     $filename = wfArray::get($GLOBALS, 'sys/app_dir').wfSettings::replaceTheme($path);
-    
-    
-    
-    //exit($filename);
-    
-      
-      
     // Put content i GLOBALS to speed up server time.
     if(isset($GLOBALS['sys']['yml_files'][$filename])){
-      //$GLOBALS['sys']['yml'][$filename] = $GLOBALS['sys']['yml'][$filename] + 1;
       $settings = $GLOBALS['sys']['yml_files'][$filename];
     }else{
       if(file_exists($filename)){
@@ -316,14 +305,14 @@ class wfSettings {
         throw new Exception("Could not find fil $filename.");
       }
     }
-
-
     if($path_to_key){
       $path_to_key = "['".str_replace('/', "']['", $path_to_key)."']";
-      //eval("\$settings = \$settings$path_to_key;");
       eval("if(isset(\$settings$path_to_key)){ \$settings = \$settings$path_to_key; }else{\$settings = null;} ");
     }
     return $settings;
+  }
+  public static function getSettingsAsObject($path, $path_to_key = null){
+    return new PluginWfArray(wfSettings::getSettings($path, $path_to_key));
   }
   /**
    * Set yml setting file.

@@ -58,9 +58,14 @@ class wfPlugin {
    * @param string $plugin
    * @return array
    */
-  public static function getPluginSettings($plugin){
+  public static function getPluginSettings($plugin, $as_object = false){
     if(wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin)){
-      return wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin);
+      if(!$as_object){
+        return wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin);
+      }else{
+        wfPlugin::includeonce('wf/array');
+        return new PluginWfArray(wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin));
+      }
     }else{
       return null;
     }
