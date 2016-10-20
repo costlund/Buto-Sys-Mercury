@@ -47,7 +47,7 @@ class wfEvent {
         }
         if($run){
           $plugin = wfArray::get($value, 'plugin');
-          require_once wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php';
+          wfPlugin::includeonce($plugin);
           $obj = wfSettings::getPluginObj($plugin);
           $method = 'event_'.wfArray::get($value, 'method', "Method is not set in sys/settings/events/$event/$key!");
           $data = $obj->$method($value, $data);
