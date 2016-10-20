@@ -312,6 +312,7 @@ class wfSettings {
     return $settings;
   }
   public static function getSettingsAsObject($path, $path_to_key = null){
+    wfPlugin::includeonce('wf/array');
     return new PluginWfArray(wfSettings::getSettings($path, $path_to_key));
   }
   /**

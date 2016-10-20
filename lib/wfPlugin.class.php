@@ -10,14 +10,20 @@ class wfPlugin {
    * @param string $plugin If call from widget.
    * @return array
    */
-  public static function getModuleSettings($plugin = null){
+  public static function getModuleSettings($plugin = null, $as_object = false){
     $settings = null;
     if(!$plugin){
       $plugin = wfArray::get($GLOBALS, 'sys/plugin');
     }
     foreach (wfArray::get($GLOBALS, 'sys/settings/plugin_modules') as $key => $value) {
       if(wfArray::get($value, 'plugin') == $plugin){
-        $settings = wfArray::get($value, 'settings'); break;
+        if(!$as_object){
+          $settings = wfArray::get($value, 'settings');
+        }else{
+          wfPlugin::includeonce('wf/array');
+          $settings = new PluginWfArray(wfArray::get($value, 'settings'));
+        }
+        break;
       }
     }
     return $settings;
