@@ -118,36 +118,27 @@ class wfFilesystem {
    */
   public static function getScandir($dir, $file_extansion = array()){
     $dir = wfSettings::replaceTheme($dir);
-    
     foreach ($file_extansion as $key => $value) {
       $file_extansion['key'] = strtolower($value);
     }
-    
-    
-      $array = array();
-      if(file_exists($dir)){
-        $dir =  scandir($dir);
-        foreach ($dir as $key => $value) {
-            if($value=='.' || $value=='..'){continue;}
-            
-            if(sizeof($file_extansion)){
-              $i = substr($value, strrpos($value , '.'));
-              if(in_array(strtolower($i), $file_extansion)){
-                $array[] = $value;
-              }
-              
-              
-              
-            }else{
-              $array[] = $value;
-            }
-            
-            
-            //if(!is_dir($value)){
-            //}
+    $array = array();
+    if(file_exists($dir)){
+      $dir =  scandir($dir);
+      foreach ($dir as $key => $value) {
+        if(substr($value, 0, 1)=='.'){ // If start with "." we should continue.
+          continue;
+        }
+        if(sizeof($file_extansion)){
+          $i = substr($value, strrpos($value , '.'));
+          if(in_array(strtolower($i), $file_extansion)){
+            $array[] = $value;
+          }
+        }else{
+          $array[] = $value;
         }
       }
-      return $array;
+    }
+    return $array;
   }
   
   public static function createDir($dir){
