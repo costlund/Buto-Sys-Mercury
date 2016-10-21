@@ -903,12 +903,22 @@ class wfDocument {
   public static function createHtmlElement($type, $innerHTML = null, $attribute = array(), $settings = null){
     $array = array();
     $array['type'] = $type;
-    //if(strlen($innerHTML.'')){ $array['innerHTML'] = $innerHTML; }
-    //if($innerHTML){ $array['innerHTML'] = $innerHTML; }
     if($innerHTML || $innerHTML=='0'){ $array['innerHTML'] = $innerHTML; }
     if($attribute){ $array['attribute'] = $attribute; }
     if($settings){$array['settings'] = $settings;}
     return $array;
+  }
+  /**
+   * AS an object.
+   * @param type $type
+   * @param type $innerHTML
+   * @param type $attribute
+   * @param type $settings
+   * @return \PluginWfArray
+   */
+  public static function createHtmlElementAsObject($type, $innerHTML = null, $attribute = array(), $settings = null){
+    wfPlugin::includeonce('wf/array');
+    return new PluginWfArray(wfDocument::createHtmlElement($type, $innerHTML, $attribute, $settings));
   }
   /**
    * Create element.
