@@ -211,7 +211,9 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
 wfEvent::run('sys_close');
 
 if(wfArray::get($GLOBALS, 'sys/settings/dump') && !wfRequest::get('_time') || wfArray::get($GLOBALS, 'sys/settings/dump_ajax')){
-  echo '<div class="container-fluit">';
+  echo '<div class="container-fluid">';
+  echo '<div class="row">';
+  echo '<div class="col-md-12">';
   $GLOBALS['sys']['microtime']['end'] = microtime(true);
   $GLOBALS['sys']['microtime']['time'] = $GLOBALS['sys']['microtime']['end'] - $GLOBALS['sys']['microtime']['start'];
   if($_GET){
@@ -225,5 +227,7 @@ if(wfArray::get($GLOBALS, 'sys/settings/dump') && !wfRequest::get('_time') || wf
   }
   wfHelp::yml_dump($GLOBALS['sys'], false, null, 'GLOBALS/sys');
   wfHelp::yml_dump($_SERVER, false, null, 'SERVER');
+  echo '</div>';
+  echo '</div>';
   echo '</div>';
 }
