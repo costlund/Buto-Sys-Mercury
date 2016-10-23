@@ -468,17 +468,16 @@ class wfSettings {
    * @param string $plugin
    * @return object
    */
-  public static function getPluginObj($plugin = null){
+  public static function getPluginObj($plugin = null, $buto = true){
     if($plugin){
       $temp = 'plugin/'.$plugin;
     }else{
-      //$temp = 'plugin/'.wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class'));
       $temp = 'plugin/'.wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/plugin');
     }
     $temp = str_replace('/', ' ', $temp);
     $temp = ucwords($temp);
     $temp = str_replace(' ', '', $temp);
-    return new $temp;
+    return new $temp($buto); // Add true to handle in __construct($buto = false) method because of ReflectionClass usage in PluginWfEditor..
   }
   public static function getPluginMethod(){
     return wfArray::get($GLOBALS, 'sys/method');
