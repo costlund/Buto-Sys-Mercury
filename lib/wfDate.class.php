@@ -23,6 +23,8 @@ class wfDate {
       $format = wfArray::get($GLOBALS, 'sys/date/format/date');
     }elseif(wfArray::get($GLOBALS, 'sys/settings/date/format/date')){
       $format = wfArray::get($GLOBALS, 'sys/settings/date/format/date');
+    }else{
+      $format = 'Y-m-d';
     }
     return $format;
   }
