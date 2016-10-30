@@ -9,7 +9,12 @@ class wfRequest {
       $return = $_GET[$param];
     }elseif(isset($_POST[$param])){
       if(get_magic_quotes_gpc()){
-        $return = stripslashes($_POST[$param]);
+        if(!is_array($_POST[$param])){
+          $return = stripslashes($_POST[$param]);
+        }else{
+          // Take care of the array...
+          $return = $_POST[$param];
+        }
       }else{
         $return = $_POST[$param];
       }
