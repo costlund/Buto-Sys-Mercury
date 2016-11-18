@@ -44,18 +44,25 @@ class wfPlugin {
   }
   
   public static function includeonce($plugin){
-    if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php')){
+    $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin, true).'.php';
+    if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file)){
+      /**
+       * New name roule PluginOrgName.php.
+       */
+      include_once wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file;
+      return wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file;
+    }elseif(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php')){
+      /**
+       * Trying to get file with the old name roule action.class.php.
+       */
       include_once wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php';
       return wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php';
     }else{
-      $temp = 'Plugin'.wfPlugin::to_camel_case($plugin, true).'.php';
-      if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$temp)){
-        include_once wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$temp;
-        return wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$temp;
-      }else{
-        exit('Could not find plugin file...('.$temp.')');
-      }
+      exit('Could not find plugin file ('.$plugin.')');
     }
+    
+    
+    
   }
   
   

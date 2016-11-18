@@ -1,18 +1,15 @@
 <?php
 class wfDocument {
-  
   private static $find_and_get_by_id = null;
   private static $find_and_get_id = null;
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
   private $element_one_line = array('script', 'h1');
-  
-  
+  /**
+   * Role validate.
+   * @param type $element
+   * @return boolean
+   */
   private static function validateRole($element){
-    
-//    if(wfArray::get($element, 'type')=='widget' && wfArray::get($element, 'data/plugin') == 'amcharts/amcharts'){
-//      wfHelp::yml_dump($element);
-//    }
-    
     if(wfArray::isKey($element, 'settings/role')){
       $user_role = wfUser::getRole();
       if(wfArray::get($element, 'settings/role/allow')===false){
@@ -39,16 +36,16 @@ class wfDocument {
     }
     return true;
   }
-  
+  /**
+   * Validate settings.
+   * @param type $element
+   * @return boolean
+   * @throws Exception
+   */
   public static function validateSettings($element){
-    
-    
-    
     if(!self::validateRole($element)){
       return false;
     }
-    
-    
     if(isset($element['settings']['superadmin'])){
       if($element['settings']['superadmin'] && !wfArray::get($_SESSION, 'superadmin')){
         //settings/superadmin is true and user is not superadmin.
@@ -58,7 +55,6 @@ class wfDocument {
         return false;
       }
     }
-    
     //#Element/IP
     if(wfArray::get($element, 'settings/ip')){
       if(wfArray::get($element, 'settings/ip/item')){
@@ -83,20 +79,6 @@ class wfDocument {
           value: 1
      */
     if(wfArray::get($element, 'settings/cookie')){
-//      if(wfArray::isKey($element, 'settings/cookie/item')){
-//        foreach (wfArray::get($element, 'settings/cookie/item') as $key => $value) {
-//          if(array_key_exists($value['name'], $_COOKIE) && $_COOKIE[$value['name']]==$value['value']){
-//            if(wfArray::get($element, 'settings/cookie/allow')){
-//              //We render element.  
-//            }else{
-//              return false;
-//            }
-//          }else{
-//            //Client does not have the cookie or cookie has wrong value.
-//            return false;
-//          }
-//        }
-      
       if(wfArray::isKey($element, 'settings/cookie/deny')){
         if(array_key_exists(wfArray::get($element, 'settings/cookie/deny/name'), $_COOKIE) && $_COOKIE[wfArray::get($element, 'settings/cookie/deny/name')]==wfArray::get($element, 'settings/cookie/deny/value')){
           //Client has cookie and correct value, deny.
@@ -110,14 +92,7 @@ class wfDocument {
           return false;
         }
       }
-      
-      //wfHelp::yml_dump($_COOKIE, true);
-      //wfHelp::yml_dump($element, true);
     }
-    
-    
-    
-    
     if(isset($element['settings']['disabled']) && $element['settings']['disabled']){return false;}
     if(isset($element['settings']['target']) && $element['settings']['target']!=wfHelp::detectScreen()){return false;}
     if(isset($element['settings']['security'])){
@@ -148,45 +123,20 @@ class wfDocument {
         return false;
       }
     }
-    
-    /**
-     * If settings/secure is set we check if user has role.
-     */
-//    if(wfArray::isKey($element, 'settings/secure')){
-//      $secure = wfArray::get($element, 'settings/secure');
-//      //wfHelp::yml_dump($secure);
-//      $role = wfUser::getRole();
-//      //wfHelp::yml_dump($role);
-//      $hide = true;
-//      foreach ($secure as $key => $value) {
-//        if(!$value){
-//          if(in_array($key, $role)){
-//            $hide = false; break;
-//          }
-//        }
-//      }
-//      if($hide){
-//        return false;
-//      }
-//    }
-
-//    if(wfElement::isSecure($element)){
-//      return false;
-//    }
     return true;
   }
-  
+  /**
+   * Render start tag.
+   * @param type $element
+   * @param type $i
+   * @return boolean
+   * @throws Exception
+   */
   private function renderStartTag($element, $i){
     $element = wfEvent::run('document_render_element', $element);
     if(!$element){
       return false;
     }
-//    if(!isset($element['type'])){
-//      return false;
-//    }
-    
-    
-    
     $allowed_keys = array('text', 'data', 'type', 'innerHTML', 'attribute', 'settings', 'code');
     foreach ($element as $key => $value) {
       if(!in_array($key, $allowed_keys) && !strstr($key, 'zzz')){ // zzz is WF developers method to set things in sleep :-)
@@ -194,256 +144,50 @@ class wfDocument {
         throw new Exception("None supported key $key. Are you passing an object and missing the get() method?");
       }
     }
-    
-//    //#Element/IP
-//    if(wfArray::get($element, 'settings/ip')){
-//      if(wfArray::get($element, 'settings/ip/item')){
-//        if(in_array($_SERVER['REMOTE_ADDR'], wfArray::get($element, 'settings/ip/item'))){
-//          if(!wfArray::get($element, 'settings/ip/allow')){
-//            // We found ip in the list AND allow is false.
-//            return false;
-//          }
-//        }else{
-//          if(wfArray::get($element, 'settings/ip/allow')){
-//            // We did not found ip in the list AND allow is true.
-//            return false;
-//          }
-//        }
-//      }
-//    }
-//    if(isset($element['settings']['disabled']) && $element['settings']['disabled']){return false;}
-//    if(isset($element['settings']['target']) && $element['settings']['target']!=wfHelp::detectScreen()){return false;}
-//    if(isset($element['settings']['security'])){
-//      $ok = false;
-//      $user_security = wfUser::getSecurity();
-//      foreach ($element['settings']['security'] as $key => $value) {
-//        if(array_key_exists($key, $user_security)){ //User has this security.
-//          if($user_security[$key]=='%'){ //User has % for this module it will be rendered.
-//            $ok = true;
-//            break;
-//          }else{
-//            if(is_array($value)){ //User has array and element also.
-//              foreach ($user_security[$key] as $key2 => $value2) {
-//                if(array_key_exists($key2, $value)){ //User has same key as element and it will be rendered.
-//                  $ok = true;
-//                  break;
-//                }
-//              }
-//            }elseif($value != '%'){
-//              throw new Exception('Security value is not an array and should contain % (key:'.$key.', value:'.$value.').');
-//            }elseif($value=='%'){ //User has not % for this module and it will not be rendered.
-//              
-//            }
-//          }
-//        }
-//      }
-//      if(!$ok){
-//        return false;
-//      }
-//    }
-    
     if(!wfDocument::validateSettings($element)){
       return false;
     }
-    
-    
-//    // If innerHTML has value load:/doc/something we ensure that we has an id.
-//    if(wfDocument::checkLoad($element) && !isset($element['attribute']['id'])){
-//      $element['attribute']['id'] = wfCrypt::getUid();
-//    }
-    
-    
     $element = self::checkGlobals($element);
-    
-    
     // Special for tag A.
     if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#';}
     if($element['type']=='a'){
       $element['attribute']['href'] = wfSettings::getSettingsFromYmlString($element['attribute']['href']);
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
-    
     // Replace attribute/src [theme].
     if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
     if(isset($element['attribute']['style'])){$element['attribute']['style'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
-    
     // Replace innerHTML [[class]]
     if(wfArray::isKey($element, 'innerHTML')){
       $element['innerHTML'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
     }
-    
     if(isset($element['attribute']['href'])){
       $element['attribute']['href'] = wfSettings::replaceTheme($element['attribute']['href']);
     }
-    
-    
-    //wfHelp::echoecho(substr($element['type'], 0, 3));
-    
     if($element['type']=='widget'){
       $data = $element['data'];
-      
       // Trying to set data of it is a link to yml file.
       if(wfArray::get($data, 'data') && !is_array(wfArray::get($data, 'data'))){
         $data['data'] = wfSettings::getSettingsFromYmlString(wfArray::get($data, 'data'));
-        
         if(!is_array($data['data'])){
-          //echo $data['data'];
           $data['data'] = wfSettings::getGlobalsFromString($data['data']);
         }
-        
       }
-      
-      
-
-      //wfHelp::yml_dump($data);
-      //wfHelp::yml_dump($GLOBALS['sys'], true);
-      
       if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$data['plugin'].'/enabled')){
         throw new Exception('Plugin '.$data['plugin'].' is not enabled.');
       }
       $data['file'] = wfPlugin::includeonce($data['plugin']);
-//      $data['file'] = wfSettings::getAppDir().'/plugin/'.$data['plugin'].'/action.class.php';
-//      if(!wfFilesystem::fileExist($data['file'], true)){
-//        throw new Exception('File '.$data['file'].' does not exist.');
-//      }else{
-//        include_once $data['file'];
-//      }
       $obj = wfSettings::getPluginObj($data['plugin']) ;
       $method = 'widget_'.$data['method'];
-      
       if(!method_exists($obj, $method)){
         throw new Exception('Widget '.$data['method'].' in plugin '.$data['plugin'].' does not exist.');
       }
-      
       $obj->$method($data);
     }elseif(substr($element['type'], 0, 3)=='wf_'){
-      
-//        echo $element['type'];
-//        return null;
-        
-//      if($element['type'] == 'wf_developer'){
-//        $element['innerHTML'] = $this->renderWfDeveloper(); 
-//        $element['type'] = 'textarea';
-//      }else if($element['type'] == 'wf_form'){
-//        $form = $element['data'];
-//        include '../b/layout/comp/form.php';
-//        
-//      }else if($element['type'] == 'wf_form_send'){
-//        $form = $element['data'];
-//        include '../b/layout/comp/form_send.php';
-//      }else if($element['type'] == 'wf_actions'){
-//        $data = $element['data'];
-//        include '../b/layout/comp/actions.php';
-//      }else if($element['type'] == 'wf_plot'){
-//        $data = $element['data'];
-//        include '../b/layout/comp/plot.php';
-//      }else if($element['type'] == 'wf_template'){
-//        $data = $element['data'];
-//        include '..'.$element['data']['filename'];
-//      }else if($element['type'] == 'wf_table'){
-//        $data = $element['data'];
-//        include '../b/layout/comp/table.php';
-//      }else if($element['type'] == 'wf_icon'){
-//          $filename = dirname(__FILE__).'/../../b/config/svg_icon.yml';
-//          if(file_exists($filename)){
-//              $svg_icon = sfYaml::load($filename);
-//              if(isset($svg_icon['svg_icon'][$element['data']])){
-//                $this->renderElement(array($svg_icon['svg_icon'][$element['data']]));
-//              }else{echo '[icon:'.$element['data'].']';}
-//          }
-//      }else if($element['type'] == 'wf_infobar'){
-//        
-//        $arr = wfDocument::createWfElement('wf_icon', wfHelp::detectScreen());
-//        $a = wfDocument::createHtmlElement('a', array($arr), array('href' => '#', 'onclick' => "wfOpenWindow('set_screen', '/user/setScreenInfo', 300, 300, '".__('Screen info')."')"));
-//        $this->renderElement(array($a));
-//        
-//        if(isset($_SESSION['secure']) && $_SESSION['secure']){$icon = 'user_check';}else{$icon = 'user_uncheck';}
-//        $arr = wfDocument::createWfElement('wf_icon', $icon);
-//        $a = wfDocument::createHtmlElement('a', array($arr), array('href' => '/secure/login'));
-//        $this->renderElement(array($a));
-//        
-//        
-//        //$settings = $GLOBALS['settings'];
-//        //if(isset($settings['secure']) && $settings['secure']){$icon = 'lock';}else{$icon = 'unlock';}
-//        //if(isset($GLOBALS['unsecure']) && $GLOBALS['unsecure']){$icon = 'unlock';}else{$icon = 'lock';}
-//        
-//        $settings = wfSettings::loadThemeConfigSettings(); //Denna borde vi inte hämta en gång till utan via $GLOBALS?
-//        //wfHelp::print_r($settings['security']['unsecure'], true);
-//        $icon = 'lock';
-//        if(isset($settings['security']['unsecure'][$GLOBALS['class']])){
-//          if(!is_array($settings['security']['unsecure'][$GLOBALS['class']])){
-//            $icon = 'unlock';
-//          }elseif(isset($settings['security']['unsecure'][$GLOBALS['class']][$GLOBALS['method']])){
-//            $icon = 'unlock';
-//          }
-//        }
-//        
-//        $arr = wfDocument::createWfElement('wf_icon', $icon);
-//        $this->renderElement(array($arr));
-//        
-//        $arr = wfDocument::createWfElement('wf_icon', 'language');
-//        $a = wfDocument::createHtmlElement('a', array($arr), array('href' => '#', 'onclick' => "wfOpenWindow('language', '/user/language', 300, 300, '".__('Language')."')"));
-//        $this->renderElement(array($a));
-//        
-//        $arr = wfDocument::createWfElement('wf_icon', 'share');
-//        $a = wfDocument::createHtmlElement('a', array($arr), array('href' => '#', 'onclick' => "wfOpenWindow('share', '/user/share', 400, 500, '".__('Share')."')"));
-//        $this->renderElement(array($a));
-//        
-//      }else if($element['type'] == 'wf_form_upload'){
-//        $data = $element['data'];
-//        include '../b/layout/comp/form_upload.php';
-//      }else if($element['type'] == 'wf_lable_value_row'){
-//        $data = $element['data'];
-//        include '../b/layout/comp/lable_value_row.php';
-//      }else if($element['type'] == 'wf_tab'){
-//        $data = $element['data'];
-//        include '../b/layout/comp/tab.php';
-//      }else 
-        
       if($element['type'] == 'wf_method'){
         $data = $element['data'];
         throw new Exception('type=wf_method is not longer in use ('.$data['plugin'].', '.$data['method'].').');
-//        if(isset($data['plugin'])){
-//          //wfHelp::yml_dump($data);
-//          if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$data['plugin'].'/enabled')){
-//            throw new Exception('Plugin '.$data['plugin'].' is not enabled.');
-//          }
-//          $data['file'] = wfSettings::getAppDir().'/plugin/'.$data['plugin'].'/action.class.php';
-//          if(!wfFilesystem::fileExist($data['file'], true)){
-//            throw new Exception('File '.$data['file'].' does not exist.');
-//          }else{
-//            include_once $data['file'];
-//          }
-//          $obj = wfSettings::getPluginObj($data['plugin']) ;
-//          $method = 'widget_'.$data['method'];
-//          $obj->$method($data);
-//        }else{
-//          if(isset($data['file'])){
-//            $data['file'] = str_replace('[theme]', wfSettings::getTheme(), $data['file']);
-////            if(!wfFilesystem::fileExist($data['file'])){
-////              throw new Exception('File '.$data['file'].' does not exist.');
-////            }else{
-////              include_once "..".$data['file'];
-////            }
-//            
-//            //wfHelp::yml_dump($GLOBALS['sys'], true);
-//            //exit(wfArray::get($GLOBALS, 'sys/app_dir').$data['file']);
-//            if(!wfFilesystem::fileExist(wfArray::get($GLOBALS, 'sys/app_dir').$data['file'])){
-//              throw new Exception('File '.wfArray::get($GLOBALS, 'sys/app_dir').$data['file'].' does not exist.');
-//            }else{
-//              include_once wfArray::get($GLOBALS, 'sys/app_dir').$data['file'];
-//            }
-//          }
-//          $obj = new $data['class'];
-//          $method = 'widget_'.$data['method'];
-//          $obj->$method($data);
-//        }
-
       }else{
-//        if($element['type'] == 'wf_upload'){
-//          wfHelp::print_r($element, true);
-//        }
-        
         if(isset($element['data'])){
           wfComp::get('layout', str_replace('wf_', '', $element['type']), $element['data']);
         }else{
@@ -451,7 +195,6 @@ class wfDocument {
         }
         return true;
       }
-      
     }  else {
       if($element['type']=='text'){
         if(isset($element['text'])){
@@ -462,7 +205,6 @@ class wfDocument {
           }  else {
             echo $element['innerHTML'];
           }
-
         }
         return true;
       }
@@ -476,39 +218,23 @@ class wfDocument {
         }
       }
       echo ">";
-      //if(array_search($element['type'], $this->element_one_line)===false){ echo "\n"; }
-      //if(array_search($element['type'], $this->element_one_line)===false){ echo "\n"; }
       if(isset($element['innerHTML']) && !is_array($element['innerHTML'])){
-        
         $innerHTML = $element['innerHTML'];
         $innerHTML = wfSettings::replaceTheme($innerHTML);
         $innerHTML = wfSettings::getGlobalsFromString($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
-        
         $innerHTML = wfEvent::run('document_render_element_innerhtml', $innerHTML);
-
-        /**
-         * Here we will handle translation...ddd_02
-         */
-
-        
-//        if(substr($element['innerHTML'], 0, 4)=='yml:'){
-//          echo self::ymlFromInnerHtml($element['innerHTML']);
-////        }elseif(substr($element['innerHTML'], 0, 2)=='__'){
-////          echo __(substr($element['innerHTML'], 2))."\n";
-//        }else{
-//          echo wfSettings::replaceTheme($element['innerHTML'])."\n";
-//        }
-        
         echo $innerHTML;
-        
       }
       if(isset($element['code']))     {echo $element['code']."\n";}
     }
     return true;
-    
   }
-  
+  /**
+   * Handle output.
+   * @param type $value
+   * @return string
+   */  
   private static function handleOutput($value){
     if($value === true){
       return 'True';
@@ -520,7 +246,12 @@ class wfDocument {
       return $value;
     }
   }
-  
+  /**
+   * Get yml from innerHTML string.
+   * @param type $innerHTML
+   * @return type
+   * @throws Exception
+   */
   private static function ymlFromInnerHtml($innerHTML){
     $temp = preg_split('/:/', $innerHTML);
     if(sizeof($temp)==3){
@@ -529,31 +260,22 @@ class wfDocument {
       throw new Exception('Params is missing when using yml: in innerHTML.');
     }
   }
-  
-  private static function handleInnerHTMLzzz($str){
-    if(substr($str, 0, 2)=='__'){
-      if(isset($GLOBALS['language'][substr($str, 2)])){
-        return $GLOBALS['language'][substr($str, 2)];
-      }else{
-        return $str;
-      }
-    }else{
-      return $str;
-    }
-  }
+  /**
+   * Render end tag.
+   * @param type $element
+   * @param type $i
+   * @return type
+   * @throws Exception
+   */
   private function renderEndTag($element, $i){
     if(isset($element['disabled']) && $element['disabled']){return null;}
     if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
     if(isset($element['target']) && $element['target']!=wfHelp::detectScreen()){return null;}
     if(array_search($element['type'], $this->element_one_tag)===false){
-      if($element['type'] != 'textarea'){
-        //echo str_repeat(" ", $i*2);
-      }
       echo "</".$element['type'].">\n";
       $checkLoad = wfDocument::checkLoad($element);
       if($checkLoad){
-        //wfHelp::print_r($element);
         if(isset($element['attribute']['id'])){
           echo "<script> if(PluginWfAjax){ PluginWfAjax.load('".$element['attribute']['id']."', '".$checkLoad."'); }</script>";
         }  else {
@@ -562,22 +284,17 @@ class wfDocument {
       }
     }
   }
-  
-  
-  
-  
+  /**
+   * Check globals.
+   * @param type $array
+   * @return type
+   */  
   private static function checkGlobals($array){
     if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
-//      if(substr($array['innerHTML'], 0, 8)=='globals:'){
-//        $temp = preg_split('/:/', $array['innerHTML']);
-//        $array['innerHTML'] = wfArray::get($GLOBALS, $temp[1]);
-//      }
       $array['innerHTML'] = wfSettings::getGlobalsFromString($array['innerHTML']);
     }
     return $array;
   }
-
-
   /**
    * Check if innerHTML begin with load: .
    * @param type $array
@@ -586,109 +303,24 @@ class wfDocument {
   private static function checkLoad($array){
     if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
       if(substr($array['innerHTML'], 0, 5)=='load:'){
-        //$temp = split(':', $array['innerHTML']);
-        
         $temp = preg_split('/:/', $array['innerHTML']);
-        
-        //echo "<script>alert('".$temp[1]."');</script>";
         $temp[1] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $temp[1]);
         return $temp[1];
       }
     }
     return null;
   }
-  
-  public static function renderElementzzz($element){
-    $document = new wfDocument();
-    //var_dump($element); exit;
-    if($element){
-      foreach ($element as $key0 => $value0) {
-
-        if(!$document->renderStartTag($value0, 0)){continue;}
-        if(isset($value0['innerHTML']) && is_array($value0['innerHTML'])){
-        foreach ($value0['innerHTML'] as $key1 => $value1) {
-
-        if(!$document->renderStartTag($value1, 1)){continue;}
-        if(isset($value1['innerHTML']) && is_array($value1['innerHTML'])){
-        foreach ($value1['innerHTML'] as $key2 => $value2) {
-
-        if(!$document->renderStartTag($value2, 2)){continue;}
-        if(isset($value2['innerHTML']) && is_array($value2['innerHTML'])){
-        foreach ($value2['innerHTML'] as $key3 => $value3) {
-
-        if(!$document->renderStartTag($value3, 3)){continue;}
-        if(isset($value3['innerHTML']) && is_array($value3['innerHTML'])){
-        foreach ($value3['innerHTML'] as $key4 => $value4) {
-
-        if(!$document->renderStartTag($value4, 4)){continue;}
-        if(isset($value4['innerHTML']) && is_array($value4['innerHTML'])){
-        foreach ($value4['innerHTML'] as $key5 => $value5) {
-
-        if(!$document->renderStartTag($value5, 5)){continue;}
-        if(isset($value5['innerHTML']) && is_array($value5['innerHTML'])){
-        foreach ($value5['innerHTML'] as $key6 => $value6) {
-
-        if(!$document->renderStartTag($value6, 6)){continue;}
-        if(isset($value6['innerHTML']) && is_array($value6['innerHTML'])){
-        foreach ($value6['innerHTML'] as $key7 => $value7) {
-
-        if(!$document->renderStartTag($value7, 7)){continue;}
-        if(isset($value7['innerHTML']) && is_array($value7['innerHTML'])){
-        foreach ($value7['innerHTML'] as $key8 => $value8) {
-
-        if(!$document->renderStartTag($value8, 8)){continue;}
-        if(isset($value8['innerHTML']) && is_array($value8['innerHTML'])){
-        foreach ($value8['innerHTML'] as $key9 => $value9) {
-
-        if(!$document->renderStartTag($value9, 9)){continue;}
-        if(isset($value9['innerHTML']) && is_array($value9['innerHTML'])){
-        foreach ($value9['innerHTML'] as $key10 => $value10) {
-
-        if(!$document->renderStartTag($value10, 10)){continue;}
-        if(isset($value10['innerHTML']) && is_array($value10['innerHTML'])){
-        foreach ($value10['innerHTML'] as $key11 => $value11) {
-
-        if(!$document->renderStartTag($value11, 11)){continue;}
-        if(isset($value11['innerHTML']) && is_array($value11['innerHTML'])){
-        foreach ($value11['innerHTML'] as $key12 => $value12) {
-
-        if(!$document->renderStartTag($value12, 12)){continue;}
-        if(isset($value12['innerHTML']) && is_array($value12['innerHTML'])){
-        foreach ($value12['innerHTML'] as $key13 => $value13) {
-          
-          if(!$document->renderStartTag($value13, 13)){continue;}
-
-
-
-          $document->renderEndTag($value13, 13);
-        }}$document->renderEndTag($value12, 12);
-        }}$document->renderEndTag($value11, 11);
-        }}$document->renderEndTag($value10, 10);
-        }}$document->renderEndTag($value9, 9);
-        }}$document->renderEndTag($value8, 8);
-        }}$document->renderEndTag($value7, 7);
-        }}$document->renderEndTag($value6, 6);
-        }}$document->renderEndTag($value5, 5);
-        }}$document->renderEndTag($value4, 4);
-        }}$document->renderEndTag($value3, 3);
-        }}$document->renderEndTag($value2, 2);
-        }}$document->renderEndTag($value1, 1);
-        }}$document->renderEndTag($value0, 0);
-      }
-    }
-    
-    
-    
-    
-  }
-  
+  /**
+   * Render elements.
+   * @param type $element
+   */
   public static function renderElement($element){
     $document = new wfDocument();
-    //var_dump($element); exit;
     if($element){
       foreach ($element as $key0 => $value0) {
-
-        // Generated via wfDocument.class.ods
+        /**
+         * Generated via wfDocument.class.ods
+         */
         if(!$document->renderStartTag($value0, 0)){continue;}if(isset($value0['innerHTML']) && is_array($value0['innerHTML'])){foreach ($value0['innerHTML'] as $key1 => $value1) {
         if(!$document->renderStartTag($value1, 1)){continue;}if(isset($value1['innerHTML']) && is_array($value1['innerHTML'])){foreach ($value1['innerHTML'] as $key2 => $value2) {
         if(!$document->renderStartTag($value2, 2)){continue;}if(isset($value2['innerHTML']) && is_array($value2['innerHTML'])){foreach ($value2['innerHTML'] as $key3 => $value3) {
@@ -710,12 +342,71 @@ class wfDocument {
         if(!$document->renderStartTag($value18, 18)){continue;}if(isset($value18['innerHTML']) && is_array($value18['innerHTML'])){foreach ($value18['innerHTML'] as $key19 => $value19) {
         if(!$document->renderStartTag($value19, 19)){continue;}if(isset($value19['innerHTML']) && is_array($value19['innerHTML'])){foreach ($value19['innerHTML'] as $key20 => $value20) {
         if(!$document->renderStartTag($value20, 20)){continue;}if(isset($value20['innerHTML']) && is_array($value20['innerHTML'])){foreach ($value20['innerHTML'] as $key21 => $value21) {
-          
-          if(!$document->renderStartTag($value21, 21)){continue;}
-          $document->renderEndTag($value21, 21);
-          
-          
-        // Generated via wfDocument.class.ods
+        if(!$document->renderStartTag($value21, 21)){continue;}if(isset($value21['innerHTML']) && is_array($value21['innerHTML'])){foreach ($value21['innerHTML'] as $key22 => $value22) {
+        if(!$document->renderStartTag($value22, 22)){continue;}if(isset($value22['innerHTML']) && is_array($value22['innerHTML'])){foreach ($value22['innerHTML'] as $key23 => $value23) {
+        if(!$document->renderStartTag($value23, 23)){continue;}if(isset($value23['innerHTML']) && is_array($value23['innerHTML'])){foreach ($value23['innerHTML'] as $key24 => $value24) {
+        if(!$document->renderStartTag($value24, 24)){continue;}if(isset($value24['innerHTML']) && is_array($value24['innerHTML'])){foreach ($value24['innerHTML'] as $key25 => $value25) {
+        if(!$document->renderStartTag($value25, 25)){continue;}if(isset($value25['innerHTML']) && is_array($value25['innerHTML'])){foreach ($value25['innerHTML'] as $key26 => $value26) {
+        if(!$document->renderStartTag($value26, 26)){continue;}if(isset($value26['innerHTML']) && is_array($value26['innerHTML'])){foreach ($value26['innerHTML'] as $key27 => $value27) {
+        if(!$document->renderStartTag($value27, 27)){continue;}if(isset($value27['innerHTML']) && is_array($value27['innerHTML'])){foreach ($value27['innerHTML'] as $key28 => $value28) {
+        if(!$document->renderStartTag($value28, 28)){continue;}if(isset($value28['innerHTML']) && is_array($value28['innerHTML'])){foreach ($value28['innerHTML'] as $key29 => $value29) {
+        if(!$document->renderStartTag($value29, 29)){continue;}if(isset($value29['innerHTML']) && is_array($value29['innerHTML'])){foreach ($value29['innerHTML'] as $key30 => $value30) {
+        if(!$document->renderStartTag($value30, 30)){continue;}if(isset($value30['innerHTML']) && is_array($value30['innerHTML'])){foreach ($value30['innerHTML'] as $key31 => $value31) {
+        if(!$document->renderStartTag($value31, 31)){continue;}if(isset($value31['innerHTML']) && is_array($value31['innerHTML'])){foreach ($value31['innerHTML'] as $key32 => $value32) {
+        if(!$document->renderStartTag($value32, 32)){continue;}if(isset($value32['innerHTML']) && is_array($value32['innerHTML'])){foreach ($value32['innerHTML'] as $key33 => $value33) {
+        if(!$document->renderStartTag($value33, 33)){continue;}if(isset($value33['innerHTML']) && is_array($value33['innerHTML'])){foreach ($value33['innerHTML'] as $key34 => $value34) {
+        if(!$document->renderStartTag($value34, 34)){continue;}if(isset($value34['innerHTML']) && is_array($value34['innerHTML'])){foreach ($value34['innerHTML'] as $key35 => $value35) {
+        if(!$document->renderStartTag($value35, 35)){continue;}if(isset($value35['innerHTML']) && is_array($value35['innerHTML'])){foreach ($value35['innerHTML'] as $key36 => $value36) {
+        if(!$document->renderStartTag($value36, 36)){continue;}if(isset($value36['innerHTML']) && is_array($value36['innerHTML'])){foreach ($value36['innerHTML'] as $key37 => $value37) {
+        if(!$document->renderStartTag($value37, 37)){continue;}if(isset($value37['innerHTML']) && is_array($value37['innerHTML'])){foreach ($value37['innerHTML'] as $key38 => $value38) {
+        if(!$document->renderStartTag($value38, 38)){continue;}if(isset($value38['innerHTML']) && is_array($value38['innerHTML'])){foreach ($value38['innerHTML'] as $key39 => $value39) {
+        if(!$document->renderStartTag($value39, 39)){continue;}if(isset($value39['innerHTML']) && is_array($value39['innerHTML'])){foreach ($value39['innerHTML'] as $key40 => $value40) {
+        if(!$document->renderStartTag($value40, 40)){continue;}if(isset($value40['innerHTML']) && is_array($value40['innerHTML'])){foreach ($value40['innerHTML'] as $key41 => $value41) {
+        if(!$document->renderStartTag($value41, 41)){continue;}if(isset($value41['innerHTML']) && is_array($value41['innerHTML'])){foreach ($value41['innerHTML'] as $key42 => $value42) {
+        if(!$document->renderStartTag($value42, 42)){continue;}if(isset($value42['innerHTML']) && is_array($value42['innerHTML'])){foreach ($value42['innerHTML'] as $key43 => $value43) {
+        if(!$document->renderStartTag($value43, 43)){continue;}if(isset($value43['innerHTML']) && is_array($value43['innerHTML'])){foreach ($value43['innerHTML'] as $key44 => $value44) {
+        if(!$document->renderStartTag($value44, 44)){continue;}if(isset($value44['innerHTML']) && is_array($value44['innerHTML'])){foreach ($value44['innerHTML'] as $key45 => $value45) {
+        if(!$document->renderStartTag($value45, 45)){continue;}if(isset($value45['innerHTML']) && is_array($value45['innerHTML'])){foreach ($value45['innerHTML'] as $key46 => $value46) {
+        if(!$document->renderStartTag($value46, 46)){continue;}if(isset($value46['innerHTML']) && is_array($value46['innerHTML'])){foreach ($value46['innerHTML'] as $key47 => $value47) {
+        if(!$document->renderStartTag($value47, 47)){continue;}if(isset($value47['innerHTML']) && is_array($value47['innerHTML'])){foreach ($value47['innerHTML'] as $key48 => $value48) {
+        if(!$document->renderStartTag($value48, 48)){continue;}if(isset($value48['innerHTML']) && is_array($value48['innerHTML'])){foreach ($value48['innerHTML'] as $key49 => $value49) {
+        if(!$document->renderStartTag($value49, 49)){continue;}if(isset($value49['innerHTML']) && is_array($value49['innerHTML'])){foreach ($value49['innerHTML'] as $key50 => $value50) {
+        if(!$document->renderStartTag($value50, 50)){continue;}if(isset($value50['innerHTML']) && is_array($value50['innerHTML'])){foreach ($value50['innerHTML'] as $key51 => $value51) {
+          if(!$document->renderStartTag($value51, 51)){continue;}
+          $document->renderEndTag($value51, 51);
+        /**
+         * Generated via wfDocument.class.ods
+         */
+        }}$document->renderEndTag($value50, 50);
+        }}$document->renderEndTag($value49, 49);
+        }}$document->renderEndTag($value48, 48);
+        }}$document->renderEndTag($value47, 47);
+        }}$document->renderEndTag($value46, 46);
+        }}$document->renderEndTag($value45, 45);
+        }}$document->renderEndTag($value44, 44);
+        }}$document->renderEndTag($value43, 43);
+        }}$document->renderEndTag($value42, 42);
+        }}$document->renderEndTag($value41, 41);
+        }}$document->renderEndTag($value40, 40);
+        }}$document->renderEndTag($value39, 39);
+        }}$document->renderEndTag($value38, 38);
+        }}$document->renderEndTag($value37, 37);
+        }}$document->renderEndTag($value36, 36);
+        }}$document->renderEndTag($value35, 35);
+        }}$document->renderEndTag($value34, 34);
+        }}$document->renderEndTag($value33, 33);
+        }}$document->renderEndTag($value32, 32);
+        }}$document->renderEndTag($value31, 31);
+        }}$document->renderEndTag($value30, 30);
+        }}$document->renderEndTag($value29, 29);
+        }}$document->renderEndTag($value28, 28);
+        }}$document->renderEndTag($value27, 27);
+        }}$document->renderEndTag($value26, 26);
+        }}$document->renderEndTag($value25, 25);
+        }}$document->renderEndTag($value24, 24);
+        }}$document->renderEndTag($value23, 23);
+        }}$document->renderEndTag($value22, 22);
+        }}$document->renderEndTag($value21, 21);
         }}$document->renderEndTag($value20, 20);
         }}$document->renderEndTag($value19, 19);
         }}$document->renderEndTag($value18, 18);
@@ -737,36 +428,14 @@ class wfDocument {
         }}$document->renderEndTag($value2, 2);
         }}$document->renderEndTag($value1, 1);
         }}$document->renderEndTag($value0, 0);
-        
-        
       }
     }
   }
-  
-  private static function renderWfDeveloper(){
-    return null;
-//      echo '<pre>';
-//      echo 'serverTime:';
-//      wfHelp::getServerTime();
-//      echo '<br>';
-//      echo '$class:'.$class.'<br>';
-//      echo '$method:'.$method.'<br>';
-
-//          echo '$_GET:';
-//          print_r($_GET);
-//          echo '$content:';
-//          print_r($GLOBALS);
-      //print_r($GLOBALS['security']);
-//      print_r($GLOBALS['settings']);
-    
-    //return wfHelp::getYmlDump($GLOBALS['settings']['document']);
-    
-  }
-  
-  private static function renderWfForm($array){
-    
-  }
-  
+  /**
+   * Set head.
+   * @param type $value
+   * @param type $key
+   */
   public static function setHead($value, $key = null){
     if($key){
       $GLOBALS['settings']['document']['html']['innerHTML']['head']['innerHTML'][$key] = $value;
@@ -774,6 +443,11 @@ class wfDocument {
       $GLOBALS['settings']['document']['html']['innerHTML']['head']['innerHTML'][] = $value;
     }
   }
+  /**
+   * Set disabled.
+   * @param type $id
+   * @param type $bool
+   */
   public static function setDisabled($id, $bool){
     $obj = wfDocument::getId($id);
     if($obj){
@@ -781,7 +455,6 @@ class wfDocument {
       wfDocument::setId($id, $obj);
     }
   }
-  
   /**
    * Set innerHTML by id.
    * @param type $array
@@ -839,7 +512,6 @@ class wfDocument {
     }
     return $array_key;
   }
-  
   /**
    * Set innerHTML by its id.
    * @param type $id
@@ -848,22 +520,31 @@ class wfDocument {
   public static function setById($id, $value){
     wfDocument::findAndSetById($GLOBALS['settings']['document'], $id, $value);
   }
+  /**
+   * Format array key id.
+   * @param type $id
+   * @return type
+   */
   public static function formatArrayKeyId($id){
     $id = str_replace("[" ,"['", $id);
     $id = str_replace("]" ,"']", $id);
     return $id;
   }
+  /**
+   * Get by id.
+   * @param type $id
+   * @return type
+   */
   public static function getById($id){
     wfDocument::findAndGetById($GLOBALS['settings']['document'], $id);
     $find_and_get_by_id = wfDocument::$find_and_get_by_id;
     if($find_and_get_by_id){
-      //echo '$find_and_get_by_id:'.$find_and_get_by_id;
       eval("\$temp = $find_and_get_by_id;");
       return $temp;
     }else{return null;}
   }
   /**
-   * Ny....
+   * Get id.
    * @param type $id
    * @return type
    */
@@ -871,27 +552,33 @@ class wfDocument {
     wfDocument::$find_and_get_id = null;
     wfDocument::findAndGetId($GLOBALS['settings']['document'], $id);
     $find_and_get_id = wfDocument::$find_and_get_id;
-    //return wfDocument::$find_and_get_id;
-    //wfHelp::echoecho($find_and_get_id, false);
     if($find_and_get_id){
       eval("\$temp = $find_and_get_id;");
       return $temp;
     }else{return null;}
   }
-  
+  /**
+   * Set id.
+   * @param type $id
+   * @param type $array
+   */
   public static function setId($id, $array){
     wfDocument::findAndGetId($GLOBALS['settings']['document'], $id);
-    //wfHelp::echoecho(wfDocument::$find_and_get_id, true);
     $find_and_get_id = wfDocument::$find_and_get_id;
     if($find_and_get_id){
       eval("$find_and_get_id = \$array;");
     }
-    
   }
-  
+  /**
+   * Set document.
+   * @param type $value
+   */  
   public static function setDocument($value){ $GLOBALS['settings']['document'] = $value; }
+  /**
+   * Get document.
+   * @return type
+   */
   public static function getDocument(){ return $GLOBALS['settings']['document']; }
-  
   /**
    * Create an element.
    * @param string $type
@@ -934,9 +621,8 @@ class wfDocument {
     if($settings){$array['settings'] = $settings;}
     return $array;
   }
-  
   /**
-   * 
+   * Create widget.
    * @param type $plugin
    * @param type $method
    * @param type $data
@@ -947,75 +633,14 @@ class wfDocument {
     $widget = wfDocument::createWfElement('widget', array('plugin' => $plugin, 'method' => $method, 'data' => $data), $settings);
     return $widget;
   }
-  
-  public static function setLanguagezzz(){
-    $language = $GLOBALS['settings']['language'];
-    if(isset($_COOKIE['language']) && array_key_exists($_COOKIE['language'], $language['availible'])){
-      $language['user_language'] = $language['availible'][$_COOKIE['language']]; //Set from cookie.
-    }else{
-      $temp = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-      $user_languages = array();
-      foreach ($temp as $key => $value) {
-        $temp2 = explode(';', $value);
-        $user_languages[$temp2[0]] = null;
-      }
-      foreach ($language['availible'] as $key => $value) {
-        if(array_key_exists($key, $user_languages)){
-          $language['user_language'] = $value; //Match in HTTP_ACCEPT_LANGUAGE;
-          break;
-        }
-      }
-      if(!isset($language['user_language'])){
-        $language['user_language'] = reset($language['availible']); //No match, set default language.
-      }
-    }
-    $GLOBALS['settings']['language'] = $language;
-    
-    $text = array();
-    $filename = wfSettings::getAppDir().'/b/config/language.'.$language['user_language'].'.yml';
-    if(file_exists($filename)){
-        $text = sfYaml::load($filename);
-    }
-    $filename = wfSettings::getAppDir().'/a/config/language.'.$language['user_language'].'.yml';
-    if(file_exists($filename)){
-        $text = array_merge($text, sfYaml::load($filename));
-    }
-    $GLOBALS['language'] = $text;
-    
-    
-    //wfHelp::print_r($GLOBALS, true);
-    return null;
-  }
-  public static function getLanguagezzz($translate = false){
-    //wfHelp::print_r($GLOBALS['language']);
-    if(!$translate){
-      return $GLOBALS['settings']['language']['user_language'];
-    }  else {
-      return __($GLOBALS['settings']['language']['translate'][$GLOBALS['settings']['language']['user_language']]);
-    }
-  }
-  
-  public static function setLanguageForModulezzz($module){
-    $text = $GLOBALS['language'];
-    $filename = wfSettings::getAppDir().'/b/module/'.$module.'/config/language.'.wfDocument::getLanguage().'.yml';
-    if(file_exists($filename)){
-        $text = array_merge($text, sfYaml::load($filename));
-    }
-    $filename = wfSettings::getAppDir().'/a/module/'.$module.'/config/language.'.wfDocument::getLanguage().'.yml';
-    if(file_exists($filename)){
-        $text = array_merge($text, sfYaml::load($filename));
-    }
-    $GLOBALS['language'] = $text;
-  }
-  
-  
+  /**
+   * Hanlde execute.
+   * @param type $method
+   * @throws Exception
+   */
   public static function handleExecute($method){
-    
-    
     $module = $GLOBALS['class'];
-    
-    $method = strtolower(substr($method, 7)); // executeStart()...
-    
+    $method = strtolower(substr($method, 7));
     if(!wfArray::get($GLOBALS, 'settings/plugin/class_is_plugin')){
       $module_settings = wfSettings::getModuleSettings($module);
     }else{
@@ -1026,62 +651,34 @@ class wfDocument {
         throw new Exception("Could not find $filename!");
       }
     }
-    
-    //wfHelp::yml_dump(wfArray::get($module_settings, 'doc/'.$method.'/settings/_rewrite_globals'), true);
-    
-    
-    //If __rewrite (fixa denna också for doc settings)
-
-    //If _rewrite_globals in doc/(page_key)/settings
     if(wfArray::isKey($module_settings, 'doc/'.$method.'/settings/_rewrite_globals')){
       wfArray::set($GLOBALS, '_rewrite', wfArray::get($module_settings, 'doc/'.$method.'/settings/_rewrite_globals'));
       $module_settings = wfArray::setUnset($module_settings, 'doc/'.$method.'/settings/_rewrite_globals');
       $GLOBALS = wfArray::rewrite($GLOBALS);
     }
-    
-    
-    //wfHelp::print_r(wfArray::get($GLOBALS, 'settings/plugin/class_is_plugin'), true);
-    //wfHelp::print_r($module_settings, true);
-    
-    
-    
     if(!array_key_exists($method, $module_settings['doc'])){
       wfDocument::setById('body', array(wfSettings::loadThemeConfigSettings('could_not_find_the_page')));
     }else{
-      
-      
-      
-      
       //Unset values.
       if(isset($module_settings['doc'][$method]['settings']['unset'])){
         foreach ($module_settings['doc'][$method]['settings']['unset'] as $key => $value) {
           wfArray::setUnset($GLOBALS, $value);
         }
       }
-      
-      
-      
-      
-      
       if(wfRequest::get('_time')){
         wfDocument::setDocument(array($module_settings['doc'][$method]));
       }else{
         $content_id = 'body';
         if(isset($module_settings['doc'][$method]['settings']['layout'])){
-          //wfHelp::print_r($module_settings['doc'][$method]['settings']['layout']);
           if(!is_array($module_settings['doc'][$method]['settings']['layout'])){
             throw new Exception('Param layout is not an array.');
           }
-          //wfHelp::print_r($module_settings['doc'][$method]['settings']['layout'], true);
           foreach ($module_settings['doc'][$method]['settings']['layout'] as $key => $value) {
             $layout = wfArray::get($module_settings, 'settings/layout/'.$value);
-            //wfHelp::print_r($layout, true);
             if($layout){
-              //echo $content_id.'<br>';
               if(isset($layout['innerHTML'])){
                 wfDocument::setById($content_id, $layout['innerHTML']);
               }  else {
-                //wfHelp::yml_dump($layout);
                 throw new Exception('innerHTML is not set in layout.');
               }
               $content_id = $layout['content_id'];
@@ -1091,15 +688,11 @@ class wfDocument {
           }
         }
         wfDocument::setById($content_id, array($module_settings['doc'][$method]));
-        
-        
         //Document rewrite.
         if(wfArray::get($module_settings, 'document_rewrite')){
           foreach (wfArray::get($module_settings, 'document_rewrite') as $key => $value) {
             if(isset($value['disabled']) && $value['disabled']){continue;}
-            //wfHelp::echoecho($value['id']);
             $arr = wfDocument::getId($value['id']);
-            //wfHelp::print_r($arr);
             $item_key = null;
             if(isset($value['key'])){
               $item_key = $value['key'];
@@ -1121,34 +714,14 @@ class wfDocument {
             }
           }
         }
-        
-//        $doc_root = 'doc/'.$method;
-//        if(wfArray::isKey($module_settings, $doc_root.'/settings/document/title')){
-//          wfDocument::setById('title', wfArray::get($module_settings, $doc_root.'/settings/document/title'));
-//        }
-//        
-//        
-//        //var_dump(wfArray::isKey($module_settings, $doc_root.'/settings/document/title_pre'));
-//        
-//        if(wfArray::isKey($module_settings, $doc_root.'/settings/document/title_pre')){
-//          wfDocument::setById('title', wfArray::get($module_settings, $doc_root.'/settings/document/title_pre').' '.wfDocument::getById('title'));
-//        }
-//        if(wfArray::isKey($module_settings, $doc_root.'/settings/document/title_post')){
-//          wfDocument::setById('title', wfDocument::getById('title').' '.wfArray::get($module_settings, $doc_root.'/settings/document/title_post'));
-//        }
-//        if(wfArray::isKey($module_settings, $doc_root.'/settings/document/description')){
-//          //wfDocument::setById('description', wfArray::get($module_settings, $doc_root.'/settings/document/description', 'attribute/content'));
-//          wfArray::set($GLOBALS, 'settings/document/html/innerHTML/head/innerHTML/description/attribute/content', wfArray::get($module_settings, $doc_root.'/settings/document/description', 'attribute/content')) ;
-//          //wfHelp::print_r($GLOBALS, true);
-//        }
-        
       }
     }
   }
-  
-  
   /**
-   * This section is about merge layouts into a page.
+   * Merge layout.
+   * @param type $page
+   * @return type
+   * @throws Exception
    */
   public static function mergeLayout($page){
     if(!wfArray::get($GLOBALS, 'sys/layout_path')){
@@ -1156,15 +729,9 @@ class wfDocument {
     }
     if(!wfArray::isKey($page, 'content')){
       return null;
-//      wfHelp::yml_dump($page, true);
-//      throw new Exception("Key content is not set in page layout!");
     }
     $path = null;
-    
     $layout_path = wfArray::get($GLOBALS, 'sys/app_dir').'/'.wfArray::get($GLOBALS, 'sys/layout_path');
-    
-    
-    
     if(!wfRequest::get('_time')){
       if(wfArray::isKey($page, 'settings/layout') && $layout_path){
         $layouts = wfArray::get($page, 'settings/layout');
@@ -1188,13 +755,11 @@ class wfDocument {
               $temp = wfArray::set($temp, $path, $layout['content']);
               $path = $path.'/'.$layout['settings']['path'];
             }
-
             if(wfArray::get($layout, 'settings/rewrite_globals')){
               foreach (wfArray::get($layout, 'settings/rewrite_globals') as $key2 => $value2) {
                 $GLOBALS = wfArray::set($GLOBALS, $value2['key'], $value2['value']);
               }
             }
-
           }else{
             throw new Exception("Could not find file $filename!");
           }
@@ -1214,7 +779,6 @@ class wfDocument {
         }
       }
     }else{
-      //wfHelp::yml_dump($page, true);
       if(wfArray::get($page, 'settings/rewrite_globals')){
         foreach (wfArray::get($page, 'settings/rewrite_globals') as $key2 => $value2) {
           $GLOBALS = wfArray::set($GLOBALS, $value2['key'], $value2['value']);
@@ -1225,6 +789,4 @@ class wfDocument {
     wfArray::set($GLOBALS, 'sys/path_to_content', $path);
     return null;
   }
-  
-  
 }
