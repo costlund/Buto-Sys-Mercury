@@ -201,7 +201,12 @@ class wfDocument {
           echo $element['text']."\n"; 
         }elseif(isset($element['innerHTML'])){
           if(substr($element['innerHTML'], 0, 4)=='yml:'){
-            echo self::ymlFromInnerHtml($element['innerHTML']);
+            $temp = self::ymlFromInnerHtml($element['innerHTML']);
+            if(!is_array($temp)){
+              echo $temp;
+            }else{
+              wfDocument::renderElement($temp);
+            }
           }  else {
             echo $element['innerHTML'];
           }
@@ -224,7 +229,11 @@ class wfDocument {
         $innerHTML = wfSettings::getGlobalsFromString($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
         $innerHTML = wfEvent::run('document_render_element_innerhtml', $innerHTML);
-        echo $innerHTML;
+        if(!is_array($innerHTML)){
+          echo $innerHTML;
+        }else{
+          wfDocument::renderElement($innerHTML);
+        }
       }
       if(isset($element['code']))     {echo $element['code']."\n";}
     }
@@ -256,6 +265,8 @@ class wfDocument {
     $temp = preg_split('/:/', $innerHTML);
     if(sizeof($temp)==3){
       return wfSettings::getSettings(trim($temp[1]), trim($temp[2]));
+    }elseif(sizeof($temp)==2){
+      return wfSettings::getSettings(trim($temp[1]));
     }else{
       throw new Exception('Params is missing when using yml: in innerHTML.');
     }
