@@ -447,12 +447,16 @@ class wfSettings {
     return $temp;
   }
   
-  public static function getHttpAddress(){
+  public static function getHttpAddress($root = false){
     $protocol = 'http://';
     if(self::isHttps()){
       $protocol = 'https://';
     }
-    return $protocol.$_SERVER['HTTP_HOST'].self::getUrl();
+    if(!$root){
+      return $protocol.$_SERVER['HTTP_HOST'].self::getUrl();
+    }else{
+      return $protocol.$_SERVER['HTTP_HOST'];
+    }
   }
   public static function isHttps(){
     //SERVER_PROTOCOL: HTTP/1.1
