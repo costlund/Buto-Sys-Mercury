@@ -291,7 +291,7 @@ class wfSettings {
    * @param string $path ex:/a/module/filename.yml
    * @return array
    */
-  public static function getSettings($path, $path_to_key = null){
+  public static function getSettings($path, $path_to_key = null, $set_globals = true){
     $settings = array();
     $filename = wfArray::get($GLOBALS, 'sys/app_dir').wfSettings::replaceTheme($path);
     // Put content i GLOBALS to speed up server time.
@@ -300,7 +300,9 @@ class wfSettings {
     }else{
       if(file_exists($filename)){
         $settings = sfYaml::load($filename);
-        $GLOBALS['sys']['yml_files'][$filename] = $settings;
+        if($set_globals){
+          $GLOBALS['sys']['yml_files'][$filename] = $settings;
+        }
       }else{
         throw new Exception("Could not find fil $filename.");
       }

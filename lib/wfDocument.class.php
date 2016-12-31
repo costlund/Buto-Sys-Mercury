@@ -326,6 +326,15 @@ class wfDocument {
    * @param type $element
    */
   public static function renderElement($element){
+    /**
+     * Check if $element is array.
+     */
+    if(gettype($element)!='array' && gettype($element)!='NULL'){
+      throw new Exception('Error in wfDocument::renderElement() because param is not an array!');
+    }
+    /**
+     * 
+     */
     $document = new wfDocument();
     if($element){
       foreach ($element as $key0 => $value0) {
