@@ -44,17 +44,27 @@ wfEvent::run('sys_start');
 
 session_start();
 
-
+//wfHelp::yml_dump(wfArray::get($_SESSION, 'role'));
 
 /**
  * Webmaster can swift theme.
  */
 if(isset($_REQUEST['loadtheme'])){
   if(wfUser::hasRole('webmaster')){
-    $theme_dir = wfArray::get($GLOBALS, 'sys/app_dir').'/theme/'.  str_replace('_', '/', $_REQUEST['loadtheme']);
+    $loadtheme = urldecode($_REQUEST['loadtheme']);
+    $theme_dir = wfArray::get($GLOBALS, 'sys/app_dir').'/theme/'.$loadtheme;
     if(wfFilesystem::fileExist($theme_dir)){
-      $_SESSION['theme'] = str_replace('_', '/', $_REQUEST['loadtheme']);
-      exit('You are now on theme '.$_SESSION['theme'].'! Go to <a href="/">start page</a>!');
+      //$role = wfArray::get($_SESSION, 'role');
+      //$username = wfArray::get($_SESSION, 'username');
+      //$user_id = wfArray::get($_SESSION, 'user_id');
+      session_destroy();
+      session_start();
+      $_SESSION['theme'] = $loadtheme;
+      //$_SESSION['role'] = $role;
+      //$_SESSION['secure'] = true;
+      //$_SESSION['username'] = $username;
+      //$_SESSION['user_id'] = $user_id;
+      exit('You are now on theme '.$_SESSION['theme'].' with same roles! Go to <a href="/">start page</a>!');
     }else{
       exit('Could not find theme '.$theme_dir.'! Go to <a href="/">start page</a>!');
     }
