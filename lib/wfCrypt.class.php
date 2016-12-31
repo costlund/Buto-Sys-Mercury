@@ -25,6 +25,91 @@ class wfCrypt {
       return str_replace('.', '', uniqid(mt_rand(), true));
     }
     
+    
+    
+    /**
+     * Encrypt.
+     * @param string $string
+     * @param string $key Optional (trying to get from /config/crypt.yml).
+     * @return string
+     * @throws Exception
+     */
+    public static function encrypt($string, $key = null){
+      if(is_null($key)){
+        $key = wfCrypt::getKey();
+      }
+      if(!$key){
+        throw new Exception('Could not find any key in wfCrypt::encrypt().');
+      }
+      $iv = mcrypt_create_iv(
+          mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC),
+          MCRYPT_DEV_URANDOM
+      );
+      $encrypted = base64_encode(
+          $iv .
+          mcrypt_encrypt(
+              MCRYPT_RIJNDAEL_128,
+              hash('sha256', $key, true),
+              $string,
+              MCRYPT_MODE_CBC,
+              $iv
+          )
+      );
+      return $encrypted;
+    }
+    /**
+     * Decrypt.
+     * @param string $encrypted
+     * @param string $key Optional (trying to get from /config/crypt.yml).
+     * @return string
+     * @throws Exception
+     */
+    public static function decrypt($encrypted, $key = null){
+      if(is_null($key)){
+        $key = wfCrypt::getKey();
+      }
+      if(!$key){
+        throw new Exception('Could not find any key in wfCrypt::decrypt().');
+      }
+      $data = base64_decode($encrypted);
+      $iv = substr($data, 0, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
+      $decrypted = rtrim(
+          mcrypt_decrypt(
+              MCRYPT_RIJNDAEL_128,
+              hash('sha256', $key, true),
+              substr($data, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC)),
+              MCRYPT_MODE_CBC,
+              $iv
+          ),
+          "\0"
+      );
+      return $decrypted;
+    }
+    /**
+     * Trying to retrieve key from param key in /config/crypt.yml.
+     * @return type
+     */
+    public static function getKey(){
+      $key = null;
+      if(wfFilesystem::fileExist(wfArray::get($GLOBALS, 'sys/app_dir').'/theme/[theme]/config/crypt.yml')){
+        $key = wfSettings::getSettings('/theme/[theme]/config/crypt.yml', 'key', false);
+      }
+      return $key;
+    }
+    /**
+     * wfCrypt::decryptFromString('crypt:DBNfQCwZWmTG6qVbKd0QS8NdbYMNUUE17b5o+xXUZbc=').
+     * @param type $string
+     * @return type
+     */
+    public static function decryptFromString($string){
+      if(substr($string, 0, 6)=='crypt:'){
+        return wfCrypt::decrypt(substr($string, 6));
+      }else{
+        return $string;
+      }
+    }
+    
+    
 }
 
 ?>
