@@ -215,13 +215,16 @@ class wfArray {
   }
   public static function rewrite($array){
     
+    //wfHelp::yml_dump($array);
+    
+    /**
+     * _rewrite/set.
+     */
     if(isset($array['_rewrite']['set'])){
       foreach ($array['_rewrite']['set'] as $key => $value) {
-        
         if(!isset($value['path_to_key']) || !isset($value['value'])){
           continue;
         }
-        
         $path_to_key = "['".str_replace('/', "']['", $value['path_to_key'])."']";
         $item_value = $value['value'];
         if(is_array($item_value)){
@@ -230,15 +233,34 @@ class wfArray {
           eval("\$array$path_to_key = '$item_value';");
         }
       }
-      //wfHelp::yml_dump($array, true);
     }
+    /**
+     * _rewrite/unset.
+     */
     if(isset($array['_rewrite']['unset'])){
       foreach ($array['_rewrite']['unset'] as $key => $value) {
         $path_to_key = "['".str_replace('/', "']['", $value)."']";
         eval("unset(\$array$path_to_key);");
       }
     }
-    unset($array['_rewrite']);
+    /**
+     * rewrite/set.
+     */
+    if(isset($array['rewrite']['set'])){
+      foreach ($array['rewrite']['set'] as $key => $value) {
+        if(!isset($value['path_to_key']) || !isset($value['value'])){
+          continue;
+        }
+        $path_to_key = "['".str_replace('/', "']['", $value['path_to_key'])."']";
+        $item_value = $value['value'];
+        if(is_array($item_value)){
+          eval("\$array$path_to_key = \$item_value;");
+        }else{
+          eval("\$array$path_to_key = '$item_value';");
+        }
+      }
+    }
+    unset($array['rewrite']);
     return $array;
   }
   

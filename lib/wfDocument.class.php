@@ -71,6 +71,24 @@ class wfDocument {
         }
       }
     }
+    /**
+     * SERVER_NAME
+     */
+    if(wfArray::get($element, 'settings/server_name')){
+      if(wfArray::get($element, 'settings/server_name/item')){
+        if(in_array($_SERVER['SERVER_NAME'], wfArray::get($element, 'settings/server_name/item'))){
+          if(!wfArray::get($element, 'settings/server_name/allow')){
+            // We found server_name in the list AND allow is false.
+            return false;
+          }
+        }else{
+          if(wfArray::get($element, 'settings/server_name/allow')){
+            // We did not found server_name in the list AND allow is true.
+            return false;
+          }
+        }
+      }
+    }
     //#Element/Cookie
     /**
       cookie:
@@ -94,6 +112,10 @@ class wfDocument {
       }
     }
     if(isset($element['settings']['disabled']) && $element['settings']['disabled']){return false;}
+    /**
+     * settings/i18n/language
+     */
+    if(isset($element['settings']['i18n']['language']) && $element['settings']['i18n']['language'] != wfArray::get($GLOBALS, 'sys/settings/i18n/language')){return false;}
     if(isset($element['settings']['target']) && $element['settings']['target']!=wfHelp::detectScreen()){return false;}
     if(isset($element['settings']['security'])){
       $ok = false;
@@ -219,17 +241,29 @@ class wfDocument {
         foreach ($element['attribute'] as $attribute => $value) {
           $value = wfSettings::getGlobalsFromString($value);
           $value = wfSettings::getSettingsFromYmlString($value);
-          echo ' '.$attribute.'="'.self::handleOutput($value).'"';
+          $value = self::handleOutput($value);
+          if($attribute == 'content'  || $attribute == 'lang'){
+            $value = wfEvent::run('document_render_string', $value);
+          }
+          echo ' '.$attribute.'="'.$value.'"';
         }
       }
       echo ">";
       if(isset($element['innerHTML']) && !is_array($element['innerHTML'])){
+        //$element = wfEvent::run('document_render_element', $element);
         $innerHTML = $element['innerHTML'];
         $innerHTML = wfSettings::replaceTheme($innerHTML);
         $innerHTML = wfSettings::getGlobalsFromString($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
-        $innerHTML = wfEvent::run('document_render_element_innerhtml', $innerHTML);
+        //$innerHTML = wfEvent::run('document_render_element_innerhtml', $innerHTML);
+        //$innerHTML = wfEvent::run('document_render_innerhtml', $innerHTML);
+        
+        //$element['innerHTML'] = $innerHTML;
+        //$element = wfEvent::run('document_render_innerhtml', $element);
+        //$innerHTML = $element['innerHTML'];
+        
         if(!is_array($innerHTML)){
+          $innerHTML = wfEvent::run('document_render_string', $innerHTML);
           echo $innerHTML;
         }else{
           wfDocument::renderElement($innerHTML);
