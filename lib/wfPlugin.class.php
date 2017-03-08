@@ -65,6 +65,12 @@ class wfPlugin {
     
   }
   
+  /**
+   * Enable plugin for widget usage.
+   */
+  public static function enable($plugin){
+    $GLOBALS = wfArray::set($GLOBALS, "sys/settings/plugin/$plugin/enabled", true);
+  }
   
   /**
    * Get plugin settings from theme settings.yml param plugin.
@@ -90,6 +96,43 @@ class wfPlugin {
     }
     $func = create_function('$c', 'return strtoupper($c[1]);');
     return preg_replace_callback('/\/([a-z])/', $func, $str);
+  }
+  /**
+   * Set flash.
+   * @param string $plugin
+   * @param string $key
+   * @param array $element Multiple elements.
+   */
+  public static function flashSet($plugin, $key, $element){
+    $_SESSION = wfArray::set($_SESSION, "plugin/$plugin/flash/$key", $element);
+  }
+  /**
+   * Check if flash exist.
+   * @param string $plugin
+   * @param string $key
+   * @return boolean
+   */
+  public static function flashHas($plugin, $key){
+    if(wfArray::get($_SESSION, "plugin/$plugin/flash/$key")){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  /**
+   * Get flash.
+   * @param string $plugin
+   * @param string $key
+   * @return type
+   */
+  public static function flashGet($plugin, $key){
+    if(wfArray::get($_SESSION, "plugin/$plugin/flash/$key")){
+      $element = wfArray::get($_SESSION, "plugin/$plugin/flash/$key");
+      $_SESSION = wfArray::setUnset($_SESSION, "plugin/$plugin/flash/$key");
+      return $element;
+    }else{
+      return null;
+    }
   }
   /**
    * Get widget default data from /plugin/xx/yy/default folder.
