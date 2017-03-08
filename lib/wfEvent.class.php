@@ -58,7 +58,7 @@ class wfEvent {
         
       }
     }
-    if($event == 'document_render_element' || $event == 'document_render_element_innerhtml'){
+    if($event == 'document_render_element' || $event == 'document_render_element_innerhtml' || $event == 'document_render_string'){
       return $data;
     }
     // Stop executing if critical events not handled.

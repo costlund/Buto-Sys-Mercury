@@ -98,6 +98,11 @@ class wfSettings {
       }else{
         throw new Exception("Could not find $filename!");
       }
+      
+      // Domain rewrite.
+      if(wfArray::isKey($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite')){
+        $settings = wfArray::set($settings, 'rewrite', wfArray::get($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite'));
+      }
       $settings = wfArray::rewrite($settings);
       if($GLOBALS['sys']['cache']){
         file_put_contents($serialize, serialize($settings));

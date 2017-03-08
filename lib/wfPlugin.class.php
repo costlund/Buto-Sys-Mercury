@@ -91,8 +91,16 @@ class wfPlugin {
     $func = create_function('$c', 'return strtoupper($c[1]);');
     return preg_replace_callback('/\/([a-z])/', $func, $str);
   }
-  
-    
+  /**
+   * Get widget default data from /plugin/xx/yy/default folder.
+   * @param array $data Widget method data.
+   * @return PluginWfArray
+   */
+  public static function getWidgetDefault($data){
+    wfPlugin::includeonce('wf/array');
+    $data = new PluginWfArray($data);
+    return wfSettings::getSettingsAsObject('/plugin/'.$data->get('plugin').'/default/widget.'.$data->get('method').'.yml');
+  }
 }
 
 ?>
