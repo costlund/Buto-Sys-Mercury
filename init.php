@@ -127,9 +127,6 @@ if(true){
 function shutdown(){
   wfEvent::run('shutdown');
 }
-
-
-
 /**
  * Handle request params.
  * Set class and method.
