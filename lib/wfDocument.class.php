@@ -115,7 +115,17 @@ class wfDocument {
     /**
      * settings/i18n/language
      */
-    if(isset($element['settings']['i18n']['language']) && $element['settings']['i18n']['language'] != wfArray::get($GLOBALS, 'sys/settings/i18n/language')){return false;}
+    if(isset($element['settings']['i18n']['language'])){
+      if(!is_array($element['settings']['i18n']['language'])){
+        if($element['settings']['i18n']['language'] != wfArray::get($GLOBALS, 'sys/settings/i18n/language')){
+          return false;
+        }
+      }else{
+        if(!in_array(wfArray::get($GLOBALS, 'sys/settings/i18n/language'), $element['settings']['i18n']['language'])){
+          return false;
+        }
+      }
+    }
     if(isset($element['settings']['target']) && $element['settings']['target']!=wfHelp::detectScreen()){return false;}
     if(isset($element['settings']['security'])){
       $ok = false;
