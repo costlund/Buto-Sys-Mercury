@@ -42,7 +42,9 @@ class wfPlugin {
     }
     return $settings;
   }
-  
+  /**
+   * Include plugin.
+   */
   public static function includeonce($plugin){
     $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin, true).'.php';
     if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file)){
@@ -60,11 +62,20 @@ class wfPlugin {
     }else{
       exit('Could not find plugin file ('.$plugin.')');
     }
-    
-    
-    
   }
-  
+  /**
+   * Plugin exist.
+   */
+  public static function plugin_file_exist($plugin){
+    $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin, true).'.php';
+    if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file)){
+      return true;
+    }elseif(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php')){
+      return true;
+    }else{
+      return false;
+    }
+  }
   /**
    * Enable plugin for widget usage.
    */
