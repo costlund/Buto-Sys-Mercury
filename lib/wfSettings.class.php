@@ -453,7 +453,6 @@ class wfSettings {
     }
     return $temp;
   }
-  
   public static function getHttpAddress($root = false){
     $protocol = 'http://';
     if(self::isHttps()){
@@ -468,6 +467,8 @@ class wfSettings {
   public static function isHttps(){
     //SERVER_PROTOCOL: HTTP/1.1
     if(isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] != 'HTTP/1.1'){
+      return true;
+    }else if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'on'){
       return true;
     }else{
       return false;
