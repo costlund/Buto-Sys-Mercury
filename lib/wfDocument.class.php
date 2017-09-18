@@ -112,36 +112,36 @@ class wfDocument {
       }
     }
     /**
-     * Time.
-     * Show or hide element depending on time params.
-     * settings/time
-     * settings/time/allow
-     * settings/time/from
-     * settings/time/to
+     * Date.
+     * Show or hide element depending on date params.
+     * settings/date
+     * settings/date/allow
+     * settings/date/from
+     * settings/date/to
      */
-    if(wfArray::get($element, 'settings/time')){
-      if(!wfArray::isKey($element, 'settings/time/allow')){
-        $element = wfArray::set($element, 'settings/time/allow', true);
+    if(wfArray::get($element, 'settings/date')){
+      if(!wfArray::isKey($element, 'settings/date/allow')){
+        $element = wfArray::set($element, 'settings/date/allow', true);
       }
-      if(!wfArray::isKey($element, 'settings/time/from')){
-        $element = wfArray::set($element, 'settings/time/from', time());
+      if(!wfArray::isKey($element, 'settings/date/from')){
+        $element = wfArray::set($element, 'settings/date/from', time());
       }else{
-        $element = wfArray::set($element, 'settings/time/from', strtotime(wfArray::get($element, 'settings/time/from')));
+        $element = wfArray::set($element, 'settings/date/from', strtotime(wfArray::get($element, 'settings/date/from')));
       }
-      if(!wfArray::isKey($element, 'settings/time/to')){
-        $element = wfArray::set($element, 'settings/time/to', time());
+      if(!wfArray::isKey($element, 'settings/date/to')){
+        $element = wfArray::set($element, 'settings/date/to', time());
       }else{
-        $element = wfArray::set($element, 'settings/time/to', strtotime(wfArray::get($element, 'settings/time/to')));
+        $element = wfArray::set($element, 'settings/date/to', strtotime(wfArray::get($element, 'settings/date/to')));
       }
-      $element = wfArray::set($element, 'settings/time/now', time());
-      if(wfArray::get($element, 'settings/time/allow') && (wfArray::get($element, 'settings/time/from') > time() || wfArray::get($element, 'settings/time/to') < time())){
+      $element = wfArray::set($element, 'settings/date/now', time());
+      if(wfArray::get($element, 'settings/date/allow') && (wfArray::get($element, 'settings/date/from') > time() || wfArray::get($element, 'settings/date/to') < time())){
         /**
-         * Hide element if "from" after time or "to" before time.
+         * Hide element if "from" after date or "to" before date.
          */
         return false;
-      }else if(!wfArray::get($element, 'settings/time/allow') && wfArray::get($element, 'settings/time/from') <= time() && wfArray::get($element, 'settings/time/to') >= time()){
+      }else if(!wfArray::get($element, 'settings/date/allow') && wfArray::get($element, 'settings/date/from') <= time() && wfArray::get($element, 'settings/date/to') >= time()){
         /**
-         * Hide element if "from" before time and "to" after time.
+         * Hide element if "from" before date and "to" after date.
          */
         return false;
       }
