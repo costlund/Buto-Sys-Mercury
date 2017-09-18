@@ -466,8 +466,10 @@ class wfSettings {
   }
   public static function isHttps(){
     //SERVER_PROTOCOL: HTTP/1.1
-    if(isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] != 'HTTP/1.1'){
+    if(isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] == 'HTTPS/1.1'){
       return true;
+    }else if(isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1'){
+      return false;
     }else if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'on'){
       return true;
     }else{

@@ -170,6 +170,18 @@ class wfFilesystem {
       return false;
     }
   }
+  /**
+   * Returns time from now to now how old a file is.
+   * @param int $dir
+   * @return int
+   */
+  public static function getFiletimeFromNow($dir){
+    if(file_exists($dir)){
+      return time() - filemtime($dir);
+    }else{
+      return 0;
+    }
+  }
   
   
   public static function saveFile($path_to_file, $text, $append = false){
