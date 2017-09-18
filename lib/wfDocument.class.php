@@ -111,6 +111,46 @@ class wfDocument {
         }
       }
     }
+    /**
+     * Time.
+     * Show or hide element depending on time params.
+     * settings/time
+     * settings/time/allow
+     * settings/time/from
+     * settings/time/to
+     */
+    if(wfArray::get($element, 'settings/time')){
+      if(!wfArray::isKey($element, 'settings/time/allow')){
+        $element = wfArray::set($element, 'settings/time/allow', true);
+      }
+      if(!wfArray::isKey($element, 'settings/time/from')){
+        $element = wfArray::set($element, 'settings/time/from', time());
+      }else{
+        $element = wfArray::set($element, 'settings/time/from', strtotime(wfArray::get($element, 'settings/time/from')));
+      }
+      if(!wfArray::isKey($element, 'settings/time/to')){
+        $element = wfArray::set($element, 'settings/time/to', time());
+      }else{
+        $element = wfArray::set($element, 'settings/time/to', strtotime(wfArray::get($element, 'settings/time/to')));
+      }
+      $element = wfArray::set($element, 'settings/time/now', time());
+      if(wfArray::get($element, 'settings/time/allow') && (wfArray::get($element, 'settings/time/from') > time() || wfArray::get($element, 'settings/time/to') < time())){
+        /**
+         * Hide element if "from" after time or "to" before time.
+         */
+        return false;
+      }else if(!wfArray::get($element, 'settings/time/allow') && wfArray::get($element, 'settings/time/from') <= time() && wfArray::get($element, 'settings/time/to') >= time()){
+        /**
+         * Hide element if "from" before time and "to" after time.
+         */
+        return false;
+      }
+    }
+    /**
+     * Disabled.
+     * settings/disabled
+     * Element should not be rendered if settings/disabled is set and true.
+     */
     if(isset($element['settings']['disabled']) && $element['settings']['disabled']){return false;}
     /**
      * settings/i18n/language
