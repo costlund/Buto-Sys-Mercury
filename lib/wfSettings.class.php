@@ -303,8 +303,36 @@ class wfSettings {
     if(isset($GLOBALS['sys']['yml_files'][$filename])){
       $settings = $GLOBALS['sys']['yml_files'][$filename];
     }else{
+      
+      
+      //wfFilesystem::clearCache();
+      
       if(file_exists($filename)){
-        $settings = sfYaml::load($filename);
+        /**
+         * Check if cached file exist first.
+         */
+        if(wfFilesystem::isCache()){
+          $cache_file = wfFilesystem::formatCacheFileName($path);
+          if(wfFilesystem::fileExist(wfFilesystem::getCacheFolder().'/'.$cache_file)){
+            /**
+             * Cache exist.
+             * Get it.
+             */
+            $settings = wfFilesystem::getCacheFile(wfFilesystem::getCacheFolder().'/'.$cache_file);
+          }else{
+            /**
+             * Cache not exist.
+             * Load and create it.
+             */
+            $settings = sfYaml::load($filename);
+            wfFilesystem::saveFile(wfFilesystem::getCacheFolder().'/'.$cache_file, serialize($settings));
+          }
+        }else{
+          /**
+           * Cache folder not exist 
+           */
+          $settings = sfYaml::load($filename);
+        }
         if($set_globals){
           $GLOBALS['sys']['yml_files'][$filename] = $settings;
         }
