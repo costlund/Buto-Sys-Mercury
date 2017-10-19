@@ -238,6 +238,38 @@ class wfFilesystem {
     }
   }
   
+  public static function clearCache(){
+    if(wfFilesystem::fileExist(wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache')){
+      $scan = wfFilesystem::getScandir(wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache');
+      foreach ($scan as $key => $value) {
+        wfFilesystem::delete(wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache/'.$value);
+      }
+    }
+    return null;
+  }
+  public static function getCacheFile($file){
+    $str = file_get_contents($file);
+    $str = unserialize($str);
+    return $str;
+  }
+  /**
+   * Checks if cache=true and folder exist.
+   */
+  public static function isCache(){
+    if(wfArray::get($GLOBALS, 'sys/settings/cache') && wfFilesystem::fileExist(wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache')){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  public static function getCacheFolder(){
+    return wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache';
+  }
+  public static function formatCacheFileName($path){
+    return str_replace('/', '_', $path).'.cache';
+  }
+  
+  
 }
 
 ?>

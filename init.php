@@ -25,6 +25,8 @@ $GLOBALS['sys']['cache'] = false;
 $GLOBALS['sys']['web_dir'] = str_replace("\\", "/", str_replace(array('\index.php', '/index.php'), '', $_SERVER['SCRIPT_FILENAME']));
 $GLOBALS['sys']['app_dir'] = dirname($GLOBALS['sys']['web_dir']);
 $GLOBALS['sys']['sys_dir'] = dirname($GLOBALS['sys']['web_dir']).'/sys/'.$GLOBALS['sys']['version'];
+$GLOBALS['sys']['theme_data_web_dir'] = null;
+$GLOBALS['sys']['theme_data_dir'] = null;
 
 
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfEvent.class.php";
@@ -40,6 +42,7 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfUser.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfElement.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPlugin.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfDate.class.php";
+include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfI18n.class.php";
 wfEvent::run('sys_start');
 
 session_start();
@@ -91,6 +94,8 @@ wfEvent::run('load_config_settings_after');
 $GLOBALS['sys']['theme_dir'] = dirname($GLOBALS['sys']['web_dir']).'/theme/'.$GLOBALS['sys']['theme'];
 $GLOBALS['sys']['theme_web_dir'] = $GLOBALS['sys']['web_dir'].'/theme/'.$GLOBALS['sys']['theme'];
 
+$GLOBALS['sys']['theme_data_web_dir'] = $GLOBALS['sys']['web_dir'].'/data/theme/'.$GLOBALS['sys']['theme'];
+$GLOBALS['sys']['theme_data_dir'] = dirname($GLOBALS['sys']['web_dir']).'/data/theme/'.$GLOBALS['sys']['theme'];
 
 
 date_default_timezone_set(wfArray::get($GLOBALS, 'sys/timezone'));
