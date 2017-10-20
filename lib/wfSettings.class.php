@@ -290,9 +290,8 @@ class wfSettings {
       return null;
     }
   }
-  
   /**
-   * 
+   * Get yml file. 
    * @param string $path ex:/a/module/filename.yml
    * @return array
    */
@@ -303,36 +302,8 @@ class wfSettings {
     if(isset($GLOBALS['sys']['yml_files'][$filename])){
       $settings = $GLOBALS['sys']['yml_files'][$filename];
     }else{
-      
-      
-      //wfFilesystem::clearCache();
-      
       if(file_exists($filename)){
-        /**
-         * Check if cached file exist first.
-         */
-        if(wfFilesystem::isCache()){
-          $cache_file = wfFilesystem::formatCacheFileName($path);
-          if(wfFilesystem::fileExist(wfFilesystem::getCacheFolder().'/'.$cache_file)){
-            /**
-             * Cache exist.
-             * Get it.
-             */
-            $settings = wfFilesystem::getCacheFile(wfFilesystem::getCacheFolder().'/'.$cache_file);
-          }else{
-            /**
-             * Cache not exist.
-             * Load and create it.
-             */
-            $settings = sfYaml::load($filename);
-            wfFilesystem::saveFile(wfFilesystem::getCacheFolder().'/'.$cache_file, serialize($settings));
-          }
-        }else{
-          /**
-           * Cache folder not exist 
-           */
-          $settings = sfYaml::load($filename);
-        }
+        $settings = wfFilesystem::getCacheIfExist($path);
         if($set_globals){
           $GLOBALS['sys']['yml_files'][$filename] = $settings;
         }
@@ -340,10 +311,16 @@ class wfSettings {
         throw new Exception("Could not find fil $filename.");
       }
     }
+    /**
+     * Get from key.
+     */
     if($path_to_key){
       $path_to_key = "['".str_replace('/', "']['", $path_to_key)."']";
       eval("if(isset(\$settings$path_to_key)){ \$settings = \$settings$path_to_key; }else{\$settings = null;} ");
     }
+    /**
+     * 
+     */
     return $settings;
   }
   public static function getSettingsAsObject($path, $path_to_key = null){

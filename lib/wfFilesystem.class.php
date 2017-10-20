@@ -237,7 +237,6 @@ class wfFilesystem {
       }
     }
   }
-  
   public static function clearCache(){
     if(wfFilesystem::fileExist(wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache')){
       $scan = wfFilesystem::getScandir(wfArray::get($GLOBALS, 'sys/theme_data_dir').'/cache');
@@ -248,7 +247,7 @@ class wfFilesystem {
     return null;
   }
   public static function getCacheFile($file){
-    $str = file_get_contents($file);
+    $str = file_get_contents(wfFilesystem::getCacheFolder().'/'.$file);
     $str = unserialize($str);
     return $str;
   }
@@ -268,7 +267,41 @@ class wfFilesystem {
   public static function formatCacheFileName($path){
     return str_replace('/', '_', $path).'.cache';
   }
-  
+  /**
+   * Get cache if exist.
+   * @param type $path
+   * @return type
+   */
+  public static function getCacheIfExist($path){
+    $settings = null;
+    $filename = wfArray::get($GLOBALS, 'sys/app_dir').wfSettings::replaceTheme($path);
+    /**
+     * Check if cached file exist first.
+     */
+    if(wfFilesystem::isCache()){
+      $cache_file = wfFilesystem::formatCacheFileName($path);
+      if(wfFilesystem::fileExist(wfFilesystem::getCacheFolder().'/'.$cache_file)){
+        /**
+         * Cache exist.
+         * Get it.
+         */
+        $settings = wfFilesystem::getCacheFile($cache_file);
+      }else{
+        /**
+         * Cache not exist.
+         * Load and create it.
+         */
+        $settings = sfYaml::load($filename);
+        wfFilesystem::saveFile(wfFilesystem::getCacheFolder().'/'.$cache_file, serialize($settings));
+      }
+    }else{
+      /**
+       * Cache folder not exist 
+       */
+      $settings = sfYaml::load($filename);
+    }
+    return $settings;
+  }
   
 }
 
