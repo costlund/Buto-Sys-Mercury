@@ -157,11 +157,11 @@ class wfDocument {
      */
     if(isset($element['settings']['i18n']['language'])){
       if(!is_array($element['settings']['i18n']['language'])){
-        if($element['settings']['i18n']['language'] != wfArray::get($GLOBALS, 'sys/settings/i18n/language')){
+        if($element['settings']['i18n']['language'] != wfI18n::getLanguage()){
           return false;
         }
       }else{
-        if(!in_array(wfArray::get($GLOBALS, 'sys/settings/i18n/language'), $element['settings']['i18n']['language'])){
+        if(!in_array(wfI18n::getLanguage(), $element['settings']['i18n']['language'])){
           return false;
         }
       }
