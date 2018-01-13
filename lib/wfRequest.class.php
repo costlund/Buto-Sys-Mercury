@@ -92,12 +92,16 @@ class wfRequest {
         }
       }
     }
-    
-    //return array('class' => $class, 'method' => $method);
+    /**
+     * Trying to solve issue when using url below where no method is set by setting method to index.
+     * http://www.site.com/folder/?Param=1234
+     * http://www.site.com/folder/(index)?Param=1234
+     */
+    if(sizeof($_GET) > 0 && !$GLOBALS['sys']['method']){
+      $GLOBALS['sys']['method'] = 'index';
+    }
     return null;
-    
   }
-  
   /**
    * Function to split params to only check for values in specific position.
    * @return array
