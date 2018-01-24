@@ -247,7 +247,7 @@ class wfDocument {
     }
     $element = self::checkGlobals($element);
     // Special for tag A.
-    if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#';}
+    if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#!';}
     if($element['type']=='a'){
       $element['attribute']['href'] = wfSettings::getSettingsFromYmlString($element['attribute']['href']);
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
