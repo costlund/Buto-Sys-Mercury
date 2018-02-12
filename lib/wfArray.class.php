@@ -16,7 +16,9 @@ class wfArray {
     foreach ($array as $ii => $va) {
       if (isset($va[$key])) {
         if ($va[$key] > $largest_sort_value) {
-          $largest_sort_value = $va[$key] + 1;
+          if(is_numeric($va[$key])){
+            $largest_sort_value = $va[$key] + 1;
+          }
         }
       }
     }

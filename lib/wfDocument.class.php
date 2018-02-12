@@ -147,6 +147,32 @@ class wfDocument {
       }
     }
     /**
+     * Param.
+     * Check for param settings to render or not render widget depending on allow value.
+        settings:
+          param:
+            name: param_name
+            value: some_param_value
+            allow: true (optional, default=true)
+     */
+    if(wfArray::get($element, 'settings/param')){
+      if(!wfArray::isKey($element, 'settings/param/allow')){
+        $element = wfArray::set($element, 'settings/param/allow', true);
+      }
+      /**
+       * If allow=true and param NOT match.
+       */
+      if(wfArray::get($element, 'settings/param/allow') && wfRequest::get(wfArray::get($element, 'settings/param/name'))!=wfArray::get($element, 'settings/param/value')){
+        return false;
+      }
+      /**
+       * If allow=false and param match.
+       */
+      if(!wfArray::get($element, 'settings/param/allow') && wfRequest::get(wfArray::get($element, 'settings/param/name'))==wfArray::get($element, 'settings/param/value')){
+        return false;
+      }
+    }
+    /**
      * Disabled.
      * settings/disabled
      * Element should not be rendered if settings/disabled is set and true.
@@ -221,7 +247,7 @@ class wfDocument {
     }
     $element = self::checkGlobals($element);
     // Special for tag A.
-    if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#';}
+    if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#!';}
     if($element['type']=='a'){
       $element['attribute']['href'] = wfSettings::getSettingsFromYmlString($element['attribute']['href']);
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
