@@ -57,28 +57,30 @@ class wfRequest {
       $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
       $GLOBALS['sys']['method'] = $GLOBALS['sys']['settings']['default_method'];
     }else{
+      /**
+       * If question character exist and no slash before we add one.
+       */
+      if(strstr($temp, '?') && !strstr($temp, '/?')){
+        $temp = str_replace('?', '/?', $temp);
+      }
+      /**
+       * 
+       */
       $temp = str_replace('?', '/', $temp);
       $temp = str_replace('=', '/', $temp);
       $temp = str_replace('&', '/', $temp);
-
       $temp = explode('/', $temp);
-
-      //wfHelp::print_r($_GET);
       if(sizeof($temp)==2){ //Handle one param with no name ex. "localhost/abc/".
         $_GET['one_param'] = $temp[1];
         if(true || $settings['default_class']!='doc'){
-            //$method = $temp[1];
             $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
             $GLOBALS['sys']['method'] = strtolower($temp[1]);
         }
       }else{ //Handle class/method/param1/x/param2/y
         foreach ($temp as $key => $value) {
           if($key==1){      //Class
-            //$class = strtolower($temp[1]);
             $GLOBALS['sys']['class'] = strtolower($temp[1]);
           }elseif($key==2){ //Method
-            //$method = ucfirst(strtolower($temp[2]));
-            //$GLOBALS['sys']['method'] = ucfirst(strtolower($temp[2]));
             $GLOBALS['sys']['method'] = strtolower(($temp[2]));
           }elseif($key>2){  //Params
             if ($key % 2 != 0) {
