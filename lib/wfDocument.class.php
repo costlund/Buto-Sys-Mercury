@@ -36,6 +36,33 @@ class wfDocument {
     }
     return true;
   }
+  private static function validateSession($element){
+    if(wfArray::isKey($element, 'settings/session')){
+      $user = wfUser::getSession();
+      if(wfArray::get($element, 'settings/session/allow')===false){
+        //If allow is set and false.
+        foreach (wfArray::get($element, 'settings/session/item') as $key => $value) {
+          $item = new PluginWfArray($value);
+          if($user->get($item->get('param'))==$item->get('value')){
+            return false;
+          }
+        }
+      }else{
+        //If allow not set or is set and true.
+        $render = false;
+        foreach (wfArray::get($element, 'settings/session/item') as $key => $value) {
+          $item = new PluginWfArray($value);
+          if($user->get($item->get('param'))==$item->get('value')){
+            $render = true; break;
+          }
+        }
+        if(!$render){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
   /**
    * Validate settings.
    * @param type $element
@@ -44,6 +71,9 @@ class wfDocument {
    */
   public static function validateSettings($element){
     if(!self::validateRole($element)){
+      return false;
+    }
+    if(!self::validateSession($element)){
       return false;
     }
     if(isset($element['settings']['superadmin'])){
