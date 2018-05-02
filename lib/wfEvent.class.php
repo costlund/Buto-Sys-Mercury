@@ -66,7 +66,7 @@ class wfEvent {
       exit('Security issue!');
     }elseif($event == 'page_not_found'){
       header("HTTP/1.0 404 Not Found");
-     exit('404 Not Found');
+      exit('404 Not Found');
     }
   }
 }

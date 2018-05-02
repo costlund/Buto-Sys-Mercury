@@ -9,9 +9,6 @@ class wfSettings {
     $path_to_file = wfSettings::getAppDir().'/config/settings.yml';
     if(file_exists($path_to_file)){
       $array = sfYaml::load($path_to_file);
-      
-
-
       // Domain rewrite.
       if(wfArray::isKey($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite')){
         $array = wfArray::set($array, '_rewrite', wfArray::get($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite'));
