@@ -29,6 +29,23 @@ class wfPlugin {
     return $settings;
   }
   /**
+   * Get first occured plugin_modules in theme settings file depending on param plugin.
+   * The key is inserted along with other params.
+   * @param string $plugin
+   * @return object PluginWfArray
+   */
+  public static function getPluginModulesOne($plugin){
+    $settings = null;
+    foreach (wfArray::get($GLOBALS, 'sys/settings/plugin_modules') as $key => $value) {
+      if(wfArray::get($value, 'plugin') == $plugin){
+        wfPlugin::includeonce('wf/array');
+        $settings = new PluginWfArray(array_merge($value, array('key' => $key)));
+        break;
+      }
+    }
+    return $settings;
+  }
+  /**
    * Get plugins settings from theme settings.yml param plugin_modules.
    * @param type $plugin
    * @return type
