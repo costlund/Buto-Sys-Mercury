@@ -1,0 +1,32 @@
+<?php
+/**
+ * Buto class to get handle data in GLOBALS/sys.
+ */
+class wfGlobals{
+  public static function get($key){
+    wfPlugin::includeonce('wf/array');
+    $g = new PluginWfArray($GLOBALS['sys']);
+    return $g->get($key);
+  }
+  public static function getVersion()           {return wfGlobals::get('version');}
+  public static function getMicrotime()         {return wfGlobals::get('microtime');}
+  public static function getMicrotimeStart()    {return wfGlobals::get('microtime/start');}
+  public static function getMicrotimeEnd()      {return wfGlobals::get('microtime/end');}
+  public static function getMicrotimeTime()     {return wfGlobals::get('microtime/time');}
+  /**
+   * Calc time from start.
+   * @return float
+   */
+  public static function getMicrotimeTimeCalc() {
+    return microtime(true) - wfGlobals::get('microtime/start');
+  }
+  public static function getWebDir()            {return wfGlobals::get('web_dir');}
+  public static function getAppDir()            {return wfGlobals::get('app_dir');}
+  public static function getSysDir()            {return wfGlobals::get('sys_dir');}
+  public static function getThemeDataWebDir()   {return wfGlobals::get('theme_data_web_dir');}
+  public static function getThemeDataDir()      {return wfGlobals::get('theme_data_dir');}
+  public static function getTheme()             {return wfGlobals::get('theme');}
+  public static function getTimezone()          {return wfGlobals::get('timezone');}
+  public static function getErrorReporting()    {return wfGlobals::get('error_reporting');}
+  public static function getDisplayErrors()     {return wfGlobals::get('display_errors');}
+}
