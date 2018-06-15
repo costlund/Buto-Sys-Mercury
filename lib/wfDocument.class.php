@@ -347,7 +347,9 @@ class wfDocument {
         foreach ($element['attribute'] as $attribute => $value) {
           $value = wfSettings::getGlobalsFromString($value);
           $value = wfSettings::getSettingsFromYmlString($value);
-          $value = wfSettings::getSettingsFromMethod($value);
+          if(isset($element['settings']['method']) && $element['settings']['method']){
+            $value = wfSettings::getSettingsFromMethod($value);
+          }
           $value = self::handleOutput($value);
           if($attribute == 'content'  || $attribute == 'lang'){
             $value = wfEvent::run('document_render_string', $value);
@@ -361,7 +363,9 @@ class wfDocument {
         $innerHTML = wfSettings::replaceTheme($innerHTML);
         $innerHTML = wfSettings::getGlobalsFromString($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
-        $innerHTML = wfSettings::getSettingsFromMethod($innerHTML);
+        if(isset($element['settings']['method']) && $element['settings']['method']){
+          $innerHTML = wfSettings::getSettingsFromMethod($innerHTML);
+        }
         if(!is_array($innerHTML)){
           $innerHTML = wfEvent::run('document_render_string', $innerHTML);
           echo $innerHTML;

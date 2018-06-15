@@ -432,15 +432,25 @@ class wfSettings {
     }
   }
   /**
-   * Run method via string 'method:_plugin_:_method_'.
+   * Run method via string 'method:_plugin_:_method_:data(optional)'.
+   * If using this when render elements one must set param settings/method as true because of security reasons.
    * Example of usage: 
    * Param innerHTML in wfDocument.
    * Param options in PluginWfForm_v2.
+   * Example of usage with data (colon is replaced with $ in this json string).
+   * innerHTML: 'method:_plugin_:_method_:{"id"$ 123, "order"$ [1, 3, 55], "customer"$ {"name"$ "World Inc"}}'
    * @param String $str
    * @return String/Array
    * @throws Exception
    */
   public static function getSettingsFromMethod($str){
+    /**
+      -
+        type: p
+        innerHTML: 'method:wf/example:method_test:{"id"$ 1234}'
+        settings:
+          method: true
+     */
     if(is_array($str)){
       return $str;
     }
@@ -449,15 +459,25 @@ class wfSettings {
       /**
        * Check parts.
        */
-      if(sizeof($temp)!=3){
+      if(sizeof($temp)==3){
+        $temp[3] = null;
+      }
+      if(sizeof($temp) != 4){
         throw new Exception('There has to be three parts separated with colon in "'.$str.'".');
       }
+      /**
+       * Include plugin.
+       */
+      wfPlugin::includeonce($temp[1]);
       /**
        * Call method.
        */
       $obj = wfSettings::getPluginObj($temp[1]);
       $method = $temp[2];
-      return $obj->$method();
+      $data = $temp[3];
+      $data = str_replace("$", ":", $data);
+      $data = json_decode($data, true);
+      return $obj->$method($data);
     }else{
       return $str;
     }
