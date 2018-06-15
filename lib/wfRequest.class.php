@@ -1,8 +1,12 @@
 <?php
-
 class wfRequest {
-  
-  
+  /**
+   * Get all params.
+   * @return Array Get and Post variables merged.
+   */
+  public static function getAll(){
+    return array_merge($_GET, $_POST);
+  }
   public static function get($param, $if_not_set = null){
     $return = null;
     if(isset($_GET[$param])){
