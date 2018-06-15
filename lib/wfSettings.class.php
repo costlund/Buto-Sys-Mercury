@@ -431,8 +431,38 @@ class wfSettings {
       return $str;
     }
   }
-  
-  
+  /**
+   * Run method via string 'method:_plugin_:_method_'.
+   * Example of usage: 
+   * Param innerHTML in wfDocument.
+   * Param options in PluginWfForm_v2.
+   * @param String $str
+   * @return String/Array
+   * @throws Exception
+   */
+  public static function getSettingsFromMethod($str){
+    if(is_array($str)){
+      return $str;
+    }
+    if(substr($str, 0, 7)=='method:'){
+      $temp = preg_split('/:/', $str);
+      /**
+       * Check parts.
+       */
+      if(sizeof($temp)!=3){
+        throw new Exception('There has to be three parts separated with colon in "'.$str.'".');
+      }
+      /**
+       * Call method.
+       */
+      $obj = wfSettings::getPluginObj($temp[1]);
+      $method = $temp[2];
+      return $obj->$method();
+    }else{
+      return $str;
+    }
+    return $str;
+  }
   public static function getGlobalsFromString($str){
     if($str == 'globals:sys/plugin_wf_webadmin/menu'){
       //exit($str);
