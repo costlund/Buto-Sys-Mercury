@@ -3,7 +3,7 @@
  * Buto class to get handle data in GLOBALS/sys.
  */
 class wfGlobals{
-  public static function get($key){
+  public static function get($key = null){
     wfPlugin::includeonce('wf/array');
     $g = new PluginWfArray($GLOBALS['sys']);
     return $g->get($key);
