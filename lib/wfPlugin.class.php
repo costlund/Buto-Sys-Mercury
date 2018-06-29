@@ -122,7 +122,7 @@ class wfPlugin {
     if($capitalise_first_char) {
       $str[0] = strtoupper($str[0]);
     }
-    $func = create_function('$c', 'return strtoupper($c[1]);');
+    $func = create_function('$c', 'return strtoupper($c[1]);'); //PHP version 7.1.12 but not 7.2.1?
     return preg_replace_callback('/\/([a-z])/', $func, $str);
   }
   /**
