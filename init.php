@@ -49,6 +49,7 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPlugin.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfDate.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfI18n.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfGlobals.class.php";
+include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
 wfEvent::run('sys_start');
 /**
  * Session start.
