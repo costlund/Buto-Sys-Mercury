@@ -294,6 +294,10 @@ class wfDocument {
     }
     if($element['type']=='widget'){
       $data = $element['data'];
+      /**
+       * Set widget in Globals.
+       */
+      $GLOBALS['sys']['widget'] = $element;
       // Trying to set data of it is a link to yml file.
       if(wfArray::get($data, 'data') && !is_array(wfArray::get($data, 'data'))){
         $data['data'] = wfSettings::getSettingsFromYmlString(wfArray::get($data, 'data'));

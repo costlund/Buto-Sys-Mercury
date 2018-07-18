@@ -24,6 +24,7 @@ function __($str, $params = null){
 /**
  * Globals.
  */
+$GLOBALS['sys']['widget'] = null;
 $GLOBALS['sys']['microtime']['start'] = microtime(true);
 $GLOBALS['sys']['cache'] = false;
 $GLOBALS['sys']['web_dir'] = str_replace("\\", "/", str_replace(array('\index.php', '/index.php'), '', $_SERVER['SCRIPT_FILENAME']));
