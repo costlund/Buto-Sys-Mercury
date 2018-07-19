@@ -899,7 +899,17 @@ class wfDocument {
         $layouts = wfArray::get($page, 'settings/layout');
         $temp = null;
         foreach ($layouts as $key => $value) {
-          $filename = $layout_path.'/'.$value.'.yml';
+          /**
+           * If value is a path it should start with /.
+           */
+          if(substr($value, 0, 1)=='/'){
+            $filename = $value;
+          }else{
+            $filename = $layout_path.'/'.$value.'.yml';
+          }
+          /**
+           * 
+           */
           if(file_exists($filename)){
             $layout = sfYaml::load($filename);
             if(!isset($layout['content'])){
@@ -950,5 +960,25 @@ class wfDocument {
     wfArray::set($GLOBALS, 'sys/page', $page);
     wfArray::set($GLOBALS, 'sys/path_to_content', $path);
     return null;
+  }
+  /**
+   * 
+   * @param PluginWfArray $settings
+   * @param int $position Where in page file layout should be.
+   * @param PluginWfArray $page
+   * @return PluginWfArray
+   * @throws Exception
+   */
+  public static function insertAdminLayout($settings, $position, $page){
+    if(!$settings->get('admin_layout')){
+      return $page;
+    }
+    $file = wfGlobals::getAppDir().$settings->get('admin_layout');
+    if(wfFilesystem::fileExist($file)){
+      $page->set('settings/layout', wfArray::insertToPosition($position, $page->get('settings/layout'), $file));
+      return $page;
+    }else{
+      throw new Exception('wfDocument::insertAdminLayout says it could not find file '.$file.'.');
+    }
   }
 }
