@@ -1,11 +1,26 @@
 <?php
 class wfSettings {
-  
+  /**
+   * Load ini settings.
+   */
+  public static function loadIniSettings(){
+    $path_to_file = wfSettings::getAppDir().'/config/settings.yml';
+    if(file_exists($path_to_file)){
+      $array = sfYaml::load($path_to_file);
+      /**
+       * ini_set
+       */
+      if(wfArray::isKey($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/ini_set')){
+        wfSettings::ini_set(wfArray::get($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/ini_set'));
+      }
+    }else{
+        exit("File $path_to_file does not exist.");
+    }
+  }
   /**
    * Set pre settings in /a/config/pre_settings.yml if exist!
    */
   public static function loadConfigSettings(){
-    
     $path_to_file = wfSettings::getAppDir().'/config/settings.yml';
     if(file_exists($path_to_file)){
       $array = sfYaml::load($path_to_file);
@@ -13,24 +28,16 @@ class wfSettings {
       if(wfArray::isKey($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite')){
         $array = wfArray::set($array, '_rewrite', wfArray::get($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite'));
       }
-      
-      
       $array = wfArray::rewrite($array);
-    
       foreach ($array as $key => $value) {
         $GLOBALS['sys'][$key] = $value;
       }
     }else{
         exit("File $path_to_file does not exist.");
     }
-    
-    
-    //echo wfArray::get($GLOBALS, 'sys/test');
-    
     if(isset($_SESSION['theme'])){
       $GLOBALS['sys']['theme'] = $_SESSION['theme'];
     }
-    
   }
   
   public static function getPre($path_to_key = null){
@@ -95,7 +102,12 @@ class wfSettings {
       }else{
         throw new Exception("Could not find $filename!");
       }
-      
+      /**
+       * ini_set
+       */
+      if(wfArray::isKey($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/ini_set')){
+        wfSettings::ini_set(wfArray::get($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/ini_set'));
+      }
       // Domain rewrite.
       if(wfArray::isKey($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite')){
         $settings = wfArray::set($settings, 'rewrite', wfArray::get($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite'));
@@ -111,6 +123,16 @@ class wfSettings {
       eval("\$settings = \$settings$path_to_key;");
     }
     return $settings;
+  }
+  /**
+   * Set ini params via /config/settings.yml or /theme/folder/folder/config/settings.yml.
+   * @param Array $data
+   */
+  private static function ini_set($data){
+    foreach ($data as $key => $value) {
+      ini_set($value['name'], $value['value']);
+    }
+    return null;
   }
   public static function getModuleSecure($class){
     //Not in user anymore...

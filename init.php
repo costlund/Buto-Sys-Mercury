@@ -53,6 +53,12 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfGlobals.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
 wfEvent::run('sys_start');
 /**
+ * Load ini settings from /config/settings.yml for a specific host.
+ */
+wfEvent::run('load_ini_settings_before');
+wfSettings::loadIniSettings();
+wfEvent::run('load_ini_settings_after');
+/**
  * Session start.
  */
 session_start();
