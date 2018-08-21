@@ -1,9 +1,10 @@
 <?php
 /**
- * Errors.
+ * Error settings.
+ * This settings can be changed in settings.yml.
  */
-error_reporting(0);
-ini_set('display_errors', 0);
+error_reporting(E_ALL ^ E_DEPRECATED);
+ini_set('display_errors', 1);
 /**
  * Version check.
  */
@@ -119,8 +120,12 @@ $GLOBALS['sys']['theme_web_dir'] = $GLOBALS['sys']['web_dir'].'/theme/'.$GLOBALS
 $GLOBALS['sys']['theme_data_web_dir'] = $GLOBALS['sys']['web_dir'].'/data/theme/'.$GLOBALS['sys']['theme'];
 $GLOBALS['sys']['theme_data_dir'] = dirname($GLOBALS['sys']['web_dir']).'/data/theme/'.$GLOBALS['sys']['theme'];
 date_default_timezone_set(wfArray::get($GLOBALS, 'sys/timezone'));
-eval('error_reporting('.wfArray::get($GLOBALS, 'sys/error_reporting').');');
-ini_set('display_errors', wfArray::get($GLOBALS, 'sys/display_errors'));
+if(wfArray::get($GLOBALS, 'sys/error_reporting')){
+  eval('error_reporting('.wfArray::get($GLOBALS, 'sys/error_reporting').');');
+}
+if(wfArray::get($GLOBALS, 'sys/display_errors')){
+  ini_set('display_errors', wfArray::get($GLOBALS, 'sys/display_errors'));
+}
 $GLOBALS['sys']['class'] = null;
 $GLOBALS['sys']['method'] = null;
 /**
