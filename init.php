@@ -52,6 +52,7 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfDate.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfI18n.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfGlobals.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
+include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfConfig.class.php";
 wfEvent::run('sys_start');
 /**
  * Load ini settings from /config/settings.yml for a specific host.
