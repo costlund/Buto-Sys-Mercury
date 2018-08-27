@@ -369,7 +369,9 @@ class wfDocument {
           $innerHTML = wfSettings::getSettingsFromMethod($innerHTML);
         }
         if(!is_array($innerHTML)){
-          $innerHTML = wfEvent::run('document_render_string', $innerHTML);
+          if(!in_array($element['type'], array('script', 'style'))){
+            $innerHTML = wfEvent::run('document_render_string', $innerHTML);
+          }
           echo $innerHTML;
         }else{
           wfDocument::renderElement($innerHTML);
