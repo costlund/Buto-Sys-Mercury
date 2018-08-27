@@ -85,51 +85,6 @@ class wfHelp {
       return wfHelp::echoecho('Hello world.', true);
   }
   /**
-   * Detect screen setting in cookie or user agent.
-   * @return string
-   */
-  public static function detectScreen(){
-      if(isset($_COOKIE['screen'])){
-          if($_COOKIE['screen']=='mobile'){
-              return 'mobile';
-          }else{
-              return 'pc';
-          }
-      }else{
-        if(strstr($_SERVER['HTTP_USER_AGENT'], 'Android') || strstr($_SERVER['HTTP_USER_AGENT'], 'iPhone')){
-            return 'mobile';
-        }else{
-            return 'pc';
-        }
-      }
-  }
-  /**
-   * Detect screen via cookie.
-   * @return string
-   */
-  public static function detectScreenViaCookie(){
-      if(isset($_COOKIE['screen'])){
-          if($_COOKIE['screen']=='mobile'){
-              return 'mobile';
-          }else{
-              return 'pc';
-          }
-      }else{
-        return null;
-      }
-  }
-  /**
-   * Detect screen via user agent.
-   * @return string
-   */
-  public static function detectScreenViaBrowser(){
-    if(strstr($_SERVER['HTTP_USER_AGENT'], 'Android') || strstr($_SERVER['HTTP_USER_AGENT'], 'iPhone')){
-        return 'mobile';
-    }else{
-        return 'pc';
-    }
-  }
-  /**
    * Check if boolean or array.
    * @param type $s
    * @return string

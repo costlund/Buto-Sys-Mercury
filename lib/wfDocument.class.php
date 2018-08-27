@@ -222,7 +222,6 @@ class wfDocument {
         }
       }
     }
-    if(isset($element['settings']['target']) && $element['settings']['target']!=wfHelp::detectScreen()){return false;}
     if(isset($element['settings']['security'])){
       $ok = false;
       $user_security = wfUser::getSecurity();
@@ -345,7 +344,6 @@ class wfDocument {
         }
         return true;
       }
-      if(isset($element['target']) && $element['target']!=wfHelp::detectScreen()){return false;}
       echo str_repeat(" ", $i*2)."<".$element['type'];
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
@@ -424,7 +422,6 @@ class wfDocument {
     if(isset($element['disabled']) && $element['disabled']){return null;}
     if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
-    if(isset($element['target']) && $element['target']!=wfHelp::detectScreen()){return null;}
     if(array_search($element['type'], $this->element_one_tag)===false){
       echo "</".$element['type'].">\n";
       $checkLoad = wfDocument::checkLoad($element);
