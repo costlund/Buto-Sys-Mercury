@@ -209,6 +209,11 @@ class wfDocument {
      */
     if(isset($element['settings']['disabled']) && $element['settings']['disabled']){return false;}
     /**
+     * Enabled (also check for enable parameter and do the opposite).
+     * settings/enabled
+     */
+    if(!wfDocument::isElementEnabled($element)){return false;}
+    /**
      * settings/i18n/language
      */
     if(isset($element['settings']['i18n']['language'])){
@@ -382,6 +387,20 @@ class wfDocument {
     return true;
   }
   /**
+   * 
+   */
+  private static function isElementEnabled($element){
+    if(isset($element['settings']) && array_key_exists('enabled', $element['settings'])){
+      if(!$element['settings']['enabled']){
+        return false;
+      }else{
+        return true;
+      }
+    }else{
+      return true;
+    }
+  }
+  /**
    * Handle output.
    * @param type $value
    * @return string
@@ -422,6 +441,7 @@ class wfDocument {
    */
   private function renderEndTag($element, $i){
     if(isset($element['disabled']) && $element['disabled']){return null;}
+    if(!wfDocument::isElementEnabled($element)){return null;}
     if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
     if(array_search($element['type'], $this->element_one_tag)===false){
