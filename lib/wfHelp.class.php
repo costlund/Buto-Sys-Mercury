@@ -48,6 +48,25 @@ class wfHelp {
       }
   }
   /**
+   * Dump data in a textarea.
+   * @param type $data
+   * @param Boolean $exit
+   */
+  public static function textarea_dump($data, $exit = false){
+    if(wfHelp::isLocalhost()){
+      if(gettype($data)=='object'){
+        $data = sfYaml::dump($data->get(), 99);
+      }elseif(gettype($data)=='array'){
+        $data = sfYaml::dump($data, 99);
+      }
+      $textarea = wfDocument::createHtmlElement('textarea', $data, array('style' => 'width:100%;height:300px'));
+      wfDocument::renderElement(array($textarea));
+      if($exit){
+        exit();          
+      }
+    }
+  }
+  /**
    * Get an array as yml data.
    * @param type $arr
    * @param type $show_for_all
