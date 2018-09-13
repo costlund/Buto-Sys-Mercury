@@ -992,7 +992,7 @@ class wfDocument {
     if(!$settings->get('admin_layout')){
       return $page;
     }
-    $file = wfGlobals::getAppDir().$settings->get('admin_layout');
+    $file = wfGlobals::getAppDir(). wfSettings::replaceDir($settings->get('admin_layout'));
     if(wfFilesystem::fileExist($file)){
       $page->set('settings/layout', wfArray::insertToPosition($position, $page->get('settings/layout'), $file));
       return $page;
