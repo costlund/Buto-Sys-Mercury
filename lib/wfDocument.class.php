@@ -207,7 +207,7 @@ class wfDocument {
      * settings/disabled
      * Element should not be rendered if settings/disabled is set and true.
      */
-    if(isset($element['settings']['disabled']) && $element['settings']['disabled']){return false;}
+    if(wfDocument::isElementDisabled($element)){return false;}
     /**
      * Enabled (also check for enable parameter and do the opposite).
      * settings/enabled
@@ -387,7 +387,21 @@ class wfDocument {
     return true;
   }
   /**
-   * 
+   * Check if element should be disabled.
+   */
+  private static function isElementDisabled($element){
+    if(isset($element['settings']) && array_key_exists('disabled', $element['settings'])){
+      if($element['settings']['disabled']){
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
+  /**
+   * Check if element should be enabled.
    */
   private static function isElementEnabled($element){
     if(isset($element['settings']) && array_key_exists('enabled', $element['settings'])){
@@ -440,7 +454,7 @@ class wfDocument {
    * @throws Exception
    */
   private function renderEndTag($element, $i){
-    if(isset($element['disabled']) && $element['disabled']){return null;}
+    if(wfDocument::isElementDisabled($element)){return null;}
     if(!wfDocument::isElementEnabled($element)){return null;}
     if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
