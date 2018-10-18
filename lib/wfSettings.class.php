@@ -424,12 +424,21 @@ class wfSettings {
    * @return string
    */
   public static function getGlobalsFromString($str){
-    if($str == 'globals:sys/plugin_wf_webadmin/menu'){
-      //exit($str);
-    }
     if(substr($str, 0, 8)=='globals:'){
       $temp = preg_split('/:/', $str);
       $str = wfArray::get($GLOBALS, $temp[1]);
+    }
+    return $str;
+  }
+  /**
+   * Get server from string.
+   * @param string $str
+   * @return string
+   */
+  public static function getServerFromString($str){
+    if(substr($str, 0, 7)=='server:'){
+      $temp = preg_split('/:/', $str);
+      $str = wfArray::get($_SERVER, $temp[1]);
     }
     return $str;
   }

@@ -280,6 +280,7 @@ class wfDocument {
       return false;
     }
     $element = self::checkGlobals($element);
+    $element = self::checkServer($element);
     // Special for tag A.
     if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#!';}
     if($element['type']=='a'){
@@ -353,6 +354,7 @@ class wfDocument {
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
           $value = wfSettings::getGlobalsFromString($value);
+          $value = wfSettings::getServerFromString($value);
           $value = wfSettings::getSettingsFromYmlString($value);
           if(isset($element['settings']['method']) && $element['settings']['method']){
             $value = wfSettings::getSettingsFromMethod($value);
@@ -478,6 +480,12 @@ class wfDocument {
   private static function checkGlobals($array){
     if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
       $array['innerHTML'] = wfSettings::getGlobalsFromString($array['innerHTML']);
+    }
+    return $array;
+  }
+  private static function checkServer($array){
+    if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
+      $array['innerHTML'] = wfSettings::getServerFromString($array['innerHTML']);
     }
     return $array;
   }
