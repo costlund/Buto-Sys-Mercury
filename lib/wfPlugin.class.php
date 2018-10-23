@@ -99,24 +99,26 @@ class wfPlugin {
   public static function enable($plugin){
     $GLOBALS = wfArray::set($GLOBALS, "sys/settings/plugin/$plugin/enabled", true);
   }
-  
   /**
    * Get plugin settings from theme settings.yml param plugin.
    * @param string $plugin
-   * @return array
+   * @param boolean $as_object
+   * @param array $default Default values.
+   * @return array\PluginWfArray
    */
-  public static function getPluginSettings($plugin, $as_object = false){
+  public static function getPluginSettings($plugin, $as_object = false, $default = array()){
     if(wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin)){
+      $settings = wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin);
+      $settings = array_merge($default, $settings);
       if(!$as_object){
-        return wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin);
+        return $settings;
       }else{
         wfPlugin::includeonce('wf/array');
-        return new PluginWfArray(wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin));
+        return new PluginWfArray($settings);
       }
     }else{
       return null;
     }
-    
   }
   public static function to_camel_case($str, $capitalise_first_char = false) {
     if($capitalise_first_char) {
