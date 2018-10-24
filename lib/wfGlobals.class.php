@@ -21,6 +21,13 @@ class wfGlobals{
     return microtime(true) - wfGlobals::get('microtime/start');
   }
   public static function getWebDir()            {return wfGlobals::get('web_dir');}
+  /**
+   * Get web folder from web_dir.
+   * @return string
+   */
+  public static function getWebFolder()         {
+    return substr(wfGlobals::get('web_dir'), strlen(dirname(wfGlobals::get('web_dir')))+1);
+  }
   public static function getAppDir()            {return wfGlobals::get('app_dir');}
   public static function getSysDir()            {return wfGlobals::get('sys_dir');}
   public static function getThemeDataWebDir()   {return wfGlobals::get('theme_data_web_dir');}
