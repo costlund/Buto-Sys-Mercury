@@ -5,7 +5,14 @@ class wfRequest {
    * @return Array Get and Post variables merged.
    */
   public static function getAll(){
-    return array_merge($_GET, $_POST);
+    $all = array();
+    foreach ($_GET as $key => $value) {
+      $all[$key] = wfRequest::get($key);
+    }
+    foreach ($_POST as $key => $value) {
+      $all[$key] = wfRequest::get($key);
+    }
+    return $all;
   }
   public static function get($param, $if_not_set = null){
     $return = null;
