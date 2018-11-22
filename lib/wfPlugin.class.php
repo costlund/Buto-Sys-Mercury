@@ -63,7 +63,7 @@ class wfPlugin {
    * Include plugin.
    */
   public static function includeonce($plugin){
-    $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin, true).'.php';
+    $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin).'.php';
     if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file)){
       /**
        * New name roule PluginOrgName.php.
@@ -84,7 +84,7 @@ class wfPlugin {
    * Plugin exist.
    */
   public static function plugin_file_exist($plugin){
-    $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin, true).'.php';
+    $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin).'.php';
     if(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/'.$plugin_action_file)){
       return true;
     }elseif(file_exists(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php')){
@@ -120,12 +120,18 @@ class wfPlugin {
       return null;
     }
   }
-  public static function to_camel_case($str, $capitalise_first_char = false) {
-    if($capitalise_first_char) {
-      $str[0] = strtoupper($str[0]);
-    }
-    $func = create_function('$c', 'return strtoupper($c[1]);'); //PHP version 7.1.12 but not 7.2.1?
-    return preg_replace_callback('/\/([a-z])/', $func, $str);
+  /**
+   * Camelcase plugin name with no slash.
+   * Example wf/doc to WfDoc.
+   * @param string $str
+   * @return string
+   */
+  public static function to_camel_case($str) {
+    $a = preg_split("#/#", $str);
+    $a[0] = ucfirst($a[0]);
+    $a[1] = ucfirst($a[1]);
+    $r = $a[0].$a[1];
+    return $r;
   }
   /**
    * Set flash.
