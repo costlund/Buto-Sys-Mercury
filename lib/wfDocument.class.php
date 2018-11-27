@@ -351,14 +351,14 @@ class wfDocument {
         return true;
       }
       echo str_repeat(" ", $i*2)."<".$element['type'];
-      
       $document_render_string = true;
-      if(isset($element['settings']['event']['document_render_string']['disabled']) && $element['settings']['event']['document_render_string']['disabled']==true){
+      if(isset($element['settings']['i18n']) && $element['settings']['i18n']===false){
+        $document_render_string = false;
+      }elseif(isset($element['settings']['event']['document_render_string']['disabled']) && $element['settings']['event']['document_render_string']['disabled']==true){
         $document_render_string = false;
       }elseif(in_array($element['type'], array('meta', 'script'))){
         $document_render_string = false;
       }
-      
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
           $value = wfSettings::getGlobalsFromString($value);
