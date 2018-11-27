@@ -1,0 +1,9 @@
+version: '2.1'
+history:
+  '2.1':
+    date: '2018-11-27'
+    description: 'Update wfArray set method.'
+  '2.0.2':
+    date: ''
+    description: ''
+  

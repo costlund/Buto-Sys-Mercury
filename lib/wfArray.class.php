@@ -163,18 +163,32 @@ class wfArray {
     return $return;
   }
   /**
-   * 
-   * @param type $array
-   * @param string $path_to_key
-   * @param type $value
-   * @return type
+   * Set array.
+   * @param array $array
+   * @param string $path_to_key To insert a slash one could send in %slash%.
+   * @param string/array $value
+   * @return array
    */
   public static function set($array, $path_to_key, $value){
+    /**
+     * Remove slash and add brackets.
+     */
     $path_to_key = "['".str_replace('/', "']['", $path_to_key)."']";
+    /**
+     * Remove empty strings.
+     */
     $path_to_key = str_replace("['']", "[]", $path_to_key);
-
-    
+    /**
+     * Replace slash.
+     */
+    $path_to_key = str_replace("%slash%", "/", $path_to_key);
+    /**
+     * Set value.
+     */
     eval("\$array$path_to_key = \$value;");
+    /**
+     * Return.
+     */
     return $array;
   }
   public static function setUnset($array, $path_to_key){

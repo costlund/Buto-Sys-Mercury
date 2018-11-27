@@ -351,6 +351,14 @@ class wfDocument {
         return true;
       }
       echo str_repeat(" ", $i*2)."<".$element['type'];
+      
+      $document_render_string = true;
+      if(isset($element['settings']['event']['document_render_string']['disabled']) && $element['settings']['event']['document_render_string']['disabled']==true){
+        $document_render_string = false;
+      }elseif(in_array($element['type'], array('meta', 'script'))){
+        $document_render_string = false;
+      }
+      
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
           $value = wfSettings::getGlobalsFromString($value);
@@ -360,7 +368,7 @@ class wfDocument {
             $value = wfSettings::getSettingsFromMethod($value);
           }
           $value = self::handleOutput($value);
-          if($attribute == 'content'  || $attribute == 'lang'){
+          if(($attribute == 'content'  || $attribute == 'lang') && $document_render_string){
             $value = wfEvent::run('document_render_string', $value);
           }
           echo ' '.$attribute.'="'.$value.'"';
@@ -376,7 +384,7 @@ class wfDocument {
           $innerHTML = wfSettings::getSettingsFromMethod($innerHTML);
         }
         if(!is_array($innerHTML)){
-          if(!in_array($element['type'], array('script', 'style'))){
+          if(!in_array($element['type'], array('script', 'style')) && $document_render_string){
             $innerHTML = wfEvent::run('document_render_string', $innerHTML);
           }
           echo $innerHTML;
