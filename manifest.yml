@@ -1,5 +1,8 @@
-version: '2.2'
+version: '2.3'
 history:
+  '2.3':
+    date: '2018-11-28'
+    description: 'Add dump method in wfHelp.'
   '2.2':
     date: '2018-11-27'
     description: 'It is now possible to discard translation by param settings/i18n=true for an element.'

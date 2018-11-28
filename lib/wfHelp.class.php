@@ -67,6 +67,25 @@ class wfHelp {
     }
   }
   /**
+   * Dump value into pre element if localhost.
+   * @param string/object/array $value
+   * @param bool $exit If exit in code.
+   */
+  public static function dump($value, $exit = false){
+    if(wfHelp::isLocalhost()){
+      if(gettype($value)=='object'){
+        $value = sfYaml::dump($value->get(), 99);
+      }elseif(gettype($value)=='array'){
+        $value = wfHelp::getYmlDump($value);
+      }
+      $element = wfDocument::createHtmlElement('pre', $value);
+      wfDocument::renderElement(array($element));
+      if($exit){
+        exit();          
+      }
+    }
+  }
+  /**
    * Get an array as yml data.
    * @param type $arr
    * @param type $show_for_all
