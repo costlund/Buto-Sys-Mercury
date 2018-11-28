@@ -1,5 +1,8 @@
-version: '2.3'
+version: '2.4'
 history:
+  '2.4':
+    date: '2018-11-28'
+    description: 'Add method set in wfRequest.'
   '2.3':
     date: '2018-11-28'
     description: 'Add dump method in wfHelp.'
