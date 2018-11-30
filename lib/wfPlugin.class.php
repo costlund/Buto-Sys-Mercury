@@ -243,6 +243,19 @@ class wfPlugin {
     }
     return $plugins;
   }
+  public static function event_remove($name, $plugin){
+    $g = new PluginWfArray($GLOBALS);
+    $events = $g->get("sys/settings/events/$name");
+    if($events){
+      foreach ($events as $key => $value) {
+        if($value['plugin']==$plugin){
+          $g->setUnset("sys/settings/events/$name/$key");
+        }
+      }
+      $GLOBALS = $g->get();
+    }
+    return null;
+  }
 }
 
 ?>

@@ -1,5 +1,8 @@
-version: '2.4'
+version: '2.5'
 history:
+  '2.5':
+    date: '2018-11-30'
+    description: 'Add method event_remove in wfPlugin to be able to remove i18n in plugin modules.'
   '2.4':
     date: '2018-11-28'
     description: 'Add method set in wfRequest.'
