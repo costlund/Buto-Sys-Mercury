@@ -415,7 +415,7 @@ class wfDocument {
    */
   private static function isElementEnabled($element){
     if(isset($element['settings']) && array_key_exists('enabled', $element['settings'])){
-      if(!$element['settings']['enabled']){
+      if(!$element['settings']['enabled'] || $element['settings']['enabled']=='null'){
         return false;
       }else{
         return true;

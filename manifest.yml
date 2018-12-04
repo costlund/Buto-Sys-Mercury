@@ -1,5 +1,8 @@
-version: '2.5'
+version: '2.5.1'
 history:
+  '2.5.1':
+    date: '2018-12-04'
+    description: 'Improvement in method wfDocument.isElementEnabled.'
   '2.5':
     date: '2018-11-30'
     description: 'Add method event_remove in wfPlugin to be able to remove i18n in plugin modules.'
