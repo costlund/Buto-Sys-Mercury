@@ -1,5 +1,8 @@
-version: '2.5.1'
+version: '2.5.2'
 history:
+  '2.5.2':
+    date: '2018-12-06'
+    description: 'Bug in method wfDocument.isElementEnabled.'
   '2.5.1':
     date: '2018-12-04'
     description: 'Improvement in method wfDocument.isElementEnabled.'
