@@ -321,17 +321,7 @@ class wfDocument {
       }
       $obj->$method($data);
     }elseif(substr($element['type'], 0, 3)=='wf_'){
-      if($element['type'] == 'wf_method'){
-        $data = $element['data'];
-        throw new Exception('type=wf_method is not longer in use ('.$data['plugin'].', '.$data['method'].').');
-      }else{
-        if(isset($element['data'])){
-          wfComp::get('layout', str_replace('wf_', '', $element['type']), $element['data']);
-        }else{
-          wfComp::get('layout', str_replace('wf_', '', $element['type']));
-        }
-        return true;
-      }
+      throw new Exception('type=wf_* is not longer in use ('.$data['plugin'].', '.$data['method'].') (190110).');
     }  else {
       if($element['type']=='text'){
         if(isset($element['text'])){

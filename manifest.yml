@@ -1,5 +1,8 @@
-version: '2.5.2'
+version: '2.5.3'
 history:
+  '2.5.3':
+    date: '2019-01-10'
+    description: 'Removed deprecated code.'
   '2.5.2':
     date: '2018-12-06'
     description: 'Bug in method wfDocument.isElementEnabled.'
