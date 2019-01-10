@@ -265,10 +265,16 @@ class wfDocument {
    * @throws Exception
    */
   private function renderStartTag($element, $i){
+    /**
+     * Event.
+     */
     $element = wfEvent::run('document_render_element', $element);
     if(!$element){
       return false;
     }
+    /**
+     * Validate.
+     */
     $allowed_keys = array('text', 'data', 'type', 'innerHTML', 'attribute', 'settings', 'code');
     foreach ($element as $key => $value) {
       if(!in_array($key, $allowed_keys) && !strstr($key, 'zzz')){ // zzz is WF developers method to set things in sleep :-)
@@ -279,25 +285,45 @@ class wfDocument {
     if(!wfDocument::validateSettings($element)){
       return false;
     }
+    /**
+     * Set values.
+     */
     $element = self::checkGlobals($element);
     $element = self::checkServer($element);
-    // Special for tag A.
-    if($element['type']=='a' && !isset($element['attribute']['href'])){$element['attribute']['href']='#!';}
+    /**
+     * Special for tag A.
+     */
+    if($element['type']=='a' && !isset($element['attribute']['href'])){
+      $element['attribute']['href']='#!';
+    }
     if($element['type']=='a'){
       $element['attribute']['href'] = wfSettings::getSettingsFromYmlString($element['attribute']['href']);
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
-    // Replace attribute/src [theme].
+    /**
+     * Replace attribute/src [theme] in attribute/(src/style).
+     */
     if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
     if(isset($element['attribute']['style'])){$element['attribute']['style'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
-    // Replace innerHTML [[class]]
+    /**
+     * Replace innerHTML [[class]] for special usage to pick up from javascript.
+     */
     if(wfArray::isKey($element, 'innerHTML')){
       $element['innerHTML'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
     }
+    /**
+     * Replace [theme] in attribute/href.
+     */
     if(isset($element['attribute']['href'])){
       $element['attribute']['href'] = wfSettings::replaceTheme($element['attribute']['href']);
     }
+    /**
+     * Widget or Element.
+     */
     if($element['type']=='widget'){
+      /**
+       * Widget.
+       */
       $data = $element['data'];
       /**
        * Set widget in Globals.
@@ -323,6 +349,9 @@ class wfDocument {
     }elseif(substr($element['type'], 0, 3)=='wf_'){
       throw new Exception('type=wf_* is not longer in use ('.$data['plugin'].', '.$data['method'].') (190110).');
     }  else {
+      /**
+       * Element.
+       */
       if($element['type']=='text'){
         if(isset($element['text'])){
           echo $element['text']."\n"; 

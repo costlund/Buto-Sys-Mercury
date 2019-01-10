@@ -1,5 +1,8 @@
-version: '2.5.3'
+version: '2.5.4'
 history:
+  '2.5.4':
+    date: '2019-01-10'
+    description: 'Code documentation.'
   '2.5.3':
     date: '2019-01-10'
     description: 'Removed deprecated code.'
