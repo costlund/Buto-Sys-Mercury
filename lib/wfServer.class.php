@@ -40,7 +40,9 @@ class wfServer{
   public static function getRequestTimeFloat()            {return wfServer::get('REQUEST_TIME_FLOAT');}
   public static function getRequestTime()                 {return wfServer::get('REQUEST_TIME');}
   public static function calcProtocol(){
-    if(strstr(strtolower(wfServer::getServerPotocol()), 'https')){
+    if(wfServer::get('HTTPS')=='on'){
+      return 'https';
+    }elseif(strstr(strtolower(wfServer::getServerPotocol()), 'https')){
       return 'https';
     }else{
       return 'http';
