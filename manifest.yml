@@ -1,5 +1,8 @@
-version: '2.5.4'
+version: '2.5.5'
 history:
+  '2.5.5':
+    date: '2019-01-23'
+    description: 'Bug in method wfServer::calcProtocol.'
   '2.5.4':
     date: '2019-01-10'
     description: 'Code documentation.'
