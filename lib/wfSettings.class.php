@@ -28,6 +28,23 @@ class wfSettings {
         $array = wfArray::set($array, '_rewrite', wfArray::get($array, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite'));
       }
       $array = wfArray::rewrite($array);
+      /**
+       * http_user_agent rewrite.
+       */
+      if(wfArray::isKey($array, 'http_user_agent')){
+        $item = wfArray::get($array, 'http_user_agent');
+        foreach ($item as $key => $value) {
+          if(wfSettings::match_wildcard($key, wfArray::get($_SERVER, 'HTTP_USER_AGENT'))){
+            if(wfArray::isKey($array, 'http_user_agent/'.$key.'/rewrite')){
+              $array = wfArray::set($array, '_rewrite', wfArray::get($array, 'http_user_agent/'.$key.'/rewrite'));
+              $array = wfArray::rewrite($array);
+            }
+          }
+        }
+      }
+      /**
+       * 
+       */
       foreach ($array as $key => $value) {
         $GLOBALS['sys'][$key] = $value;
       }
@@ -37,6 +54,17 @@ class wfSettings {
     if(isset($_SESSION['theme'])){
       $GLOBALS['sys']['theme'] = $_SESSION['theme'];
     }
+  }
+  /**
+   * Find in string with wildcards *.
+   * Example find if "*chrome*" is in string "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36".
+   * @param string $sw
+   * @param string $haystack
+   * @return int 0 if no match and <0 if match.
+   */
+  public static function match_wildcard($sw, $haystack){
+     $regex = str_replace(array("\*", "\?"), array('.*','.'), preg_quote($sw));
+     return preg_match('#^'.$regex.'$#is', $haystack);
   }
   /**
    * Not in use?

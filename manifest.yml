@@ -1,5 +1,8 @@
-version: '2.5.4'
+version: '2.6'
 history:
+  '2.6':
+    date: '2019-01-23'
+    description: 'Rewrite config settings on HTTP_USER_AGENT.'
   '2.5.4':
     date: '2019-01-10'
     description: 'Code documentation.'
