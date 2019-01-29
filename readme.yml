@@ -1,0 +1,105 @@
+readme:
+  name: Buto-Sys-Mercury
+  description: |
+    Mercury is a Buto system software. 
+    It runs on any server supporting PHP. 
+    It has no dependencies like any type of database. 
+    The main configuration of a Buto system is done with yml files.
+    Only 22 files with .php extension for the hole framework.
+    HTML code is done with yml in the exact same way but with the benefit to add extra Buto system params.
+  item:
+    -
+      name: Theme
+      description: |
+        Buto can have multiple themes. But in most cases there is only one involved when an application is in production.
+    -
+      name: Plugin
+      description: |
+        Plugins can have one or many of this purposes. A theme must make use of at least one plugin to work properly.
+        - Widgets
+        - Pages
+        - Events
+        - Methods
+        
+        Some plugins are like a complete application. And some are designed just to include a javascript file with a widget.
+      item:
+        -
+          name: Widgets
+          description: A widget should be some HTML element on a page.
+        -
+          name: Pages
+          description: A page where there could be layout pages involved. 
+        -
+          name: Events
+          description: Buto system or plugins can fire events. 
+        -
+          name: Methods
+          description: Methods used from other plugins. 
+    -
+      name: Application dir
+      description: |
+        Application dir contains this folders.
+        - config
+        - plugin
+        - sys
+        - theme
+        - public_html
+    -
+      name: Folders
+      description: Folder descriptions.
+      item:
+        -
+          name: config
+          description: Must have system settings file settings.yml.
+        -
+          name: plugin
+          description: |
+            Plugins is stored in two folder levels. In first level there should only be folders. In second level there is plugin data files.
+        -
+          name: sys
+          description: |
+            Buto system folder.
+        -
+          name: theme
+          description: |
+            Themes is stored in two folder levels. In first level there should only be folders. In second level there is theme data files.
+        -
+          name: public_html
+          description: |
+            Web root folder. One should point your web server Apache/IIS to this folder. This folder can have any name.
+    -
+      name: System settings
+      description: File /config/settings.yml tells Buto which theme to render along with a few params.
+      item:
+        -
+          name: Theme
+          description: |
+            The file must contain this settings. This theme has location /theme/my/theme.
+            ```
+            theme: my/theme
+            timezone: Europe/Paris
+            ```
+        -
+          name: Rewrite
+          description: |
+            It is possible to rewrite data depending on user agent.
+          item:
+            -
+              name: HTTP_USER_AGENT
+              description: |
+                One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.
+                ```
+                theme: my/theme
+                http_user_agent:
+                  '*chrome*':
+                    rewrite:
+                      set:
+                        -
+                          path_to_key: theme
+                          value: my/next_theme
+                ```
+                Now it should be like this.
+                ```
+                theme: my/next_theme
+                ```
+        
