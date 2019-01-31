@@ -78,8 +78,9 @@ class wfHelp {
       }elseif(gettype($value)=='array'){
         $value = wfHelp::getYmlDump($value);
       }
-      $element = wfDocument::createHtmlElement('pre', $value);
-      wfDocument::renderElement(array($element));
+      echo "\n".'<pre>'."\n";
+      echo sfYaml::dump($value, 99);      
+      echo '</pre>'."\n";
       if($exit){
         exit();          
       }
