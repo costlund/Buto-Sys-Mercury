@@ -1,8 +1,6 @@
 <?php
 class wfFilesystem {
-  
-  
-  public static function getTemplate($module, $file){
+  public static function getTemplate($module, $file){ // Should be removed 190201.
     if(file_exists("../a/module/$module/templates/$file")){
       $file = "../a/module/$module/templates/$file";
     }elseif(file_exists("../b/module/$module/templates/$file")){
@@ -12,7 +10,7 @@ class wfFilesystem {
     }
     return ($file);
   }
-  public static function getLayout($file){
+  public static function getLayout($file){ // Should be removed 190201.
     if(file_exists("../a/layout/templates/$file")){
       $file = "../a/layout/templates/$file";
     }elseif(file_exists("../b/layout/templates/$file")){
@@ -22,14 +20,15 @@ class wfFilesystem {
     }
     return ($file);
   }
-  
+  /**
+   * Delete file.
+   * @param string $file From system root.
+   * @return bool
+   */
   public static function delete($file){
     return unlink($file);
   }
-  
-  //include_once "../app/".strtolower($class)."/component.class.php";
-  
-  public static function getCompClass($module){
+  public static function getCompClass($module){ // Should be removed 190201.
     if(file_exists("../a/module/$module/component.class.php")){
       $file = "../a/module/$module/component.class.php";
     }elseif(file_exists("../b/module/$module/component.class.php")){
@@ -39,7 +38,7 @@ class wfFilesystem {
     }
     return ($file);
   }
-  public static function getLayoutCompClass(){
+  public static function getLayoutCompClass(){ // Should be removed 190201.
     if(file_exists("../a/layout/component.class.php")){
       $file = "../a/layout/component.class.php";
     }elseif(file_exists("../b/layout/component.class.php")){
@@ -49,7 +48,7 @@ class wfFilesystem {
     }
     return ($file);
   }
-  public static function getCompTemplate($module, $file){
+  public static function getCompTemplate($module, $file){ // Should be removed 190201.
     if(file_exists("../a/module/$module/comp/$file")){
       $file = "../a/module/$module/comp/$file";
     }elseif(file_exists("../b/module/$module/comp/$file")){
@@ -59,7 +58,7 @@ class wfFilesystem {
     }
     return ($file);
   }
-  public static function getLayoutCompTemplate($file){
+  public static function getLayoutCompTemplate($file){ // Should be removed 190201.
     if(file_exists("../a/layout/comp/$file")){
       $file = "../a/layout/comp/$file";
     }elseif(file_exists("../b/layout/comp/$file")){
@@ -69,7 +68,11 @@ class wfFilesystem {
     }
     return ($file);
   }
-  
+  /**
+   * Get textfile to array per line break.
+   * @param string $file From system root.
+   * @return array
+   */
   public static function getTextfileToArray($file){
     $table = array();
     if(file_exists($file)){
@@ -81,7 +84,12 @@ class wfFilesystem {
     }
     return $table;
   }
-  
+  /**
+   * Get file contents.
+   * @param string $filename
+   * @param bool $root
+   * @return string
+   */
   public static function getContents($filename, $root = false){
     if($root){
       return file_get_contents($filename);
@@ -89,7 +97,9 @@ class wfFilesystem {
       return file_get_contents(wfSettings::getAppDir().$filename);
     }
   }
-  
+  /**
+   * 
+   */
   public static function getContent($url, $file, $filetime_reload){
     $reload = false;
     if(file_exists($file)){
@@ -99,7 +109,6 @@ class wfFilesystem {
     }else{
       $reload = true;
     }
-
     if($reload){
         $content = file_get_contents($url);
         file_put_contents($file, $content);
@@ -108,7 +117,6 @@ class wfFilesystem {
     }
     return $content;
   }
-  
   /**
    * Get files from a folder. Optional to include extensions.
    * Include root dir.
@@ -140,11 +148,24 @@ class wfFilesystem {
     }
     return $array;
   }
-  
   public static function createDir($dir){
     if(!file_exists($dir)){
       return mkdir($dir);
     }
+    return null;
+  }
+  /**
+   * Create file along with folders if not exist.
+   * @param string $filename From system root.
+   * @param string $content
+   * @return null
+   */
+  public static function createFile($filename, $content){
+    $dirname = dirname($filename);
+    if(!wfFilesystem::fileExist($dirname)){
+      mkdir($dirname, 0777, true);
+    }
+    file_put_contents($filename, $content);
     return null;
   }
   public static function copyFile($source, $dest){
@@ -157,7 +178,6 @@ class wfFilesystem {
       return $dir;
     }
   }
-  
   /**
    * Gets file modification time.
    * @param string $dir
@@ -182,20 +202,13 @@ class wfFilesystem {
       return 0;
     }
   }
-  
-  
   public static function saveFile($path_to_file, $text, $append = false){
-//    if(file_exists($path_to_file)){//
-//      file_put_contents($path_to_file, $text, FILE_APPEND);
-//    }else{
-//    }
     if(!$append){
       file_put_contents($path_to_file, $text);
     }else{
       file_put_contents($path_to_file, $text, FILE_APPEND);
     }
   }
-  
   /**
    * Check if a file or dir exist.
    * @param type $filename
@@ -203,12 +216,7 @@ class wfFilesystem {
    */
   public static function fileExist($filename){
     return file_exists(wfSettings::replaceTheme($filename));
-//    if($root){
-//    }  else {
-//      return file_exists(wfSettings::getAppDir(). $filename);
-//    }
   }
-  
   /**
    * Load array from .yml file.
    * @param string $filename Path to file.
@@ -302,7 +310,4 @@ class wfFilesystem {
     }
     return $settings;
   }
-  
 }
-
-?>
