@@ -1,5 +1,8 @@
-version: '2.6'
+version: '2.7'
 history:
+  '2.7':
+    date: '2019-02-04'
+    description: 'Improved method wfFilesystem::copyFile.'
   '2.6':
     date: '2019-01-23'
     description: 'Rewrite config settings on HTTP_USER_AGENT.'

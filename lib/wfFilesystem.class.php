@@ -168,7 +168,17 @@ class wfFilesystem {
     file_put_contents($filename, $content);
     return null;
   }
+  /**
+   * Copy file along with folders if not exist.
+   * @param string $source
+   * @param string $dest
+   * @return bool
+   */
   public static function copyFile($source, $dest){
+    $dirname = dirname($dest);
+    if(!wfFilesystem::fileExist($dirname)){
+      mkdir($dirname, 0777, true);
+    }
     return copy($source, $dest);
   }
   public static function getCreatedAt($dir){
