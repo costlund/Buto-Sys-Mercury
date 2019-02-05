@@ -5,6 +5,21 @@ class wfDocument {
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
   private $element_one_line = array('script', 'h1');
   /**
+   * Set to 1 if capture html in content param and also render.
+   * Set to 2 if capture html in content param only and NOT render.
+   */
+  public static $capture = null;
+  private static $content = null;
+  /**
+   * Get content and reset capture and content.
+   */
+  public static function getContent(){
+    $str = wfDocument::$content;
+    wfDocument::$capture = null;
+    wfDocument::$content = null;
+    return $str;
+  }
+  /**
    * Role validate.
    * @param type $element
    * @return boolean
@@ -354,22 +369,22 @@ class wfDocument {
        */
       if($element['type']=='text'){
         if(isset($element['text'])){
-          echo $element['text']."\n"; 
+          $this->_echo_($element['text']."\n"); 
         }elseif(isset($element['innerHTML'])){
           if(substr($element['innerHTML'], 0, 4)=='yml:'){
             $temp = self::ymlFromInnerHtml($element['innerHTML']);
             if(!is_array($temp)){
-              echo $temp;
+              $this->_echo_($temp);
             }else{
               wfDocument::renderElement($temp);
             }
           }  else {
-            echo $element['innerHTML'];
+            $this->_echo_($element['innerHTML']);
           }
         }
         return true;
       }
-      echo str_repeat(" ", $i*2)."<".$element['type'];
+      $this->_echo_(str_repeat(" ", $i*2)."<".$element['type']);
       $document_render_string = true;
       if(isset($element['settings']['i18n']) && $element['settings']['i18n']===false){
         $document_render_string = false;
@@ -390,10 +405,10 @@ class wfDocument {
           if(($attribute == 'content'  || $attribute == 'lang') && $document_render_string){
             $value = wfEvent::run('document_render_string', $value);
           }
-          echo ' '.$attribute.'="'.$value.'"';
+          $this->_echo_(' '.$attribute.'="'.$value.'"');
         }
       }
-      echo ">";
+      $this->_echo_(">");
       if(isset($element['innerHTML']) && !is_array($element['innerHTML'])){
         $innerHTML = $element['innerHTML'];
         $innerHTML = wfSettings::replaceTheme($innerHTML);
@@ -406,14 +421,25 @@ class wfDocument {
           if(!in_array($element['type'], array('script', 'style')) && $document_render_string){
             $innerHTML = wfEvent::run('document_render_string', $innerHTML);
           }
-          echo $innerHTML;
+          $this->_echo_($innerHTML);
         }else{
           wfDocument::renderElement($innerHTML);
         }
       }
-      if(isset($element['code']))     {echo $element['code']."\n";}
+      if(isset($element['code']))     {$this->_echo_($element['code']."\n");}
     }
     return true;
+  }
+  /**
+   * Echo.
+   */
+  private function _echo_($str){
+    if(wfDocument::$capture != null){
+      wfDocument::$content .= $str;
+    }
+    if(wfDocument::$capture != 2){
+      echo $str;
+    }
   }
   /**
    * Check if element should be disabled.
@@ -533,6 +559,7 @@ class wfDocument {
   }
   /**
    * Render elements.
+   * If param capture is true one could pick up html in param content once.
    * @param type $element
    */
   public static function renderElement($element){

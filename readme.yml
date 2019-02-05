@@ -74,34 +74,10 @@ readme:
         -
           name: System
           description: |
-            It is possible to rewrite data depending on user agent.
-          item:
-            -
-              name: Rewrite
-              description: |
-                It is possible to rewrite data depending on user agent.
-              item:
-                -
-                  name: HTTP_USER_AGENT
-                  description: |
-                    One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.
-                    ```
-                    theme: my/theme
-                    http_user_agent:
-                      '*chrome*':
-                        rewrite:
-                          set:
-                            -
-                              path_to_key: theme
-                              value: my/next_theme
-                    ```
-                    Now it should be like this.
-                    ```
-                    theme: my/next_theme
-                    ```
-        -
-          name: Theme
-          description: .
+            This file is read before theme settings file.
+            ```
+            /config/settings.yml.
+            ```
           item:
             -
               name: Basic settings
@@ -111,6 +87,32 @@ readme:
                 theme: my/theme
                 timezone: Europe/Paris
                 ```
+            -
+              name: HTTP_USER_AGENT
+              description: |
+                One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.
+                ```
+                theme: my/theme
+                http_user_agent:
+                  '*chrome*':
+                    rewrite:
+                      set:
+                        -
+                          path_to_key: theme
+                          value: my/next_theme
+                ```
+                Now it should be like this.
+                ```
+                theme: my/next_theme
+                ```
+        -
+          name: Theme
+          description: |
+            This file contains plugin settings for widget, pages, events.
+            ```
+            /theme/xxx/yyy/config/settings.yml
+            ```
+          item:
             -
               name: I18N
               description: |
