@@ -68,38 +68,59 @@ readme:
           description: |
             Web root folder. One should point your web server Apache/IIS to this folder. This folder can have any name.
     -
-      name: System settings
+      name: Settings
       description: File /config/settings.yml tells Buto which theme to render along with a few params.
       item:
         -
-          name: Theme
-          description: |
-            The file must contain this settings. This theme has location /theme/my/theme.
-            ```
-            theme: my/theme
-            timezone: Europe/Paris
-            ```
-        -
-          name: Rewrite
+          name: System
           description: |
             It is possible to rewrite data depending on user agent.
           item:
             -
-              name: HTTP_USER_AGENT
+              name: Rewrite
               description: |
-                One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.
+                It is possible to rewrite data depending on user agent.
+              item:
+                -
+                  name: HTTP_USER_AGENT
+                  description: |
+                    One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.
+                    ```
+                    theme: my/theme
+                    http_user_agent:
+                      '*chrome*':
+                        rewrite:
+                          set:
+                            -
+                              path_to_key: theme
+                              value: my/next_theme
+                    ```
+                    Now it should be like this.
+                    ```
+                    theme: my/next_theme
+                    ```
+        -
+          name: Theme
+          description: .
+          item:
+            -
+              name: Basic settings
+              description: |
+                The file must contain this settings. This theme has location /theme/my/theme.
                 ```
                 theme: my/theme
-                http_user_agent:
-                  '*chrome*':
-                    rewrite:
-                      set:
-                        -
-                          path_to_key: theme
-                          value: my/next_theme
+                timezone: Europe/Paris
                 ```
-                Now it should be like this.
+            -
+              name: I18N
+              description: |
+                I18N settings.
                 ```
-                theme: my/next_theme
+                i18n:
+                  language: sv
+                  languages:
+                    - sv
+                    - de
+                    - en
                 ```
         
