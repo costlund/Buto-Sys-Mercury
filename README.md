@@ -18,7 +18,7 @@ HTML code is done with yml in the exact same way but with the benefit to add ext
   - [config](#key_3_0) 
   - [plugin](#key_3_1) 
   - [sys](#key_3_2) 
-  - dev/theme(#key_3_3) 
+  - [theme](#key_3_3) 
   - [public_html](#key_3_4) 
 - [Settings](#key_4) 
   - [System](#key_4_0) 
