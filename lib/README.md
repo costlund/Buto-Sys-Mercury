@@ -1,4 +1,5 @@
-# Buto-Plugin-BootstrapCarousel_v1
+# Lib
+This folder contains buto system files. Content of this is only for those who working with plugins.
 
 ## wfDocument
 This file handle html output to browser. It takes html as yml.
