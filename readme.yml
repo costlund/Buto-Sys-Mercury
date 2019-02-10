@@ -126,4 +126,50 @@ readme:
                     - de
                     - en
                 ```
+    -
+      name: Element
+      description: |
+        Elements are just as any HTML element but with extra settings attribute for Buto to handle.
+        ```
+        type: p
+        settings:
+          disabled: true
+        attribute:
+          style: 'color:red'
+        innerHTML: Hello World
+        ```
+      item:
+        -
+          name: Settings
+          description: |
+            Settings params are used by Buto and not to be rendered in browser.
+          item:
+            -
+              name: Enabled
+              description: |
+                Globals data can be picked up by a string.
+                ```
+                type: span
+                settings:
+                  enabled: true
+                innerHTML: Hello World
+                ```
+            -
+              name: Disabled
+              description: |
+                Globals data can be picked up by a string.
+                ```
+                type: span
+                settings:
+                  disabled: true
+                innerHTML: Hello World
+                ```
+        -
+          name: Globals
+          description: |
+            Globals data can be picked up by a string.
+            ```
+            type: span
+            innerHTML: 'globals:_SESSION/username'
+            ```
         

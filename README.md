@@ -27,6 +27,11 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [HTTP_USER_AGENT](#key_4_0_1) 
   - [Theme](#key_4_1) 
     - [I18N](#key_4_1_0) 
+- [Element](#key_5) 
+  - [Settings](#key_5_0) 
+    - [Enabled](#key_5_0_0) 
+    - [Disabled](#key_5_0_1) 
+  - [Globals](#key_5_1) 
 
 
 <a name="key_0"></a>
@@ -170,4 +175,46 @@ http_user_agent:
     - sv
     - de
     - en</code></pre>
+
+<a name="key_5"></a>
+
+## Element
+
+<p>Elements are just as any HTML element but with extra settings attribute for Buto to handle.</p>
+<pre><code>type: p
+settings:
+  disabled: true
+attribute:
+  style: 'color:red'
+innerHTML: Hello World</code></pre>
+
+<a name="key_5_0"></a>
+
+### Settings
+
+<p>Settings params are used by Buto and not to be rendered in browser.</p>
+
+<a name="key_5_0_0"></a>
+
+<p>Globals data can be picked up by a string.</p>
+<pre><code>type: span
+settings:
+  enabled: true
+innerHTML: Hello World</code></pre>
+
+<a name="key_5_0_1"></a>
+
+<p>Globals data can be picked up by a string.</p>
+<pre><code>type: span
+settings:
+  disabled: true
+innerHTML: Hello World</code></pre>
+
+<a name="key_5_1"></a>
+
+### Globals
+
+<p>Globals data can be picked up by a string.</p>
+<pre><code>type: span
+innerHTML: 'globals:_SESSION/username'</code></pre>
 
