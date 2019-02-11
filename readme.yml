@@ -13,6 +13,38 @@ readme:
       name: Theme
       description: |
         Buto can have multiple themes. But in most cases there is only one involved when an application is in production.
+      item:
+        -
+          name: Hello World
+          description: An Hello World example where theme is in location /theme/hello/world. This theme only make use of one plugin wf/doc to render a page.
+          item:
+            -
+              name: Config
+              description: |
+                In /config/settings.yml
+                ```
+                plugin_modules:
+                  doc:
+                    plugin: 'wf/doc'
+                default_class: doc
+                default_method: home
+                ```
+            -
+              name: Page
+              description: |
+                In /page/home.yml
+                ```
+                content:
+                  div: 
+                    type: div
+                    innerHTML:
+                      span:
+                        type: span
+                        attribute:
+                          id: min_span_tag
+                          style: "font-weight:bold"
+                        innerHTML: Hello World
+                ```
     -
       name: Plugin
       description: |
@@ -147,7 +179,6 @@ readme:
             -
               name: Enabled
               description: |
-                Globals data can be picked up by a string.
                 ```
                 type: span
                 settings:
@@ -157,7 +188,6 @@ readme:
             -
               name: Disabled
               description: |
-                Globals data can be picked up by a string.
                 ```
                 type: span
                 settings:

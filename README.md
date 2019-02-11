@@ -9,6 +9,9 @@ HTML code is done with yml in the exact same way but with the benefit to add ext
 One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.</p>
 
 - [Theme](#key_0) 
+  - [Hello World](#key_0_0) 
+    - [Config](#key_0_0_0) 
+    - [Page](#key_0_0_1) 
 - [Plugin](#key_1) 
   - [Widgets](#key_1_0) 
   - [Pages](#key_1_1) 
@@ -39,6 +42,39 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 ## Theme
 
 <p>Buto can have multiple themes. But in most cases there is only one involved when an application is in production.</p>
+
+<a name="key_0_0"></a>
+
+### Hello World
+
+<p>An Hello World example where theme is in location /theme/hello/world. This theme only make use of one plugin wf/doc to render a page.</p>
+
+<a name="key_0_0_0"></a>
+
+#### Config
+
+<p>In /config/settings.yml</p>
+<pre><code>plugin_modules:
+  doc:
+    plugin: 'wf/doc'
+default_class: doc
+default_method: home</code></pre>
+
+<a name="key_0_0_1"></a>
+
+#### Page
+
+<p>In /page/home.yml</p>
+<pre><code>content:
+  div: 
+    type: div
+    innerHTML:
+      span:
+        type: span
+        attribute:
+          id: min_span_tag
+          style: "font-weight:bold"
+        innerHTML: Hello World</code></pre>
 
 <a name="key_1"></a>
 
@@ -141,11 +177,15 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 
 <a name="key_4_0_0"></a>
 
+#### Basic settings
+
 <p>The file must contain this settings. This theme has location /theme/my/theme.</p>
 <pre><code>theme: my/theme
 timezone: Europe/Paris</code></pre>
 
 <a name="key_4_0_1"></a>
+
+#### HTTP_USER_AGENT
 
 <p>One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.</p>
 <pre><code>theme: my/theme
@@ -167,6 +207,8 @@ http_user_agent:
 <pre><code>/theme/xxx/yyy/config/settings.yml</code></pre>
 
 <a name="key_4_1_0"></a>
+
+#### I18N
 
 <p>I18N settings.</p>
 <pre><code>i18n:
@@ -196,7 +238,8 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_5_0_0"></a>
 
-<p>Globals data can be picked up by a string.</p>
+#### Enabled
+
 <pre><code>type: span
 settings:
   enabled: true
@@ -204,7 +247,8 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_5_0_1"></a>
 
-<p>Globals data can be picked up by a string.</p>
+#### Disabled
+
 <pre><code>type: span
 settings:
   disabled: true
