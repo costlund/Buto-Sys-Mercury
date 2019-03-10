@@ -95,7 +95,13 @@ class wfUser {
   public static function getSession(){
     wfPlugin::includeonce('wf/array');
     return new PluginWfArray($_SESSION);
-  }  
+  }
+  public static function setSession($path, $value){
+    $user = wfUser::getSession();
+    $user->set($path, $value);
+    $_SESSION = $user->get();
+    return null;
+  }
     
 }
 
