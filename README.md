@@ -35,6 +35,12 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Enabled](#key_5_0_0) 
     - [Disabled](#key_5_0_1) 
   - [Globals](#key_5_1) 
+- [Events](#key_6) 
+  - [Settings](#key_6_0) 
+  - [Method](#key_6_1) 
+  - [System events](#key_6_2) 
+  - [Fire event](#key_6_3) 
+  - [Globals](#key_6_4) 
 
 
 <a name="key_0"></a>
@@ -261,4 +267,73 @@ innerHTML: Hello World</code></pre>
 <p>Globals data can be picked up by a string.</p>
 <pre><code>type: span
 innerHTML: 'globals:_SESSION/username'</code></pre>
+
+<a name="key_6"></a>
+
+## Events
+
+<p>Events are fired by system or plugins.</p>
+
+<a name="key_6_0"></a>
+
+### Settings
+
+<p>Events are methods registrared in theme settings file.</p>
+<pre><code>events:
+  page_not_found:
+    -
+      plugin: 'wf/pagenotfound'
+      method: handler
+      data:
+        location_url: '/d/pagenotfound'</code></pre>
+
+<a name="key_6_1"></a>
+
+### Method
+
+<p>Method example.</p>
+<pre><code>public function event_handler(){
+  // Do stuff...
+}</code></pre>
+
+<a name="key_6_2"></a>
+
+### System events
+
+<p>Lisf of events in system.</p>
+<pre><code>sys_start
+load_config_settings_before
+load_config_settings_after
+load_theme_config_settings_before
+load_theme_config_settings_after
+shutdown
+request_rewrite_before
+request_rewrite_after
+module_method_before
+security_issue
+page_not_found
+module_method_after
+document_render_before
+  document_render_element
+    document_render_innerhtml
+document_render_after
+sys_close</code></pre>
+
+<a name="key_6_3"></a>
+
+### Fire event
+
+<p>A plugin can fire event like this.</p>
+<pre><code>wfEvent::run('_any_name_', array('some_data' =&gt; null));</code></pre>
+
+<a name="key_6_4"></a>
+
+### Globals
+
+<p>Last event is stored in globals to be detected later. Can be detected in __construct method for security reasons.</p>
+<pre><code>$GLOBALS['sys']['event'] = array('plugin' =&gt; 'wf/pagenotfound', 'method' =&gt; 'handler');</code></pre>
+<p>Can be checked like this.</p>
+<pre><code>if(wfGlobals::get('event/plugin')=='wf/pagenotfound'){
+  // 
+}</code></pre>
 

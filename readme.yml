@@ -202,4 +202,80 @@ readme:
             type: span
             innerHTML: 'globals:_SESSION/username'
             ```
-        
+    -
+      name: Events
+      description: |
+        Events are fired by system or plugins.
+      item:
+        -
+          name: Settings
+          description: |
+            Events are methods registrared in theme settings file.
+            ```
+            events:
+              page_not_found:
+                -
+                  plugin: 'wf/pagenotfound'
+                  method: handler
+                  data:
+                    location_url: '/d/pagenotfound'
+            ```
+        -
+          name: Method
+          description: |
+            Method example.
+            ```
+            public function event_handler(){
+              // Do stuff...
+            }
+            ```
+        -
+          name: System events
+          description: |
+            Lisf of events in system.
+            ```
+            sys_start
+            load_config_settings_before
+            load_config_settings_after
+            load_theme_config_settings_before
+            load_theme_config_settings_after
+            shutdown
+            request_rewrite_before
+            request_rewrite_after
+            module_method_before
+            security_issue
+            page_not_found
+            module_method_after
+            document_render_before
+              document_render_element
+                document_render_innerhtml
+            document_render_after
+            sys_close
+            ```
+        -
+          name: Fire event
+          description: |
+            A plugin can fire event like this.
+            ```
+            wfEvent::run('_any_name_', array('some_data' => null));
+            ```
+        -
+          name: Globals
+          description: |
+            Last event is stored in globals to be detected later. Can be detected in __construct method for security reasons.
+            ```
+            $GLOBALS['sys']['event'] = array('plugin' => 'wf/pagenotfound', 'method' => 'handler');
+            ```
+            Can be checked like this.
+            ```
+            if(wfGlobals::get('event/plugin')=='wf/pagenotfound'){
+              // 
+            }
+            ```
+
+
+
+
+
+
+

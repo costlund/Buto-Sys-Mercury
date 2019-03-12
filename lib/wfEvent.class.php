@@ -46,6 +46,13 @@ class wfEvent {
           }
         }
         if($run){
+          /**
+           * Set event in Globals.
+           */
+          $GLOBALS['sys']['event'] = $value;
+          /**
+           * 
+           */
           $plugin = wfArray::get($value, 'plugin');
           wfPlugin::includeonce($plugin);
           $obj = wfSettings::getPluginObj($plugin);

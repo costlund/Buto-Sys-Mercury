@@ -1,5 +1,8 @@
-version: '2.7'
+version: '2.8'
 history:
+  '2.8':
+    date: '2019-03-12'
+    description: 'Events improvement and documentation.'
   '2.7':
     date: '2019-02-04'
     description: 'Improved method wfFilesystem::copyFile.'
