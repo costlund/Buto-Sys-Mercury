@@ -194,6 +194,16 @@ readme:
                   disabled: true
                 innerHTML: Hello World
                 ```
+            -
+              name: I18N
+              description: |
+                Disable I18N.
+                ```
+                type: span
+                settings:
+                  i18n: false
+                innerHTML: Hello World
+                ```
         -
           name: Globals
           description: |
