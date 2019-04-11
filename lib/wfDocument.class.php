@@ -288,6 +288,16 @@ class wfDocument {
       return false;
     }
     /**
+     * Set settings params from globals.
+     */
+      if(isset($element['settings'])){
+        foreach ($element['settings'] as $param => $value) {
+          if(!is_array(($value))){
+            $element['settings'][$param] = wfSettings::getGlobalsFromString($value);
+          }
+        }
+      }
+    /**
      * Validate.
      */
     $allowed_keys = array('text', 'data', 'type', 'innerHTML', 'attribute', 'settings', 'code');

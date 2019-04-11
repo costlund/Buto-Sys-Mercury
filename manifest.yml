@@ -1,5 +1,8 @@
-version: '2.8'
+version: '2.9'
 history:
+  '2.9':
+    date: '2019-04-11'
+    description: 'Set settings params from globals.'
   '2.8':
     date: '2019-03-12'
     description: 'Events improvement and documentation.'
