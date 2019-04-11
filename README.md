@@ -35,6 +35,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Enabled](#key_5_0_0) 
     - [Disabled](#key_5_0_1) 
     - [I18N](#key_5_0_2) 
+    - [Server name](#key_5_0_3) 
   - [Globals](#key_5_1) 
 - [Events](#key_6) 
   - [Settings](#key_6_0) 
@@ -269,6 +270,19 @@ innerHTML: Hello World</code></pre>
 <pre><code>type: span
 settings:
   i18n: false
+innerHTML: Hello World</code></pre>
+
+<a name="key_5_0_3"></a>
+
+#### Server name
+
+<p>Show element depending on server name.</p>
+<pre><code>type: span
+settings:
+  server_name:
+    allow: true
+    item:
+      - localhost
 innerHTML: Hello World</code></pre>
 
 <a name="key_5_1"></a>

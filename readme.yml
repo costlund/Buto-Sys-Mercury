@@ -204,6 +204,19 @@ readme:
                   i18n: false
                 innerHTML: Hello World
                 ```
+            -
+              name: Server name
+              description: |
+                Show element depending on server name.
+                ```
+                type: span
+                settings:
+                  server_name:
+                    allow: true
+                    item:
+                      - localhost
+                innerHTML: Hello World
+                ```
         -
           name: Globals
           description: |
