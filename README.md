@@ -37,6 +37,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [I18N](#key_5_0_2) 
     - [Server name](#key_5_0_3) 
   - [Globals](#key_5_1) 
+  - [Render](#key_5_2) 
 - [Events](#key_6) 
   - [Settings](#key_6_0) 
   - [Method](#key_6_1) 
@@ -292,6 +293,17 @@ innerHTML: Hello World</code></pre>
 <p>Globals data can be picked up by a string.</p>
 <pre><code>type: span
 innerHTML: 'globals:_SESSION/username'</code></pre>
+
+<a name="key_5_2"></a>
+
+### Render
+
+<p>Render element from plugin.</p>
+<pre><code>wfDocument::renderElement($element);</code></pre>
+<p>Render element to an variable. Set capture=1 of also render. Could be handy when send html as mail body.</p>
+<pre><code>wfDocument::$capture=2;
+wfDocument::renderElement($element);
+$content = wfDocument::getContent();</code></pre>
 
 <a name="key_6"></a>
 

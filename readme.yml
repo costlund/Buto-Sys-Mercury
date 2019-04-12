@@ -225,6 +225,19 @@ readme:
             type: span
             innerHTML: 'globals:_SESSION/username'
             ```
+        -
+          name: Render
+          description: |
+            Render element from plugin.
+            ```
+            wfDocument::renderElement($element);
+            ```
+            Render element to an variable. Set capture=1 of also render. Could be handy when send html as mail body.
+            ```
+            wfDocument::$capture=2;
+            wfDocument::renderElement($element);
+            $content = wfDocument::getContent();
+            ```
     -
       name: Events
       description: |
