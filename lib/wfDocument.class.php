@@ -524,11 +524,11 @@ class wfDocument {
     if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
     if(array_search($element['type'], $this->element_one_tag)===false){
-      echo "</".$element['type'].">\n";
+      $this->_echo_("</".$element['type'].">\n"); 
       $checkLoad = wfDocument::checkLoad($element);
       if($checkLoad){
         if(isset($element['attribute']['id'])){
-          echo "<script> if(PluginWfAjax){ PluginWfAjax.load('".$element['attribute']['id']."', '".$checkLoad."'); }</script>";
+          $this->_echo_("<script> if(PluginWfAjax){ PluginWfAjax.load('".$element['attribute']['id']."', '".$checkLoad."'); }</script>");
         }  else {
           throw new Exception('Element attribute ID is not set when using load: in innerHTML.');
         }
