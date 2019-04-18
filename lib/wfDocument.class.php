@@ -405,15 +405,19 @@ class wfDocument {
       }
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
-          $value = wfSettings::getGlobalsFromString($value);
-          $value = wfSettings::getServerFromString($value);
-          $value = wfSettings::getSettingsFromYmlString($value);
-          if(isset($element['settings']['method']) && $element['settings']['method']){
-            $value = wfSettings::getSettingsFromMethod($value);
-          }
-          $value = self::handleOutput($value);
-          if(($attribute == 'content'  || $attribute == 'lang') && $document_render_string){
-            $value = wfEvent::run('document_render_string', $value);
+          if(is_array($value)){
+            $value = htmlspecialchars(json_encode($value), ENT_QUOTES, 'UTF-8');
+          }else{
+            $value = wfSettings::getGlobalsFromString($value);
+            $value = wfSettings::getServerFromString($value);
+            $value = wfSettings::getSettingsFromYmlString($value);
+            if(isset($element['settings']['method']) && $element['settings']['method']){
+              $value = wfSettings::getSettingsFromMethod($value);
+            }
+            $value = self::handleOutput($value);
+            if(($attribute == 'content'  || $attribute == 'lang') && $document_render_string){
+              $value = wfEvent::run('document_render_string', $value);
+            }
           }
           $this->_echo_(' '.$attribute.'="'.$value.'"');
         }

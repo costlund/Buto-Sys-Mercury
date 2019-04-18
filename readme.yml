@@ -172,6 +172,33 @@ readme:
         ```
       item:
         -
+          name: Attribute
+          description: |
+            Attributes are set in same way as HTML.
+            ```
+            type: span
+            attribute:
+              title: Hello Title
+            innerHTML: Hello World
+            ```
+          item:
+            -
+              name: JSON
+              description: |
+                If attribute is an array it will be a JSON string.
+                ```
+                type: span
+                attribute:
+                  data:
+                    name: Title
+                    id: 123
+                innerHTML: Hello World
+                ```
+                HTML
+                ```
+                <span data="{&quot;name&quot;:&quot;Title&quot;,&quot;id&quot;:123}" onclick="console.log(JSON.parse(this.getAttribute('data')))">Hello World</span>
+                ```
+        -
           name: Settings
           description: |
             Settings params are used by Buto and not to be rendered in browser.

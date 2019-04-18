@@ -31,13 +31,15 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [Theme](#key_4_1) 
     - [I18N](#key_4_1_0) 
 - [Element](#key_5) 
-  - [Settings](#key_5_0) 
-    - [Enabled](#key_5_0_0) 
-    - [Disabled](#key_5_0_1) 
-    - [I18N](#key_5_0_2) 
-    - [Server name](#key_5_0_3) 
-  - [Globals](#key_5_1) 
-  - [Render](#key_5_2) 
+  - [Attribute](#key_5_0) 
+    - [JSON](#key_5_0_0) 
+  - [Settings](#key_5_1) 
+    - [Enabled](#key_5_1_0) 
+    - [Disabled](#key_5_1_1) 
+    - [I18N](#key_5_1_2) 
+    - [Server name](#key_5_1_3) 
+  - [Globals](#key_5_2) 
+  - [Render](#key_5_3) 
 - [Events](#key_6) 
   - [Settings](#key_6_0) 
   - [Method](#key_6_1) 
@@ -241,11 +243,35 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_5_0"></a>
 
+### Attribute
+
+<p>Attributes are set in same way as HTML.</p>
+<pre><code>type: span
+attribute:
+  title: Hello Title
+innerHTML: Hello World</code></pre>
+
+<a name="key_5_0_0"></a>
+
+#### JSON
+
+<p>If attribute is an array it will be a JSON string.</p>
+<pre><code>type: span
+attribute:
+  data:
+    name: Title
+    id: 123
+innerHTML: Hello World</code></pre>
+<p>HTML</p>
+<pre><code>&lt;span data="{&amp;quot;name&amp;quot;:&amp;quot;Title&amp;quot;,&amp;quot;id&amp;quot;:123}" onclick="console.log(JSON.parse(this.getAttribute('data')))"&gt;Hello World&lt;/span&gt;</code></pre>
+
+<a name="key_5_1"></a>
+
 ### Settings
 
 <p>Settings params are used by Buto and not to be rendered in browser.</p>
 
-<a name="key_5_0_0"></a>
+<a name="key_5_1_0"></a>
 
 #### Enabled
 
@@ -254,7 +280,7 @@ settings:
   enabled: true
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_0_1"></a>
+<a name="key_5_1_1"></a>
 
 #### Disabled
 
@@ -263,7 +289,7 @@ settings:
   disabled: true
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_0_2"></a>
+<a name="key_5_1_2"></a>
 
 #### I18N
 
@@ -273,7 +299,7 @@ settings:
   i18n: false
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_0_3"></a>
+<a name="key_5_1_3"></a>
 
 #### Server name
 
@@ -286,7 +312,7 @@ settings:
       - localhost
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_1"></a>
+<a name="key_5_2"></a>
 
 ### Globals
 
@@ -294,7 +320,7 @@ innerHTML: Hello World</code></pre>
 <pre><code>type: span
 innerHTML: 'globals:_SESSION/username'</code></pre>
 
-<a name="key_5_2"></a>
+<a name="key_5_3"></a>
 
 ### Render
 
