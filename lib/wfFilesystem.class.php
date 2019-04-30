@@ -194,6 +194,7 @@ class wfFilesystem {
    * @return boolean or int
    */
   public static function getFiletime($dir){
+    $dir = wfSettings::replaceTheme($dir);
     if(file_exists($dir)){
       return filemtime($dir);
     }else{
