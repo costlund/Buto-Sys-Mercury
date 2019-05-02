@@ -16,7 +16,7 @@ class wfHelp {
     }
   }
   public static function print_r($arr, $exit = false){
-      if(wfHelp::isLocalhost()){
+      if(wfHelp::isLocalhost() || wfUser::hasRole('webmaster')){
           echo "\n".'<pre>'."\n";
           print_r($arr);
           echo '</pre>'."\n";
@@ -32,7 +32,7 @@ class wfHelp {
    * @param type $lable
    */
   public static function yml_dump($arr, $exit = false, $color = null, $lable = null){
-      if(wfHelp::isLocalhost()){
+      if(wfHelp::isLocalhost() || wfUser::hasRole('webmaster')){
         echo "\n".'<pre style="color:'.$color.'">'."\n";
         if($lable){
           echo '<b>'.$lable.'</b><br>';
@@ -53,7 +53,7 @@ class wfHelp {
    * @param Boolean $exit
    */
   public static function textarea_dump($data, $exit = false){
-    if(wfHelp::isLocalhost()){
+    if(wfHelp::isLocalhost() || wfUser::hasRole('webmaster')){
       if(gettype($data)=='object'){
         $data = sfYaml::dump($data->get(), 99);
       }elseif(gettype($data)=='array'){
@@ -110,7 +110,7 @@ class wfHelp {
    * @return type
    */
   public static function echoecho($str, $exit = false){
-      if(wfHelp::isLocalhost()){
+      if(wfHelp::isLocalhost() || wfUser::hasRole('webmaster')){
           echo $str;
           if($exit){exit();}
       }
