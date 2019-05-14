@@ -352,6 +352,28 @@ readme:
           name: wfDate
         -
           name: wfDocument
+          description: |
+            Handle elements.
+          item:
+            -
+              name: Globals
+              description: |
+                Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.
+                ```
+                type: div
+                innerHTML:
+                  -
+                    type: div
+                    innerHTML: Hello World
+                  -
+                    type: div
+                    settings:
+                      globals:
+                        -
+                          path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
+                          value: '/plugin/invoice/invoice_v1/i18n'
+                    innerHTML: Hello World
+                ```
         -
           name: wfElement
         -

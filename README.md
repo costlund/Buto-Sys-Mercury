@@ -53,6 +53,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfCrypt](#key_7_3) 
   - [wfDate](#key_7_4) 
   - [wfDocument](#key_7_5) 
+    - [Globals](#key_7_5_0) 
   - [wfElement](#key_7_6) 
   - [wfEvent](#key_7_7) 
   - [wfFilesystem](#key_7_8) 
@@ -458,7 +459,26 @@ sys_close</code></pre>
 
 ### wfDocument
 
+<p>Handle elements.</p>
 
+<a name="key_7_5_0"></a>
+
+#### Globals
+
+<p>Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.</p>
+<pre><code>type: div
+innerHTML:
+  -
+    type: div
+    innerHTML: Hello World
+  -
+    type: div
+    settings:
+      globals:
+        -
+          path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
+          value: '/plugin/invoice/invoice_v1/i18n'
+    innerHTML: Hello World</code></pre>
 
 <a name="key_7_6"></a>
 

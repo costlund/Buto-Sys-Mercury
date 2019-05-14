@@ -4,6 +4,7 @@ class wfDocument {
   private static $find_and_get_id = null;
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
   private $element_one_line = array('script', 'h1');
+  private $element_globals = array();
   /**
    * Set to 1 if capture html in content param and also render.
    * Set to 2 if capture html in content param only and NOT render.
@@ -316,6 +317,21 @@ class wfDocument {
     $element = self::checkGlobals($element);
     $element = self::checkServer($element);
     /**
+     * element_globals
+     */
+    if(isset($element['settings']['globals'])){
+      $from = array();
+      foreach ($element['settings']['globals'] as $key => $value) {
+        /**
+         * Get current value to restore in method renderEndTag.
+         */
+        $from[] = array('path_to_key' => $value['path_to_key'], 'value' => wfGlobals::get($value['path_to_key']));
+        wfGlobals::set($value['path_to_key'], $value['value']);
+      }
+      $this->element_globals[$i] = $from;
+      unset($from);
+    }
+    /**
      * Special for tag A.
      */
     if($element['type']=='a' && !isset($element['attribute']['href'])){
@@ -537,6 +553,18 @@ class wfDocument {
           throw new Exception('Element attribute ID is not set when using load: in innerHTML.');
         }
       }
+    }
+    /**
+     * element_globals
+     */
+    if(isset($element['settings']['globals'])){
+      /**
+       * Restore values set in method renderStartTag.
+       */
+      foreach ($this->element_globals[$i] as $key => $value) {
+        wfGlobals::set($value['path_to_key'], $value['value']);
+      }
+      unset($this->element_globals[$i]);
     }
   }
   /**

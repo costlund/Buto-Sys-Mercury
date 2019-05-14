@@ -1,5 +1,8 @@
-version: '2.11'
+version: '2.12'
 history:
+  '2.12':
+    date: '2019-05-14'
+    description: 'Set Globals for element in wfDocument.'
   '2.11':
     date: '2019-05-14'
     description: 'Set method in wfGlobals.'
