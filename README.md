@@ -46,6 +46,24 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [System events](#key_6_2) 
   - [Fire event](#key_6_3) 
   - [Globals](#key_6_4) 
+- [Lib](#key_7) 
+  - [wfArray](#key_7_0) 
+  - [wfArraySearch](#key_7_1) 
+  - [wfConfig](#key_7_2) 
+  - [wfCrypt](#key_7_3) 
+  - [wfDate](#key_7_4) 
+  - [wfDocument](#key_7_5) 
+  - [wfElement](#key_7_6) 
+  - [wfEvent](#key_7_7) 
+  - [wfFilesystem](#key_7_8) 
+  - [wfGlobals](#key_7_9) 
+  - [wfHelp](#key_7_10) 
+  - [wfI18n](#key_7_11) 
+  - [wfPlugin](#key_7_12) 
+  - [wfRequest](#key_7_13) 
+  - [wfServer](#key_7_14) 
+  - [wfSettings](#key_7_15) 
+  - [wfUser](#key_7_16) 
 
 
 <a name="key_0"></a>
@@ -399,4 +417,112 @@ sys_close</code></pre>
 <pre><code>if(wfGlobals::get('event/plugin')=='wf/pagenotfound'){
   // 
 }</code></pre>
+
+<a name="key_7"></a>
+
+## Lib
+
+<p>Methods.</p>
+
+<a name="key_7_0"></a>
+
+### wfArray
+
+
+
+<a name="key_7_1"></a>
+
+### wfArraySearch
+
+
+
+<a name="key_7_2"></a>
+
+### wfConfig
+
+
+
+<a name="key_7_3"></a>
+
+### wfCrypt
+
+
+
+<a name="key_7_4"></a>
+
+### wfDate
+
+
+
+<a name="key_7_5"></a>
+
+### wfDocument
+
+
+
+<a name="key_7_6"></a>
+
+### wfElement
+
+
+
+<a name="key_7_7"></a>
+
+### wfEvent
+
+
+
+<a name="key_7_8"></a>
+
+### wfFilesystem
+
+
+
+<a name="key_7_9"></a>
+
+### wfGlobals
+
+<p>Handle Globals variable.</p>
+
+<a name="key_7_10"></a>
+
+### wfHelp
+
+
+
+<a name="key_7_11"></a>
+
+### wfI18n
+
+
+
+<a name="key_7_12"></a>
+
+### wfPlugin
+
+
+
+<a name="key_7_13"></a>
+
+### wfRequest
+
+
+
+<a name="key_7_14"></a>
+
+### wfServer
+
+
+
+<a name="key_7_15"></a>
+
+### wfSettings
+
+
+
+<a name="key_7_16"></a>
+
+### wfUser
+
+
 

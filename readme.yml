@@ -335,6 +335,47 @@ readme:
               // 
             }
             ```
+    -
+      name: Lib
+      description: |
+        Methods.
+      item:
+        -
+          name: wfArray
+        -
+          name: wfArraySearch
+        -
+          name: wfConfig
+        -
+          name: wfCrypt
+        -
+          name: wfDate
+        -
+          name: wfDocument
+        -
+          name: wfElement
+        -
+          name: wfEvent
+        -
+          name: wfFilesystem
+        -
+          name: wfGlobals
+          description: |
+            Handle Globals variable.
+        -
+          name: wfHelp
+        -
+          name: wfI18n
+        -
+          name: wfPlugin
+        -
+          name: wfRequest
+        -
+          name: wfServer
+        -
+          name: wfSettings
+        -
+          name: wfUser
 
 
 

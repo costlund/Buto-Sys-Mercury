@@ -8,6 +8,13 @@ class wfGlobals{
     $g = new PluginWfArray($GLOBALS['sys']);
     return $g->get($key);
   }
+  public static function set($key, $value){
+    wfPlugin::includeonce('wf/array');
+    $g = new PluginWfArray($GLOBALS['sys']);
+    $g->set($key, $value);
+    $GLOBALS['sys'] = $g->get();
+    return null;
+  }
   public static function getVersion()           {return wfGlobals::get('version');}
   public static function getMicrotime()         {return wfGlobals::get('microtime');}
   public static function getMicrotimeStart()    {return wfGlobals::get('microtime/start');}

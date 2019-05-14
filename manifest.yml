@@ -1,5 +1,8 @@
-version: '2.10'
+version: '2.11'
 history:
+  '2.11':
+    date: '2019-05-14'
+    description: 'Set method in wfGlobals.'
   '2.10':
     date: '2019-04-18'
     description: 'Use JSON in element attribute.'
