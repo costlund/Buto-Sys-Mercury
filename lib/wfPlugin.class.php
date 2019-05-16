@@ -120,6 +120,7 @@ class wfPlugin {
       if(!$as_object){
         return array();
       }else{
+        wfPlugin::includeonce('wf/array');
         return new PluginWfArray();
       }
     }
