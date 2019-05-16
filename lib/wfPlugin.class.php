@@ -117,7 +117,11 @@ class wfPlugin {
         return new PluginWfArray($settings);
       }
     }else{
-      return null;
+      if(!$as_object){
+        return array();
+      }else{
+        return new PluginWfArray();
+      }
     }
   }
   /**
