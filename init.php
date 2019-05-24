@@ -28,6 +28,7 @@ function __($str, $params = null){
 $GLOBALS['sys']['widget'] = null;
 $GLOBALS['sys']['microtime']['start'] = microtime(true);
 $GLOBALS['sys']['cache'] = false;
+$GLOBALS['sys']['timezone'] = 'Europe/Paris';
 $GLOBALS['sys']['web_dir'] = str_replace("\\", "/", str_replace(array('\index.php', '/index.php'), '', $_SERVER['SCRIPT_FILENAME']));
 $GLOBALS['sys']['app_dir'] = dirname($GLOBALS['sys']['web_dir']);
 $GLOBALS['sys']['sys_dir'] = dirname($GLOBALS['sys']['web_dir']).'/sys/'.$GLOBALS['sys']['version'];
