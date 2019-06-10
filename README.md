@@ -298,6 +298,8 @@ innerHTML: Hello World</code></pre>
 settings:
   enabled: true
 innerHTML: Hello World</code></pre>
+<p>Enabled could also have yml-string.</p>
+<pre><code>enabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'</code></pre>
 
 <a name="key_5_1_1"></a>
 
@@ -307,6 +309,8 @@ innerHTML: Hello World</code></pre>
 settings:
   disabled: true
 innerHTML: Hello World</code></pre>
+<p>Disabled could also have yml-string.</p>
+<pre><code>disabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'</code></pre>
 
 <a name="key_5_1_2"></a>
 

@@ -212,6 +212,10 @@ readme:
                   enabled: true
                 innerHTML: Hello World
                 ```
+                Enabled could also have yml-string.
+                ```
+                enabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'
+                ```
             -
               name: Disabled
               description: |
@@ -220,6 +224,10 @@ readme:
                 settings:
                   disabled: true
                 innerHTML: Hello World
+                ```
+                Disabled could also have yml-string.
+                ```
+                disabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'
                 ```
             -
               name: I18N

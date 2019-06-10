@@ -476,6 +476,7 @@ class wfDocument {
    */
   private static function isElementDisabled($element){
     if(isset($element['settings']) && array_key_exists('disabled', $element['settings'])){
+      $element['settings']['disabled'] = wfSettings::getSettingsFromYmlString($element['settings']['disabled']);
       if($element['settings']['disabled']){
         return true;
       }else{
@@ -490,6 +491,7 @@ class wfDocument {
    */
   private static function isElementEnabled($element){
     if(isset($element['settings']) && array_key_exists('enabled', $element['settings'])){
+      $element['settings']['enabled'] = wfSettings::getSettingsFromYmlString($element['settings']['enabled']);
       if(!$element['settings']['enabled']){
         return false;
       }else{
