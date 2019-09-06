@@ -352,6 +352,9 @@ class wfDocument {
     if(wfArray::isKey($element, 'innerHTML')){
       $element['innerHTML'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
     }
+    if(wfArray::isKey($element, 'attribute/onclick')){
+      $element['attribute']['onclick'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), wfArray::get($element, 'attribute/onclick'));
+    }
     /**
      * Replace [theme] in attribute/href.
      */
