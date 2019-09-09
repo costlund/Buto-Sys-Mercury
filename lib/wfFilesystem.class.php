@@ -28,6 +28,24 @@ class wfFilesystem {
   public static function delete($file){
     return unlink($file);
   }
+  /**
+   * Delete folder.
+   * @param string $src
+   */
+  public static function delete_dir($src) { 
+    $dir = opendir($src);
+    while(false !== ( $file = readdir($dir)) ){
+      if (( $file != '.' ) && ( $file != '..' )) { 
+        if(is_dir($src . '/' . $file)){ 
+          wfFilesystem::delete_dir($src . '/' . $file); 
+        }else{ 
+          unlink($src . '/' . $file); 
+        }
+      }
+    }
+    closedir($dir); 
+    rmdir($src);
+  }
   public static function getCompClass($module){ // Should be removed 190201.
     if(file_exists("../a/module/$module/component.class.php")){
       $file = "../a/module/$module/component.class.php";
