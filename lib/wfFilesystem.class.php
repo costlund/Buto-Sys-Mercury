@@ -1,25 +1,5 @@
 <?php
 class wfFilesystem {
-  public static function getTemplate($module, $file){ // Should be removed 190201.
-    if(file_exists("../a/module/$module/templates/$file")){
-      $file = "../a/module/$module/templates/$file";
-    }elseif(file_exists("../b/module/$module/templates/$file")){
-      $file = "../b/module/$module/templates/$file";
-    }else{
-      $file = null;
-    }
-    return ($file);
-  }
-  public static function getLayout($file){ // Should be removed 190201.
-    if(file_exists("../a/layout/templates/$file")){
-      $file = "../a/layout/templates/$file";
-    }elseif(file_exists("../b/layout/templates/$file")){
-      $file = "../b/layout/templates/$file";
-    }else{
-      $file = null;
-    }
-    return ($file);
-  }
   /**
    * Delete file.
    * @param string $file From system root.
@@ -46,52 +26,12 @@ class wfFilesystem {
     closedir($dir); 
     rmdir($src);
   }
-  public static function getCompClass($module){ // Should be removed 190201.
-    if(file_exists("../a/module/$module/component.class.php")){
-      $file = "../a/module/$module/component.class.php";
-    }elseif(file_exists("../b/module/$module/component.class.php")){
-      $file = "../b/module/$module/component.class.php";
-    }else{
-      $file = null;
-    }
-    return ($file);
-  }
-  public static function getLayoutCompClass(){ // Should be removed 190201.
-    if(file_exists("../a/layout/component.class.php")){
-      $file = "../a/layout/component.class.php";
-    }elseif(file_exists("../b/layout/component.class.php")){
-      $file = "../b/layout/component.class.php";
-    }else{
-      $file = null;
-    }
-    return ($file);
-  }
-  public static function getCompTemplate($module, $file){ // Should be removed 190201.
-    if(file_exists("../a/module/$module/comp/$file")){
-      $file = "../a/module/$module/comp/$file";
-    }elseif(file_exists("../b/module/$module/comp/$file")){
-      $file = "../b/module/$module/comp/$file";
-    }else{
-      $file = null;
-    }
-    return ($file);
-  }
-  public static function getLayoutCompTemplate($file){ // Should be removed 190201.
-    if(file_exists("../a/layout/comp/$file")){
-      $file = "../a/layout/comp/$file";
-    }elseif(file_exists("../b/layout/comp/$file")){
-      $file = "../b/layout/comp/$file";
-    }else{
-      $file = null;
-    }
-    return ($file);
-  }
   /**
    * Get textfile to array per line break.
    * @param string $file From system root.
    * @return array
    */
-  public static function getTextfileToArray($file){
+  public static function getTextfileToArray($file){ //Not used 190909.
     $table = array();
     if(file_exists($file)){
         $str = file_get_contents($file);
@@ -108,7 +48,7 @@ class wfFilesystem {
    * @param bool $root
    * @return string
    */
-  public static function getContents($filename, $root = false){
+  public static function getContents($filename, $root = false){ //Not used 190909.
     if($root){
       return file_get_contents($filename);
     }else{
@@ -118,7 +58,7 @@ class wfFilesystem {
   /**
    * 
    */
-  public static function getContent($url, $file, $filetime_reload){
+  public static function getContent($url, $file, $filetime_reload){ //Not used 190909.
     $reload = false;
     if(file_exists($file)){
       if((time() - filemtime($file)) > $filetime_reload){
