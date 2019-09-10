@@ -1,5 +1,8 @@
-version: '2.13'
+version: '2.14'
 history:
+  '2.14':
+    date: '2019-09-10'
+    description: 'Webmaster can view data via /?phpinfo=phpinfo or /?phpinfo=session or /?phpinfo=globals.'
   '2.13':
     date: '2019-06-10'
     description: 'Settings enabled/disabled can have yml-string.'

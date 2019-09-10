@@ -90,6 +90,7 @@ if(isset($_REQUEST['loadtheme'])){
         unset($role);
         unset($username);
         unset($user_id);
+        wfHelp::yml_dump($_SESSION);
         exit('You are now on theme '.$_SESSION['theme'].' with same roles! Go to <a href="/">start page</a>!');
       }else{
         exit('You are now on theme '.$_SESSION['theme'].'! Go to <a href="/">start page</a>!');
@@ -99,6 +100,29 @@ if(isset($_REQUEST['loadtheme'])){
     }
     unset($theme_dir);
   }
+}
+/**
+ * Webmaster can view phpinfo via ?phpinfo=phpinfo.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='phpinfo' && wfUser::hasRole('webmaster')){
+  phpinfo();
+  exit;
+}
+/**
+ * Webmaster can view globals via ?phpinfo=globals.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='globals' && wfUser::hasRole('webmaster')){
+  echo '<pre>';
+  echo wfHelp::getYmlDump(wfGlobals::get());
+  exit;
+}
+/**
+ * Webmaster can view session via ?phpinfo=session.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='session' && wfUser::hasRole('webmaster')){
+  echo '<pre>';
+  echo wfHelp::getYmlDump($_SESSION);
+  exit;
 }
 /**
  * Sign out.

@@ -406,6 +406,31 @@ readme:
           name: wfSettings
         -
           name: wfUser
+    -
+      name: Special requests
+      description: |
+        One could run some params to get special methods.
+      item:
+        -
+          name: Phpinfo
+          description: |
+            Webmaster can view phpinfo via /?phpinfo=phpinfo.
+        -
+          name: Session
+          description: |
+            Webmaster can view session via /?phpinfo=session.
+        -
+          name: Globals
+          description: |
+            Webmaster can view globals via /?phpinfo=globals.
+        -
+          name: Load theme
+          description: |
+            Webmaster can change theme via /?loadtheme=_folder_/_folder_.
+        -
+          name: Sign out
+          description: |
+            One could sign out via /?signout=1.
 
 
 
