@@ -71,6 +71,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [Globals](#key_8_2) 
   - [Load theme](#key_8_3) 
   - [Sign out](#key_8_4) 
+  - [Webmaster page](#key_8_5) 
 
 
 <a name="key_0"></a>
@@ -591,4 +592,10 @@ innerHTML:
 ### Sign out
 
 <p>One could sign out via /?signout=1.</p>
+
+<a name="key_8_5"></a>
+
+### Webmaster page
+
+<p>Webmaster can go to /?webmaster_plugin=chart/amcharts_v3&amp;page=demo to view a page and there is no need of setup in theme settings.yml.</p>
 

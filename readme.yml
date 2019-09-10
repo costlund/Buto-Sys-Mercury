@@ -431,6 +431,10 @@ readme:
           name: Sign out
           description: |
             One could sign out via /?signout=1.
+        -
+          name: Webmaster page
+          description: |
+            Webmaster can go to /?webmaster_plugin=chart/amcharts_v3&page=demo to view a page and there is no need of setup in theme settings.yml.
 
 
 

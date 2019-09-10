@@ -102,29 +102,6 @@ if(isset($_REQUEST['loadtheme'])){
   }
 }
 /**
- * Webmaster can view phpinfo via ?phpinfo=phpinfo.
- */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='phpinfo' && wfUser::hasRole('webmaster')){
-  phpinfo();
-  exit;
-}
-/**
- * Webmaster can view globals via ?phpinfo=globals.
- */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='globals' && wfUser::hasRole('webmaster')){
-  echo '<pre>';
-  echo wfHelp::getYmlDump(wfGlobals::get());
-  exit;
-}
-/**
- * Webmaster can view session via ?phpinfo=session.
- */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='session' && wfUser::hasRole('webmaster')){
-  echo '<pre>';
-  echo wfHelp::getYmlDump($_SESSION);
-  exit;
-}
-/**
  * Sign out.
  * /?signout=1
  */
@@ -174,6 +151,37 @@ function shutdown(){
 wfEvent::run('request_rewrite_before');
 wfRequest::rewrite();
 wfEvent::run('request_rewrite_after');
+/**
+ * Webmaster can view phpinfo via ?phpinfo=phpinfo.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='phpinfo' && wfUser::hasRole('webmaster')){
+  phpinfo();
+  exit;
+}
+/**
+ * Webmaster can view globals via ?phpinfo=globals.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='globals' && wfUser::hasRole('webmaster')){
+  echo '<pre>';
+  echo wfHelp::getYmlDump(wfGlobals::get());
+  exit;
+}
+/**
+ * Webmaster can view session via ?phpinfo=session.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='session' && wfUser::hasRole('webmaster')){
+  echo '<pre>';
+  echo wfHelp::getYmlDump($_SESSION);
+  exit;
+}
+/**
+ * Webmaster plugin page.
+ */
+if(isset($_REQUEST['webmaster_plugin']) && $_REQUEST['webmaster_plugin'] && wfUser::hasRole('webmaster')){
+  wfGlobals::set('settings/plugin_modules/webmaster_plugin', array('plugin' => $_REQUEST['webmaster_plugin']));
+  wfGlobals::set('class', 'webmaster_plugin');
+  wfGlobals::set('method', $_REQUEST['page']);
+}
 /**
  * Plugin param.
  * Set sys/plugin.
