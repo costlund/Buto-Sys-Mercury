@@ -5,12 +5,18 @@ class wfDocument {
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
   private $element_one_line = array('script', 'h1');
   private $element_globals = array();
+  public static $mode = 'html';
   /**
    * Set to 1 if capture html in content param and also render.
    * Set to 2 if capture html in content param only and NOT render.
    */
   public static $capture = null;
   private static $content = null;
+  /**
+   * Mode.
+   */
+  public function setModeSvg() {wfDocument::$mode='svg'; }
+  public function setModeHtml(){wfDocument::$mode='html';}
   /**
    * Get content and reset capture and content.
    */
@@ -396,7 +402,7 @@ class wfDocument {
       /**
        * Element.
        */
-      if($element['type']=='text'){
+      if($element['type']=='text' && wfDocument::$mode=='html'){
         if(isset($element['text'])){
           $this->_echo_($element['text']."\n"); 
         }elseif(isset($element['innerHTML'])){

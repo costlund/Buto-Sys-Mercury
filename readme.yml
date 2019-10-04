@@ -382,6 +382,15 @@ readme:
                           value: '/plugin/invoice/invoice_v1/i18n'
                     innerHTML: Hello World
                 ```
+            -
+              name: Mode
+              description: |
+                Default mode is HTML but could also be SVG. SVG mode render text elements.
+                ```
+                wfDocument::setModeSvg();
+                wfDocument::renderElement($svg->get());
+                wfDocument::setModeHtml();
+                ```
         -
           name: wfElement
         -

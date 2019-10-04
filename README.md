@@ -54,6 +54,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfDate](#key_7_4) 
   - [wfDocument](#key_7_5) 
     - [Globals](#key_7_5_0) 
+    - [Mode](#key_7_5_1) 
   - [wfElement](#key_7_6) 
   - [wfEvent](#key_7_7) 
   - [wfFilesystem](#key_7_8) 
@@ -490,6 +491,15 @@ innerHTML:
           path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
           value: '/plugin/invoice/invoice_v1/i18n'
     innerHTML: Hello World</code></pre>
+
+<a name="key_7_5_1"></a>
+
+#### Mode
+
+<p>Default mode is HTML but could also be SVG. SVG mode render text elements.</p>
+<pre><code>wfDocument::setModeSvg();
+wfDocument::renderElement($svg-&gt;get());
+wfDocument::setModeHtml();</code></pre>
 
 <a name="key_7_6"></a>
 
