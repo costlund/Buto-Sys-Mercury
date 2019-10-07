@@ -15,8 +15,8 @@ class wfDocument {
   /**
    * Mode.
    */
-  public function setModeSvg() {wfDocument::$mode='svg'; }
-  public function setModeHtml(){wfDocument::$mode='html';}
+  public static function setModeSvg() {wfDocument::$mode='svg'; }
+  public static function setModeHtml(){wfDocument::$mode='html';}
   /**
    * Get content and reset capture and content.
    */
