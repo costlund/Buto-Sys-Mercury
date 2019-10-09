@@ -2,6 +2,7 @@ version: '2.16'
 history:
   '2.16':
     date: '2019-10-04'
+    title: Render element mode
     description: 'Set mode html/svg in wfDocument to be able to render text elements in svg.'
   '2.15':
     date: '2019-09-10'
