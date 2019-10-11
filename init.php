@@ -175,6 +175,14 @@ if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='session' && wfUser::has
   exit;
 }
 /**
+ * Webmaster can view server via ?phpinfo=server.
+ */
+if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='server' && wfUser::hasRole('webmaster')){
+  echo '<pre>';
+  echo wfHelp::getYmlDump($_SERVER);
+  exit;
+}
+/**
  * Webmaster plugin page.
  */
 if(isset($_REQUEST['webmaster_plugin']) && $_REQUEST['webmaster_plugin'] && wfUser::hasRole('webmaster')){

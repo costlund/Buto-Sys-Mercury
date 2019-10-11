@@ -1,5 +1,9 @@
-version: '2.16'
+version: '2.17'
 history:
+  '2.17':
+    date: '2019-10-11'
+    title: Special webmaster request.
+    description: 'Add server variables as special webmaster request page.'
   '2.16':
     date: '2019-10-04'
     title: Render element mode

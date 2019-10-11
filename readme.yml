@@ -429,6 +429,10 @@ readme:
           description: |
             Webmaster can view session via /?phpinfo=session.
         -
+          name: Server
+          description: |
+            Webmaster can view server via /?phpinfo=server.
+        -
           name: Globals
           description: |
             Webmaster can view globals via /?phpinfo=globals.

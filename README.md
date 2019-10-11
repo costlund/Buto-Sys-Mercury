@@ -69,10 +69,11 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 - [Special requests](#key_8) 
   - [Phpinfo](#key_8_0) 
   - [Session](#key_8_1) 
-  - [Globals](#key_8_2) 
-  - [Load theme](#key_8_3) 
-  - [Sign out](#key_8_4) 
-  - [Webmaster page](#key_8_5) 
+  - [Server](#key_8_2) 
+  - [Globals](#key_8_3) 
+  - [Load theme](#key_8_4) 
+  - [Sign out](#key_8_5) 
+  - [Webmaster page](#key_8_6) 
 
 
 <a name="key_0"></a>
@@ -587,23 +588,29 @@ wfDocument::setModeHtml();</code></pre>
 
 <a name="key_8_2"></a>
 
+### Server
+
+<p>Webmaster can view server via /?phpinfo=server.</p>
+
+<a name="key_8_3"></a>
+
 ### Globals
 
 <p>Webmaster can view globals via /?phpinfo=globals.</p>
 
-<a name="key_8_3"></a>
+<a name="key_8_4"></a>
 
 ### Load theme
 
 <p>Webmaster can change theme via /?loadtheme=<em>folder</em>/<em>folder</em>.</p>
 
-<a name="key_8_4"></a>
+<a name="key_8_5"></a>
 
 ### Sign out
 
 <p>One could sign out via /?signout=1.</p>
 
-<a name="key_8_5"></a>
+<a name="key_8_6"></a>
 
 ### Webmaster page
 
