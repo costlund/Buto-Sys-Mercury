@@ -181,11 +181,28 @@ readme:
               title: Hello Title
             innerHTML: Hello World
             ```
+            Attribute parameter as array render string if style or otherwise json data.
           item:
+            -
+              name: Style
+              description: |
+                This element has attribute style from array to string.
+                ```
+                type: div
+                attribute:
+                  style:
+                    color: red
+                    border: 'solid 1px blue'
+                    height: 100px
+                innerHTML: This element has attribute style from array to string.
+                ```
+                ```
+                <div style="color:red;border:solid 1px blue;height:100px;">This element has attribute style from array to string.</div>                
+                ```
             -
               name: JSON
               description: |
-                If attribute is an array it will be a JSON string.
+                This element has attribute data from array to json.
                 ```
                 type: span
                 attribute:

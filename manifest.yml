@@ -1,5 +1,9 @@
-version: '2.17'
+version: '2.18'
 history:
+  '2.18':
+    date: '2019-10-17'
+    title: Element attribute as array.
+    description: 'Element attributes as array is rendered as json or string if key is style.'
   '2.17':
     date: '2019-10-11'
     title: Special webmaster request.

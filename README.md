@@ -32,7 +32,8 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [I18N](#key_4_1_0) 
 - [Element](#key_5) 
   - [Attribute](#key_5_0) 
-    - [JSON](#key_5_0_0) 
+    - [Style](#key_5_0_0) 
+    - [JSON](#key_5_0_1) 
   - [Settings](#key_5_1) 
     - [Enabled](#key_5_1_0) 
     - [Disabled](#key_5_1_1) 
@@ -278,12 +279,27 @@ innerHTML: Hello World</code></pre>
 attribute:
   title: Hello Title
 innerHTML: Hello World</code></pre>
+<p>Attribute parameter as array render string if style or otherwise json data.</p>
 
 <a name="key_5_0_0"></a>
 
+#### Style
+
+<p>This element has attribute style from array to string.</p>
+<pre><code>type: div
+attribute:
+  style:
+    color: red
+    border: 'solid 1px blue'
+    height: 100px
+innerHTML: This element has attribute style from array to string.</code></pre>
+<pre><code>&lt;div style="color:red;border:solid 1px blue;height:100px;"&gt;This element has attribute style from array to string.&lt;/div&gt;                </code></pre>
+
+<a name="key_5_0_1"></a>
+
 #### JSON
 
-<p>If attribute is an array it will be a JSON string.</p>
+<p>This element has attribute data from array to json.</p>
 <pre><code>type: span
 attribute:
   data:

@@ -431,7 +431,11 @@ class wfDocument {
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
           if(is_array($value)){
-            $value = htmlspecialchars(json_encode($value), ENT_QUOTES, 'UTF-8');
+            if($attribute!='style'){
+              $value = $this->array_to_json($value);
+            }else{
+              $value = $this->array_to_string($value);
+            }
           }else{
             $value = wfSettings::getGlobalsFromString($value);
             $value = wfSettings::getServerFromString($value);
@@ -1128,5 +1132,21 @@ class wfDocument {
     }else{
       throw new Exception('wfDocument::insertAdminLayout says it could not find file '.$file.'.');
     }
+  }
+  /**
+   * Convert array to key1:value1;key2:value2; to render element style attributes.
+   */
+  private function array_to_string($data){
+    $str = null;
+    foreach ($data as $key => $value) {
+      $str .= "$key:$value;";
+    }
+    return $str;
+  }
+  /**
+   * Convert array to json.
+   */
+  private function array_to_json($value){
+    return htmlspecialchars(json_encode($value), ENT_QUOTES, 'UTF-8');
   }
 }
