@@ -288,6 +288,12 @@ class wfDocument {
    */
   private function renderStartTag($element, $i){
     /**
+     * If element is a string it should be like for example 'yml:/theme/[theme]/layout/navbar.yml'
+     */
+    if(!is_array($element)){
+      $element = wfSettings::getSettingsFromYmlString($element);
+    }
+    /**
      * Event.
      */
     $element = wfEvent::run('document_render_element', $element);
@@ -554,6 +560,15 @@ class wfDocument {
    * @throws Exception
    */
   private function renderEndTag($element, $i){
+    /**
+     * If element is a string it should be like for example 'yml:/theme/[theme]/layout/navbar.yml'
+     */
+    if(!is_array($element)){
+      $element = wfSettings::getSettingsFromYmlString($element);
+    }
+    /**
+     * 
+     */
     if(wfDocument::isElementDisabled($element)){return null;}
     if(!wfDocument::isElementEnabled($element)){return null;}
     if(substr($element['type'], 0, 3)=='wf_'){return null;}

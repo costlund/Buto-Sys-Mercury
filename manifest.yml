@@ -1,5 +1,9 @@
-version: '2.18'
+version: '2.19'
 history:
+  '2.19':
+    date: '2019-10-19'
+    title: Element as yml string.
+    description: 'If element is a string it should be like for example yml:/theme/[theme]/layout/navbar.yml.'
   '2.18':
     date: '2019-10-17'
     title: Element attribute as array.
