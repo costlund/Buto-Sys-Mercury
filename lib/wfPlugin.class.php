@@ -26,6 +26,13 @@ class wfPlugin {
         break;
       }
     }
+    /**
+     *
+     */
+    $settings = wfSettings::getSettingsFromYmlString($settings);
+    /**
+     *
+     */
     return $settings;
   }
   /**

@@ -45,6 +45,41 @@ readme:
                           style: "font-weight:bold"
                         innerHTML: Hello World
                 ```
+        -
+          name: Theme configuration
+          description: Like in Hello World example there is not much data a Theme need.
+          item:
+            -
+              name: Settings file
+              description: |
+                In /config/settings.yml
+                
+                This is basic data.
+                ```
+                plugin_modules:
+                  doc:
+                    plugin: 'wf/doc'
+                default_class: doc
+                default_method: home
+                ```
+                
+                This data can refer to a file.
+                ```
+                plugin_modules:
+                  account:
+                    plugin: 'wf/account2'
+                    settings: yml:/theme/[theme]/config/plugin_wf_account2.yml
+                ```
+            -
+              name: Folder buto_data
+              description: |
+                In some case you do not want to include sensitive data in a buto project. One could use a buto_data folder in same folder as a Buto project. Access shoud be like this.                
+                ```
+                plugin_modules:
+                  account:
+                    plugin: 'wf/account2'
+                    settings: 'yml:/../buto_data/theme/[theme]/config/plugin_wf_account2.yml'
+                ```
     -
       name: Plugin
       description: |

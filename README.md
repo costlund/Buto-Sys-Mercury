@@ -12,6 +12,9 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [Hello World](#key_0_0) 
     - [Config](#key_0_0_0) 
     - [Page](#key_0_0_1) 
+  - [Theme configuration](#key_0_1) 
+    - [Settings file](#key_0_1_0) 
+    - [Folder buto_data](#key_0_1_1) 
 - [Plugin](#key_1) 
   - [Widgets](#key_1_0) 
   - [Pages](#key_1_1) 
@@ -115,6 +118,39 @@ default_method: home</code></pre>
           id: min_span_tag
           style: "font-weight:bold"
         innerHTML: Hello World</code></pre>
+
+<a name="key_0_1"></a>
+
+### Theme configuration
+
+<p>Like in Hello World example there is not much data a Theme need.</p>
+
+<a name="key_0_1_0"></a>
+
+#### Settings file
+
+<p>In /config/settings.yml</p>
+<p>This is basic data.</p>
+<pre><code>plugin_modules:
+  doc:
+    plugin: 'wf/doc'
+default_class: doc
+default_method: home</code></pre>
+<p>This data can refer to a file.</p>
+<pre><code>plugin_modules:
+  account:
+    plugin: 'wf/account2'
+    settings: yml:/theme/[theme]/config/plugin_wf_account2.yml</code></pre>
+
+<a name="key_0_1_1"></a>
+
+#### Folder buto_data
+
+<p>In some case you do not want to include sensitive data in a buto project. One could use a buto_data folder in same folder as a Buto project. Access shoud be like this.                </p>
+<pre><code>plugin_modules:
+  account:
+    plugin: 'wf/account2'
+    settings: 'yml:/../buto_data/theme/[theme]/config/plugin_wf_account2.yml'</code></pre>
 
 <a name="key_1"></a>
 

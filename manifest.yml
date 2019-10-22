@@ -1,49 +1,53 @@
-version: '2.19'
+version: '2.20.0'
 history:
-  '2.19':
+  '2.20.0':
+    date: '2019-10-22'
+    title: Settings from yml string.
+    description: 'One could use yml string for settings param in theme settings file for plugin_modules.'
+  '2.19.0':
     date: '2019-10-19'
     title: Element as yml string.
     description: 'If element is a string it should be like for example yml:/theme/[theme]/layout/navbar.yml.'
-  '2.18':
+  '2.18.0':
     date: '2019-10-17'
     title: Element attribute as array.
     description: 'Element attributes as array is rendered as json or string if key is style.'
-  '2.17':
+  '2.17.0':
     date: '2019-10-11'
     title: Special webmaster request.
     description: 'Add server variables as special webmaster request page.'
-  '2.16':
+  '2.16.0':
     date: '2019-10-04'
     title: Render element mode
     description: 'Set mode html/svg in wfDocument to be able to render text elements in svg.'
-  '2.15':
+  '2.15.0':
     date: '2019-09-10'
     description: 'Add webmaster page.'
-  '2.14':
+  '2.14.0':
     date: '2019-09-10'
     description: 'Webmaster can view data via /?phpinfo=phpinfo or /?phpinfo=session or /?phpinfo=globals.'
-  '2.13':
+  '2.13.0':
     date: '2019-06-10'
     description: 'Settings enabled/disabled can have yml-string.'
-  '2.12':
+  '2.12.0':
     date: '2019-05-14'
     description: 'Set Globals for element in wfDocument.'
-  '2.11':
+  '2.11.0':
     date: '2019-05-14'
     description: 'Set method in wfGlobals.'
-  '2.10':
+  '2.10.0':
     date: '2019-04-18'
     description: 'Use JSON in element attribute.'
-  '2.9':
+  '2.9.0':
     date: '2019-04-11'
     description: 'Set settings params from globals.'
-  '2.8':
+  '2.8.0':
     date: '2019-03-12'
     description: 'Events improvement and documentation.'
-  '2.7':
+  '2.7.0':
     date: '2019-02-04'
     description: 'Improved method wfFilesystem::copyFile.'
-  '2.6':
+  '2.6.0':
     date: '2019-01-23'
     description: 'Rewrite config settings on HTTP_USER_AGENT.'
   '2.5.5':
@@ -61,19 +65,19 @@ history:
   '2.5.1':
     date: '2018-12-04'
     description: 'Improvement in method wfDocument.isElementEnabled.'
-  '2.5':
+  '2.5.0':
     date: '2018-11-30'
     description: 'Add method event_remove in wfPlugin to be able to remove i18n in plugin modules.'
-  '2.4':
+  '2.4.0':
     date: '2018-11-28'
     description: 'Add method set in wfRequest.'
-  '2.3':
+  '2.3.0':
     date: '2018-11-28'
     description: 'Add dump method in wfHelp.'
-  '2.2':
+  '2.2.0':
     date: '2018-11-27'
     description: 'It is now possible to discard translation by param settings/i18n=true for an element.'
-  '2.1':
+  '2.1.0':
     date: '2018-11-27'
     description: 'Update wfArray set method.'
   '2.0.2':
