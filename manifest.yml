@@ -1,5 +1,9 @@
-version: '2.20.0'
+version: '2.20.1'
 history:
+  '2.20.1':
+    date: '2019-10-23'
+    title: Bug
+    description: Bug in method wfSettings, getSettingsFromYmlString when value is object.
   '2.20.0':
     date: '2019-10-22'
     title: Settings from yml string.

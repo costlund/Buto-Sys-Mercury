@@ -375,6 +375,9 @@ class wfSettings {
     if(is_array($str)){
       return $str;
     }
+    if(is_object($str)){
+      return $str;
+    }
     if(substr($str, 0, 4)=='yml:'){
       $temp = preg_split('/:/', $str);
       /**
