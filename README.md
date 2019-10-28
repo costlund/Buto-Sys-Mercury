@@ -410,9 +410,12 @@ innerHTML: 'globals:_SESSION/username'</code></pre>
 
 <p>Render element from plugin.</p>
 <pre><code>wfDocument::renderElement($element);</code></pre>
-<p>Render element to an variable. Set capture=1 of also render. Could be handy when send html as mail body.</p>
-<pre><code>wfDocument::$capture=2;
-wfDocument::renderElement($element);
+<p>Set capture to 1 or 2 to be able to get content via getContent method. Good for send email usage.
+Set to 1 if capture html in content param and also render.
+Set to 2 if capture html in content param only and NOT render.</p>
+<pre><code>$element = new PluginWfYml(__DIR__.'/element/mail_registrate.yml');
+wfDocument::$capture=2;
+wfDocument::renderElement($element-&gt;get());
 $content = wfDocument::getContent();</code></pre>
 
 <a name="key_6"></a>
