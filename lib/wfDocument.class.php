@@ -450,7 +450,16 @@ class wfDocument {
               $value = wfSettings::getSettingsFromMethod($value);
             }
             $value = self::handleOutput($value);
+            /**
+             * Attribute content, lang.
+             */
             if(($attribute == 'content'  || $attribute == 'lang') && $document_render_string){
+              $value = wfEvent::run('document_render_string', $value);
+            }
+            /**
+             * Attribute value if input type button.
+             */
+            if($element['type'] == 'input' && isset($element['attribute']['type']) && $element['attribute']['type']=='button' && $attribute=='value' && $document_render_string){
               $value = wfEvent::run('document_render_string', $value);
             }
           }
