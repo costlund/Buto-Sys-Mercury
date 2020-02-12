@@ -304,6 +304,42 @@ readme:
                       - localhost
                 innerHTML: Hello World
                 ```
+            -
+              name: Param
+              description: |
+                Show element depending on param value.
+                ```
+                -
+                  type: div
+                  settings:
+                    param:
+                      allow: false
+                      name: sw
+                      value: John
+                  innerHTML: Paras sw must have value John
+                -
+                  type: div
+                  settings:
+                    param:
+                      allow: true
+                      name: sw
+                      value: John
+                  innerHTML: Paras sw can not have value John
+                -
+                  type: div
+                  settings:
+                    param:
+                      allow: true
+                      name: sw
+                  innerHTML: Paras sw must have a value
+                -
+                  type: div
+                  settings:
+                    param:
+                      allow: false
+                      name: sw
+                  innerHTML: Paras sw can not have a value
+                ```
         -
           name: Globals
           description: |

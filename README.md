@@ -42,6 +42,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Disabled](#key_5_1_1) 
     - [I18N](#key_5_1_2) 
     - [Server name](#key_5_1_3) 
+    - [Param](#key_5_1_4) 
   - [Globals](#key_5_2) 
   - [Render](#key_5_3) 
 - [Events](#key_6) 
@@ -395,6 +396,42 @@ settings:
     item:
       - localhost
 innerHTML: Hello World</code></pre>
+
+<a name="key_5_1_4"></a>
+
+#### Param
+
+<p>Show element depending on param value.</p>
+<pre><code>-
+  type: div
+  settings:
+    param:
+      allow: false
+      name: sw
+      value: John
+  innerHTML: Paras sw must have value John
+-
+  type: div
+  settings:
+    param:
+      allow: true
+      name: sw
+      value: John
+  innerHTML: Paras sw can not have value John
+-
+  type: div
+  settings:
+    param:
+      allow: true
+      name: sw
+  innerHTML: Paras sw must have a value
+-
+  type: div
+  settings:
+    param:
+      allow: false
+      name: sw
+  innerHTML: Paras sw can not have a value</code></pre>
 
 <a name="key_5_2"></a>
 
