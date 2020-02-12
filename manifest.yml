@@ -1,7 +1,10 @@
-version: '2.20.2'
+version: '2.20.3'
 history:
-  #
-  '2.20.1':
+  '2.20.3':
+    date: '2020-02-12'
+    title: Readme
+    description: Readme about element settings for param.
+  '2.20.2':
     date: '2019-11-29'
     title: Event
     description: Run event document_render_string for attribute value if input type button.
