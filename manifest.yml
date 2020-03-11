@@ -1,5 +1,9 @@
-version: '2.20.3'
+version: '2.21.0'
 history:
+  '2.21.0':
+    date: '2020-03-11'
+    title: Phpinfo
+    description: Add webadmin along with webmaster to be able to view phpinfo. New param cookie to view cookies.
   '2.20.3':
     date: '2020-02-12'
     title: Readme
@@ -92,7 +96,4 @@ history:
   '2.1.0':
     date: '2018-11-27'
     description: 'Update wfArray set method.'
-  '2.0.2':
-    date: ''
-    description: ''
   

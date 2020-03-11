@@ -506,6 +506,20 @@ readme:
           name: wfSettings
         -
           name: wfUser
+        -
+          name: wfPhpinfo
+          description: |
+            Show info if user has role webmaster or webadmin.
+            ```
+            /?phpinfo=phpinfo.
+            /?phpinfo=session.
+            /?phpinfo=server.
+            /?phpinfo=cookie.
+            ```
+            Show info if user has role webmaster.
+            ```
+            /?phpinfo=globals.
+            ```
     -
       name: Special requests
       description: |

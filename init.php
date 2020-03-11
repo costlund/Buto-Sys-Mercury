@@ -54,6 +54,7 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfI18n.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfGlobals.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfConfig.class.php";
+include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPhpinfo.class.php";
 wfEvent::run('sys_start');
 /**
  * Load ini settings from /config/settings.yml for a specific host.
@@ -152,36 +153,9 @@ wfEvent::run('request_rewrite_before');
 wfRequest::rewrite();
 wfEvent::run('request_rewrite_after');
 /**
- * Webmaster can view phpinfo via ?phpinfo=phpinfo.
+ * webmaster or webadmin can view phpinfo via /?phpinfo=_param_name_.
  */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='phpinfo' && wfUser::hasRole('webmaster')){
-  phpinfo();
-  exit;
-}
-/**
- * Webmaster can view globals via ?phpinfo=globals.
- */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='globals' && wfUser::hasRole('webmaster')){
-  echo '<pre>';
-  echo wfHelp::getYmlDump(wfGlobals::get());
-  exit;
-}
-/**
- * Webmaster can view session via ?phpinfo=session.
- */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='session' && wfUser::hasRole('webmaster')){
-  echo '<pre>';
-  echo wfHelp::getYmlDump($_SESSION);
-  exit;
-}
-/**
- * Webmaster can view server via ?phpinfo=server.
- */
-if(isset($_REQUEST['phpinfo']) && $_REQUEST['phpinfo']=='server' && wfUser::hasRole('webmaster')){
-  echo '<pre>';
-  echo wfHelp::getYmlDump($_SERVER);
-  exit;
-}
+wfPhpinfo::show_info();
 /**
  * Webmaster plugin page.
  */

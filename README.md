@@ -71,6 +71,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfServer](#key_7_14) 
   - [wfSettings](#key_7_15) 
   - [wfUser](#key_7_16) 
+  - [wfPhpinfo](#key_7_17) 
 - [Special requests](#key_8) 
   - [Phpinfo](#key_8_0) 
   - [Session](#key_8_1) 
@@ -659,6 +660,18 @@ wfDocument::setModeHtml();</code></pre>
 ### wfUser
 
 
+
+<a name="key_7_17"></a>
+
+### wfPhpinfo
+
+<p>Show info if user has role webmaster or webadmin.</p>
+<pre><code>/?phpinfo=phpinfo.
+/?phpinfo=session.
+/?phpinfo=server.
+/?phpinfo=cookie.</code></pre>
+<p>Show info if user has role webmaster.</p>
+<pre><code>/?phpinfo=globals.</code></pre>
 
 <a name="key_8"></a>
 
