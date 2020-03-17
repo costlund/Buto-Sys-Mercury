@@ -10,6 +10,24 @@ readme:
     One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.
   item:
     -
+      name: System
+      description: |
+        Buto system is located in folder sys/mercury
+      item:
+        -
+          name: GIT
+          description: |
+            In folder sys/mercury/git there are sh files to run git status/pull/fetch for all repos. Navigate in terminal to this folder and run commands.
+            ```
+            sh git_status.sh
+            sh git_fetch.sh
+            sh git_pull.sh
+            ```
+            Sometimes when clone a git repo files get status changes. One could solve this issue by running this command.
+            ```
+            sh git_fileMode.sh
+            ```
+    -
       name: Theme
       description: |
         Buto can have multiple themes. But in most cases there is only one involved when an application is in production.

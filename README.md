@@ -8,93 +8,112 @@ Only 22 files with .php extension for the hole framework.
 HTML code is done with yml in the exact same way but with the benefit to add extra Buto system params.
 One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.</p>
 
-- [Theme](#key_0) 
-  - [Hello World](#key_0_0) 
-    - [Config](#key_0_0_0) 
-    - [Page](#key_0_0_1) 
-  - [Theme configuration](#key_0_1) 
-    - [Settings file](#key_0_1_0) 
-    - [Folder buto_data](#key_0_1_1) 
-- [Plugin](#key_1) 
-  - [Widgets](#key_1_0) 
-  - [Pages](#key_1_1) 
-  - [Events](#key_1_2) 
-  - [Methods](#key_1_3) 
-- [Application dir](#key_2) 
-- [Folders](#key_3) 
-  - [config](#key_3_0) 
-  - [plugin](#key_3_1) 
-  - [sys](#key_3_2) 
-  - [theme](#key_3_3) 
-  - [public_html](#key_3_4) 
-- [Settings](#key_4) 
-  - [System](#key_4_0) 
-    - [Basic settings](#key_4_0_0) 
-    - [HTTP_USER_AGENT](#key_4_0_1) 
-  - [Theme](#key_4_1) 
-    - [I18N](#key_4_1_0) 
-- [Element](#key_5) 
-  - [Attribute](#key_5_0) 
-    - [Style](#key_5_0_0) 
-    - [JSON](#key_5_0_1) 
-  - [Settings](#key_5_1) 
-    - [Enabled](#key_5_1_0) 
-    - [Disabled](#key_5_1_1) 
-    - [I18N](#key_5_1_2) 
-    - [Server name](#key_5_1_3) 
-    - [Param](#key_5_1_4) 
-  - [Globals](#key_5_2) 
-  - [Render](#key_5_3) 
-- [Events](#key_6) 
-  - [Settings](#key_6_0) 
-  - [Method](#key_6_1) 
-  - [System events](#key_6_2) 
-  - [Fire event](#key_6_3) 
-  - [Globals](#key_6_4) 
-- [Lib](#key_7) 
-  - [wfArray](#key_7_0) 
-  - [wfArraySearch](#key_7_1) 
-  - [wfConfig](#key_7_2) 
-  - [wfCrypt](#key_7_3) 
-  - [wfDate](#key_7_4) 
-  - [wfDocument](#key_7_5) 
-    - [Globals](#key_7_5_0) 
-    - [Mode](#key_7_5_1) 
-  - [wfElement](#key_7_6) 
-  - [wfEvent](#key_7_7) 
-  - [wfFilesystem](#key_7_8) 
-  - [wfGlobals](#key_7_9) 
-  - [wfHelp](#key_7_10) 
-  - [wfI18n](#key_7_11) 
-  - [wfPlugin](#key_7_12) 
-  - [wfRequest](#key_7_13) 
-  - [wfServer](#key_7_14) 
-  - [wfSettings](#key_7_15) 
-  - [wfUser](#key_7_16) 
-  - [wfPhpinfo](#key_7_17) 
-- [Special requests](#key_8) 
-  - [Phpinfo](#key_8_0) 
-  - [Session](#key_8_1) 
-  - [Server](#key_8_2) 
-  - [Globals](#key_8_3) 
-  - [Load theme](#key_8_4) 
-  - [Sign out](#key_8_5) 
-  - [Webmaster page](#key_8_6) 
+- [System](#key_0) 
+  - [GIT](#key_0_0) 
+- [Theme](#key_1) 
+  - [Hello World](#key_1_0) 
+    - [Config](#key_1_0_0) 
+    - [Page](#key_1_0_1) 
+  - [Theme configuration](#key_1_1) 
+    - [Settings file](#key_1_1_0) 
+    - [Folder buto_data](#key_1_1_1) 
+- [Plugin](#key_2) 
+  - [Widgets](#key_2_0) 
+  - [Pages](#key_2_1) 
+  - [Events](#key_2_2) 
+  - [Methods](#key_2_3) 
+- [Application dir](#key_3) 
+- [Folders](#key_4) 
+  - [config](#key_4_0) 
+  - [plugin](#key_4_1) 
+  - [sys](#key_4_2) 
+  - [theme](#key_4_3) 
+  - [public_html](#key_4_4) 
+- [Settings](#key_5) 
+  - [System](#key_5_0) 
+    - [Basic settings](#key_5_0_0) 
+    - [HTTP_USER_AGENT](#key_5_0_1) 
+  - [Theme](#key_5_1) 
+    - [I18N](#key_5_1_0) 
+- [Element](#key_6) 
+  - [Attribute](#key_6_0) 
+    - [Style](#key_6_0_0) 
+    - [JSON](#key_6_0_1) 
+  - [Settings](#key_6_1) 
+    - [Enabled](#key_6_1_0) 
+    - [Disabled](#key_6_1_1) 
+    - [I18N](#key_6_1_2) 
+    - [Server name](#key_6_1_3) 
+    - [Param](#key_6_1_4) 
+  - [Globals](#key_6_2) 
+  - [Render](#key_6_3) 
+- [Events](#key_7) 
+  - [Settings](#key_7_0) 
+  - [Method](#key_7_1) 
+  - [System events](#key_7_2) 
+  - [Fire event](#key_7_3) 
+  - [Globals](#key_7_4) 
+- [Lib](#key_8) 
+  - [wfArray](#key_8_0) 
+  - [wfArraySearch](#key_8_1) 
+  - [wfConfig](#key_8_2) 
+  - [wfCrypt](#key_8_3) 
+  - [wfDate](#key_8_4) 
+  - [wfDocument](#key_8_5) 
+    - [Globals](#key_8_5_0) 
+    - [Mode](#key_8_5_1) 
+  - [wfElement](#key_8_6) 
+  - [wfEvent](#key_8_7) 
+  - [wfFilesystem](#key_8_8) 
+  - [wfGlobals](#key_8_9) 
+  - [wfHelp](#key_8_10) 
+  - [wfI18n](#key_8_11) 
+  - [wfPlugin](#key_8_12) 
+  - [wfRequest](#key_8_13) 
+  - [wfServer](#key_8_14) 
+  - [wfSettings](#key_8_15) 
+  - [wfUser](#key_8_16) 
+  - [wfPhpinfo](#key_8_17) 
+- [Special requests](#key_9) 
+  - [Phpinfo](#key_9_0) 
+  - [Session](#key_9_1) 
+  - [Server](#key_9_2) 
+  - [Globals](#key_9_3) 
+  - [Load theme](#key_9_4) 
+  - [Sign out](#key_9_5) 
+  - [Webmaster page](#key_9_6) 
 
 
 <a name="key_0"></a>
+
+## System
+
+<p>Buto system is located in folder sys/mercury</p>
+
+<a name="key_0_0"></a>
+
+### GIT
+
+<p>In folder sys/mercury/git there are sh files to run git status/pull/fetch for all repos. Navigate in terminal to this folder and run commands.</p>
+<pre><code>sh git_status.sh
+sh git_fetch.sh
+sh git_pull.sh</code></pre>
+<p>Sometimes when clone a git repo files get status changes. One could solve this issue by running this command.</p>
+<pre><code>sh git_fileMode.sh</code></pre>
+
+<a name="key_1"></a>
 
 ## Theme
 
 <p>Buto can have multiple themes. But in most cases there is only one involved when an application is in production.</p>
 
-<a name="key_0_0"></a>
+<a name="key_1_0"></a>
 
 ### Hello World
 
 <p>An Hello World example where theme is in location /theme/hello/world. This theme only make use of one plugin wf/doc to render a page.</p>
 
-<a name="key_0_0_0"></a>
+<a name="key_1_0_0"></a>
 
 #### Config
 
@@ -105,7 +124,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 default_class: doc
 default_method: home</code></pre>
 
-<a name="key_0_0_1"></a>
+<a name="key_1_0_1"></a>
 
 #### Page
 
@@ -121,13 +140,13 @@ default_method: home</code></pre>
           style: "font-weight:bold"
         innerHTML: Hello World</code></pre>
 
-<a name="key_0_1"></a>
+<a name="key_1_1"></a>
 
 ### Theme configuration
 
 <p>Like in Hello World example there is not much data a Theme need.</p>
 
-<a name="key_0_1_0"></a>
+<a name="key_1_1_0"></a>
 
 #### Settings file
 
@@ -144,7 +163,7 @@ default_method: home</code></pre>
     plugin: 'wf/account2'
     settings: yml:/theme/[theme]/config/plugin_wf_account2.yml</code></pre>
 
-<a name="key_0_1_1"></a>
+<a name="key_1_1_1"></a>
 
 #### Folder buto_data
 
@@ -154,7 +173,7 @@ default_method: home</code></pre>
     plugin: 'wf/account2'
     settings: 'yml:/../buto_data/theme/[theme]/config/plugin_wf_account2.yml'</code></pre>
 
-<a name="key_1"></a>
+<a name="key_2"></a>
 
 ## Plugin
 
@@ -167,31 +186,31 @@ default_method: home</code></pre>
 </ul>
 <p>Some plugins are like a complete application. And some are designed just to include a javascript file with a widget.</p>
 
-<a name="key_1_0"></a>
+<a name="key_2_0"></a>
 
 ### Widgets
 
 <p>A widget should be some HTML element on a page.</p>
 
-<a name="key_1_1"></a>
+<a name="key_2_1"></a>
 
 ### Pages
 
 <p>A page where there could be layout pages involved.</p>
 
-<a name="key_1_2"></a>
+<a name="key_2_2"></a>
 
 ### Events
 
 <p>Buto system or plugins can fire events.</p>
 
-<a name="key_1_3"></a>
+<a name="key_2_3"></a>
 
 ### Methods
 
 <p>Methods used from other plugins.</p>
 
-<a name="key_2"></a>
+<a name="key_3"></a>
 
 ## Application dir
 
@@ -204,56 +223,56 @@ default_method: home</code></pre>
 <li>public_html</li>
 </ul>
 
-<a name="key_3"></a>
+<a name="key_4"></a>
 
 ## Folders
 
 <p>Folder descriptions.</p>
 
-<a name="key_3_0"></a>
+<a name="key_4_0"></a>
 
 ### config
 
 <p>Must have system settings file settings.yml.</p>
 
-<a name="key_3_1"></a>
+<a name="key_4_1"></a>
 
 ### plugin
 
 <p>Plugins is stored in two folder levels. In first level there should only be folders. In second level there is plugin data files.</p>
 
-<a name="key_3_2"></a>
+<a name="key_4_2"></a>
 
 ### sys
 
 <p>Buto system folder.</p>
 
-<a name="key_3_3"></a>
+<a name="key_4_3"></a>
 
 ### theme
 
 <p>Themes is stored in two folder levels. In first level there should only be folders. In second level there is theme data files.</p>
 
-<a name="key_3_4"></a>
+<a name="key_4_4"></a>
 
 ### public_html
 
 <p>Web root folder. One should point your web server Apache/IIS to this folder. This folder can have any name.</p>
 
-<a name="key_4"></a>
+<a name="key_5"></a>
 
 ## Settings
 
 <p>File /config/settings.yml tells Buto which theme to render along with a few params.</p>
 
-<a name="key_4_0"></a>
+<a name="key_5_0"></a>
 
 ### System
 
 <p>This file is read before theme settings file.</p>
 <pre><code>/config/settings.yml.</code></pre>
 
-<a name="key_4_0_0"></a>
+<a name="key_5_0_0"></a>
 
 #### Basic settings
 
@@ -261,7 +280,7 @@ default_method: home</code></pre>
 <pre><code>theme: my/theme
 timezone: Europe/Paris</code></pre>
 
-<a name="key_4_0_1"></a>
+<a name="key_5_0_1"></a>
 
 #### HTTP_USER_AGENT
 
@@ -277,14 +296,14 @@ http_user_agent:
 <p>Now it should be like this.</p>
 <pre><code>theme: my/next_theme</code></pre>
 
-<a name="key_4_1"></a>
+<a name="key_5_1"></a>
 
 ### Theme
 
 <p>This file contains plugin settings for widget, pages, events.</p>
 <pre><code>/theme/xxx/yyy/config/settings.yml</code></pre>
 
-<a name="key_4_1_0"></a>
+<a name="key_5_1_0"></a>
 
 #### I18N
 
@@ -296,7 +315,7 @@ http_user_agent:
     - de
     - en</code></pre>
 
-<a name="key_5"></a>
+<a name="key_6"></a>
 
 ## Element
 
@@ -308,7 +327,7 @@ attribute:
   style: 'color:red'
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_0"></a>
+<a name="key_6_0"></a>
 
 ### Attribute
 
@@ -319,7 +338,7 @@ attribute:
 innerHTML: Hello World</code></pre>
 <p>Attribute parameter as array render string if style or otherwise json data.</p>
 
-<a name="key_5_0_0"></a>
+<a name="key_6_0_0"></a>
 
 #### Style
 
@@ -333,7 +352,7 @@ attribute:
 innerHTML: This element has attribute style from array to string.</code></pre>
 <pre><code>&lt;div style="color:red;border:solid 1px blue;height:100px;"&gt;This element has attribute style from array to string.&lt;/div&gt;                </code></pre>
 
-<a name="key_5_0_1"></a>
+<a name="key_6_0_1"></a>
 
 #### JSON
 
@@ -347,13 +366,13 @@ innerHTML: Hello World</code></pre>
 <p>HTML</p>
 <pre><code>&lt;span data="{&amp;quot;name&amp;quot;:&amp;quot;Title&amp;quot;,&amp;quot;id&amp;quot;:123}" onclick="console.log(JSON.parse(this.getAttribute('data')))"&gt;Hello World&lt;/span&gt;</code></pre>
 
-<a name="key_5_1"></a>
+<a name="key_6_1"></a>
 
 ### Settings
 
 <p>Settings params are used by Buto and not to be rendered in browser.</p>
 
-<a name="key_5_1_0"></a>
+<a name="key_6_1_0"></a>
 
 #### Enabled
 
@@ -364,7 +383,7 @@ innerHTML: Hello World</code></pre>
 <p>Enabled could also have yml-string.</p>
 <pre><code>enabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'</code></pre>
 
-<a name="key_5_1_1"></a>
+<a name="key_6_1_1"></a>
 
 #### Disabled
 
@@ -375,7 +394,7 @@ innerHTML: Hello World</code></pre>
 <p>Disabled could also have yml-string.</p>
 <pre><code>disabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'</code></pre>
 
-<a name="key_5_1_2"></a>
+<a name="key_6_1_2"></a>
 
 #### I18N
 
@@ -385,7 +404,7 @@ settings:
   i18n: false
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_1_3"></a>
+<a name="key_6_1_3"></a>
 
 #### Server name
 
@@ -398,7 +417,7 @@ settings:
       - localhost
 innerHTML: Hello World</code></pre>
 
-<a name="key_5_1_4"></a>
+<a name="key_6_1_4"></a>
 
 #### Param
 
@@ -434,7 +453,7 @@ innerHTML: Hello World</code></pre>
       name: sw
   innerHTML: Paras sw can not have a value</code></pre>
 
-<a name="key_5_2"></a>
+<a name="key_6_2"></a>
 
 ### Globals
 
@@ -442,7 +461,7 @@ innerHTML: Hello World</code></pre>
 <pre><code>type: span
 innerHTML: 'globals:_SESSION/username'</code></pre>
 
-<a name="key_5_3"></a>
+<a name="key_6_3"></a>
 
 ### Render
 
@@ -456,13 +475,13 @@ wfDocument::$capture=2;
 wfDocument::renderElement($element-&gt;get());
 $content = wfDocument::getContent();</code></pre>
 
-<a name="key_6"></a>
+<a name="key_7"></a>
 
 ## Events
 
 <p>Events are fired by system or plugins.</p>
 
-<a name="key_6_0"></a>
+<a name="key_7_0"></a>
 
 ### Settings
 
@@ -475,7 +494,7 @@ $content = wfDocument::getContent();</code></pre>
       data:
         location_url: '/d/pagenotfound'</code></pre>
 
-<a name="key_6_1"></a>
+<a name="key_7_1"></a>
 
 ### Method
 
@@ -484,7 +503,7 @@ $content = wfDocument::getContent();</code></pre>
   // Do stuff...
 }</code></pre>
 
-<a name="key_6_2"></a>
+<a name="key_7_2"></a>
 
 ### System events
 
@@ -507,14 +526,14 @@ document_render_before
 document_render_after
 sys_close</code></pre>
 
-<a name="key_6_3"></a>
+<a name="key_7_3"></a>
 
 ### Fire event
 
 <p>A plugin can fire event like this.</p>
 <pre><code>wfEvent::run('_any_name_', array('some_data' =&gt; null));</code></pre>
 
-<a name="key_6_4"></a>
+<a name="key_7_4"></a>
 
 ### Globals
 
@@ -525,49 +544,49 @@ sys_close</code></pre>
   // 
 }</code></pre>
 
-<a name="key_7"></a>
+<a name="key_8"></a>
 
 ## Lib
 
 <p>Methods.</p>
 
-<a name="key_7_0"></a>
+<a name="key_8_0"></a>
 
 ### wfArray
 
 
 
-<a name="key_7_1"></a>
+<a name="key_8_1"></a>
 
 ### wfArraySearch
 
 
 
-<a name="key_7_2"></a>
+<a name="key_8_2"></a>
 
 ### wfConfig
 
 
 
-<a name="key_7_3"></a>
+<a name="key_8_3"></a>
 
 ### wfCrypt
 
 
 
-<a name="key_7_4"></a>
+<a name="key_8_4"></a>
 
 ### wfDate
 
 
 
-<a name="key_7_5"></a>
+<a name="key_8_5"></a>
 
 ### wfDocument
 
 <p>Handle elements.</p>
 
-<a name="key_7_5_0"></a>
+<a name="key_8_5_0"></a>
 
 #### Globals
 
@@ -586,7 +605,7 @@ innerHTML:
           value: '/plugin/invoice/invoice_v1/i18n'
     innerHTML: Hello World</code></pre>
 
-<a name="key_7_5_1"></a>
+<a name="key_8_5_1"></a>
 
 #### Mode
 
@@ -595,73 +614,73 @@ innerHTML:
 wfDocument::renderElement($svg-&gt;get());
 wfDocument::setModeHtml();</code></pre>
 
-<a name="key_7_6"></a>
+<a name="key_8_6"></a>
 
 ### wfElement
 
 
 
-<a name="key_7_7"></a>
+<a name="key_8_7"></a>
 
 ### wfEvent
 
 
 
-<a name="key_7_8"></a>
+<a name="key_8_8"></a>
 
 ### wfFilesystem
 
 
 
-<a name="key_7_9"></a>
+<a name="key_8_9"></a>
 
 ### wfGlobals
 
 <p>Handle Globals variable.</p>
 
-<a name="key_7_10"></a>
+<a name="key_8_10"></a>
 
 ### wfHelp
 
 
 
-<a name="key_7_11"></a>
+<a name="key_8_11"></a>
 
 ### wfI18n
 
 
 
-<a name="key_7_12"></a>
+<a name="key_8_12"></a>
 
 ### wfPlugin
 
 
 
-<a name="key_7_13"></a>
+<a name="key_8_13"></a>
 
 ### wfRequest
 
 
 
-<a name="key_7_14"></a>
+<a name="key_8_14"></a>
 
 ### wfServer
 
 
 
-<a name="key_7_15"></a>
+<a name="key_8_15"></a>
 
 ### wfSettings
 
 
 
-<a name="key_7_16"></a>
+<a name="key_8_16"></a>
 
 ### wfUser
 
 
 
-<a name="key_7_17"></a>
+<a name="key_8_17"></a>
 
 ### wfPhpinfo
 
@@ -673,49 +692,49 @@ wfDocument::setModeHtml();</code></pre>
 <p>Show info if user has role webmaster.</p>
 <pre><code>/?phpinfo=globals.</code></pre>
 
-<a name="key_8"></a>
+<a name="key_9"></a>
 
 ## Special requests
 
 <p>One could run some params to get special methods.</p>
 
-<a name="key_8_0"></a>
+<a name="key_9_0"></a>
 
 ### Phpinfo
 
 <p>Webmaster can view phpinfo via /?phpinfo=phpinfo.</p>
 
-<a name="key_8_1"></a>
+<a name="key_9_1"></a>
 
 ### Session
 
 <p>Webmaster can view session via /?phpinfo=session.</p>
 
-<a name="key_8_2"></a>
+<a name="key_9_2"></a>
 
 ### Server
 
 <p>Webmaster can view server via /?phpinfo=server.</p>
 
-<a name="key_8_3"></a>
+<a name="key_9_3"></a>
 
 ### Globals
 
 <p>Webmaster can view globals via /?phpinfo=globals.</p>
 
-<a name="key_8_4"></a>
+<a name="key_9_4"></a>
 
 ### Load theme
 
 <p>Webmaster can change theme via /?loadtheme=<em>folder</em>/<em>folder</em>.</p>
 
-<a name="key_8_5"></a>
+<a name="key_9_5"></a>
 
 ### Sign out
 
 <p>One could sign out via /?signout=1.</p>
 
-<a name="key_8_6"></a>
+<a name="key_9_6"></a>
 
 ### Webmaster page
 

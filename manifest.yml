@@ -1,5 +1,9 @@
-version: '2.21.1'
+version: '2.22.0'
 history:
+  '2.22.0':
+    date: '2020-03-17'
+    title: GIT
+    description: Add sh files in folder git to be able to run git commands for all repos.
   '2.21.1':
     date: '2020-03-17'
     title: Readme
