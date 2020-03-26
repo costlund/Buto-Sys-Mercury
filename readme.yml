@@ -191,6 +191,24 @@ readme:
                 ```
                 theme: my/next_theme
                 ```
+            -
+              name: Domain
+              description: |
+                One could change theme depending on domain name. Example to rewrite theme param from my/theme to my/next_theme if domain is localhost.
+                ```
+                theme: my/theme
+                domain:
+                  'localhost':
+                    rewrite:
+                      set:
+                        -
+                          path_to_key: theme
+                          value: my/next_theme
+                ```
+                Now it should be like this.
+                ```
+                theme: my/next_theme
+                ```
         -
           name: Theme
           description: |

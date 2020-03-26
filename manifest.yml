@@ -1,5 +1,9 @@
-version: '2.22.0'
+version: '2.22.1'
 history:
+  '2.22.1':
+    date: '2020-03-26'
+    title: Readme
+    description: Add how to rewrite params for domains in /config/settings.yml
   '2.22.0':
     date: '2020-03-17'
     title: GIT
