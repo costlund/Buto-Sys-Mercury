@@ -1,5 +1,9 @@
-version: '2.22.0'
+version: '2.22.1'
 history:
+  '2.22.1':
+    date: '2020-04-17'
+    title: GIT
+    description: Add sh file git_autocrlf.sh in folder git.
   '2.22.0':
     date: '2020-03-17'
     title: GIT
