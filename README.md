@@ -33,6 +33,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [System](#key_5_0) 
     - [Basic settings](#key_5_0_0) 
     - [HTTP_USER_AGENT](#key_5_0_1) 
+    - [Domain](#key_5_0_2) 
   - [Theme](#key_5_1) 
     - [I18N](#key_5_1_0) 
 - [Element](#key_6) 
@@ -288,6 +289,22 @@ timezone: Europe/Paris</code></pre>
 <pre><code>theme: my/theme
 http_user_agent:
   '*chrome*':
+    rewrite:
+      set:
+        -
+          path_to_key: theme
+          value: my/next_theme</code></pre>
+<p>Now it should be like this.</p>
+<pre><code>theme: my/next_theme</code></pre>
+
+<a name="key_5_0_2"></a>
+
+#### Domain
+
+<p>One could change theme depending on domain name. Example to rewrite theme param from my/theme to my/next_theme if domain is localhost.</p>
+<pre><code>theme: my/theme
+domain:
+  'localhost':
     rewrite:
       set:
         -
