@@ -1,5 +1,9 @@
-version: '2.22.2'
+version: '2.22.3'
 history:
+  '2.22.3':
+    date: '2020-04-20'
+    title: GIT
+    description: Improvements in sh files in folder git.
   '2.22.2':
     date: '2020-04-17'
     title: GIT

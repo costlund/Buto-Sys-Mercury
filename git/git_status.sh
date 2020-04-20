@@ -7,6 +7,6 @@ find . -maxdepth 2 -mindepth 2 -type d -exec sh -c '(echo "[theme]" && echo {} &
 cd ../sys/mercury/git
 
 cd ../../../plugin
-find . -maxdepth 2 -mindepth 2 -type d -exec sh -c '(echo "[plugin]" && echo {} && cd {} && git status -s && echo)' \;
+find . -maxdepth 2 -mindepth 2 -type d -exec sh -c '(echo "" && echo "[plugin]" && echo {} && cd {} && git status -s && echo)' \;
 cd ../sys/mercury/git
 
