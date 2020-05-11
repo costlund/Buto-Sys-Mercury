@@ -1,5 +1,9 @@
-version: '2.22.4'
+version: '2.22.5'
 history:
+  '2.22.5':
+    date: '2020-04-21'
+    title: Element attribute class
+    description: Create string of array values if element attribute is class.
   '2.22.4':
     date: '2020-04-21'
     title: GIT

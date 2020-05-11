@@ -437,7 +437,9 @@ class wfDocument {
       if(isset($element['attribute'])){
         foreach ($element['attribute'] as $attribute => $value) {
           if(is_array($value)){
-            if($attribute!='style'){
+            if($attribute=='class'){
+              $value = $this->array_to_values($value);
+            }elseif($attribute!='style'){
               $value = $this->array_to_json($value);
             }else{
               $value = $this->array_to_string($value);
@@ -1164,6 +1166,19 @@ class wfDocument {
     $str = null;
     foreach ($data as $key => $value) {
       $str .= "$key:$value;";
+    }
+    return $str;
+  }
+  /**
+   * Convert array values to values in string.
+   * Using for element attribute class when array is provided.
+   * @param type $data Array
+   * @return type String
+   */
+  private function array_to_values($data){
+    $str = null;
+    foreach ($data as $key => $value) {
+      $str .= "$value ";
     }
     return $str;
   }
