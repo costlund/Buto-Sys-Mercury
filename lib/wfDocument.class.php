@@ -454,8 +454,9 @@ class wfDocument {
             $value = self::handleOutput($value);
             /**
              * Attribute content, lang.
+             * We should consider to translate attributes via element settings (also)...
              */
-            if(($attribute == 'content'  || $attribute == 'lang') && $document_render_string){
+            if(($attribute == 'content'  || $attribute == 'lang'  || $attribute == 'data-original-title'  || $attribute == 'data-content') && $document_render_string){
               $value = wfEvent::run('document_render_string', $value);
             }
             /**

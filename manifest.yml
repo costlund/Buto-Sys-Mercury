@@ -1,5 +1,9 @@
-version: '2.22.5'
+version: '2.22.6'
 history:
+  '2.22.6':
+    date: '2020-05-18'
+    title: Event document_render_string
+    description: Fire event document_render_string on element attribute data-original-title and data-content.
   '2.22.5':
     date: '2020-04-21'
     title: Element attribute class
