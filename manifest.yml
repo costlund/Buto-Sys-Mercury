@@ -1,5 +1,9 @@
-version: '2.22.6'
+version: '2.22.7'
 history:
+  '2.22.7':
+    date: '2020-07-02'
+    title: Not encrypted passwords
+    description: Method isValid in wfCrypt could not handle not encrypted password.
   '2.22.6':
     date: '2020-05-18'
     title: Event document_render_string

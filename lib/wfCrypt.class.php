@@ -9,9 +9,9 @@ class wfCrypt {
     }
     public static function isValid($password, $string){
       $arr = explode(' ', $string);
-      if(sizeof($arr) != 2){
-        return false;
-      }elseif($arr[0]==  crypt($password, $arr[1])){
+      if(sizeof($arr)==2 && $arr[0]==crypt($password, $arr[1])){
+        return true;
+      }elseif(sizeof($arr)==1 && $arr[0]==$password){
         return true;
       }else{
         return false;
