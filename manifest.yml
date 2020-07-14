@@ -1,5 +1,9 @@
-version: '2.22.7'
+version: '2.23.0'
 history:
+  '2.23.0':
+    date: '2020-07-14'
+    title: Rewrite settings
+    description: Rewrite settings from buto_data folder.
   '2.22.7':
     date: '2020-07-02'
     title: Not encrypted passwords

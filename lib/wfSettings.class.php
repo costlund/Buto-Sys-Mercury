@@ -133,6 +133,20 @@ class wfSettings {
         $settings = wfArray::set($settings, 'rewrite', wfArray::get($settings, 'domain/'.wfArray::get($_SERVER, 'SERVER_NAME').'/rewrite'));
       }
       $settings = wfArray::rewrite($settings);
+      /**
+       * Rewrite from buto_data folder
+       */
+      $filename = wfGlobals::getAppDir().'/../buto_data/theme/'.wfArray::get($GLOBALS, 'sys/theme').'/settings.yml';
+      if(file_exists($filename)){
+        $buto_data_settings = sfYaml::load($filename);
+        if(wfArray::isKey($buto_data_settings, 'rewrite')){
+          $settings = wfArray::set($settings, 'rewrite', wfArray::get($buto_data_settings, 'rewrite'));
+          $settings = wfArray::rewrite($settings);
+        }
+      }
+      /**
+       * Save cache file
+       */
       if($GLOBALS['sys']['cache']){
         file_put_contents($serialize, serialize($settings));
       }

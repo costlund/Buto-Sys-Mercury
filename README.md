@@ -36,6 +36,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Domain](#key_5_0_2) 
   - [Theme](#key_5_1) 
     - [I18N](#key_5_1_0) 
+    - [buto_data folder](#key_5_1_1) 
 - [Element](#key_6) 
   - [Attribute](#key_6_0) 
     - [Style](#key_6_0_0) 
@@ -331,6 +332,33 @@ domain:
     - sv
     - de
     - en</code></pre>
+
+<a name="key_5_1_1"></a>
+
+#### buto_data folder
+
+<p>Rewrite settings.yml if this file also exist in (app dir) /../buto_data/theme/(theme)/settings.yml</p>
+<pre><code>rewrite:
+  set:
+    -
+      path_to_key: plugin_modules/account/settings
+      value:
+        allow:
+          signin: true
+          signin_method: username
+          registration: true
+          change_email: true
+          change_username: true
+          change_password: true
+          two_factor_authentication: false
+          remember: false
+        two_factor_authentication:
+          key_timeout: 600
+        mysql:
+          server: '127.0.0.1'
+          database: '_my_db_'
+          user_name: '_username_'
+          password: '_password_'</code></pre>
 
 <a name="key_6"></a>
 
