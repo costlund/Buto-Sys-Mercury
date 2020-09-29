@@ -403,6 +403,21 @@ readme:
                       name: sw
                   innerHTML: Paras sw can not have a value
                 ```
+            -
+              name: innerHTML
+              description: |
+                Add innerHTML content (string only) from a file. Stop on first existing file.
+                ```
+                type: h1
+                settings:
+                  innerHTML:
+                    -
+                      file: /../buto_data/theme/[theme]/data.yml
+                      path_to_key: title
+                    -
+                      file: /theme/[theme]/buto_data/data.yml
+                      path_to_key: title
+                ```
         -
           name: Globals
           description: |

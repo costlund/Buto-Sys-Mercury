@@ -1,5 +1,9 @@
-version: '2.23.0'
+version: '2.24.0'
 history:
+  '2.24.0':
+    date: '2020-09-29'
+    title: 'innerHTML'
+    description: 'Add innerHTML content from a file. Stop on first existing file.'
   '2.23.0':
     date: '2020-07-14'
     title: Rewrite settings

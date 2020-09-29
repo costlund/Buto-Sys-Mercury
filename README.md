@@ -47,6 +47,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [I18N](#key_6_1_2) 
     - [Server name](#key_6_1_3) 
     - [Param](#key_6_1_4) 
+    - [innerHTML](#key_6_1_5) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
 - [Events](#key_7) 
@@ -497,6 +498,21 @@ innerHTML: Hello World</code></pre>
       allow: false
       name: sw
   innerHTML: Paras sw can not have a value</code></pre>
+
+<a name="key_6_1_5"></a>
+
+#### innerHTML
+
+<p>Add innerHTML content from a file. Stop on first existing file.</p>
+<pre><code>type: h1
+settings:
+  innerHTML:
+    -
+      file: /../buto_data/theme/[theme]/data.yml
+      path_to_key: title
+    -
+      file: /theme/[theme]/buto_data/data.yml
+      path_to_key: title</code></pre>
 
 <a name="key_6_2"></a>
 

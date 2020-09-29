@@ -279,6 +279,27 @@ class wfDocument {
     }
     return true;
   }
+  private function renderInnerHTML($element){
+    if(isset($element['settings']['innerHTML'])){
+      if(!is_array($element['settings']['innerHTML'])){
+        throw new Exception(__CLASS__.' says: Param settings/innerHTML must be array!');
+      }else{
+        foreach($element['settings']['innerHTML'] as $v){
+          $i = new PluginWfArray($v);
+          if(wfFilesystem::fileExist(wfGlobals::getAppDir().$i->get('file'))){
+            wfPlugin::includeonce('wf/yml');
+            $temp = new PluginWfYml(wfGlobals::getAppDir().$i->get('file'));
+            $element['innerHTML'] = $temp->get($i->get('path_to_key'));
+            //$element['innerHTML'] = 'test';
+            //wfHelp::yml_dump($element);
+            break;
+          }
+        }
+      }
+      //wfHelp::yml_dump($element, true);
+    }
+    return $element;
+  }
   /**
    * Render start tag.
    * @param type $element
@@ -343,6 +364,10 @@ class wfDocument {
       $this->element_globals[$i] = $from;
       unset($from);
     }
+    /**
+     * settings/innerHTML
+     */
+    $element = $this->renderInnerHTML($element);
     /**
      * Special for tag A.
      */
