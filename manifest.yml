@@ -1,5 +1,9 @@
-version: '2.24.0'
+version: '2.25.0'
 history:
+  '2.25.0':
+    date: '2020-09-29'
+    title: 'Element if file exist'
+    description: 'Render element if a file exist only.'
   '2.24.0':
     date: '2020-09-29'
     title: 'innerHTML'

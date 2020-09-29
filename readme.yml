@@ -418,6 +418,19 @@ readme:
                       file: /theme/[theme]/buto_data/data.yml
                       path_to_key: title
                 ```
+            -
+              name: file_exist
+              description: |
+                Render element if a file exist only.
+                ```
+                type: widget
+                settings:
+                  file_exist: /theme/[theme]/buto_data/data.yml
+                data:
+                  plugin: 'theme/include'
+                  method: include
+                  data: yml:/theme/[theme]/buto_data/data.yml:plugin/theme/include/data
+                ```
         -
           name: Globals
           description: |

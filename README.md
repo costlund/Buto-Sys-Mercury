@@ -48,6 +48,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Server name](#key_6_1_3) 
     - [Param](#key_6_1_4) 
     - [innerHTML](#key_6_1_5) 
+    - [file_exist](#key_6_1_6) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
 - [Events](#key_7) 
@@ -503,7 +504,7 @@ innerHTML: Hello World</code></pre>
 
 #### innerHTML
 
-<p>Add innerHTML content from a file. Stop on first existing file.</p>
+<p>Add innerHTML content (string only) from a file. Stop on first existing file.</p>
 <pre><code>type: h1
 settings:
   innerHTML:
@@ -513,6 +514,19 @@ settings:
     -
       file: /theme/[theme]/buto_data/data.yml
       path_to_key: title</code></pre>
+
+<a name="key_6_1_6"></a>
+
+#### file_exist
+
+<p>Render element if a file exist only.</p>
+<pre><code>type: widget
+settings:
+  file_exist: /theme/[theme]/buto_data/data.yml
+data:
+  plugin: 'theme/include'
+  method: include
+  data: yml:/theme/[theme]/buto_data/data.yml:plugin/theme/include/data</code></pre>
 
 <a name="key_6_2"></a>
 

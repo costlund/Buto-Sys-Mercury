@@ -236,6 +236,10 @@ class wfDocument {
      */
     if(!wfDocument::isElementEnabled($element)){return false;}
     /**
+     * Disable element if a file not exist.
+     */
+    if(!wfDocument::isElementEnabledIfFileExist($element)){return false;}
+    /**
      * settings/i18n/language
      */
     if(isset($element['settings']['i18n']['language'])){
@@ -558,6 +562,16 @@ class wfDocument {
     }
   }
   /**
+   * Check if element should be enabled regardin of if a file exist.
+   */
+  private static function isElementEnabledIfFileExist($element){
+    if(isset($element['settings']) && array_key_exists('file_exist', $element['settings'])){
+      return wfFilesystem::fileExist(wfGlobals::getAppDir().$element['settings']['file_exist']);
+    }else{
+      return true;
+    }
+  }
+  /**
    * Handle output.
    * @param type $value
    * @return string
@@ -608,6 +622,7 @@ class wfDocument {
      */
     if(wfDocument::isElementDisabled($element)){return null;}
     if(!wfDocument::isElementEnabled($element)){return null;}
+    if(!wfDocument::isElementEnabledIfFileExist($element)){return null;}
     if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
     if(array_search($element['type'], $this->element_one_tag)===false){
