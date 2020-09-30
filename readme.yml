@@ -15,6 +15,22 @@ readme:
         Buto system is located in folder sys/mercury
       item:
         -
+          name: Roles
+          description: |
+            Roles visitor, unknown and client are handled by the system.
+            - visitor (always)
+            - unknown (if user NOT signed in)
+            - client (if user signed in)
+            
+            Roles normaly used by theme builders.
+            - webmaster (user has full access)
+            - webadmin (application administrator)
+            - developer (user is in developer team)
+            
+            Along with this roles plugin can handle custom roles depending on purpose. For example.
+            - invoice (user should handle invoices)
+            - moderator (user is a moderator)
+        -
           name: GIT
           description: |
             In folder sys/mercury/git there are sh files to run git status/pull/fetch for all repos. Navigate in terminal to this folder and run commands.
@@ -318,6 +334,40 @@ readme:
           description: |
             Settings params are used by Buto and not to be rendered in browser.
           item:
+            -
+              name: Role
+              description: |
+                Restrict rendering element regarding to user role.
+                ```
+                type: span
+                settings:
+                  role:
+                    item:
+                      - client
+                innerHTML: This element is only rendered if user has role client. 
+                ```
+            -
+              name: Date
+              description: |
+                Restrict rendering element regarding to dates.
+                ```
+                type: span
+                settings:
+                  date:
+                    from: '2020-01-01'
+                    to: '2020-12-31'
+                innerHTML: This element is NOT rendered year 2020. 
+                ```
+                Set param allow to false to restrict by dates. Default value is true.
+                ```
+                type: span
+                settings:
+                  date:
+                    allow: false
+                    from: '2020-01-01'
+                    to: '2020-12-31'
+                innerHTML: This element is only rendered year 2020. 
+                ```
             -
               name: Enabled
               description: |

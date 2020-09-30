@@ -9,7 +9,8 @@ HTML code is done with yml in the exact same way but with the benefit to add ext
 One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.</p>
 
 - [System](#key_0) 
-  - [GIT](#key_0_0) 
+  - [Roles](#key_0_0) 
+  - [GIT](#key_0_1) 
 - [Theme](#key_1) 
   - [Hello World](#key_1_0) 
     - [Config](#key_1_0_0) 
@@ -42,13 +43,15 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Style](#key_6_0_0) 
     - [JSON](#key_6_0_1) 
   - [Settings](#key_6_1) 
-    - [Enabled](#key_6_1_0) 
-    - [Disabled](#key_6_1_1) 
-    - [I18N](#key_6_1_2) 
-    - [Server name](#key_6_1_3) 
-    - [Param](#key_6_1_4) 
-    - [innerHTML](#key_6_1_5) 
-    - [file_exist](#key_6_1_6) 
+    - [Role](#key_6_1_0) 
+    - [Date](#key_6_1_1) 
+    - [Enabled](#key_6_1_2) 
+    - [Disabled](#key_6_1_3) 
+    - [I18N](#key_6_1_4) 
+    - [Server name](#key_6_1_5) 
+    - [Param](#key_6_1_6) 
+    - [innerHTML](#key_6_1_7) 
+    - [file_exist](#key_6_1_8) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
 - [Events](#key_7) 
@@ -95,6 +98,28 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 <p>Buto system is located in folder sys/mercury</p>
 
 <a name="key_0_0"></a>
+
+### Roles
+
+<p>Roles visitor, unknown and client are handled by the system.</p>
+<ul>
+<li>visitor (always)</li>
+<li>unknown (if user NOT signed in)</li>
+<li>client (if user signed in)</li>
+</ul>
+<p>Roles normaly used by theme builders.</p>
+<ul>
+<li>webmaster (user has full access)</li>
+<li>webadmin (application administrator)</li>
+<li>developer (user is in developer team)</li>
+</ul>
+<p>Along with this roles plugin can handle custom roles depending on purpose. For example.</p>
+<ul>
+<li>invoice (user should handle invoices)</li>
+<li>moderator (user is a moderator)</li>
+</ul>
+
+<a name="key_0_1"></a>
 
 ### GIT
 
@@ -421,6 +446,38 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_6_1_0"></a>
 
+#### Role
+
+<p>Restrict rendering element regarding to user role.</p>
+<pre><code>type: span
+settings:
+  role:
+    item:
+      - client
+innerHTML: This element is only rendered if user has role client. </code></pre>
+
+<a name="key_6_1_1"></a>
+
+#### Date
+
+<p>Restrict rendering element regarding to dates.</p>
+<pre><code>type: span
+settings:
+  date:
+    from: '2020-01-01'
+    to: '2020-12-31'
+innerHTML: This element is NOT rendered year 2020. </code></pre>
+<p>Set param allow to false to restrict by dates. Default value is true.</p>
+<pre><code>type: span
+settings:
+  date:
+    allow: false
+    from: '2020-01-01'
+    to: '2020-12-31'
+innerHTML: This element is only rendered year 2020. </code></pre>
+
+<a name="key_6_1_2"></a>
+
 #### Enabled
 
 <pre><code>type: span
@@ -430,7 +487,7 @@ innerHTML: Hello World</code></pre>
 <p>Enabled could also have yml-string.</p>
 <pre><code>enabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'</code></pre>
 
-<a name="key_6_1_1"></a>
+<a name="key_6_1_3"></a>
 
 #### Disabled
 
@@ -441,7 +498,7 @@ innerHTML: Hello World</code></pre>
 <p>Disabled could also have yml-string.</p>
 <pre><code>disabled: 'yml:/theme/[theme]/config/settings.yml:plugin_modules/account/settings/allow/change_email'</code></pre>
 
-<a name="key_6_1_2"></a>
+<a name="key_6_1_4"></a>
 
 #### I18N
 
@@ -451,7 +508,7 @@ settings:
   i18n: false
 innerHTML: Hello World</code></pre>
 
-<a name="key_6_1_3"></a>
+<a name="key_6_1_5"></a>
 
 #### Server name
 
@@ -464,7 +521,7 @@ settings:
       - localhost
 innerHTML: Hello World</code></pre>
 
-<a name="key_6_1_4"></a>
+<a name="key_6_1_6"></a>
 
 #### Param
 
@@ -500,7 +557,7 @@ innerHTML: Hello World</code></pre>
       name: sw
   innerHTML: Paras sw can not have a value</code></pre>
 
-<a name="key_6_1_5"></a>
+<a name="key_6_1_7"></a>
 
 #### innerHTML
 
@@ -515,7 +572,7 @@ settings:
       file: /theme/[theme]/buto_data/data.yml
       path_to_key: title</code></pre>
 
-<a name="key_6_1_6"></a>
+<a name="key_6_1_8"></a>
 
 #### file_exist
 
