@@ -9,8 +9,9 @@ HTML code is done with yml in the exact same way but with the benefit to add ext
 One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.</p>
 
 - [System](#key_0) 
-  - [Roles](#key_0_0) 
-  - [GIT](#key_0_1) 
+  - [Errors](#key_0_0) 
+  - [Roles](#key_0_1) 
+  - [GIT](#key_0_2) 
 - [Theme](#key_1) 
   - [Hello World](#key_1_0) 
     - [Config](#key_1_0_0) 
@@ -99,6 +100,17 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 
 <a name="key_0_0"></a>
 
+### Errors
+
+<p>Default errors settings.</p>
+<pre><code>error_reporting(E_ALL ^ E_DEPRECATED);
+ini_set('display_errors', 1);</code></pre>
+<p>One could change them in /config/settings.yml.</p>
+<pre><code>error_reporting: E_ALL
+display_errors: 0</code></pre>
+
+<a name="key_0_1"></a>
+
 ### Roles
 
 <p>Roles visitor, unknown and client are handled by the system.</p>
@@ -119,7 +131,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 <li>moderator (user is a moderator)</li>
 </ul>
 
-<a name="key_0_1"></a>
+<a name="key_0_2"></a>
 
 ### GIT
 

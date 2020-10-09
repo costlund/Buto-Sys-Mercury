@@ -15,6 +15,19 @@ readme:
         Buto system is located in folder sys/mercury
       item:
         -
+          name: Errors
+          description: |
+            Default errors settings.
+            ```
+            error_reporting(E_ALL ^ E_DEPRECATED);
+            ini_set('display_errors', 1);
+            ```
+            One could change them in /config/settings.yml.
+            ```
+            error_reporting: E_ALL
+            display_errors: 0
+            ```
+        -
           name: Roles
           description: |
             Roles visitor, unknown and client are handled by the system.

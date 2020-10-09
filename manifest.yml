@@ -1,5 +1,9 @@
-version: '2.25.1'
+version: '2.25.2'
 history:
+  '2.25.2':
+    date: '2020-10-09'
+    title: 'Errors'
+    description: 'Errors documentation.'
   '2.25.1':
     date: '2020-09-30'
     title: 'Readme'
