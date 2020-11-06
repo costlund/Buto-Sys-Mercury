@@ -654,6 +654,24 @@ readme:
           name: wfPlugin
         -
           name: wfRequest
+          description: |
+            Handle request params.
+          item:
+            -
+              name: Usage
+              description: |
+                Print variable name.
+                ```
+                print_r(wfRequest::get('name'));
+                ```
+                Print all.
+                ```
+                print_r(wfRequest::getAll());
+                ```
+                Set variable name.
+                ```
+                wfRequest::set('name', 'James');
+                ```
         -
           name: wfServer
         -

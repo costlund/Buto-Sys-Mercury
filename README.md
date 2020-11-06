@@ -78,6 +78,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfI18n](#key_8_11) 
   - [wfPlugin](#key_8_12) 
   - [wfRequest](#key_8_13) 
+    - [Usage](#key_8_13_0) 
   - [wfServer](#key_8_14) 
   - [wfSettings](#key_8_15) 
   - [wfUser](#key_8_16) 
@@ -804,7 +805,18 @@ wfDocument::setModeHtml();</code></pre>
 
 ### wfRequest
 
+<p>Handle request params.</p>
 
+<a name="key_8_13_0"></a>
+
+#### Usage
+
+<p>Print variable name.</p>
+<pre><code>print_r(wfRequest::get('name'));</code></pre>
+<p>Print all.</p>
+<pre><code>print_r(wfRequest::getAll());</code></pre>
+<p>Set variable name.</p>
+<pre><code>wfRequest::set('name', 'James');</code></pre>
 
 <a name="key_8_14"></a>
 

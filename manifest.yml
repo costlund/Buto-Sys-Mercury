@@ -1,5 +1,9 @@
-version: '2.25.2'
+version: '2.26.0'
 history:
+  '2.26.0':
+    date: '2020-11-06'
+    title: 'Trim request'
+    description: 'Add option to turn off trim in wfRequest.'
   '2.25.2':
     date: '2020-10-09'
     title: 'Errors'

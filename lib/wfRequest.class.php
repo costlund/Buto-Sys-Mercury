@@ -1,9 +1,6 @@
 <?php
 class wfRequest {
-  /**
-   * Get all params.
-   * @return Array Get and Post variables merged.
-   */
+  public static $trim = true;
   public static function getAll(){
     $all = array();
     foreach ($_GET as $key => $value) {
@@ -38,7 +35,9 @@ class wfRequest {
       $return = $if_not_set;
     }
     if(!is_array($return)){
-      $return = trim($return);
+      if(wfRequest::$trim){
+        $return = trim($return);
+      }
     }
     return $return;
   }
@@ -49,8 +48,7 @@ class wfRequest {
   }
   private static function isInteger($input){
       return(ctype_digit(strval($input)));
-  }  
-  
+  }
   public static function isPost(){
     if($_SERVER['REQUEST_METHOD']=='POST'){
       return true;
@@ -58,10 +56,7 @@ class wfRequest {
       return false;
     }
   }
-  
   public static function rewrite(){
-    //$class = null;
-    //$method = null;
     if(isset($_SERVER['REQUEST_URI'])){
         //Apache
         $temp = $_SERVER['REQUEST_URI'];
@@ -133,8 +128,5 @@ class wfRequest {
       }
     }
     return $temp;
-  }
-  
+  }  
 }
-
-?>
