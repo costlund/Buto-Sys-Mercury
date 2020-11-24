@@ -1,5 +1,9 @@
-version: '2.26.0'
+version: '2.26.1'
 history:
+  '2.26.1':
+    date: '2020-11-24'
+    title: 'GIT'
+    description: 'Add git push sh file.'
   '2.26.0':
     date: '2020-11-06'
     title: 'Trim request'
