@@ -1,14 +1,10 @@
 <?php
 class wfPlugin {
-    
-
-  
-  
   /**
    * Get plugin settings from theme settings.yml param plugin_modules.
    * Get only one...
    * @param string $plugin If call from widget.
-   * @return array
+   * @return An array or object.
    */
   public static function getModuleSettings($plugin = null, $as_object = false){
     $settings = null;
@@ -269,5 +265,3 @@ class wfPlugin {
     return null;
   }
 }
-
-?>

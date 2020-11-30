@@ -1,5 +1,9 @@
-version: '2.26.1'
+version: '2.26.2'
 history:
+  '2.26.2':
+    date: '2020-11-30'
+    title: 'Method declaration'
+    description: 'Method declaration improvement.'
   '2.26.1':
     date: '2020-11-24'
     title: 'GIT'
