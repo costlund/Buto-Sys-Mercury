@@ -257,7 +257,11 @@ readme:
                     - sv
                     - de
                     - en
+                  url:
+                    la-sv: sv
+                    la-en: en
                 ```
+                Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.
             -
               name: buto_data folder
               description: |

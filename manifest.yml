@@ -1,5 +1,9 @@
-version: '2.27.1'
+version: '2.28.0'
 history:
+  '2.28.0':
+    date: '2020-12-10'
+    title: 'I18N'
+    description: 'Add url I18N support.'
   '2.27.1':
     date: '2020-12-10'
     title: 'Request'
