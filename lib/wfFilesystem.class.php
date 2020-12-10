@@ -186,6 +186,9 @@ class wfFilesystem {
   public static function fileExist($filename){
     return file_exists(wfSettings::replaceTheme($filename));
   }
+  public static function fileTime($filename){
+    return filemtime(wfSettings::replaceTheme($filename));
+  }
   /**
    * Load array from .yml file.
    * @param string $filename Path to file.
