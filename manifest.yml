@@ -1,5 +1,9 @@
-version: '2.28.0'
+version: '2.28.1'
 history:
+  '2.28.1':
+    date: '2020-12-10'
+    title: 'Slash in request'
+    description: 'Handle /x/y/?dir=x/y in wfRequest class.'
   '2.28.0':
     date: '2020-12-10'
     title: 'I18N'

@@ -93,12 +93,24 @@ class wfRequest {
         $url = str_replace('?', '/?', $url);
       }
       /**
-       * 
+       * Handle slash.
+       */
+      if(strstr($url, '?')){
+        $url = substr($url, 0, strpos($url, '?')).str_replace('/', '_____SLASH_____', strstr($url, '?'));
+      }
+      /**
+       * Replace
        */
       $url = str_replace('?', '', $url);
       $url = str_replace('=', '/', $url);
       $url = str_replace('&', '/', $url);
       $url = explode('/', $url);
+      /**
+       * Handle slash.
+       */
+      foreach($url as $k => $v){
+        $url[$k] = str_replace('_____SLASH_____', '/', $v);
+      }
       /**
        * i18n
        * If url like /la-en and in theme settings i18n/languages/0/en.
