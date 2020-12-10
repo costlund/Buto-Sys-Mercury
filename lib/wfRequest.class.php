@@ -57,46 +57,66 @@ class wfRequest {
     }
   }
   public static function rewrite(){
+    $url = '';
+    /**
+     * 
+     */
     if(isset($_SERVER['REQUEST_URI'])){
         //Apache
-        $temp = $_SERVER['REQUEST_URI'];
+        $url = $_SERVER['REQUEST_URI'];
     }else{
         //Windows
-        $temp = $_SERVER["HTTP_X_ORIGINAL_URL"];
+        $url = $_SERVER["HTTP_X_ORIGINAL_URL"];
     }
-    if($temp=='/'){
+    /**
+     * 
+     */
+    if($url=='/'){
       $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
       $GLOBALS['sys']['method'] = $GLOBALS['sys']['settings']['default_method'];
     }else{
       /**
        * If question character exist and no slash before we add one.
        */
-      if(strstr($temp, '?') && !strstr($temp, '/?')){
-        $temp = str_replace('?', '/?', $temp);
+      if(strstr($url, '?') && !strstr($url, '/?')){
+        $url = str_replace('?', '/?', $url);
       }
       /**
        * 
        */
-      $temp = str_replace('?', '/', $temp);
-      $temp = str_replace('=', '/', $temp);
-      $temp = str_replace('&', '/', $temp);
-      $temp = explode('/', $temp);
-      if(sizeof($temp)==2){ //Handle one param with no name ex. "localhost/abc/".
-        $_GET['one_param'] = $temp[1];
-        if(true || $settings['default_class']!='doc'){
-            $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
-            $GLOBALS['sys']['method'] = strtolower($temp[1]);
-        }
-      }else{ //Handle class/method/param1/x/param2/y
-        foreach ($temp as $key => $value) {
-          if($key==1){      //Class
-            $GLOBALS['sys']['class'] = strtolower($temp[1]);
-          }elseif($key==2){ //Method
-            $GLOBALS['sys']['method'] = strtolower(($temp[2]));
-          }elseif($key>2){  //Params
+      $url = str_replace('?', '', $url);
+      $url = str_replace('=', '/', $url);
+      $url = str_replace('&', '/', $url);
+      $url = explode('/', $url);
+      if(sizeof($url)==2){
+        /**
+         * Handle one param with no name ex. "localhost/abc/".
+         */
+        $_GET['one_param'] = $url[1];
+        $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
+        $GLOBALS['sys']['method'] = strtolower($url[1]);
+      }else{
+        /**
+         * Handle class/method/param1/x/param2/y 
+         */
+        foreach ($url as $key => $value) {
+          if($key==1){      
+            /**
+             * class 
+             */
+            $GLOBALS['sys']['class'] = strtolower($url[1]);
+          }elseif($key==2){
+            /**
+             * method
+             */
+            $GLOBALS['sys']['method'] = strtolower(($url[2]));
+          }elseif($key>2){  
+            /**
+             * params
+             */
             if ($key % 2 != 0) {
-              if(isset($temp[$key+1])){
-                $_GET[$value] = $temp[$key+1];
+              if(isset($url[$key+1])){
+                $_GET[$value] = $url[$key+1];
               }else{
                 $_GET[$value] = null;
               }
@@ -113,6 +133,9 @@ class wfRequest {
     if(sizeof($_GET) > 0 && !$GLOBALS['sys']['method']){
       $GLOBALS['sys']['method'] = 'index';
     }
+    /**
+     * 
+     */
     return null;
   }
   /**
