@@ -375,7 +375,7 @@ domain:
   url:
     la-sv: sv
     la-en: en</code></pre>
-<p>Param url is optional. If url like /la-sv* language sv will be set in Globals en Session.</p>
+<p>Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.</p>
 
 <a name="key_5_1_1"></a>
 
