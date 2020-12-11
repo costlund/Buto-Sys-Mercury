@@ -1,5 +1,9 @@
-version: '2.28.2'
+version: '2.28.3'
 history:
+  '2.28.3':
+    date: '2020-12-11'
+    title: 'Url encode'
+    description: 'Add urlencode in class wfRequest.'
   '2.28.2':
     date: '2020-12-11'
     title: 'Readme'

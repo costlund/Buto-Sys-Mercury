@@ -172,7 +172,7 @@ class wfRequest {
              */
             if ($key % 2 != 0) {
               if(isset($url[$key+1])){
-                $_GET[$value] = $url[$key+1];
+                $_GET[$value] = urldecode($url[$key+1]);
               }else{
                 $_GET[$value] = null;
               }
