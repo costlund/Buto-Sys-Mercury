@@ -262,6 +262,7 @@ readme:
                     la-en: en
                 ```
                 Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.
+                One should use plugin i18n/url_rewrite when using this param to add language prefix for all href values.
             -
               name: buto_data folder
               description: |

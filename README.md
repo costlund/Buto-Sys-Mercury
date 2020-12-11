@@ -375,7 +375,8 @@ domain:
   url:
     la-sv: sv
     la-en: en</code></pre>
-<p>Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.</p>
+<p>Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.
+One should use plugin i18n/url_rewrite when using this param to add language prefix for all href values.</p>
 
 <a name="key_5_1_1"></a>
 
