@@ -1,14 +1,12 @@
 <?php
 class wfUser {
-    
   public static function isSecure(){
-      if(isset($_SESSION['secure']) && $_SESSION['secure']){
-          return true;
-      }else{
-          return false;
-      }
+    if(isset($_SESSION['secure']) && $_SESSION['secure']){
+      return true;
+    }else{
+      return false;
+    }
   }
-
   /**
    * Get user security merged with unsecure.
    * @return type
@@ -29,7 +27,6 @@ class wfUser {
     }
     return $temp;
   }
-  
   /**
    * Check if user has role.
    * @param string $role
@@ -43,38 +40,24 @@ class wfUser {
       return false;
     }
   }
-  
-  //always:
-  //  - visitor
-  //not_authenticated:
-  //  - unknown
-  //is_authenticated:
-  //  - client  
   public static function getRole(){
-    
     $roles = wfArray::get($GLOBALS, 'sys/settings/roles');
-    // If roles not set in theme settings.yml we set mandatory roles.
+    /**
+     * If roles not set in theme settings.yml we set mandatory roles.
+     */
     if(!$roles){
-      //exit('Roles is not set in theme settings.yml.');
       $roles = array('always' => array('visitor'), 'not_authenticated' => array('unknown'), 'is_authenticated' => array('client'));
     }
-    
-    //wfHelp::yml_dump($roles);
-    
     $always = wfArray::get($roles, 'always');
     if(!$always){
       exit('Role with key always is missing in theme settings.yml');
     }
-    
+    /**
+     * 
+     */
     $not_authenticated = wfArray::get($roles, 'not_authenticated');
     $is_authenticated = wfArray::get($roles, 'is_authenticated');
-    
-    
-    
-    //wfHelp::yml_dump($roles);
-    
     $role = $always;
-    
     if(wfArray::issetAndTrue($_SESSION, 'secure')){
       if($is_authenticated){
         $role = array_merge($role, $is_authenticated);
@@ -87,11 +70,8 @@ class wfUser {
         $role = array_merge($role, $not_authenticated);
       }
     }
-    
     return $role;
   }
-  
-
   public static function getSession(){
     wfPlugin::includeonce('wf/array');
     return new PluginWfArray($_SESSION);
@@ -102,7 +82,8 @@ class wfUser {
     $_SESSION = $user->get();
     return null;
   }
-    
+  public static function unsetSession($path){
+    $path = wfArray::format_path_to_key($path);
+    eval("unset(\$_SESSION$path);");
+  }
 }
-
-?>

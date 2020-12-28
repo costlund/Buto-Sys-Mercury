@@ -158,9 +158,12 @@ class wfArray {
    */
   public static function get($array, $path_to_key, $error_message = null){
     $return = null;
-    $path_to_key = "['".str_replace('/', "']['", $path_to_key)."']";
+    $path_to_key = wfArray::format_path_to_key($path_to_key);
     eval("if(isset(\$array$path_to_key)){\$return = \$array$path_to_key;}elseif(\$error_message){throw new Exception(\$error_message);}");
     return $return;
+  }
+  public static function format_path_to_key($path_to_key){
+    return "['".str_replace('/', "']['", $path_to_key)."']";
   }
   /**
    * Set array.
