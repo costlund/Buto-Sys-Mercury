@@ -1,5 +1,9 @@
-version: '2.29.0'
+version: '2.30.0'
 history:
+  '2.30.0':
+    date: '2021-01-12'
+    title: 'wfDocument'
+    description: 'Add method setBySessionTag to set session params before renderStartTag.'
   '2.29.0':
     date: '2020-12-28'
     title: 'wfUser, wfArray'

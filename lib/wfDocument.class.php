@@ -326,16 +326,6 @@ class wfDocument {
       return false;
     }
     /**
-     * Set settings params from globals.
-     */
-      if(isset($element['settings'])){
-        foreach ($element['settings'] as $param => $value) {
-          if(!is_array(($value))){
-            $element['settings'][$param] = wfSettings::getGlobalsFromString($value);
-          }
-        }
-      }
-    /**
      * Validate.
      */
     $allowed_keys = array('text', 'data', 'type', 'innerHTML', 'attribute', 'settings', 'code');
@@ -351,7 +341,6 @@ class wfDocument {
     /**
      * Set values.
      */
-    $element = self::checkGlobals($element);
     $element = self::checkServer($element);
     /**
      * element_globals
@@ -417,9 +406,6 @@ class wfDocument {
       // Trying to set data of it is a link to yml file.
       if(wfArray::get($data, 'data') && !is_array(wfArray::get($data, 'data'))){
         $data['data'] = wfSettings::getSettingsFromYmlString(wfArray::get($data, 'data'));
-        if(!is_array($data['data'])){
-          $data['data'] = wfSettings::getGlobalsFromString($data['data']);
-        }
       }
       if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$data['plugin'].'/enabled')){
         throw new Exception('Plugin '.$data['plugin'].' is not enabled.');
@@ -474,7 +460,6 @@ class wfDocument {
               $value = $this->array_to_string($value);
             }
           }else{
-            $value = wfSettings::getGlobalsFromString($value);
             $value = wfSettings::getServerFromString($value);
             $value = wfSettings::getSettingsFromYmlString($value);
             if(isset($element['settings']['method']) && $element['settings']['method']){
@@ -502,7 +487,6 @@ class wfDocument {
       if(isset($element['innerHTML']) && !is_array($element['innerHTML'])){
         $innerHTML = $element['innerHTML'];
         $innerHTML = wfSettings::replaceTheme($innerHTML);
-        $innerHTML = wfSettings::getGlobalsFromString($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
         if(isset($element['settings']['method']) && $element['settings']['method']){
           $innerHTML = wfSettings::getSettingsFromMethod($innerHTML);
@@ -649,17 +633,6 @@ class wfDocument {
       unset($this->element_globals[$i]);
     }
   }
-  /**
-   * Check globals.
-   * @param type $array
-   * @return type
-   */  
-  private static function checkGlobals($array){
-    if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
-      $array['innerHTML'] = wfSettings::getGlobalsFromString($array['innerHTML']);
-    }
-    return $array;
-  }
   private static function checkServer($array){
     if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
       $array['innerHTML'] = wfSettings::getServerFromString($array['innerHTML']);
@@ -681,6 +654,26 @@ class wfDocument {
     }
     return null;
   }
+  public static function setBySessionTag($element){
+    $element = new PluginWfArray($element);
+    /**
+     * Search keys.
+     */
+    wfPlugin::includeonce('wf/arraysearch');
+    $search = new PluginWfArraysearch(true);
+    $search->data = array('key_name' => '', 'key_value' => '', 'data' => $element->get());
+    $keys = $search->get();
+    /**
+     * Loop keys.
+     */
+    foreach ($keys as $key => $value) {
+      $element->set(substr($value, 1), wfSettings::getGlobalsFromString($element->get(substr($value, 1))));
+    }
+    /**
+     * 
+     */
+    return $element->get();
+  }
   /**
    * Render elements.
    * If param capture is true one could pick up html in param content once.
@@ -693,6 +686,10 @@ class wfDocument {
     if(gettype($element)!='array' && gettype($element)!='NULL'){
       throw new Exception('Error in wfDocument::renderElement() because param is not an array!');
     }
+    /**
+     * Replace session params.
+     */
+    $element = wfDocument::setBySessionTag($element);
     /**
      * 
      */
