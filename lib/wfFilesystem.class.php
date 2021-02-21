@@ -134,6 +134,8 @@ class wfFilesystem {
    */
   public static function copyFile($source, $dest){
     $dirname = dirname($dest);
+    $dest = wfSettings::replaceTheme($dest);
+    $dirname = wfSettings::replaceTheme($dirname);
     if(!wfFilesystem::fileExist($dirname)){
       mkdir($dirname, 0777, true);
     }
