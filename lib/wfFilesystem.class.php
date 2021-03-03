@@ -108,7 +108,10 @@ class wfFilesystem {
   }
   public static function createDir($dir){
     if(!file_exists($dir)){
-      return mkdir($dir);
+      /**
+       * Create dir if not exist.
+       */
+      return mkdir($dir, 0777, true);
     }
     return null;
   }

@@ -1,5 +1,9 @@
-version: '2.31.0'
+version: '2.32.0'
 history:
+  '2.32.0':
+    date: '2021-03-03'
+    title: 'Create dir'
+    description: 'Create dir if not exist in method wfFilesystem::createDir("_dir_name_").'
   '2.31.0':
     date: '2021-02-21'
     title: 'Copy file'
