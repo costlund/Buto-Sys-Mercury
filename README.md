@@ -55,7 +55,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [file_exist](#key_6_1_8) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
-  - [Comment](#key_6_4) 
+  - [Comment <span class="badge badge-pill badge-success" title="2021-04-01">Today</span>](#key_6_4) 
 - [Events](#key_7) 
   - [Settings](#key_7_0) 
   - [Method](#key_7_1) 
@@ -628,7 +628,7 @@ $content = wfDocument::getContent();</code></pre>
 
 <a name="key_6_4"></a>
 
-### Comment
+### Comment <span class="badge badge-pill badge-success" title="2021-04-01">Today</span>
 
 <p>Add a comment to element.</p>
 <pre><code>-
