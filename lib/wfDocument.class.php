@@ -328,7 +328,7 @@ class wfDocument {
     /**
      * Validate.
      */
-    $allowed_keys = array('text', 'data', 'type', 'innerHTML', 'attribute', 'settings', 'code');
+    $allowed_keys = array('text', 'data', 'type', 'innerHTML', 'attribute', 'settings', 'code', '_');
     foreach ($element as $key => $value) {
       if(!in_array($key, $allowed_keys) && !strstr($key, 'zzz')){ // zzz is WF developers method to set things in sleep :-)
         wfHelp::yml_dump($element);

@@ -523,6 +523,17 @@ readme:
             wfDocument::renderElement($element->get());
             $content = wfDocument::getContent();
             ```
+        -
+          name: Comment
+          date: '2021-04-01'
+          description: |
+            Add a comment to element.
+            ```
+            -
+              _: 'This is a comment one could use in yml. This comment will not be removed if yml file is updated by system.'
+              type: div
+              innerHTML: 'Some text'
+            ```
     -
       name: Events
       description: |

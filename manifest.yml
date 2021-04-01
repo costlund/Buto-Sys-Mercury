@@ -1,5 +1,9 @@
-version: '2.32.0'
+version: '2.33.0'
 history:
+  '2.33.0':
+    date: '2021-04-01'
+    title: 'Element comment'
+    description: 'Add supported key _ (underscore) to be able to add comments to elements.'
   '2.32.0':
     date: '2021-03-03'
     title: 'Create dir'
