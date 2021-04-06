@@ -1,5 +1,9 @@
-version: '2.33.1'
+version: '2.33.2'
 history:
+  '2.33.2':
+    date: '2021-04-06'
+    title: 'Readme'
+    description: 'Readme improvement.'
   '2.33.1':
     date: '2021-04-01'
     title: 'Readme'
