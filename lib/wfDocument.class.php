@@ -681,6 +681,12 @@ class wfDocument {
    */
   public static function renderElement($element){
     /**
+     * 
+     */
+    if(gettype($element)=='object'){
+      $element = $element->get();
+    }
+    /**
      * Check if $element is array.
      */
     if(gettype($element)!='array' && gettype($element)!='NULL'){

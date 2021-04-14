@@ -1,219 +1,223 @@
-version: '2.33.2'
+version: 2.34.0
 history:
-  '2.33.2':
+  2.34.0:
+    date: '2021-04-14'
+    title: 'Render element'
+    description: 'One could post object (not only array) in method renderElement.'
+  2.33.2:
     date: '2021-04-06'
     title: 'Readme'
     description: 'Readme improvement.'
-  '2.33.1':
+  2.33.1:
     date: '2021-04-01'
     title: 'Readme'
     description: 'Readme improvement. Add date param.'
-  '2.33.0':
+  2.33.0:
     date: '2021-04-01'
     title: 'Element comment'
     description: 'Add supported key _ (underscore) to be able to add comments to elements.'
-  '2.32.0':
+  2.32.0:
     date: '2021-03-03'
     title: 'Create dir'
     description: 'Create dir if not exist in method wfFilesystem::createDir("_dir_name_").'
-  '2.31.0':
+  2.31.0:
     date: '2021-02-21'
     title: 'Copy file'
     description: 'Replace theme tag in wfFilesystem::copyFile method.'
-  '2.30.0':
+  2.30.0:
     date: '2021-01-12'
     title: 'wfDocument'
     description: 'Add method setBySessionTag to set session params before renderStartTag.'
-  '2.29.0':
+  2.29.0:
     date: '2020-12-28'
     title: 'wfUser, wfArray'
     description: 'Add method wfUser::unsetSession("_path_to_key_"). Add method wfArray::format_path_to_key("_path_to_key_").'
-  '2.28.3':
+  2.28.3:
     date: '2020-12-11'
     title: 'Url encode'
     description: 'Add urlencode in class wfRequest.'
-  '2.28.2':
+  2.28.2:
     date: '2020-12-11'
     title: 'Readme'
     description: 'Readme improvement.'
-  '2.28.1':
+  2.28.1:
     date: '2020-12-10'
     title: 'Slash in request'
     description: 'Handle /x/y/?dir=x/y in wfRequest class.'
-  '2.28.0':
+  2.28.0:
     date: '2020-12-10'
     title: 'I18N'
     description: 'Add url I18N support.'
-  '2.27.1':
+  2.27.1:
     date: '2020-12-10'
     title: 'Request'
     description: 'Improved wfRequest::rewrite() method.'
-  '2.27.0':
+  2.27.0:
     date: '2020-12-10'
     title: 'File time'
     description: 'Add method wfFilesystem::fileTime().'
-  '2.26.2':
+  2.26.2:
     date: '2020-11-30'
     title: 'Method declaration'
     description: 'Method declaration improvement.'
-  '2.26.1':
+  2.26.1:
     date: '2020-11-24'
     title: 'GIT'
     description: 'Add git push sh file.'
-  '2.26.0':
+  2.26.0:
     date: '2020-11-06'
     title: 'Trim request'
     description: 'Add option to turn off trim in wfRequest.'
-  '2.25.2':
+  2.25.2:
     date: '2020-10-09'
     title: 'Errors'
     description: 'Errors documentation.'
-  '2.25.1':
+  2.25.1:
     date: '2020-09-30'
     title: 'Readme'
     description: 'Readme improvement.'
-  '2.25.0':
+  2.25.0:
     date: '2020-09-29'
     title: 'Element if file exist'
     description: 'Render element if a file exist only.'
-  '2.24.0':
+  2.24.0:
     date: '2020-09-29'
     title: 'innerHTML'
     description: 'Add innerHTML content from a file. Stop on first existing file.'
-  '2.23.0':
+  2.23.0:
     date: '2020-07-14'
     title: Rewrite settings
     description: Rewrite settings from buto_data folder.
-  '2.22.7':
+  2.22.7:
     date: '2020-07-02'
     title: Not encrypted passwords
     description: Method isValid in wfCrypt could not handle not encrypted password.
-  '2.22.6':
+  2.22.6:
     date: '2020-05-18'
     title: Event document_render_string
     description: Fire event document_render_string on element attribute data-original-title and data-content.
-  '2.22.5':
+  2.22.5:
     date: '2020-04-21'
     title: Element attribute class
     description: Create string of array values if element attribute is class.
-  '2.22.4':
+  2.22.4:
     date: '2020-04-21'
     title: GIT
     description: Improvements in sh file git_status.sh in folder git.
-  '2.22.3':
+  2.22.3:
     date: '2020-04-20'
     title: GIT
     description: Improvements in sh files in folder git.
-  '2.22.2':
+  2.22.2:
     date: '2020-04-17'
     title: GIT
     description: Add sh file git_autocrlf.sh in folder git.
-  '2.22.1':
+  2.22.1:
     date: '2020-03-26'
     title: Readme
     description: Add how to rewrite params for domains in /config/settings.yml
-  '2.22.0':
+  2.22.0:
     date: '2020-03-17'
     title: GIT
     description: Add sh files in folder git to be able to run git commands for all repos.
-  '2.21.1':
+  2.21.1:
     date: '2020-03-17'
     title: Readme
     description: Delete root/readme.txt.
-  '2.21.0':
+  2.21.0:
     date: '2020-03-11'
     title: Phpinfo
     description: Add webadmin along with webmaster to be able to view phpinfo. New param cookie to view cookies.
-  '2.20.3':
+  2.20.3:
     date: '2020-02-12'
     title: Readme
     description: Readme about element settings for param.
-  '2.20.2':
+  2.20.2:
     date: '2019-11-29'
     title: Event
     description: Run event document_render_string for attribute value if input type button.
-  '2.20.1':
+  2.20.1:
     date: '2019-10-23'
     title: Bug
     description: Bug in method wfSettings, getSettingsFromYmlString when value is object.
-  '2.20.0':
+  2.20.0:
     date: '2019-10-22'
     title: Settings from yml string.
     description: 'One could use yml string for settings param in theme settings file for plugin_modules.'
-  '2.19.0':
+  2.19.0:
     date: '2019-10-19'
     title: Element as yml string.
     description: 'If element is a string it should be like for example yml:/theme/[theme]/layout/navbar.yml.'
-  '2.18.0':
+  2.18.0:
     date: '2019-10-17'
     title: Element attribute as array.
     description: 'Element attributes as array is rendered as json or string if key is style.'
-  '2.17.0':
+  2.17.0:
     date: '2019-10-11'
     title: Special webmaster request.
     description: 'Add server variables as special webmaster request page.'
-  '2.16.0':
+  2.16.0:
     date: '2019-10-04'
     title: Render element mode
     description: 'Set mode html/svg in wfDocument to be able to render text elements in svg.'
-  '2.15.0':
+  2.15.0:
     date: '2019-09-10'
     description: 'Add webmaster page.'
-  '2.14.0':
+  2.14.0:
     date: '2019-09-10'
     description: 'Webmaster can view data via /?phpinfo=phpinfo or /?phpinfo=session or /?phpinfo=globals.'
-  '2.13.0':
+  2.13.0:
     date: '2019-06-10'
     description: 'Settings enabled/disabled can have yml-string.'
-  '2.12.0':
+  2.12.0:
     date: '2019-05-14'
     description: 'Set Globals for element in wfDocument.'
-  '2.11.0':
+  2.11.0:
     date: '2019-05-14'
     description: 'Set method in wfGlobals.'
-  '2.10.0':
+  2.10.0:
     date: '2019-04-18'
     description: 'Use JSON in element attribute.'
-  '2.9.0':
+  2.9.0:
     date: '2019-04-11'
     description: 'Set settings params from globals.'
-  '2.8.0':
+  2.8.0:
     date: '2019-03-12'
     description: 'Events improvement and documentation.'
-  '2.7.0':
+  2.7.0:
     date: '2019-02-04'
     description: 'Improved method wfFilesystem::copyFile.'
-  '2.6.0':
+  2.6.0:
     date: '2019-01-23'
     description: 'Rewrite config settings on HTTP_USER_AGENT.'
-  '2.5.5':
+  2.5.5:
     date: '2019-01-23'
     description: 'Bug in method wfServer::calcProtocol.'
-  '2.5.4':
+  2.5.4:
     date: '2019-01-10'
     description: 'Code documentation.'
-  '2.5.3':
+  2.5.3:
     date: '2019-01-10'
     description: 'Removed deprecated code.'
-  '2.5.2':
+  2.5.2:
     date: '2018-12-06'
     description: 'Bug in method wfDocument.isElementEnabled.'
-  '2.5.1':
+  2.5.1:
     date: '2018-12-04'
     description: 'Improvement in method wfDocument.isElementEnabled.'
-  '2.5.0':
+  2.5.0:
     date: '2018-11-30'
     description: 'Add method event_remove in wfPlugin to be able to remove i18n in plugin modules.'
-  '2.4.0':
+  2.4.0:
     date: '2018-11-28'
     description: 'Add method set in wfRequest.'
-  '2.3.0':
+  2.3.0:
     date: '2018-11-28'
     description: 'Add dump method in wfHelp.'
-  '2.2.0':
+  2.2.0:
     date: '2018-11-27'
     description: 'It is now possible to discard translation by param settings/i18n=true for an element.'
-  '2.1.0':
+  2.1.0:
     date: '2018-11-27'
     description: 'Update wfArray set method.'
   
