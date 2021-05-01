@@ -675,6 +675,16 @@ class wfDocument {
     return $element->get();
   }
   /**
+   * Render elements from folder.
+   * @param string __DIR__
+   * @param string Yml filename without extension.
+   * @param string Optional foldername, default is element.
+   */
+  public static function renderElementFromFolder($dir, $filename, $folder = 'element'){
+    $element = new PluginWfYml("$dir/$folder/$filename.yml");
+    wfDocument::renderElement($element);
+  }
+  /**
    * Render elements.
    * If param capture is true one could pick up html in param content once.
    * @param type $element

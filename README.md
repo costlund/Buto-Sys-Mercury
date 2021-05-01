@@ -54,7 +54,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [innerHTML](#key_6_1_7) 
     - [file_exist](#key_6_1_8) 
   - [Globals](#key_6_2) 
-  - [Render](#key_6_3) 
+  - [Render <span class="badge badge-pill badge-success" title="2021-05-01">2021-05-01</span>](#key_6_3) 
   - [Comment <span class="badge badge-pill badge-success" title="2021-04-01">2021-04-01</span>](#key_6_4) 
 - [Events](#key_7) 
   - [Settings](#key_7_0) 
@@ -614,7 +614,7 @@ innerHTML: 'globals:_SESSION/username'</code></pre>
 
 <a name="key_6_3"></a>
 
-### Render
+### Render <span class="badge badge-pill badge-success" title="2021-05-01">2021-05-01</span>
 
 <p>Render element from plugin.</p>
 <pre><code>wfDocument::renderElement($element);</code></pre>
@@ -625,6 +625,8 @@ Set to 2 if capture html in content param only and NOT render.</p>
 wfDocument::$capture=2;
 wfDocument::renderElement($element-&gt;get());
 $content = wfDocument::getContent();</code></pre>
+<p>Render a file direct from a folder.</p>
+<pre><code>wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);</code></pre>
 
 <a name="key_6_4"></a>
 

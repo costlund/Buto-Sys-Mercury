@@ -509,6 +509,7 @@ readme:
             ```
         -
           name: Render
+          date: '2021-05-01'
           description: |
             Render element from plugin.
             ```
@@ -522,6 +523,10 @@ readme:
             wfDocument::$capture=2;
             wfDocument::renderElement($element->get());
             $content = wfDocument::getContent();
+            ```
+            Render a file direct from a folder.
+            ```
+            wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);
             ```
         -
           name: Comment

@@ -1,5 +1,9 @@
-version: 2.34.0
+version: 2.35.0
 history:
+  2.35.0:
+    date: '2021-05-01'
+    title: 'Render elements from folder'
+    description: 'Add new method wfDocument::renderElementFromFolder.'
   2.34.0:
     date: '2021-04-14'
     title: 'Render element'
