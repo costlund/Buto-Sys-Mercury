@@ -1,5 +1,9 @@
-version: 2.35.0
+version: 2.35.1
 history:
+  2.35.1:
+    date: '2021-05-04'
+    title: 'Readme'
+    description: 'Readme improvement.'
   2.35.0:
     date: '2021-05-01'
     title: 'Render elements from folder'
