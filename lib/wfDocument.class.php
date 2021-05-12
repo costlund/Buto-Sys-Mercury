@@ -368,7 +368,6 @@ class wfDocument {
       $element['attribute']['href']='#!';
     }
     if($element['type']=='a'){
-      $element['attribute']['href'] = wfSettings::getSettingsFromYmlString($element['attribute']['href']);
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
     /**
@@ -461,7 +460,6 @@ class wfDocument {
             }
           }else{
             $value = wfSettings::getServerFromString($value);
-            $value = wfSettings::getSettingsFromYmlString($value);
             if(isset($element['settings']['method']) && $element['settings']['method']){
               $value = wfSettings::getSettingsFromMethod($value);
             }
@@ -520,7 +518,6 @@ class wfDocument {
    */
   private static function isElementDisabled($element){
     if(isset($element['settings']) && array_key_exists('disabled', $element['settings'])){
-      $element['settings']['disabled'] = wfSettings::getSettingsFromYmlString($element['settings']['disabled']);
       if($element['settings']['disabled']){
         return true;
       }else{
@@ -535,7 +532,6 @@ class wfDocument {
    */
   private static function isElementEnabled($element){
     if(isset($element['settings']) && array_key_exists('enabled', $element['settings'])){
-      $element['settings']['enabled'] = wfSettings::getSettingsFromYmlString($element['settings']['enabled']);
       if(!$element['settings']['enabled']){
         return false;
       }else{
@@ -675,6 +671,29 @@ class wfDocument {
     return $element->get();
   }
   /**
+   * Set all yml: for an element.
+   */
+  public static function setElementYml($element){
+    $element = new PluginWfArray($element);
+    /**
+     * Search keys.
+     */
+    wfPlugin::includeonce('wf/arraysearch');
+    $search = new PluginWfArraysearch(true);
+    $search->data = array('key_name' => '', 'key_value' => '', 'data' => $element->get());
+    $keys = $search->get();
+    /**
+     * Loop keys.
+     */
+    foreach ($keys as $key => $value) {
+      $element->set(substr($value, 1), wfSettings::getSettingsFromYmlString($element->get(substr($value, 1))));
+    }
+    /**
+     * 
+     */
+    return $element->get();
+  }
+  /**
    * Render elements from folder.
    * @param string __DIR__
    * @param string Yml filename without extension.
@@ -706,6 +725,10 @@ class wfDocument {
      * Replace session params.
      */
     $element = wfDocument::setBySessionTag($element);
+    /**
+     * Replace yml params.
+     */
+    $element = wfDocument::setElementYml($element);
     /**
      * 
      */

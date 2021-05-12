@@ -1,5 +1,9 @@
-version: 2.35.1
+version: 2.36.0
 history:
+  2.36.0:
+    date: '2021-05-11'
+    title: 'Yml data'
+    description: 'Handle all yml data for an element in method setElementYml.'
   2.35.1:
     date: '2021-05-04'
     title: 'Readme'
