@@ -16,9 +16,15 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [Hello World](#key_1_0) 
     - [Config](#key_1_0_0) 
     - [Page](#key_1_0_1) 
-  - [Theme configuration](#key_1_1) 
-    - [Settings file](#key_1_1_0) 
-    - [Folder buto_data](#key_1_1_1) 
+    - [Result](#key_1_0_2) 
+  - [Hello Buto <span class="badge badge-pill badge-success" title="2021-05-15">2021-05-15</span>](#key_1_1) 
+    - [Config](#key_1_1_0) 
+    - [Layout files](#key_1_1_1) 
+    - [Page](#key_1_1_2) 
+    - [Result](#key_1_1_3) 
+  - [Theme configuration](#key_1_2) 
+    - [Settings file](#key_1_2_0) 
+    - [Folder buto_data](#key_1_2_1) 
 - [Plugin](#key_2) 
   - [Widgets](#key_2_0) 
   - [Pages](#key_2_1) 
@@ -183,13 +189,115 @@ default_method: home</code></pre>
           style: "font-weight:bold"
         innerHTML: Hello World</code></pre>
 
+<a name="key_1_0_2"></a>
+
+#### Result
+
+<p>Access your theme like this.</p>
+<pre><code>http://localhost</code></pre>
+<p>Or.</p>
+<pre><code>http://localhost/doc/home</code></pre>
+
 <a name="key_1_1"></a>
+
+### Hello Buto <span class="badge badge-pill badge-success" title="2021-05-15">2021-05-15</span>
+
+<p>One could have layout pages. 
+I this example we show how to use two layout files. 
+Also how to use plugin theme/include wich include other plugins one need to build a complet site.</p>
+
+<a name="key_1_1_0"></a>
+
+#### Config
+
+<p>In /config/settings.yml</p>
+<pre><code>default_class: d
+default_method: home
+plugin_modules:
+  d:
+    plugin: 'wf/doc'
+plugin:
+  theme:
+    include:
+      enabled: true</code></pre>
+
+<a name="key_1_1_1"></a>
+
+#### Layout files
+
+<p>In /layout/html.yml</p>
+<pre><code>settings:
+  path: '1/innerHTML/1/innerHTML'
+content:
+  -
+    type: text
+    text: '&lt;!DOCTYPE html&gt;'
+  -
+    type: html
+    innerHTML:
+      -
+        type: head
+        innerHTML:
+          -
+            type: widget
+            data:
+              plugin: 'theme/include'
+              method: include
+      -
+        type: body
+        innerHTML: 'body...'</code></pre>
+<p>In /layout/main.yml</p>
+<pre><code>settings:
+  path: '1/innerHTML'
+content:
+  -
+    type: div
+    innerHTML: navbar...
+  -
+    type: div
+    innerHTML: content...
+  -
+    type: div
+    innerHTML: footer...</code></pre>
+
+<a name="key_1_1_2"></a>
+
+#### Page
+
+<p>In /page/home.yml</p>
+<pre><code>settings:
+  title: 'Hello Buto'
+  layout:
+    - html
+    - main
+content:
+  - 
+    type: div
+    innerHTML:
+      span:
+        type: span
+        attribute:
+          style: "font-weight:bold"
+        innerHTML: Hello Buto</code></pre>
+
+<a name="key_1_1_3"></a>
+
+#### Result
+
+<p>Adress.</p>
+<pre><code>http://localhost</code></pre>
+<p>Browser output.</p>
+<pre><code>navbar...
+Hello Buto
+footer...</code></pre>
+
+<a name="key_1_2"></a>
 
 ### Theme configuration
 
 <p>Like in Hello World example there is not much data a Theme need.</p>
 
-<a name="key_1_1_0"></a>
+<a name="key_1_2_0"></a>
 
 #### Settings file
 
@@ -206,7 +314,7 @@ default_method: home</code></pre>
     plugin: 'wf/account2'
     settings: yml:/theme/[theme]/config/plugin_wf_account2.yml</code></pre>
 
-<a name="key_1_1_1"></a>
+<a name="key_1_2_1"></a>
 
 #### Folder buto_data
 

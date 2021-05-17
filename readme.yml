@@ -92,6 +92,114 @@ readme:
                           style: "font-weight:bold"
                         innerHTML: Hello World
                 ```
+            -
+              name: Result
+              description: |
+                Access your theme like this.
+                ```
+                http://localhost
+                ```
+                Or.
+                ```
+                http://localhost/doc/home
+                ```
+        -
+          name: Hello Buto
+          date: '2021-05-15'
+          description: |
+            One could have layout pages. 
+            I this example we show how to use two layout files. 
+            Also how to use plugin theme/include wich include other plugins one need to build a complet site.
+          item:
+            -
+              name: Config
+              description: |
+                In /config/settings.yml
+                ```
+                default_class: d
+                default_method: home
+                plugin_modules:
+                  d:
+                    plugin: 'wf/doc'
+                plugin:
+                  theme:
+                    include:
+                      enabled: true
+                ```
+            -
+              name: Layout files
+              description: |
+                In /layout/html.yml
+                ```
+                settings:
+                  path: '1/innerHTML/1/innerHTML'
+                content:
+                  -
+                    type: text
+                    text: '<!DOCTYPE html>'
+                  -
+                    type: html
+                    innerHTML:
+                      -
+                        type: head
+                        innerHTML:
+                          -
+                            type: widget
+                            data:
+                              plugin: 'theme/include'
+                              method: include
+                      -
+                        type: body
+                        innerHTML: 'body...'
+                ```
+                In /layout/main.yml
+                ```
+                settings:
+                  path: '1/innerHTML'
+                content:
+                  -
+                    type: div
+                    innerHTML: navbar...
+                  -
+                    type: div
+                    innerHTML: content...
+                  -
+                    type: div
+                    innerHTML: footer...
+                ```
+            -
+              name: Page
+              description: |
+                In /page/home.yml
+                ```
+                settings:
+                  title: 'Hello Buto'
+                  layout:
+                    - html
+                    - main
+                content:
+                  - 
+                    type: div
+                    innerHTML:
+                      span:
+                        type: span
+                        attribute:
+                          style: "font-weight:bold"
+                        innerHTML: Hello Buto
+                ```
+            -
+              name: Result
+              description: |
+                Adress.
+                ```
+                http://localhost
+                ```
+                Browser output.
+                ```
+                navbar...
+                Hello Buto
+                footer...
+                ```
         -
           name: Theme configuration
           description: Like in Hello World example there is not much data a Theme need.

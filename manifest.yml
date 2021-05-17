@@ -1,5 +1,9 @@
-version: 2.36.0
+version: 2.36.1
 history:
+  2.36.1:
+    date: '2021-05-17'
+    title: 'Readme'
+    description: 'Add Hello Buto to readme.'
   2.36.0:
     date: '2021-05-11'
     title: 'Yml data'
