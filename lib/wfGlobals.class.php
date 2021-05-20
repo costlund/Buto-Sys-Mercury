@@ -3,6 +3,10 @@
  * Buto class to get handle data in GLOBALS/sys.
  */
 class wfGlobals{
+  /**
+   * Get data from globals.
+   * @return mixed
+   */
   public static function get($key = null){
     wfPlugin::includeonce('wf/array');
     $g = new PluginWfArray($GLOBALS['sys']);
@@ -27,6 +31,10 @@ class wfGlobals{
   public static function getMicrotimeTimeCalc() {
     return microtime(true) - wfGlobals::get('microtime/start');
   }
+  /**
+   * Web dir.
+   * @return string
+   */
   public static function getWebDir()            {return wfGlobals::get('web_dir');}
   /**
    * Get web folder from web_dir.

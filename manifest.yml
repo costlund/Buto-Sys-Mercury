@@ -1,5 +1,9 @@
-version: 2.36.2
+version: 2.36.3
 history:
+  2.36.3:
+    date: '2021-05-20'
+    title: 'Code'
+    description: 'Code documentation in wfGlobals.'
   2.36.2:
     date: '2021-05-17'
     title: 'Code'
