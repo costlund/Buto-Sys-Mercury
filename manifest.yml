@@ -1,5 +1,9 @@
-version: 2.36.3
+version: 2.37.0
 history:
+  2.37.0:
+    date: '2021-05-24'
+    title: 'Yml file exist'
+    description: 'Removed error message if yml file not exist in method wfSettings::getSettings.'
   2.36.3:
     date: '2021-05-20'
     title: 'Code'

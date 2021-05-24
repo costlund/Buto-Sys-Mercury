@@ -281,7 +281,9 @@ class wfSettings {
           $GLOBALS['sys']['yml_files'][$filename] = $settings;
         }
       }else{
-        throw new Exception("Could not find fil $filename.");
+        /**
+         * File not exist.
+         */
       }
     }
     /**
