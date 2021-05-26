@@ -107,7 +107,7 @@ class wfPlugin {
    * @param string $plugin
    * @param boolean $as_object
    * @param array $default Default values.
-   * @return array\PluginWfArray
+   * @return mixed
    */
   public static function getPluginSettings($plugin, $as_object = false, $default = array()){
     if(wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin)){
