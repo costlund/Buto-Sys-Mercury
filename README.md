@@ -60,7 +60,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [innerHTML](#key_6_1_7) 
     - [file_exist](#key_6_1_8) 
   - [Globals](#key_6_2) 
-  - [Render <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-05-01">2021-05-01</span>](#key_6_3) 
+  - [Render](#key_6_3) 
   - [Comment](#key_6_4) 
 - [Events](#key_7) 
   - [Settings](#key_7_0) 
@@ -722,7 +722,7 @@ innerHTML: 'globals:_SESSION/username'</code></pre>
 
 <a name="key_6_3"></a>
 
-### Render <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-05-01">2021-05-01</span>
+### Render
 
 <p>Render element from plugin.</p>
 <pre><code>wfDocument::renderElement($element);</code></pre>
@@ -825,31 +825,21 @@ sys_close</code></pre>
 
 ### wfArray
 
-
-
 <a name="key_8_1"></a>
 
 ### wfArraySearch
-
-
 
 <a name="key_8_2"></a>
 
 ### wfConfig
 
-
-
 <a name="key_8_3"></a>
 
 ### wfCrypt
 
-
-
 <a name="key_8_4"></a>
 
 ### wfDate
-
-
 
 <a name="key_8_5"></a>
 
@@ -889,19 +879,13 @@ wfDocument::setModeHtml();</code></pre>
 
 ### wfElement
 
-
-
 <a name="key_8_7"></a>
 
 ### wfEvent
 
-
-
 <a name="key_8_8"></a>
 
 ### wfFilesystem
-
-
 
 <a name="key_8_9"></a>
 
@@ -913,19 +897,13 @@ wfDocument::setModeHtml();</code></pre>
 
 ### wfHelp
 
-
-
 <a name="key_8_11"></a>
 
 ### wfI18n
 
-
-
 <a name="key_8_12"></a>
 
 ### wfPlugin
-
-
 
 <a name="key_8_13"></a>
 
@@ -948,19 +926,13 @@ wfDocument::setModeHtml();</code></pre>
 
 ### wfServer
 
-
-
 <a name="key_8_15"></a>
 
 ### wfSettings
 
-
-
 <a name="key_8_16"></a>
 
 ### wfUser
-
-
 
 <a name="key_8_17"></a>
 
