@@ -425,7 +425,7 @@ class wfDocument {
       if($element['type']=='text' && wfDocument::$mode=='html'){
         if(isset($element['text'])){
           $this->_echo_($element['text']."\n"); 
-        }elseif(isset($element['innerHTML'])){
+        }elseif(isset($element['innerHTML']) && !is_array($element['innerHTML'])){
           if(substr($element['innerHTML'], 0, 4)=='yml:'){
             $temp = self::ymlFromInnerHtml($element['innerHTML']);
             if(!is_array($temp)){

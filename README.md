@@ -17,7 +17,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Config](#key_1_0_0) 
     - [Page](#key_1_0_1) 
     - [Result](#key_1_0_2) 
-  - [Hello Buto <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-05-15">2021-05-15</span>](#key_1_1) 
+  - [Hello Buto](#key_1_1) 
     - [Config](#key_1_1_0) 
     - [Layout files](#key_1_1_1) 
     - [Page](#key_1_1_2) 
@@ -200,7 +200,7 @@ default_method: home</code></pre>
 
 <a name="key_1_1"></a>
 
-### Hello Buto <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-05-15">2021-05-15</span>
+### Hello Buto
 
 <p>One could have layout pages. 
 I this example we show how to use two layout files. 

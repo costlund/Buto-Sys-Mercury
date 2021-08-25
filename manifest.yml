@@ -1,5 +1,9 @@
-version: 2.37.2
+version: 2.37.3
 history:
+  2.37.3:
+    date: '2021-08-25'
+    title: 'Element text'
+    description: 'Fix when text element has array in innerHTML param.'
   2.37.2:
     date: '2021-06-14'
     title: 'Readme'
