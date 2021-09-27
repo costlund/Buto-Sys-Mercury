@@ -51,4 +51,9 @@ class wfGlobals{
   public static function getTimezone()          {return wfGlobals::get('timezone');}
   public static function getErrorReporting()    {return wfGlobals::get('error_reporting');}
   public static function getDisplayErrors()     {return wfGlobals::get('display_errors');}
+  public static function setMicrotimeEnd(){
+    $GLOBALS['sys']['microtime']['end'] = microtime(true);
+    $GLOBALS['sys']['microtime']['time'] = $GLOBALS['sys']['microtime']['end'] - $GLOBALS['sys']['microtime']['start'];
+    return null;
+  }
 }

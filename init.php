@@ -232,8 +232,7 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
 /**
  * Set time params.
  */
-$GLOBALS['sys']['microtime']['end'] = microtime(true);
-$GLOBALS['sys']['microtime']['time'] = $GLOBALS['sys']['microtime']['end'] - $GLOBALS['sys']['microtime']['start'];
+wfGlobals::setMicrotimeEnd();
 /**
  * 
  */

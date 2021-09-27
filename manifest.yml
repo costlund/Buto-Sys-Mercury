@@ -1,5 +1,9 @@
-version: 2.37.3
+version: 2.37.4
 history:
+  2.37.4:
+    date: '2021-09-27'
+    title: 'Microtime end'
+    description: 'New method wfGlobals::setMicrotimeEnd().'
   2.37.3:
     date: '2021-08-25'
     title: 'Element text'
