@@ -1,5 +1,9 @@
-version: 2.37.4
+version: 2.37.5
 history:
+  2.37.5:
+    date: '2021-09-30'
+    title: 'Clean up'
+    description: 'Clean up code.'
   2.37.4:
     date: '2021-09-27'
     title: 'Microtime end'

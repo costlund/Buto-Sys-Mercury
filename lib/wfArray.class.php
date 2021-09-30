@@ -1,7 +1,5 @@
 <?php
-
 class wfArray {
-
   /**
    * Sorting multiple array by a key.
    * @param array $array
@@ -44,7 +42,6 @@ class wfArray {
     }
     return $ret;
   }
-
   /**
    * Check if array key exist and value is true.
    * @param array $array
@@ -53,19 +50,16 @@ class wfArray {
    */
   public static function issetAndTrue($array, $key) {
     $path_to_key = "['".str_replace('/', "']['", $key)."']";
+    $return = false;
     eval("if(isset(\$array$path_to_key) && \$array$path_to_key===true){\$return = true;}else{\$return = false;};");
     return $return;
   }
-
-  
   public static function isKey($array, $path_to_key){
+    $return = false;
     $path_to_key = "['".str_replace('/', "']['", $path_to_key)."']";
-    //eval("var_dump(isset(\$array$path_to_key));");
     eval("\$return = isset(\$array$path_to_key);");
     return $return;
   }
-  
-  
   /**
    * Insert array value to a specific position.
    * Example:           $page['content'] = wfArray::insertToPosition('first', $page['content'], $error, 'error');
@@ -92,14 +86,13 @@ class wfArray {
     }
     return $array;
   }
-
   /**
    * Insert array value after another value by it's key.
    *
-   * @param type $after_key
-   * @param type $array
-   * @param type $value
-   * @param type $key optional
+   * @param string $after_key
+   * @param array $array
+   * @param array $value
+   * @param string $key optional
    * @return array
    */
   public static function insertAfter($after_key, $array, $value, $key = null) {
@@ -115,12 +108,11 @@ class wfArray {
 
     return $array;
   }
-
   /**
    * Move array element by key to a specific position.
-   * @param type $array
-   * @param type $move_key
-   * @param type $to_position
+   * @param array $array
+   * @param string $move_key
+   * @param int $to_position
    * @return array
    */
   public static function moveByKey($array, $move_key, $to_position) {
@@ -148,8 +140,7 @@ class wfArray {
       $new_array[$move_key] = $array_part_to_move[$move_key];
     }
     return $new_array;
-  }
-  
+  }  
   /**
    * Get value from array.
    * @param type $array
@@ -199,12 +190,9 @@ class wfArray {
     eval("unset(\$array$path_to_key);");
     return $array;
   }
-  
   public static function formatPathToKey($path_to_key){
     return "['".str_replace('/', "']['", $path_to_key)."']";
   }
-  
-  
   /**
    *
    * @param array $arr1 Array to merge with.
@@ -233,9 +221,6 @@ class wfArray {
     return $arr1;
   }
   public static function rewrite($array){
-    
-    //wfHelp::yml_dump($array);
-    
     /**
      * _rewrite/set.
      */
@@ -282,6 +267,4 @@ class wfArray {
     unset($array['rewrite']);
     return $array;
   }
-  
-
 }
