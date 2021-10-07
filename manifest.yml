@@ -1,5 +1,9 @@
-version: 2.37.5
+version: 2.37.6
 history:
+  2.37.6:
+    date: '2021-10-07'
+    title: 'Clean up'
+    description: 'Clean up code.'
   2.37.5:
     date: '2021-09-30'
     title: 'Clean up'

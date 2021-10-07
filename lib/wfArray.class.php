@@ -145,7 +145,7 @@ class wfArray {
    * Get value from array.
    * @param type $array
    * @param string $path_to_key
-   * @return array or null
+   * @return mixed
    */
   public static function get($array, $path_to_key, $error_message = null){
     $return = null;
