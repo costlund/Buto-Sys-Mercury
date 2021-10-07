@@ -20,7 +20,10 @@ class wfGlobals{
     return null;
   }
   public static function getVersion()           {return wfGlobals::get('version');}
-  public static function getMicrotime()         {return wfGlobals::get('microtime');}
+  public static function getMicrotime()         {
+    wfGlobals::setMicrotimeEnd();
+    return wfGlobals::get('microtime');
+  }
   public static function getMicrotimeStart()    {return wfGlobals::get('microtime/start');}
   public static function getMicrotimeEnd()      {return wfGlobals::get('microtime/end');}
   public static function getMicrotimeTime()     {return wfGlobals::get('microtime/time');}

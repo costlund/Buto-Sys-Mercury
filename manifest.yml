@@ -1,5 +1,9 @@
-version: 2.37.6
+version: 2.38.0
 history:
+  2.38.0:
+    date: '2021-10-07'
+    title: 'Microtime'
+    description: 'Run method wfGlobals::setMicrotimeEnd in wfGlobals::setMicrotime.'
   2.37.6:
     date: '2021-10-07'
     title: 'Clean up'
