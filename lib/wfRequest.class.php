@@ -22,16 +22,7 @@ class wfRequest {
     if(isset($_GET[$param])){
       $return = $_GET[$param];
     }elseif(isset($_POST[$param])){
-      if(get_magic_quotes_gpc()){
-        if(!is_array($_POST[$param])){
-          $return = stripslashes($_POST[$param]);
-        }else{
-          // Take care of the array...
-          $return = $_POST[$param];
-        }
-      }else{
-        $return = $_POST[$param];
-      }
+      $return = $_POST[$param];
     }else{
       $return = $if_not_set;
     }

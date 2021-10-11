@@ -1,5 +1,10 @@
-version: 2.38.0
+version: 2.39.0
 history:
+  2.39.0:
+    date: '2021-10-11'
+    title: 'Deprecated method'
+    description: 'Removed deprecated function get_magic_quotes_gpc.'
+    webmaster: 'According to https://www.php.net/manual/en/function.get-magic-quotes-gpc.php about method get_magic_quotes_gpc. This function has been DEPRECATED as of PHP 7.4.0, and REMOVED as of PHP 8.0.0. Relying on this function is highly discouraged..'
   2.38.0:
     date: '2021-10-07'
     title: 'Microtime'
