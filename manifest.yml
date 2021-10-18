@@ -1,5 +1,9 @@
-version: 2.39.0
+version: 2.39.1
 history:
+  2.39.1:
+    date: '2021-10-18'
+    title: 'Globals'
+    description: 'Add param php/version to Globals.'
   2.39.0:
     date: '2021-10-11'
     title: 'Deprecated method'
