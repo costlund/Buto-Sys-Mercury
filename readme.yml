@@ -17,16 +17,32 @@ readme:
         -
           name: Errors
           description: |
-            Default errors settings.
-            ```
-            error_reporting(E_ALL ^ E_DEPRECATED);
-            ini_set('display_errors', 1);
-            ```
-            One could change them in /config/settings.yml.
-            ```
-            error_reporting: E_ALL
-            display_errors: 0
-            ```
+            As default errors will be shown along with deprecated notice. 
+            In production mode we can change this in /config/settings.yml file.
+          item:
+            -
+              name: Display errors
+              description: |
+                If to display errors. 
+                Default value is 1.
+                ```
+                display_errors: 1
+                ```
+                Set value to 0 to hide errors. 
+                ```
+                display_errors: 0
+                ```
+            -
+              name: Error reporting
+              description: |
+                Default value is E_ALL to catch all errors.
+                ```
+                error_reporting: E_ALL
+                ```
+                To hide deprecated errors one could set it like this.
+                ```
+                error_reporting: E_ALL ^ E_DEPRECATED
+                ```
         -
           name: Roles
           description: |

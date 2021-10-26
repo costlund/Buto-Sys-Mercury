@@ -10,6 +10,8 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 
 - [System](#key_0) 
   - [Errors](#key_0_0) 
+    - [Display errors](#key_0_0_0) 
+    - [Error reporting](#key_0_0_1) 
   - [Roles](#key_0_1) 
   - [GIT](#key_0_2) 
 - [Theme](#key_1) 
@@ -110,12 +112,27 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 
 ### Errors
 
-<p>Default errors settings.</p>
-<pre><code>error_reporting(E_ALL ^ E_DEPRECATED);
-ini_set('display_errors', 1);</code></pre>
-<p>One could change them in /config/settings.yml.</p>
-<pre><code>error_reporting: E_ALL
-display_errors: 0</code></pre>
+<p>As default errors will be shown along with deprecated notice. 
+In production mode we can change this in /config/settings.yml file.</p>
+
+<a name="key_0_0_0"></a>
+
+#### Display errors
+
+<p>If to display errors. 
+Default value is 1.</p>
+<pre><code>display_errors: 1</code></pre>
+<p>Set value to 0 to hide errors. </p>
+<pre><code>display_errors: 0</code></pre>
+
+<a name="key_0_0_1"></a>
+
+#### Error reporting
+
+<p>Default value is E_ALL to catch all errors.</p>
+<pre><code>error_reporting: E_ALL</code></pre>
+<p>To hide deprecated errors one could set it like this.</p>
+<pre><code>error_reporting: E_ALL ^ E_DEPRECATED</code></pre>
 
 <a name="key_0_1"></a>
 
