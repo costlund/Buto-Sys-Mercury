@@ -19,6 +19,7 @@ function __($str, $params = null){
 /**
  * Globals.
  */
+$GLOBALS['sys']['php'] = array('version' => phpversion());
 $GLOBALS['sys']['widget'] = null;
 $GLOBALS['sys']['microtime']['start'] = microtime(true);
 $GLOBALS['sys']['cache'] = false;
