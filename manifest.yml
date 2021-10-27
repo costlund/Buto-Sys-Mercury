@@ -1,4 +1,8 @@
 history:
+  2.41.0:
+    date: '2021-10-27'
+    title: 'Errors'
+    description: 'Add error messages to be render for webmaster for test purpose.'
   2.40.0:
     date: '2021-10-26'
     title: 'Errors'

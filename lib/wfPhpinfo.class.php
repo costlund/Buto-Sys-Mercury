@@ -44,6 +44,30 @@ class wfPhpinfo{
           echo wfHelp::getYmlDump(wfGlobals::get());
           exit;
         }
+        /**
+         * /?phpinfo=error_fatal
+         */
+        if($_REQUEST['phpinfo']=='error_fatal'){
+          echo 'Buto says: Trying to set variable $func=fake_func() to throw an fatal error.';
+          $func = eval("fake_func();");
+          exit;
+        }
+        /**
+         * /?phpinfo=error_deprecated
+         */
+        if($_REQUEST['phpinfo']=='error_deprecated'){
+          echo 'Buto says: Method get_magic_quotes_runtime() is deprecated from PHP 7.4. Should return false below.';
+          $magic_quotes = eval("get_magic_quotes_runtime();");
+          exit;
+        }
+        /**
+         * /?phpinfo=error_notice
+         */
+        if($_REQUEST['phpinfo']=='error_notice'){
+          echo 'Buto says: Variable $test is not defined and it should return a notice.';
+          echo eval("$test;");
+          exit;
+        }
       }
       
     }

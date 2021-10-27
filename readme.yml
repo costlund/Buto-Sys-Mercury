@@ -825,6 +825,7 @@ readme:
           name: wfUser
         -
           name: wfPhpinfo
+          date: '2021-10-27'
           description: |
             Show info if user has role webmaster or webadmin.
             ```
@@ -832,6 +833,9 @@ readme:
             /?phpinfo=session.
             /?phpinfo=server.
             /?phpinfo=cookie.
+            /?phpinfo=error_fatal.
+            /?phpinfo=error_deprecated.
+            /?phpinfo=error_notice.
             ```
             Show info if user has role webmaster.
             ```
@@ -858,6 +862,21 @@ readme:
           name: Globals
           description: |
             Webmaster can view globals via /?phpinfo=globals.
+        -
+          name: Error fatal
+          date: '2021-10-27'
+          description: |
+            Webmaster can render fatal error via /?phpinfo=error_fatal.
+        -
+          name: Error deprecated
+          date: '2021-10-27'
+          description: |
+            Webmaster can render deprecated error via /?phpinfo=error_deprecated.
+        -
+          name: Error notice
+          date: '2021-10-27'
+          description: |
+            Webmaster can render notice error via /?phpinfo=error_notice.
         -
           name: Load theme
           description: |
