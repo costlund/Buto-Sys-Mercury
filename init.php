@@ -29,7 +29,7 @@ $GLOBALS['sys']['app_dir'] = dirname($GLOBALS['sys']['web_dir']);
 $GLOBALS['sys']['sys_dir'] = dirname($GLOBALS['sys']['web_dir']).'/sys/'.$GLOBALS['sys']['version'];
 $GLOBALS['sys']['theme_data_web_dir'] = null;
 $GLOBALS['sys']['theme_data_dir'] = null;
-$GLOBALS['sys']['error_reporting'] = E_ALL;
+$GLOBALS['sys']['error_reporting'] = 'E_ALL';
 $GLOBALS['sys']['display_errors'] = 1;
 /**
  * Error settings.

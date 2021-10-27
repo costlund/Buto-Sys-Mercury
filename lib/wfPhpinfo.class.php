@@ -45,6 +45,17 @@ class wfPhpinfo{
           exit;
         }
         /**
+         * /?phpinfo=error_*
+         */
+        if($_REQUEST['phpinfo']=='error_fatal' || $_REQUEST['phpinfo']=='error_deprecated' || $_REQUEST['phpinfo']=='error_notice'){
+          echo 'Buto says: Value error_reporting is set to '.wfGlobals::get('error_reporting').'.<br>';
+          if(!ini_get('display_errors')){
+            echo 'Buto says: Display errors is turned OFF.<br>';
+          }else{
+            echo 'Buto says: Display errors is turned ON.<br>';
+          }
+        }
+        /**
          * /?phpinfo=error_fatal
          */
         if($_REQUEST['phpinfo']=='error_fatal'){

@@ -34,14 +34,19 @@ readme:
                 ```
             -
               name: Error reporting
+              date: '2021-10-27'
               description: |
                 Default value is E_ALL to catch all errors.
                 ```
-                error_reporting: E_ALL
+                error_reporting: 'E_ALL'
                 ```
                 To hide deprecated errors one could set it like this.
                 ```
-                error_reporting: E_ALL ^ E_DEPRECATED
+                error_reporting: 'E_ALL ^ E_DEPRECATED'
+                ```
+                To hide deprecated errors and notice one could set it like this.
+                ```
+                error_reporting: 'E_ALL ^ E_DEPRECATED ^ E_NOTICE'
                 ```
         -
           name: Roles

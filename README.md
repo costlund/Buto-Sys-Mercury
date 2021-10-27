@@ -11,7 +11,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 - [System](#key_0) 
   - [Errors](#key_0_0) 
     - [Display errors](#key_0_0_0) 
-    - [Error reporting](#key_0_0_1) 
+    - [Error reporting <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>](#key_0_0_1) 
   - [Roles](#key_0_1) 
   - [GIT](#key_0_2) 
 - [Theme](#key_1) 
@@ -130,12 +130,14 @@ Default value is 1.</p>
 
 <a name="key_0_0_1"></a>
 
-#### Error reporting
+#### Error reporting <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>
 
 <p>Default value is E_ALL to catch all errors.</p>
-<pre><code>error_reporting: E_ALL</code></pre>
+<pre><code>error_reporting: 'E_ALL'</code></pre>
 <p>To hide deprecated errors one could set it like this.</p>
-<pre><code>error_reporting: E_ALL ^ E_DEPRECATED</code></pre>
+<pre><code>error_reporting: 'E_ALL ^ E_DEPRECATED'</code></pre>
+<p>To hide deprecated errors and notice one could set it like this.</p>
+<pre><code>error_reporting: 'E_ALL ^ E_DEPRECATED ^ E_NOTICE'</code></pre>
 
 <a name="key_0_1"></a>
 
