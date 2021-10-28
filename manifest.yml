@@ -1,4 +1,8 @@
 history:
+  2.42.0:
+    date: '2021-10-28'
+    title: 'Errors'
+    description: 'Change default value from 1 to 0 for param display_errors.'
   2.41.0:
     date: '2021-10-27'
     title: 'Errors'

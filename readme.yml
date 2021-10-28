@@ -24,7 +24,7 @@ readme:
               name: Display errors
               description: |
                 If to display errors. 
-                Default value is 1.
+                Default value is 0.
                 ```
                 display_errors: 1
                 ```

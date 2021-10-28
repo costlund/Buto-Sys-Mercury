@@ -30,7 +30,7 @@ $GLOBALS['sys']['sys_dir'] = dirname($GLOBALS['sys']['web_dir']).'/sys/'.$GLOBAL
 $GLOBALS['sys']['theme_data_web_dir'] = null;
 $GLOBALS['sys']['theme_data_dir'] = null;
 $GLOBALS['sys']['error_reporting'] = 'E_ALL';
-$GLOBALS['sys']['display_errors'] = 1;
+$GLOBALS['sys']['display_errors'] = 0;
 /**
  * Error settings.
  * This settings can be changed in settings.yml.
