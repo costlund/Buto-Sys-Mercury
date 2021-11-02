@@ -47,6 +47,31 @@ class wfHelp {
         }
       }
   }
+  public static function print($arr, $exit = false, $type = null){
+    /**
+     * 
+     */
+    if(gettype($arr)=='object'){
+      $arr = $arr->get();
+    }
+    /**
+     * 
+     */
+    if($type=='textarea'){
+      $textarea = wfDocument::createHtmlElement('textarea', sfYaml::dump($arr, 99), array('style' => 'width:100%;height:300px'));
+      wfDocument::renderElement(array($textarea));
+    }else{
+      echo "\n".'<pre>'."\n";
+      echo sfYaml::dump($arr, 99);
+      echo '</pre>'."\n";
+    }
+    /**
+     * 
+     */
+    if($exit){
+      exit();          
+    }
+  }
   /**
    * Dump data in a textarea.
    * @param type $data

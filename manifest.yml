@@ -1,4 +1,8 @@
 history:
+  2.44.0:
+    date: '2021-11-02'
+    title: 'Print method'
+    description: 'Add method print in wfHelp. This method is not restricted to webmaster.'
   2.43.0:
     date: '2021-11-02'
     title: 'Param host_dir'
