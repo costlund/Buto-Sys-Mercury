@@ -54,6 +54,7 @@ class wfSettings {
     if(isset($_SESSION['theme'])){
       $GLOBALS['sys']['theme'] = $_SESSION['theme'];
     }
+    $GLOBALS['sys']['theme_buto_data_dir'] = wfGlobals::getAppDir().'/../buto_data/theme/'.$GLOBALS['sys']['theme'];
   }
   /**
    * Find in string with wildcards *.

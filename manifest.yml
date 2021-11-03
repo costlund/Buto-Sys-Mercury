@@ -1,4 +1,8 @@
 history:
+  2.45.0:
+    date: '2021-11-03'
+    title: 'Globals'
+    description: 'Add theme_buto_data_dir to Globals.'
   2.44.0:
     date: '2021-11-02'
     title: 'Print method'

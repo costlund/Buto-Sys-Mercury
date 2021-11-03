@@ -50,6 +50,7 @@ class wfGlobals{
   public static function getSysDir()            {return wfGlobals::get('sys_dir');}
   public static function getThemeDataWebDir()   {return wfGlobals::get('theme_data_web_dir');}
   public static function getThemeDataDir()      {return wfGlobals::get('theme_data_dir');}
+  public static function getThemeButoDataDir()  {return wfGlobals::get('theme_buto_data_dir');}
   public static function getTheme()             {return wfGlobals::get('theme');}
   public static function getTimezone()          {return wfGlobals::get('timezone');}
   public static function getErrorReporting()    {return wfGlobals::get('error_reporting');}
