@@ -1,28 +1,7 @@
 <?php
 class wfEvent {
   public static function run($event, $data = array()) {
-    /**
-      * sys_start
-      * load_config_settings_before
-      * load_config_settings_after
-      * load_theme_config_settings_before
-      * load_theme_config_settings_after
-      * shutdown
-      * request_rewrite_before
-      * request_rewrite_after
-      * module_method_before
-      * security_issue
-      * page_not_found
-      * module_method_after
-      * document_render_before
-        * document_render_element
-          * document_render_innerhtml
-      * document_render_after
-      * sys_close
-     * 
-      */
     if(wfArray::isKey($GLOBALS, 'sys/settings/events/'.$event)){
-      // Get event registrations in theme settings.yml for this event.
       foreach (wfArray::get($GLOBALS, 'sys/settings/events/'.$event) as $key => $value) {
         $run = true;
         if(wfArray::isKey($value, 'settings/plugin_modules')){
@@ -59,20 +38,23 @@ class wfEvent {
           $method = 'event_'.wfArray::get($value, 'method', "Method is not set in sys/settings/events/$event/$key!");
           $data = $obj->$method($value, $data);
         }
-        
-
-        
-        
       }
     }
+    /**
+     * Some event should return data.
+     */
     if($event == 'document_render_element' || $event == 'document_render_element_innerhtml' || $event == 'document_render_string'){
       return $data;
     }
-    // Stop executing if critical events not handled.
+    /**
+     * Stop executing if critical events not handled.
+     */
     if($event == 'security_issue'){
+      throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: Security issue!');
       exit('Security issue!');
     }elseif($event == 'page_not_found'){
       header("HTTP/1.0 404 Not Found");
+      throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: 404 Not Found');
       exit('404 Not Found');
     }
   }

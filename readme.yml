@@ -790,6 +790,38 @@ readme:
           name: wfElement
         -
           name: wfEvent
+          date: '2021-11-15'
+          description: |
+            This events is handled by system along with custom events.
+            ```
+            sys_start
+            load_config_settings_before
+            load_config_settings_after
+            load_theme_config_settings_before
+            load_theme_config_settings_after
+            shutdown
+            request_rewrite_before
+            request_rewrite_after
+            module_method_before
+            security_issue
+            page_not_found
+            module_method_after
+            document_render_before
+              document_render_element
+                document_render_innerhtml
+            document_render_after
+            sys_close
+            ```
+            This event should be registred in /theme/folder/folder/config/settings.yml file.
+            For example using plugin wf/errorhandling method shutdown when event shutdown is thrown.
+            ```
+            events:
+              shutdown:
+                -
+                  plugin: 'wf/errorhandling'
+                  method: 'shutdown'
+                  data: 'some data...'
+            ```
         -
           name: wfFilesystem
         -

@@ -80,7 +80,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Globals](#key_8_5_0) 
     - [Mode](#key_8_5_1) 
   - [wfElement](#key_8_6) 
-  - [wfEvent](#key_8_7) 
+  - [wfEvent <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-11-15">2021-11-15</span>](#key_8_7) 
   - [wfFilesystem](#key_8_8) 
   - [wfGlobals](#key_8_9) 
   - [wfHelp](#key_8_10) 
@@ -903,7 +903,34 @@ wfDocument::setModeHtml();</code></pre>
 
 <a name="key_8_7"></a>
 
-### wfEvent
+### wfEvent <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-11-15">2021-11-15</span>
+
+<p>This events is handled by system along with custom events.</p>
+<pre><code>sys_start
+load_config_settings_before
+load_config_settings_after
+load_theme_config_settings_before
+load_theme_config_settings_after
+shutdown
+request_rewrite_before
+request_rewrite_after
+module_method_before
+security_issue
+page_not_found
+module_method_after
+document_render_before
+  document_render_element
+    document_render_innerhtml
+document_render_after
+sys_close</code></pre>
+<p>This event should be registred in /theme/folder/folder/config/settings.yml file.
+For example using plugin wf/errorhandling method shutdown when event shutdown is thrown.</p>
+<pre><code>events:
+  shutdown:
+    -
+      plugin: 'wf/errorhandling'
+      method: 'shutdown'
+      data: 'some data...'</code></pre>
 
 <a name="key_8_8"></a>
 
