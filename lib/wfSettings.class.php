@@ -342,8 +342,8 @@ class wfSettings {
   }
   /**
    * Replace [theme] with current theme.
-   * @param type $str
-   * @return type
+   * @param string $str
+   * @return string
    */
   public static function replaceTheme($str){
     return str_replace('[theme]', wfSettings::getTheme(), $str);

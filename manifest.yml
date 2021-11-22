@@ -1,4 +1,8 @@
 history:
+  2.46.1:
+    date: '2021-11-22'
+    title: 'Code declaration'
+    description: 'Code declaration improvement.'
   2.46.0:
     date: '2021-11-15'
     title: 'Event'

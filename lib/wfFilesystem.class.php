@@ -184,7 +184,7 @@ class wfFilesystem {
     }
   }
   /**
-   * Check if a file or dir exist.
+   * Check if a file or dir exist from root.
    * @param type $filename
    * @return type
    */
