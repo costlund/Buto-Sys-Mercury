@@ -1,4 +1,9 @@
+version: 2.47.0
 history:
+  2.47.0:
+    date: '2021-12-07'
+    title: 'Globals'
+    description: 'Add sys/name and sys/version i globals.'
   2.46.1:
     date: '2021-11-22'
     title: 'Code declaration'

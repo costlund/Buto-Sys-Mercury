@@ -19,6 +19,8 @@ function __($str, $params = null){
 /**
  * Globals.
  */
+$GLOBALS['sys']['sys']['name'] = $GLOBALS['sys']['version'];
+$GLOBALS['sys']['sys']['version'] = null;
 $GLOBALS['sys']['php'] = array('version' => phpversion());
 $GLOBALS['sys']['widget'] = null;
 $GLOBALS['sys']['microtime']['start'] = microtime(true);
@@ -61,6 +63,16 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfConfig.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPhpinfo.class.php";
 wfEvent::run('sys_start');
+/**
+ * Set sys/version
+ */
+$path_to_file = wfSettings::getAppDir().'/sys/'.$GLOBALS['sys']['version'].'/manifest.yml';
+if(file_exists($path_to_file)){
+  $array = sfYaml::load($path_to_file);
+  if(isset($array['version'])){
+    $GLOBALS['sys']['sys']['version'] = $array['version'];
+  }
+}
 /**
  * Load ini settings from /config/settings.yml for a specific host.
  */

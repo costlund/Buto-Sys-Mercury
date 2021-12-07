@@ -11,7 +11,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 - [System](#key_0) 
   - [Errors](#key_0_0) 
     - [Display errors](#key_0_0_0) 
-    - [Error reporting <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>](#key_0_0_1) 
+    - [Error reporting](#key_0_0_1) 
   - [Roles](#key_0_1) 
   - [GIT](#key_0_2) 
 - [Theme](#key_1) 
@@ -91,15 +91,15 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfServer](#key_8_14) 
   - [wfSettings](#key_8_15) 
   - [wfUser](#key_8_16) 
-  - [wfPhpinfo <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>](#key_8_17) 
+  - [wfPhpinfo](#key_8_17) 
 - [Special requests](#key_9) 
   - [Phpinfo](#key_9_0) 
   - [Session](#key_9_1) 
   - [Server](#key_9_2) 
   - [Globals](#key_9_3) 
-  - [Error fatal <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>](#key_9_4) 
-  - [Error deprecated <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>](#key_9_5) 
-  - [Error notice <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>](#key_9_6) 
+  - [Error fatal](#key_9_4) 
+  - [Error deprecated](#key_9_5) 
+  - [Error notice](#key_9_6) 
   - [Load theme](#key_9_7) 
   - [Sign out](#key_9_8) 
   - [Webmaster page](#key_9_9) 
@@ -130,7 +130,7 @@ Default value is 0.</p>
 
 <a name="key_0_0_1"></a>
 
-#### Error reporting <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>
+#### Error reporting
 
 <p>Default value is E_ALL to catch all errors.</p>
 <pre><code>error_reporting: 'E_ALL'</code></pre>
@@ -985,7 +985,7 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_17"></a>
 
-### wfPhpinfo <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>
+### wfPhpinfo
 
 <p>Show info if user has role webmaster or webadmin.</p>
 <pre><code>/?phpinfo=phpinfo.
@@ -1030,19 +1030,19 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_9_4"></a>
 
-### Error fatal <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>
+### Error fatal
 
 <p>Webmaster can render fatal error via /?phpinfo=error_fatal.</p>
 
 <a name="key_9_5"></a>
 
-### Error deprecated <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>
+### Error deprecated
 
 <p>Webmaster can render deprecated error via /?phpinfo=error_deprecated.</p>
 
 <a name="key_9_6"></a>
 
-### Error notice <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-10-27">2021-10-27</span>
+### Error notice
 
 <p>Webmaster can render notice error via /?phpinfo=error_notice.</p>
 
