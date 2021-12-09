@@ -1,5 +1,9 @@
-version: 2.47.1
+version: 2.47.2
 history:
+  2.47.2:
+    date: '2021-12-09'
+    title: 'wfCrypt'
+    description: 'Code justify.'
   2.47.1:
     date: '2021-12-09'
     title: 'mcrypt'
