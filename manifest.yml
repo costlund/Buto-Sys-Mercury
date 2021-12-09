@@ -1,5 +1,9 @@
-version: 2.47.0
+version: 2.47.1
 history:
+  2.47.1:
+    date: '2021-12-09'
+    title: 'mcrypt'
+    description: 'Add code comments about methods mcrypt_* in wfCrypt.'
   2.47.0:
     date: '2021-12-07'
     title: 'Globals'

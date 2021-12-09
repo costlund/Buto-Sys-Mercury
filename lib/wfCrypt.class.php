@@ -1,6 +1,5 @@
 <?php
 class wfCrypt {
-    
     public static function getHashAndSaltAsString($password){
       $uid = uniqid(mt_rand(), true);
       $salt = crypt($uid, $uid);
@@ -24,9 +23,6 @@ class wfCrypt {
     public static function getUid(){
       return str_replace('.', '', uniqid(mt_rand(), true));
     }
-    
-    
-    
     /**
      * Encrypt.
      * @param string $string
@@ -35,6 +31,14 @@ class wfCrypt {
      * @throws Exception
      */
     public static function encrypt($string, $key = null){
+      /**
+       * Warning (mcrypt_create_iv)
+       * https://www.php.net/manual/en/function.mcrypt-create-iv.php
+       * This function was DEPRECATED in PHP 7.1.0, and REMOVED in PHP 7.2.0.
+       */
+      /**
+       *
+       */
       if(is_null($key)){
         $key = wfCrypt::getKey();
       }
@@ -65,6 +69,14 @@ class wfCrypt {
      * @throws Exception
      */
     public static function decrypt($encrypted, $key = null){
+      /**
+       * Warning (mcrypt_create_iv)
+       * https://www.php.net/manual/en/function.mcrypt-create-iv.php
+       * This function was DEPRECATED in PHP 7.1.0, and REMOVED in PHP 7.2.0.
+       */
+      /**
+       *
+       */
       if(is_null($key)){
         $key = wfCrypt::getKey();
       }
@@ -87,7 +99,7 @@ class wfCrypt {
     }
     /**
      * Trying to retrieve key from param key in /config/crypt.yml.
-     * @return type
+     * @return string
      */
     public static function getKey(){
       $key = null;
@@ -98,8 +110,8 @@ class wfCrypt {
     }
     /**
      * wfCrypt::decryptFromString('crypt:DBNfQCwZWmTG6qVbKd0QS8NdbYMNUUE17b5o+xXUZbc=').
-     * @param type $string
-     * @return type
+     * @param string $string
+     * @return string
      */
     public static function decryptFromString($string){
       if(substr($string, 0, 6)=='crypt:'){
@@ -108,8 +120,4 @@ class wfCrypt {
         return $string;
       }
     }
-    
-    
 }
-
-?>
