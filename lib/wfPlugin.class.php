@@ -43,8 +43,22 @@ class wfPlugin {
       if(wfArray::get($value, 'plugin') == $plugin){
         wfPlugin::includeonce('wf/array');
         $settings = new PluginWfArray(array_merge($value, array('key' => $key)));
+        $settings = wfPlugin::settings_from_yml_string($settings);
         break;
       }
+    }
+    return $settings;
+  }
+  /**
+   * Get settings from plugin_modules depending on current class.
+   * @return object PluginWfArray
+   */
+  public static function getPluginModulesByClass(){
+    $settings = null;
+    $class = wfGlobals::get('class');
+    if(wfArray::get($GLOBALS, "sys/settings/plugin_modules/$class")){
+      $settings = new PluginWfArray(wfArray::get($GLOBALS, "sys/settings/plugin_modules/$class"));
+      $settings = wfPlugin::settings_from_yml_string($settings);
     }
     return $settings;
   }
@@ -113,6 +127,7 @@ class wfPlugin {
     if(wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin)){
       $settings = wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin);
       $settings = array_merge($default, $settings);
+      $settings = wfPlugin::settings_from_yml_string($settings);
       if(!$as_object){
         return $settings;
       }else{
@@ -127,6 +142,18 @@ class wfPlugin {
         return new PluginWfArray();
       }
     }
+  }
+  public static function settings_from_yml_string($v){
+    if(is_array($v)){
+      if(isset($v['data'])){
+        $v['data'] = wfSettings::getSettingsFromYmlString($v['data']);
+      }
+    }else{
+      if($v->get('settings')){
+        $v->set('settings', wfSettings::getSettingsFromYmlString($v->get('settings')));
+      }
+    }
+    return $v;
   }
   /**
    * Camelcase plugin name with no slash.

@@ -1,5 +1,13 @@
-version: 2.47.2
+version: 2.49.0
 history:
+  2.49.0:
+    date: '2021-12-11'
+    title: 'New method'
+    description: 'Add method getPluginModulesByClass where to get settings from current class.'
+  2.48.0:
+    date: '2021-12-09'
+    title: 'wfPlugin'
+    description: 'Handle if param data is an yml file in method getPluginSettings, getPluginModulesOne. New method settings_from_yml_string.'
   2.47.2:
     date: '2021-12-09'
     title: 'wfCrypt'
