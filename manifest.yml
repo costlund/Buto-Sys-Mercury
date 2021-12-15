@@ -1,5 +1,9 @@
-version: 2.49.0
+version: 2.49.1
 history:
+  2.49.1:
+    date: '2021-12-15'
+    title: 'Readme'
+    description: 'Readme improvement.'
   2.49.0:
     date: '2021-12-11'
     title: 'New method'

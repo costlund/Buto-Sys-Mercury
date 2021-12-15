@@ -53,7 +53,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [JSON](#key_6_0_1) 
   - [Settings](#key_6_1) 
     - [Role](#key_6_1_0) 
-    - [Date](#key_6_1_1) 
+    - [Date <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-12-15">2021-12-15</span>](#key_6_1_1) 
     - [Enabled](#key_6_1_2) 
     - [Disabled](#key_6_1_3) 
     - [I18N](#key_6_1_4) 
@@ -607,14 +607,14 @@ innerHTML: This element is only rendered if user has role client. </code></pre>
 
 <a name="key_6_1_1"></a>
 
-#### Date
+#### Date <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-12-15">2021-12-15</span>
 
-<p>Restrict rendering element regarding to dates.</p>
+<p>Restrict rendering element regarding to dates or times.</p>
 <pre><code>type: span
 settings:
   date:
     from: '2020-01-01'
-    to: '2020-12-31'
+    to: '2020-12-31 23:59:59'
 innerHTML: This element is NOT rendered year 2020. </code></pre>
 <p>Set param allow to false to restrict by dates. Default value is true.</p>
 <pre><code>type: span
@@ -622,7 +622,7 @@ settings:
   date:
     allow: false
     from: '2020-01-01'
-    to: '2020-12-31'
+    to: '2020-12-31 23:59:59'
 innerHTML: This element is only rendered year 2020. </code></pre>
 
 <a name="key_6_1_2"></a>

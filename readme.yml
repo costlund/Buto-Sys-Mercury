@@ -495,15 +495,16 @@ readme:
                 ```
             -
               name: Date
+              date: '2021-12-15'
               description: |
-                Restrict rendering element regarding to dates.
+                Restrict rendering element regarding to dates or times.
                 ```
                 type: span
                 settings:
                   date:
-                    from: '2020-01-01'
-                    to: '2020-12-31'
-                innerHTML: This element is NOT rendered year 2020. 
+                    from: '2020-01-01 12:00:00'
+                    to: '2020-12-31 23:59:59'
+                innerHTML: This element is NOT rendered year 2020 from 12.00.  
                 ```
                 Set param allow to false to restrict by dates. Default value is true.
                 ```
@@ -512,7 +513,7 @@ readme:
                   date:
                     allow: false
                     from: '2020-01-01'
-                    to: '2020-12-31'
+                    to: '2020-12-31 23:59:59'
                 innerHTML: This element is only rendered year 2020. 
                 ```
             -
