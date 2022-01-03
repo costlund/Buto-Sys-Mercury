@@ -1,5 +1,9 @@
-version: 2.50.0
+version: 2.50.1
 history:
+  2.50.1:
+    date: '2022-01-03'
+    title: 'Readme'
+    description: 'Readme improvement.'
   2.50.0:
     date: '2022-01-03'
     title: 'Page not found'

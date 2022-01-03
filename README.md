@@ -80,7 +80,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Globals](#key_8_5_0) 
     - [Mode](#key_8_5_1) 
   - [wfElement](#key_8_6) 
-  - [wfEvent <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-11-15">2021-11-15</span>](#key_8_7) 
+  - [wfEvent](#key_8_7) 
   - [wfFilesystem](#key_8_8) 
   - [wfGlobals](#key_8_9) 
   - [wfHelp](#key_8_10) 
@@ -613,9 +613,9 @@ innerHTML: This element is only rendered if user has role client. </code></pre>
 <pre><code>type: span
 settings:
   date:
-    from: '2020-01-01'
+    from: '2020-01-01 12:00:00'
     to: '2020-12-31 23:59:59'
-innerHTML: This element is NOT rendered year 2020. </code></pre>
+innerHTML: This element is NOT rendered year 2020 from 12.00.  </code></pre>
 <p>Set param allow to false to restrict by dates. Default value is true.</p>
 <pre><code>type: span
 settings:
@@ -903,7 +903,7 @@ wfDocument::setModeHtml();</code></pre>
 
 <a name="key_8_7"></a>
 
-### wfEvent <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-11-15">2021-11-15</span>
+### wfEvent
 
 <p>This events is handled by system along with custom events.</p>
 <pre><code>sys_start
