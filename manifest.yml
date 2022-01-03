@@ -1,5 +1,9 @@
-version: 2.49.1
+version: 2.50.0
 history:
+  2.50.0:
+    date: '2022-01-03'
+    title: 'Page not found'
+    description: 'Removed error exception. Add link to start page.'
   2.49.1:
     date: '2021-12-15'
     title: 'Readme'

@@ -54,8 +54,7 @@ class wfEvent {
       exit('Security issue!');
     }elseif($event == 'page_not_found'){
       header("HTTP/1.0 404 Not Found");
-      throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: 404 Not Found');
-      exit('404 Not Found');
+      exit('Could not find this page. Please go to <a href="/">Start page</a>.');
     }
   }
 }
