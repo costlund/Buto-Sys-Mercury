@@ -45,21 +45,27 @@ class wfCrypt {
     if(!$key){
       throw new Exception('Could not find any key in wfCrypt::encrypt().');
     }
-    $iv = mcrypt_create_iv(
+    try {
+      $iv = mcrypt_create_iv(
         mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC),
         MCRYPT_DEV_URANDOM
-    );
-    $encrypted = base64_encode(
-        $iv .
-        mcrypt_encrypt(
-            MCRYPT_RIJNDAEL_128,
-            hash('sha256', $key, true),
-            $string,
-            MCRYPT_MODE_CBC,
-            $iv
-        )
-    );
-    return $encrypted;
+      );
+      $encrypted = base64_encode(
+          $iv .
+          mcrypt_encrypt(
+              MCRYPT_RIJNDAEL_128,
+              hash('sha256', $key, true),
+              $string,
+              MCRYPT_MODE_CBC,
+              $iv
+          )
+      );
+      return $encrypted;
+    }
+    catch (Throwable $e) {
+      return $e->getMessage();
+    }
+    return '(error)';
   }
   /**
     * Decrypt.
@@ -83,19 +89,25 @@ class wfCrypt {
     if(!$key){
       throw new Exception('Could not find any key in wfCrypt::decrypt().');
     }
-    $data = base64_decode($encrypted);
-    $iv = substr($data, 0, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
-    $decrypted = rtrim(
-        mcrypt_decrypt(
-            MCRYPT_RIJNDAEL_128,
-            hash('sha256', $key, true),
-            substr($data, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC)),
-            MCRYPT_MODE_CBC,
-            $iv
-        ),
-        "\0"
-    );
-    return $decrypted;
+    try{
+      $data = base64_decode($encrypted);
+      $iv = substr($data, 0, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
+      $decrypted = rtrim(
+          mcrypt_decrypt(
+              MCRYPT_RIJNDAEL_128,
+              hash('sha256', $key, true),
+              substr($data, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC)),
+              MCRYPT_MODE_CBC,
+              $iv
+          ),
+          "\0"
+      );
+      return $decrypted;
+    }
+    catch (Throwable $e) {
+      return $e->getMessage();
+    }
+    return '(error)';
   }
   /**
     * Trying to retrieve key from param key in /config/crypt.yml.
