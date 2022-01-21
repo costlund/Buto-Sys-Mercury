@@ -1,5 +1,9 @@
-version: 2.51.0
+version: 2.51.1
 history:
+  2.51.1:
+    date: '2022-01-21'
+    title: 'wfHelp'
+    description: 'Change font and size in method textarea_dump.'
   2.51.0:
     date: '2022-01-17'
     title: 'Crypt'

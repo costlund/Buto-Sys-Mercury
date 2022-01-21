@@ -84,7 +84,7 @@ class wfHelp {
       }elseif(gettype($data)=='array'){
         $data = sfYaml::dump($data, 99);
       }
-      $textarea = wfDocument::createHtmlElement('textarea', $data, array('style' => 'width:100%;height:300px'));
+      $textarea = wfDocument::createHtmlElement('textarea', $data, array('style' => 'width:100%;height:300px;font-family:courier new;font-size:smaller;'));
       wfDocument::renderElement(array($textarea));
       if($exit){
         exit();          
