@@ -859,6 +859,11 @@ readme:
           name: wfServer
         -
           name: wfSettings
+          item:
+            -
+              name: replaceTag
+              description: |
+                Replace [tag] with wfGlobals::get('tag').
         -
           name: wfUser
         -

@@ -348,6 +348,9 @@ class wfSettings {
   public static function replaceTheme($str){
     return str_replace('[theme]', wfSettings::getTheme(), $str);
   }
+  public static function replaceTag($str){
+    return str_replace('[tag]', wfGlobals::get('tag'), $str);
+  }
   /**
    * Add root to path if start with "/theme".
    * @param string $file
@@ -372,12 +375,13 @@ class wfSettings {
     $str = str_replace('[web_dir]', wfArray::get($GLOBALS, 'sys/web_dir'), $str);
     $str = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $str);
     $str = str_replace('[theme]', wfSettings::getTheme(), $str);
+    $str = str_replace('[tag]', wfGlobals::get('tag'), $str);
     return $str;
   }
   /**
    * Replace [class].
-   * @param type $str
-   * @return type
+   * @param string $str
+   * @return string
    */
   public static function replaceClass($str){
     return str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $str);
@@ -405,6 +409,7 @@ class wfSettings {
       }
       if(sizeof($temp)==3){
         $temp[1] = wfSettings::replaceTheme( trim($temp[1]));
+        $temp[1] = wfSettings::replaceTag( trim($temp[1]));
         $temp[2] = trim($temp[2]);
         return wfSettings::getSettings($temp[1], $temp[2]);
       }else{

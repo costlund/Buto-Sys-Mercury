@@ -141,6 +141,12 @@ class wfDocument {
         }
       }
     }
+    /**
+     * tag
+     */
+    if(wfArray::get($element, 'settings/tag') && wfArray::get($element, 'settings/tag') != wfGlobals::get('tag')){
+      return false;
+    }
     //#Element/Cookie
     /**
       cookie:
@@ -374,6 +380,7 @@ class wfDocument {
      * Replace attribute/src [theme] in attribute/(src/style).
      */
     if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
+    if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[tag]', wfGlobals::get('tag'), $element['attribute']['src']);}
     if(isset($element['attribute']['style'])){$element['attribute']['style'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
     /**
      * Replace innerHTML [[class]] for special usage to pick up from javascript.

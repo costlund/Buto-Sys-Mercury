@@ -1,5 +1,9 @@
-version: 2.51.1
+version: 2.52.0
 history:
+  2.52.0:
+    date: '2022-02-25'
+    title: Tag
+    description: "Replace [tag] with wfGlobals::get('tag')."
   2.51.1:
     date: '2022-01-21'
     title: 'wfHelp'

@@ -53,7 +53,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [JSON](#key_6_0_1) 
   - [Settings](#key_6_1) 
     - [Role](#key_6_1_0) 
-    - [Date <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-12-15">2021-12-15</span>](#key_6_1_1) 
+    - [Date](#key_6_1_1) 
     - [Enabled](#key_6_1_2) 
     - [Disabled](#key_6_1_3) 
     - [I18N](#key_6_1_4) 
@@ -90,6 +90,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Usage](#key_8_13_0) 
   - [wfServer](#key_8_14) 
   - [wfSettings](#key_8_15) 
+    - [replaceTag](#key_8_15_0) 
   - [wfUser](#key_8_16) 
   - [wfPhpinfo](#key_8_17) 
 - [Special requests](#key_9) 
@@ -607,7 +608,7 @@ innerHTML: This element is only rendered if user has role client. </code></pre>
 
 <a name="key_6_1_1"></a>
 
-#### Date <span class="badge badge-pill badge-success" style="font-size:10px" title="2021-12-15">2021-12-15</span>
+#### Date
 
 <p>Restrict rendering element regarding to dates or times.</p>
 <pre><code>type: span
@@ -978,6 +979,12 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 <a name="key_8_15"></a>
 
 ### wfSettings
+
+<a name="key_8_15_0"></a>
+
+#### replaceTag
+
+<p>Replace [tag] with wfGlobals::get('tag').</p>
 
 <a name="key_8_16"></a>
 
