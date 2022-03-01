@@ -1,5 +1,9 @@
-version: 2.52.2
+version: 2.52.3
 history:
+  2.52.3:
+    date: '2022-03-01'
+    title: 'Element wf'
+    description: 'Removed old method to render widgets named as wf_*.'
   2.52.2:
     date: '2022-03-01'
     title: 'Type declaration'

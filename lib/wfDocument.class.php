@@ -423,8 +423,6 @@ class wfDocument {
         throw new Exception('Widget '.$data['method'].' in plugin '.$data['plugin'].' does not exist.');
       }
       $obj->$method($data);
-    }elseif(substr($element['type'], 0, 3)=='wf_'){
-      throw new Exception('type=wf_* is not longer in use ('.$data['plugin'].', '.$data['method'].') (190110).');
     }  else {
       /**
        * Element.
@@ -610,7 +608,6 @@ class wfDocument {
     if(wfDocument::isElementDisabled($element)){return null;}
     if(!wfDocument::isElementEnabled($element)){return null;}
     if(!wfDocument::isElementEnabledIfFileExist($element)){return null;}
-    if(substr($element['type'], 0, 3)=='wf_'){return null;}
     if($element['type']=='widget'){return null;}
     if(array_search($element['type'], $this->element_one_tag)===false){
       $this->_echo_("</".$element['type'].">\n"); 
