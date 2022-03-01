@@ -1,5 +1,9 @@
-version: 2.52.1
+version: 2.52.2
 history:
+  2.52.2:
+    date: '2022-03-01'
+    title: 'Type declaration'
+    description: 'Type declarations improvement.'
   2.52.1:
     date: '2022-03-01'
     title: 'Readme'

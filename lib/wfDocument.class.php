@@ -87,7 +87,7 @@ class wfDocument {
   }
   /**
    * Validate settings.
-   * @param type $element
+   * @param array $element
    * @return boolean
    * @throws Exception
    */
@@ -312,8 +312,8 @@ class wfDocument {
   }
   /**
    * Render start tag.
-   * @param type $element
-   * @param type $i
+   * @param mixed $element Array or string.
+   * @param int $i Level.
    * @return boolean
    * @throws Exception
    */
@@ -576,8 +576,8 @@ class wfDocument {
   }
   /**
    * Get yml from innerHTML string.
-   * @param type $innerHTML
-   * @return type
+   * @param string $innerHTML
+   * @return array
    * @throws Exception
    */
   private static function ymlFromInnerHtml($innerHTML){
@@ -946,8 +946,8 @@ class wfDocument {
   }
   /**
    * Format array key id.
-   * @param type $id
-   * @return type
+   * @param string $id
+   * @return string
    */
   public static function formatArrayKeyId($id){
     $id = str_replace("[" ,"['", $id);
@@ -963,6 +963,7 @@ class wfDocument {
     wfDocument::findAndGetById($GLOBALS['settings']['document'], $id);
     $find_and_get_by_id = wfDocument::$find_and_get_by_id;
     if($find_and_get_by_id){
+      $temp = null;
       eval("\$temp = $find_and_get_by_id;");
       return $temp;
     }else{return null;}
@@ -977,6 +978,7 @@ class wfDocument {
     wfDocument::findAndGetId($GLOBALS['settings']['document'], $id);
     $find_and_get_id = wfDocument::$find_and_get_id;
     if($find_and_get_id){
+      $temp = null;
       eval("\$temp = $find_and_get_id;");
       return $temp;
     }else{return null;}
@@ -1059,7 +1061,7 @@ class wfDocument {
   }
   /**
    * Hanlde execute.
-   * @param type $method
+   * @param string $method
    * @throws Exception
    */
   public static function handleExecute($method){

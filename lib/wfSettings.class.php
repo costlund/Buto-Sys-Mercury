@@ -388,8 +388,8 @@ class wfSettings {
   }
   /**
    * If string contain yml:file_name:key.
-   * @param type $str
-   * @return type
+   * @param string $str
+   * @return array
    * @throws Exception
    */
   public static function getSettingsFromYmlString($str){

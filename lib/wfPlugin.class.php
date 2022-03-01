@@ -78,6 +78,9 @@ class wfPlugin {
   }
   /**
    * Include plugin.
+   * @param string $plugin
+   * @return array
+   * @throws Exception
    */
   public static function includeonce($plugin){
     $plugin_action_file = 'Plugin'.wfPlugin::to_camel_case($plugin).'.php';

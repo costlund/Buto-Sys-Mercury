@@ -9,7 +9,7 @@ class wfUser {
   }
   /**
    * Get user security merged with unsecure.
-   * @return type
+   * @return array
    */
   public static function getSecurity(){
     $temp = $GLOBALS['settings']['security']['unsecure'];
