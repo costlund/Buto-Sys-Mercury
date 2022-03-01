@@ -331,6 +331,10 @@ readme:
                 theme: my/theme
                 timezone: Europe/Paris
                 ```
+                One could set tag to separate themes.
+                ```
+                tag: _a_tag_to_separate_themes_
+                ```
             -
               name: HTTP_USER_AGENT
               description: |
@@ -616,6 +620,17 @@ readme:
                       file: /theme/[theme]/buto_data/data.yml
                       path_to_key: title
                 ```
+                Add innerHTML content from Globals.
+                ```
+                type: h1
+                settings:
+                  innerHTML: globals:sys/theme
+                ```
+                ```
+                type: h1
+                settings:
+                  innerHTML: 'globals:_SESSION/user_id'
+                ```
             -
               name: file_exist
               description: |
@@ -628,6 +643,16 @@ readme:
                   plugin: 'theme/include'
                   method: include
                   data: yml:/theme/[theme]/buto_data/data.yml:plugin/theme/include/data
+                ```
+            -
+              name: tag
+              description: |
+                Render element if tag match.
+                ```
+                type: div
+                settings:
+                  tag: _my_tag_
+                innerHTML: 'Show this if tag match.'
                 ```
         -
           name: Globals

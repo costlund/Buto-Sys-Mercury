@@ -61,6 +61,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Param](#key_6_1_6) 
     - [innerHTML](#key_6_1_7) 
     - [file_exist](#key_6_1_8) 
+    - [tag](#key_6_1_9) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
   - [Comment](#key_6_4) 
@@ -453,6 +454,8 @@ default_method: home</code></pre>
 <p>The file must contain this settings. This theme has location /theme/my/theme.</p>
 <pre><code>theme: my/theme
 timezone: Europe/Paris</code></pre>
+<p>One could set tag to separate themes.</p>
+<pre><code>tag: _a_tag_to_separate_themes_</code></pre>
 
 <a name="key_5_0_1"></a>
 
@@ -721,6 +724,13 @@ settings:
     -
       file: /theme/[theme]/buto_data/data.yml
       path_to_key: title</code></pre>
+<p>Add innerHTML content from Globals.</p>
+<pre><code>type: h1
+settings:
+  innerHTML: globals:sys/theme</code></pre>
+<pre><code>type: h1
+settings:
+  innerHTML: 'globals:_SESSION/user_id'</code></pre>
 
 <a name="key_6_1_8"></a>
 
@@ -734,6 +744,16 @@ data:
   plugin: 'theme/include'
   method: include
   data: yml:/theme/[theme]/buto_data/data.yml:plugin/theme/include/data</code></pre>
+
+<a name="key_6_1_9"></a>
+
+#### tag
+
+<p>Render element if tag match.</p>
+<pre><code>type: div
+settings:
+  tag: _my_tag_
+innerHTML: 'Show this if tag match.'</code></pre>
 
 <a name="key_6_2"></a>
 
