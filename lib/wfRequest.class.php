@@ -12,6 +12,11 @@ class wfRequest {
     }
     return $all;
   }
+  public static function setAll($data){
+    $_GET = $data;
+    $_POST = $data;
+    return null;
+  }
   public static function set($param, $value){
     $_GET[$param] = $value;
     $_POST[$param] = $value;
