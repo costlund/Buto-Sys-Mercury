@@ -142,6 +142,31 @@ class wfDocument {
       }
     }
     /**
+     * PAGE
+     */
+    if(wfArray::get($element, 'settings/page')){
+      if(wfArray::get($element, 'settings/page/item')){
+        if(wfArray::get($element, 'settings/page/allow')){
+          $element = wfArray::set($element, 'settings/page/render', false);
+          foreach(wfArray::get($element, 'settings/page/item') as $v){
+            if(wfSettings::match_wildcard($v, wfServer::getRequestUri())){
+              $element = wfArray::set($element, 'settings/page/render', true);
+            }
+          }
+        }else{
+          $element = wfArray::set($element, 'settings/page/render', true);
+          foreach(wfArray::get($element, 'settings/page/item') as $v){
+            if(wfSettings::match_wildcard($v, wfServer::getRequestUri())){
+              $element = wfArray::set($element, 'settings/page/render', false);
+            }
+          }
+        }
+        if(!wfArray::get($element, 'settings/page/render')){
+          return false;
+        }
+      }
+    }
+    /**
      * tag
      */
     if(wfArray::get($element, 'settings/tag') && wfArray::get($element, 'settings/tag') != wfGlobals::get('tag')){

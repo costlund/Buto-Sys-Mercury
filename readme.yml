@@ -570,6 +570,38 @@ readme:
                 innerHTML: Hello World
                 ```
             -
+              name: Page
+              date: '2022-03-24'
+              description: |
+                Show element depending on page (wfServer::getRequestUri()).
+                ```
+                type: span
+                settings:
+                  page:
+                    allow: true
+                    item:
+                      - '/'
+                innerHTML: Show if start page.
+                ```
+                ```
+                type: span
+                settings:
+                  page:
+                    allow: false
+                    item:
+                      - '/'
+                innerHTML: Hide if start page.
+                ```
+                ```
+                type: span
+                settings:
+                  page:
+                    allow: true
+                    item:
+                      - '*contact*'
+                innerHTML: Show if value contact is in page adress.
+                ```
+            -
               name: Param
               description: |
                 Show element depending on param value.

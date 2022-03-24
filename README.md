@@ -58,10 +58,11 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Disabled](#key_6_1_3) 
     - [I18N](#key_6_1_4) 
     - [Server name](#key_6_1_5) 
-    - [Param](#key_6_1_6) 
-    - [innerHTML](#key_6_1_7) 
-    - [file_exist](#key_6_1_8) 
-    - [tag](#key_6_1_9) 
+    - [Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-03-24">2022-03-24</span>](#key_6_1_6) 
+    - [Param](#key_6_1_7) 
+    - [innerHTML](#key_6_1_8) 
+    - [file_exist](#key_6_1_9) 
+    - [tag](#key_6_1_10) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
   - [Comment](#key_6_4) 
@@ -676,6 +677,33 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_6_1_6"></a>
 
+#### Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-03-24">2022-03-24</span>
+
+<p>Show element depending on page (wfServer::getRequestUri()).</p>
+<pre><code>type: span
+settings:
+  page:
+    allow: true
+    item:
+      - '/'
+innerHTML: Show if start page.</code></pre>
+<pre><code>type: span
+settings:
+  page:
+    allow: false
+    item:
+      - '/'
+innerHTML: Hide if start page.</code></pre>
+<pre><code>type: span
+settings:
+  page:
+    allow: true
+    item:
+      - '*contact*'
+innerHTML: Show if value contact is in page adress.</code></pre>
+
+<a name="key_6_1_7"></a>
+
 #### Param
 
 <p>Show element depending on param value.</p>
@@ -710,7 +738,7 @@ innerHTML: Hello World</code></pre>
       name: sw
   innerHTML: Paras sw can not have a value</code></pre>
 
-<a name="key_6_1_7"></a>
+<a name="key_6_1_8"></a>
 
 #### innerHTML
 
@@ -732,7 +760,7 @@ settings:
 settings:
   innerHTML: 'globals:_SESSION/user_id'</code></pre>
 
-<a name="key_6_1_8"></a>
+<a name="key_6_1_9"></a>
 
 #### file_exist
 
@@ -745,7 +773,7 @@ data:
   method: include
   data: yml:/theme/[theme]/buto_data/data.yml:plugin/theme/include/data</code></pre>
 
-<a name="key_6_1_9"></a>
+<a name="key_6_1_10"></a>
 
 #### tag
 

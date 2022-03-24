@@ -1,5 +1,9 @@
-version: 2.52.3
+version: 2.53.0
 history:
+  2.53.0:
+    date: '2022-03-24'
+    title: 'Page'
+    description: 'Show or hide element depending on page adress.'
   2.52.3:
     date: '2022-03-01'
     title: 'Element wf'
