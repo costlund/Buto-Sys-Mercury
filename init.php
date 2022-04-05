@@ -156,6 +156,11 @@ wfEvent::run('load_theme_config_settings_before');
 $GLOBALS['sys']['settings'] = wfSettings::loadThemeConfigSettings();
 wfEvent::run('load_theme_config_settings_after');
 /**
+ * Auto set i18n/language if match in settings.
+ * 
+ */
+wfI18n::autoSelectLanguage();
+/**
  * Shutdown method.
  */
 register_shutdown_function("shutdown");
@@ -252,4 +257,3 @@ wfGlobals::setMicrotimeEnd();
  * 
  */
 wfEvent::run('sys_close');
-//wfEvent::runnnn();

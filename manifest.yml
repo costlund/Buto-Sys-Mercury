@@ -1,5 +1,9 @@
-version: 2.54.1
+version: 2.55.0
 history:
+  2.55.0:
+    date: '2022-04-05'
+    title: 'I18N'
+    description: 'Auto set language.'
   2.54.1:
     date: '2022-04-05'
     title: 'Readme'

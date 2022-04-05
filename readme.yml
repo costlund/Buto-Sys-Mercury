@@ -911,6 +911,20 @@ readme:
           name: wfHelp
         -
           name: wfI18n
+          date: '2022-04-05'
+          description: |
+            Handle I18N.
+          item:
+            -
+              name: Auto select
+              description: |
+                Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.
+                ```
+                i18n/auto_select (true on the set)
+                ```
+                ```
+                i18n/language (param to set)
+                ```
         -
           name: wfPlugin
         -

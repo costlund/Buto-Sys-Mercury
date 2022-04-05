@@ -56,7 +56,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Date](#key_6_1_1) 
     - [Enabled](#key_6_1_2) 
     - [Disabled](#key_6_1_3) 
-    - [I18N](#key_6_1_4) 
+    - [I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_6_1_4) 
     - [Server name](#key_6_1_5) 
     - [Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-03-24">2022-03-24</span>](#key_6_1_6) 
     - [Param](#key_6_1_7) 
@@ -86,7 +86,8 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfFilesystem](#key_8_8) 
   - [wfGlobals](#key_8_9) 
   - [wfHelp](#key_8_10) 
-  - [wfI18n](#key_8_11) 
+  - [wfI18n <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_8_11) 
+    - [Auto select](#key_8_11_0) 
   - [wfPlugin](#key_8_12) 
   - [wfRequest](#key_8_13) 
     - [Usage](#key_8_13_0) 
@@ -654,7 +655,7 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_6_1_4"></a>
 
-#### I18N
+#### I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>
 
 <p>Disable I18N.</p>
 <pre><code>type: span
@@ -1013,7 +1014,17 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_11"></a>
 
-### wfI18n
+### wfI18n <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>
+
+<p>Handle I18N.</p>
+
+<a name="key_8_11_0"></a>
+
+#### Auto select
+
+<p>Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.</p>
+<pre><code>i18n/auto_select (true on the set)</code></pre>
+<pre><code>i18n/language (param to set)</code></pre>
 
 <a name="key_8_12"></a>
 
