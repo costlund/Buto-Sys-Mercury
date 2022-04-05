@@ -21,7 +21,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Result](#key_1_0_2) 
   - [Hello Buto](#key_1_1) 
     - [Config](#key_1_1_0) 
-    - [Layout files](#key_1_1_1) 
+    - [Layout files <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_1_1_1) 
     - [Page](#key_1_1_2) 
     - [Result](#key_1_1_3) 
   - [Theme configuration](#key_1_2) 
@@ -249,7 +249,7 @@ plugin:
 
 <a name="key_1_1_1"></a>
 
-#### Layout files
+#### Layout files <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>
 
 <p>In /layout/html.yml</p>
 <pre><code>settings:
@@ -260,6 +260,8 @@ content:
     text: '&lt;!DOCTYPE html&gt;'
   -
     type: html
+    attribute:
+      la: globals:_SESSION/i18n/language
     innerHTML:
       -
         type: head

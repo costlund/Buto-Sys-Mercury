@@ -39,6 +39,8 @@ class wfI18n{
        */
       if(wfI18n::hasLanguage($language)){
         wfUser::setSession('i18n/language', $language);
+      }else{
+        wfUser::setSession('i18n/language', wfI18n::getLanguage());
       }
     }
   }

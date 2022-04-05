@@ -149,6 +149,7 @@ readme:
                 ```
             -
               name: Layout files
+              date: '2022-04-05'
               description: |
                 In /layout/html.yml
                 ```
@@ -160,6 +161,8 @@ readme:
                     text: '<!DOCTYPE html>'
                   -
                     type: html
+                    attribute:
+                      la: globals:_SESSION/i18n/language
                     innerHTML:
                       -
                         type: head
