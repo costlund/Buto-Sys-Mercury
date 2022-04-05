@@ -548,6 +548,7 @@ readme:
                 ```
             -
               name: I18N
+              date: '2022-04-05'
               description: |
                 Disable I18N.
                 ```
@@ -555,6 +556,26 @@ readme:
                 settings:
                   i18n: false
                 innerHTML: Hello World
+                ```
+                Show element depending on language (one language).
+                ```
+                type: img
+                settings:
+                  i18n:
+                    language: sv
+                attribute:
+                  src: /theme/[theme]/flag/flag_se.png
+                ```
+                Show element depending on language (multiple languages).
+                ```
+                type: img
+                settings:
+                  i18n:
+                    language:
+                      - sv
+                      - en
+                attribute:
+                  src: /theme/[theme]/flag/flag_se.png
                 ```
             -
               name: Server name

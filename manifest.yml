@@ -1,5 +1,9 @@
-version: 2.54.0
+version: 2.54.1
 history:
+  2.54.1:
+    date: '2022-04-05'
+    title: 'Readme'
+    description: 'Readme improvement.'
   2.54.0:
     date: '2022-03-24'
     title: 'Request'

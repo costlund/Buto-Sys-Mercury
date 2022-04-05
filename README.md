@@ -661,6 +661,22 @@ innerHTML: Hello World</code></pre>
 settings:
   i18n: false
 innerHTML: Hello World</code></pre>
+<p>Show element depending on language (one language).</p>
+<pre><code>type: img
+settings:
+  i18n:
+    language: sv
+attribute:
+  src: /theme/[theme]/flag/flag_se.png</code></pre>
+<p>Show element depending on language (multiple languages).</p>
+<pre><code>type: img
+settings:
+  i18n:
+    language:
+      - sv
+      - en
+attribute:
+  src: /theme/[theme]/flag/flag_se.png</code></pre>
 
 <a name="key_6_1_5"></a>
 
