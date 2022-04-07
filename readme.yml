@@ -928,6 +928,18 @@ readme:
                 ```
                 i18n/language (param to set)
                 ```
+            -
+              name: getLanguagesMore
+              description: |
+                Returns array.
+                ```
+                -
+                  name: sv
+                  label: Swedish
+                -
+                  name: en
+                  label: English
+                ```
         -
           name: wfPlugin
         -
