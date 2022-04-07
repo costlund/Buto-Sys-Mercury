@@ -26,7 +26,7 @@ class wfI18n{
       /**
        * Get language from HTTP_ACCEPT_LANGUAGE.
        */
-      $language = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+      $language = locale_accept_from_http(wfServer::getHttpAccept_Language());
       if(strpos($language, '_')){
         $language = substr($language, 0, strpos($language, '_'));
       }
