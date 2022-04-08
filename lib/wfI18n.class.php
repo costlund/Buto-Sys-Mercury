@@ -16,7 +16,11 @@ class wfI18n{
     return wfArray::get($GLOBALS, 'sys/settings/i18n/languages');
   }
   public static function hasLanguage($language){
-    return in_array($language, wfI18n::getLanguages());
+    if(wfI18n::getLanguages()){
+      return in_array($language, wfI18n::getLanguages());
+    }else{
+      return false;
+    }
   }
   public static function autoSelectLanguage(){
     /**
