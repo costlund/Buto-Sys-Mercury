@@ -1,5 +1,9 @@
-version: 2.55.0
+version: 2.56.0
 history:
+  2.56.0:
+    date: '2022-04-07'
+    title: 'wfI18n'
+    description: 'New method getLanguagesMore.'
   2.55.0:
     date: '2022-04-05'
     title: 'I18N'

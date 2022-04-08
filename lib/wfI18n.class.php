@@ -15,6 +15,19 @@ class wfI18n{
   public static function getLanguages(){
     return wfArray::get($GLOBALS, 'sys/settings/i18n/languages');
   }
+  public static function getLanguagesMore(){
+    $languages = wfI18n::getLanguages();
+    $data = array();
+    foreach($languages as $k => $v){
+      $label = $v;
+      if(wfGlobals::get("settings/i18n/lable/$v")){
+        $label = wfGlobals::get("settings/i18n/lable/$v");
+
+      }
+      $data[] = array('name' => $v, 'label' => $label);
+    }
+    return $data;
+  }
   public static function hasLanguage($language){
     if(wfI18n::getLanguages()){
       return in_array($language, wfI18n::getLanguages());

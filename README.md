@@ -88,6 +88,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfHelp](#key_8_10) 
   - [wfI18n <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_8_11) 
     - [Auto select](#key_8_11_0) 
+    - [getLanguagesMore](#key_8_11_1) 
   - [wfPlugin](#key_8_12) 
   - [wfRequest](#key_8_13) 
     - [Usage](#key_8_13_0) 
@@ -1027,6 +1028,18 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 <p>Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.</p>
 <pre><code>i18n/auto_select (true on the set)</code></pre>
 <pre><code>i18n/language (param to set)</code></pre>
+
+<a name="key_8_11_1"></a>
+
+#### getLanguagesMore
+
+<p>Returns array.</p>
+<pre><code>-
+  name: sv
+  label: Swedish
+-
+  name: en
+  label: English</code></pre>
 
 <a name="key_8_12"></a>
 
