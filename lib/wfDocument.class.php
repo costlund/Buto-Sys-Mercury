@@ -167,10 +167,18 @@ class wfDocument {
       }
     }
     /**
-     * tag
+     * tag (string or array)
      */
-    if(wfArray::get($element, 'settings/tag') && wfArray::get($element, 'settings/tag') != wfGlobals::get('tag')){
-      return false;
+    if(wfArray::get($element, 'settings/tag')){
+      if(!is_array(wfArray::get($element, 'settings/tag'))){
+        if(wfArray::get($element, 'settings/tag') != wfGlobals::get('tag')){
+          return false;
+        }
+      }else{
+        if(!in_array(wfGlobals::get('tag'), wfArray::get($element, 'settings/tag'))){
+          return false;
+        }
+      }
     }
     //#Element/Cookie
     /**

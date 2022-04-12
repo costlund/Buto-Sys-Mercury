@@ -702,12 +702,22 @@ readme:
                 ```
             -
               name: tag
+              date: '2022-04-12'
               description: |
                 Render element if tag match.
                 ```
                 type: div
                 settings:
                   tag: _my_tag_
+                innerHTML: 'Show this if tag match.'
+                ```
+                Render element if tags match.
+                ```
+                type: div
+                settings:
+                  tag:
+                    - _my_tag_
+                    - _my_tag2_
                 innerHTML: 'Show this if tag match.'
                 ```
         -

@@ -1,5 +1,9 @@
-version: 2.56.0
+version: 2.57.0
 history:
+  2.57.0:
+    date: '2022-04-12'
+    title: Tag
+    description: 'Tag could be array or string.'
   2.56.0:
     date: '2022-04-07'
     title: 'wfI18n'
