@@ -1,5 +1,9 @@
-version: 2.57.0
+version: 2.58.0
 history:
+  2.58.0:
+    date: '2022-04-14'
+    title: 'wfI18n'
+    description: 'Improvement in method autoSelectLanguage. Get rid of dependence of intl by replacing method locale_accept_from_http.'
   2.57.0:
     date: '2022-04-12'
     title: Tag

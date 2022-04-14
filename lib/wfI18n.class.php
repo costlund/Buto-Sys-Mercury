@@ -43,7 +43,7 @@ class wfI18n{
       /**
        * Get language from HTTP_ACCEPT_LANGUAGE.
        */
-      $language = locale_accept_from_http(wfServer::getHttpAccept_Language());
+      $language = wfI18n::getHttpAccept_Language_Languages();
       if(strpos($language, '_')){
         $language = substr($language, 0, strpos($language, '_'));
       }
@@ -60,5 +60,28 @@ class wfI18n{
         wfUser::setSession('i18n/language', wfI18n::getLanguage());
       }
     }
+  }
+  public static function getHttpAccept_Language_Languages(){
+    $return = '';
+    $rs = wfServer::get('HTTP_ACCEPT_LANGUAGE');
+    if(!$rs){
+      return $return;
+    }
+    $rs = str_replace(';', ',', $rs);
+    $rs = preg_split("/,/", $rs);
+    if(!$rs){
+      return $return;
+    }
+    $languages = wfI18n::getLanguages();
+    if(!$languages){
+      return $return;
+    }
+    foreach($rs as $v){
+      if(in_array($v, $languages)){
+        $return = $v;
+        break;
+      }
+    }
+    return $return;
   }
 }
