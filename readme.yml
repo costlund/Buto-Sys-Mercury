@@ -384,6 +384,7 @@ readme:
           item:
             -
               name: I18N
+              date: '2022-04-30'
               description: |
                 I18N settings.
                 ```
@@ -395,10 +396,19 @@ readme:
                     - en
                   url:
                     la-sv: sv
+                    la-de: de
                     la-en: en
+                  lable:
+                    sv: Swedish
+                    de: Danish
+                    en: English
                 ```
-                Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.
+                Param url is optional. If url like /la-sv language sv will be set in Globals and Session.
                 One should use plugin i18n/url_rewrite when using this param to add language prefix for all href values.
+                ```
+                http://localhost/la-de
+                ```
+                When system find a match in url language the param is removed from query params.
             -
               name: buto_data folder
               description: |

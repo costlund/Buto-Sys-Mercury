@@ -45,7 +45,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [HTTP_USER_AGENT](#key_5_0_1) 
     - [Domain](#key_5_0_2) 
   - [Theme](#key_5_1) 
-    - [I18N](#key_5_1_0) 
+    - [I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-30">2022-04-30</span>](#key_5_1_0) 
     - [buto_data folder](#key_5_1_1) 
 - [Element](#key_6) 
   - [Attribute](#key_6_0) 
@@ -58,7 +58,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Disabled](#key_6_1_3) 
     - [I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_6_1_4) 
     - [Server name](#key_6_1_5) 
-    - [Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-03-24">2022-03-24</span>](#key_6_1_6) 
+    - [Page](#key_6_1_6) 
     - [Param](#key_6_1_7) 
     - [innerHTML](#key_6_1_8) 
     - [file_exist](#key_6_1_9) 
@@ -503,7 +503,7 @@ domain:
 
 <a name="key_5_1_0"></a>
 
-#### I18N
+#### I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-30">2022-04-30</span>
 
 <p>I18N settings.</p>
 <pre><code>i18n:
@@ -514,9 +514,16 @@ domain:
     - en
   url:
     la-sv: sv
-    la-en: en</code></pre>
-<p>Param url is optional. If url like /la-sv* language sv will be set in Globals and Session.
+    la-de: de
+    la-en: en
+  lable:
+    sv: Swedish
+    de: Danish
+    en: English</code></pre>
+<p>Param url is optional. If url like /la-sv language sv will be set in Globals and Session.
 One should use plugin i18n/url_rewrite when using this param to add language prefix for all href values.</p>
+<pre><code>http://localhost/la-de</code></pre>
+<p>When system find a match in url language the param is removed from query params.</p>
 
 <a name="key_5_1_1"></a>
 
@@ -697,7 +704,7 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_6_1_6"></a>
 
-#### Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-03-24">2022-03-24</span>
+#### Page
 
 <p>Show element depending on page (wfServer::getRequestUri()).</p>
 <pre><code>type: span
