@@ -1,5 +1,9 @@
-version: 2.58.1
+version: 2.59.0
 history:
+  2.59.0:
+    date: '2022-04-30'
+    title: 'Localhost'
+    description: 'If environment is localhost it will be written in page title.'
   2.58.1:
     date: '2022-04-30'
     title: 'Readme'
