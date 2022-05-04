@@ -1,5 +1,9 @@
-version: 2.59.0
+version: 2.59.1
 history:
+  2.59.1:
+    date: '2022-04-30'
+    title: 'Readme'
+    description: 'Readme improvement.'
   2.59.0:
     date: '2022-04-30'
     title: 'Localhost'

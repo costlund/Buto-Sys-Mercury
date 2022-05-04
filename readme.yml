@@ -862,6 +862,7 @@ readme:
           item:
             -
               name: Globals
+              date: '2022-05-03'
               description: |
                 Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.
                 ```
@@ -877,6 +878,19 @@ readme:
                         -
                           path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
                           value: '/plugin/invoice/invoice_v1/i18n'
+                    innerHTML: Hello World
+                ```
+                This example disable i18n if using plugin PluginI18nTranslate_v1.
+                ```
+                type: div
+                settings:
+                  globals:
+                    -
+                      path_to_key: 'settings/plugin/i18n/translate_v1/settings/disabled'
+                      value: true
+                innerHTML:
+                  -
+                    type: div
                     innerHTML: Hello World
                 ```
             -

@@ -79,7 +79,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfCrypt](#key_8_3) 
   - [wfDate](#key_8_4) 
   - [wfDocument](#key_8_5) 
-    - [Globals](#key_8_5_0) 
+    - [Globals <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-03">2022-05-03</span>](#key_8_5_0) 
     - [Mode](#key_8_5_1) 
   - [wfElement](#key_8_6) 
   - [wfEvent](#key_8_7) 
@@ -954,7 +954,7 @@ sys_close</code></pre>
 
 <a name="key_8_5_0"></a>
 
-#### Globals
+#### Globals <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-03">2022-05-03</span>
 
 <p>Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.</p>
 <pre><code>type: div
@@ -969,6 +969,17 @@ innerHTML:
         -
           path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
           value: '/plugin/invoice/invoice_v1/i18n'
+    innerHTML: Hello World</code></pre>
+<p>This example disable i18n if using plugin PluginI18nTranslate_v1.</p>
+<pre><code>type: div
+settings:
+  globals:
+    -
+      path_to_key: 'settings/plugin/i18n/translate_v1/settings/disabled'
+      value: true
+innerHTML:
+  -
+    type: div
     innerHTML: Hello World</code></pre>
 
 <a name="key_8_5_1"></a>
