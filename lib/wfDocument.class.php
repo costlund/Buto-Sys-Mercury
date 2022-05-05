@@ -688,6 +688,15 @@ class wfDocument {
       if(substr($array['innerHTML'], 0, 5)=='load:'){
         $temp = preg_split('/:/', $array['innerHTML']);
         $temp[1] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $temp[1]);
+        /**
+         * 
+         */
+        foreach(wfRequest::getAll() as $k => $v){
+          $temp[1] = str_replace("[$k]", $v, $temp[1]);
+        }
+        /**
+         * 
+         */
         return $temp[1];
       }
     }

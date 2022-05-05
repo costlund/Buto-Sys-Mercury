@@ -1,5 +1,9 @@
-version: 2.59.1
+version: 2.60.0
 history:
+  2.60.0:
+    date: '2022-05-05'
+    title: 'Load params'
+    description: 'Add replace query params in innerHTML load ajax.'
   2.59.1:
     date: '2022-04-30'
     title: 'Readme'

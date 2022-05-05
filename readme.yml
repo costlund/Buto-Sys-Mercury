@@ -99,6 +99,7 @@ readme:
                 ```
             -
               name: Page
+              date: '2022-05-05'
               description: |
                 In /page/home.yml
                 ```
@@ -112,6 +113,14 @@ readme:
                           id: min_span_tag
                           style: "font-weight:bold"
                         innerHTML: Hello World
+                ```
+                One could load content via ajax by using the load prefix.
+                ```
+                        innerHTML: load:/any/page
+                ```
+                Use request params if needed.
+                ```
+                        innerHTML: load:/any/page/id/[id]
                 ```
             -
               name: Result

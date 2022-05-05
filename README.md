@@ -17,7 +17,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 - [Theme](#key_1) 
   - [Hello World](#key_1_0) 
     - [Config](#key_1_0_0) 
-    - [Page](#key_1_0_1) 
+    - [Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-05">2022-05-05</span>](#key_1_0_1) 
     - [Result](#key_1_0_2) 
   - [Hello Buto](#key_1_1) 
     - [Config](#key_1_1_0) 
@@ -202,7 +202,7 @@ default_method: home</code></pre>
 
 <a name="key_1_0_1"></a>
 
-#### Page
+#### Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-05">2022-05-05</span>
 
 <p>In /page/home.yml</p>
 <pre><code>content:
@@ -215,6 +215,10 @@ default_method: home</code></pre>
           id: min_span_tag
           style: "font-weight:bold"
         innerHTML: Hello World</code></pre>
+<p>One could load content via ajax by using the load prefix.</p>
+<pre><code>        innerHTML: load:/any/page</code></pre>
+<p>Use request params if needed.</p>
+<pre><code>        innerHTML: load:/any/page/id/[id]</code></pre>
 
 <a name="key_1_0_2"></a>
 
