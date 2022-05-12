@@ -21,7 +21,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Result](#key_1_0_2) 
   - [Hello Buto](#key_1_1) 
     - [Config](#key_1_1_0) 
-    - [Layout files <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_1_1_1) 
+    - [Layout files](#key_1_1_1) 
     - [Page](#key_1_1_2) 
     - [Result](#key_1_1_3) 
   - [Theme configuration](#key_1_2) 
@@ -56,7 +56,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Date](#key_6_1_1) 
     - [Enabled](#key_6_1_2) 
     - [Disabled](#key_6_1_3) 
-    - [I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_6_1_4) 
+    - [I18N](#key_6_1_4) 
     - [Server name](#key_6_1_5) 
     - [Page](#key_6_1_6) 
     - [Param](#key_6_1_7) 
@@ -86,7 +86,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfFilesystem](#key_8_8) 
   - [wfGlobals](#key_8_9) 
   - [wfHelp](#key_8_10) 
-  - [wfI18n <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>](#key_8_11) 
+  - [wfI18n](#key_8_11) 
     - [Auto select](#key_8_11_0) 
     - [getLanguagesMore](#key_8_11_1) 
   - [wfPlugin](#key_8_12) 
@@ -254,7 +254,7 @@ plugin:
 
 <a name="key_1_1_1"></a>
 
-#### Layout files <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>
+#### Layout files
 
 <p>In /layout/html.yml</p>
 <pre><code>settings:
@@ -669,7 +669,7 @@ innerHTML: Hello World</code></pre>
 
 <a name="key_6_1_4"></a>
 
-#### I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>
+#### I18N
 
 <p>Disable I18N.</p>
 <pre><code>type: span
@@ -1046,7 +1046,7 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_11"></a>
 
-### wfI18n <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-05">2022-04-05</span>
+### wfI18n
 
 <p>Handle I18N.</p>
 

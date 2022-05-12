@@ -410,12 +410,6 @@ class wfDocument {
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
     /**
-     * title 
-     */
-    if($element['type']=='title' && wfHelp::isLocalhost()){
-      $element['innerHTML'] = $element['innerHTML'].' (localhost)';
-    }
-    /**
      * Replace attribute/src [theme] in attribute/(src/style).
      */
     if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
@@ -536,6 +530,12 @@ class wfDocument {
         if(!is_array($innerHTML)){
           if(!in_array($element['type'], array('script', 'style')) && $document_render_string){
             $innerHTML = wfEvent::run('document_render_string', $innerHTML);
+          }
+          /**
+           * title 
+           */
+          if($element['type']=='title' && wfHelp::isLocalhost()){
+            $innerHTML .=' (localhost)';
           }
           $this->_echo_($innerHTML);
         }else{

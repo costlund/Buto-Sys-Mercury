@@ -1,5 +1,9 @@
-version: 2.60.0
+version: 2.60.1
 history:
+  2.60.1:
+    date: '2022-05-12'
+    title: 'Localhost'
+    description: 'Move add localhost to title later in process due to I18N issue.'
   2.60.0:
     date: '2022-05-05'
     title: 'Load params'
