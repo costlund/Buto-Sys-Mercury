@@ -62,7 +62,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Param](#key_6_1_7) 
     - [innerHTML](#key_6_1_8) 
     - [file_exist](#key_6_1_9) 
-    - [tag <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-12">2022-04-12</span>](#key_6_1_10) 
+    - [tag](#key_6_1_10) 
   - [Globals](#key_6_2) 
   - [Render](#key_6_3) 
   - [Comment](#key_6_4) 
@@ -806,7 +806,7 @@ data:
 
 <a name="key_6_1_10"></a>
 
-#### tag <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-12">2022-04-12</span>
+#### tag
 
 <p>Render element if tag match.</p>
 <pre><code>type: div
