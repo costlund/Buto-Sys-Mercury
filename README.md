@@ -45,7 +45,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [HTTP_USER_AGENT](#key_5_0_1) 
     - [Domain](#key_5_0_2) 
   - [Theme](#key_5_1) 
-    - [I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-30">2022-04-30</span>](#key_5_1_0) 
+    - [I18N](#key_5_1_0) 
     - [buto_data folder](#key_5_1_1) 
 - [Element](#key_6) 
   - [Attribute](#key_6_0) 
@@ -507,7 +507,7 @@ domain:
 
 <a name="key_5_1_0"></a>
 
-#### I18N <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-04-30">2022-04-30</span>
+#### I18N
 
 <p>I18N settings.</p>
 <pre><code>i18n:

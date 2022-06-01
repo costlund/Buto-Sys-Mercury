@@ -1,5 +1,9 @@
-version: 2.60.2
+version: 2.60.3
 history:
+  2.60.3:
+    date: '2022-06-01'
+    title: 'Readme'
+    description: 'Readme auto update.'
   2.60.2:
     date: '2022-04-30'
     title: 'Readme'
