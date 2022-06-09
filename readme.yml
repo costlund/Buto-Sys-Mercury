@@ -1012,8 +1012,10 @@ readme:
           item:
             -
               name: replaceTag
+              date: '2022-06-03'
               description: |
                 Replace [tag] with wfGlobals::get('tag').
+                Replace [la] with wfI18n::getLanguage().
         -
           name: wfUser
         -

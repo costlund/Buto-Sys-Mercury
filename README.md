@@ -17,7 +17,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
 - [Theme](#key_1) 
   - [Hello World](#key_1_0) 
     - [Config](#key_1_0_0) 
-    - [Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-05">2022-05-05</span>](#key_1_0_1) 
+    - [Page](#key_1_0_1) 
     - [Result](#key_1_0_2) 
   - [Hello Buto](#key_1_1) 
     - [Config](#key_1_1_0) 
@@ -79,7 +79,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
   - [wfCrypt](#key_8_3) 
   - [wfDate](#key_8_4) 
   - [wfDocument](#key_8_5) 
-    - [Globals <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-03">2022-05-03</span>](#key_8_5_0) 
+    - [Globals](#key_8_5_0) 
     - [Mode](#key_8_5_1) 
   - [wfElement](#key_8_6) 
   - [wfEvent](#key_8_7) 
@@ -94,7 +94,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Usage](#key_8_13_0) 
   - [wfServer](#key_8_14) 
   - [wfSettings](#key_8_15) 
-    - [replaceTag](#key_8_15_0) 
+    - [replaceTag <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-06-03">2022-06-03</span>](#key_8_15_0) 
   - [wfUser](#key_8_16) 
   - [wfPhpinfo](#key_8_17) 
 - [Special requests](#key_9) 
@@ -202,7 +202,7 @@ default_method: home</code></pre>
 
 <a name="key_1_0_1"></a>
 
-#### Page <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-05">2022-05-05</span>
+#### Page
 
 <p>In /page/home.yml</p>
 <pre><code>content:
@@ -958,7 +958,7 @@ sys_close</code></pre>
 
 <a name="key_8_5_0"></a>
 
-#### Globals <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-05-03">2022-05-03</span>
+#### Globals
 
 <p>Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.</p>
 <pre><code>type: div
@@ -1101,9 +1101,10 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_15_0"></a>
 
-#### replaceTag
+#### replaceTag <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-06-03">2022-06-03</span>
 
-<p>Replace [tag] with wfGlobals::get('tag').</p>
+<p>Replace [tag] with wfGlobals::get('tag').
+Replace [la] with wfI18n::getLanguage().</p>
 
 <a name="key_8_16"></a>
 

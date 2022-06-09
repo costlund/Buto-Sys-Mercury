@@ -376,6 +376,7 @@ class wfSettings {
     $str = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $str);
     $str = str_replace('[theme]', wfSettings::getTheme(), $str);
     $str = str_replace('[tag]', wfGlobals::get('tag'), $str);
+    $str = str_replace('[la]', wfI18n::getLanguage(), $str);
     return $str;
   }
   /**
@@ -400,6 +401,7 @@ class wfSettings {
       return $str;
     }
     if(substr($str, 0, 4)=='yml:'){
+      $str = wfSettings::replaceDir($str);
       $temp = preg_split('/:/', $str);
       /**
        * If third param not set it will be set anyway.

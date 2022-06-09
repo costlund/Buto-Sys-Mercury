@@ -1,5 +1,9 @@
-version: 2.60.3
+version: 2.61.0
 history:
+  2.61.0:
+    date: '2022-06-03'
+    title: 'I18N'
+    description: 'Replace tag [la] in method wfSettings::replaceDir.'
   2.60.3:
     date: '2022-06-01'
     title: 'Readme'
