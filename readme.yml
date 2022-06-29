@@ -77,6 +77,22 @@ readme:
             ```
             sh git_fileMode.sh
             ```
+        -
+          name: Time zone
+          date: '2022-06-29'
+          description: |
+            In /config/settings.yml one could set time zone for application (optional).
+            Default value is Europe/Paris.
+            ```
+            timezone: 'America/New_York'
+            ```
+            If using CURRENT_TIMESTAMP for TIMESTAMP types the system time is used. 
+            Change type from TIMESTAMP to DATETIME to apply time zone setting.
+
+            Read more about different time zones.
+            ```
+            https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+            ```
     -
       name: Theme
       description: |
