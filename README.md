@@ -95,7 +95,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Usage](#key_8_13_0) 
   - [wfServer](#key_8_14) 
   - [wfSettings](#key_8_15) 
-    - [replaceTag <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-06-03">2022-06-03</span>](#key_8_15_0) 
+    - [replaceTag](#key_8_15_0) 
   - [wfUser](#key_8_16) 
   - [wfPhpinfo](#key_8_17) 
 - [Special requests](#key_9) 
@@ -1114,7 +1114,7 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_15_0"></a>
 
-#### replaceTag <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-06-03">2022-06-03</span>
+#### replaceTag
 
 <p>Replace [tag] with wfGlobals::get('tag').
 Replace [la] with wfI18n::getLanguage().</p>

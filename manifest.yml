@@ -1,5 +1,9 @@
-version: 2.61.2
+version: 2.61.3
 history:
+  2.61.3:
+    date: '2022-08-18'
+    title: 'Method getSettings'
+    description: 'Throw an error if file not exist.'
   2.61.2:
     date: '2022-08-18'
     title: 'Error reporting'

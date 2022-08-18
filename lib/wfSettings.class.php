@@ -285,6 +285,7 @@ class wfSettings {
         /**
          * File not exist.
          */
+        throw new Exception(__CLASS__." says: File $path does not exist.");
       }
     }
     /**
