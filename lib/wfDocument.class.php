@@ -418,7 +418,7 @@ class wfDocument {
     /**
      * Replace innerHTML [[class]] for special usage to pick up from javascript.
      */
-    if(wfArray::isKey($element, 'innerHTML')){
+    if(wfArray::isKey($element, 'innerHTML') && !is_array(wfArray::get($element, 'innerHTML'))){
       $element['innerHTML'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
     }
     if(wfArray::isKey($element, 'attribute/onclick')){

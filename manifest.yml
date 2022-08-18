@@ -1,5 +1,9 @@
-version: 2.61.3
+version: 2.61.4
 history:
+  2.61.4:
+    date: '2022-08-18'
+    title: 'Method wfDocument.renderStartTag'
+    description: 'Fix array to string error.'
   2.61.3:
     date: '2022-08-18'
     title: 'Method getSettings'
