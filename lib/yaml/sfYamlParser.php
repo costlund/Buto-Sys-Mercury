@@ -395,7 +395,15 @@ class sfYamlParser
     if (preg_match('/^(?P<separator>\||>)(?P<modifiers>\+|\-|\d+|\+\d+|\-\d+|\d+\+|\d+\-)?(?P<comments> +#.*)?$/', $value, $matches))
     {
       $modifiers = isset($matches['modifiers']) ? $matches['modifiers'] : '';
-
+      /**
+       * Claes Östlund, 2022-08-18
+       */
+      if($modifiers==''){
+        $modifiers = 0;
+      }
+      /**
+       * 
+       */
       return $this->parseFoldedScalar($matches['separator'], preg_replace('#\d+#', '', $modifiers), intval(abs($modifiers)));
     }
     else

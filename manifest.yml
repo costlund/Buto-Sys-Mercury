@@ -1,5 +1,9 @@
-version: 2.61.4
+version: 2.61.5
 history:
+  2.61.5:
+    date: '2022-08-18'
+    title: 'sfYamlParser.php'
+    description: 'Fix according to PHP version 8.0.8.'
   2.61.4:
     date: '2022-08-18'
     title: 'Method wfDocument.renderStartTag'
