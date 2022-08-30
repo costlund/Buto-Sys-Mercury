@@ -60,4 +60,11 @@ class wfGlobals{
     $GLOBALS['sys']['microtime']['time'] = $GLOBALS['sys']['microtime']['end'] - $GLOBALS['sys']['microtime']['start'];
     return null;
   }
+  public static function getGlobalsFromString($str){
+    if(substr($str, 0, 8)=='globals:'){
+      $temp = preg_split('/:/', $str);
+      $str = wfGlobals::get($temp[1]);
+    }
+    return $str;
+  }
 }

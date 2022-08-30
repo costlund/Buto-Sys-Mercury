@@ -410,6 +410,12 @@ class wfDocument {
       $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
     /**
+     * title
+     */
+    if($element['type']=='title'){
+      $element['innerHTML'] = wfGlobals::getGlobalsFromString($element['innerHTML']);
+    }
+    /**
      * Replace attribute/src [theme] in attribute/(src/style).
      */
     if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}

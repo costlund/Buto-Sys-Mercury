@@ -14,7 +14,7 @@ One could work with Buto without any knowledge of PHP when building a theme. Onl
     - [Error reporting](#key_0_0_1) 
   - [Roles](#key_0_1) 
   - [GIT](#key_0_2) 
-  - [Time zone <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-06-29">2022-06-29</span>](#key_0_3) 
+  - [Time zone](#key_0_3) 
 - [Theme](#key_1) 
   - [Hello World](#key_1_0) 
     - [Config](#key_1_0_0) 
@@ -180,7 +180,7 @@ sh git_pull.sh</code></pre>
 
 <a name="key_0_3"></a>
 
-### Time zone <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-06-29">2022-06-29</span>
+### Time zone
 
 <p>In /config/settings.yml one could set time zone for application (optional).
 Default value is Europe/Paris.</p>
