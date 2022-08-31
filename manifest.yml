@@ -1,5 +1,9 @@
-version: 2.62.2
+version: 2.62.3
 history:
+  2.62.3:
+    date: '2022-08-31'
+    title: 'Rewrite globals'
+    description: 'Problem to rewrite globals in method mergeLayout for layout.'
   2.62.2:
     date: '2022-08-31'
     title: 'Meta'

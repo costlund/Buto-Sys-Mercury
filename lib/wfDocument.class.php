@@ -1258,7 +1258,7 @@ class wfDocument {
               $temp = wfArray::set($temp, $path, $layout['content']);
               $path = $path.'/'.$layout['settings']['path'];
             }
-            wfDocument::rewrite_globals($page);
+            wfDocument::rewrite_globals($layout);
           }else{
             throw new Exception("Could not find file $filename!");
           }
@@ -1279,9 +1279,9 @@ class wfDocument {
     wfArray::set($GLOBALS, 'sys/path_to_content', $path);
     return null;
   }
-  private static function rewrite_globals($page){
-    if(wfArray::get($page, 'settings/rewrite_globals')){
-      foreach (wfArray::get($page, 'settings/rewrite_globals') as $v) {
+  private static function rewrite_globals($data){
+    if(wfArray::get($data, 'settings/rewrite_globals')){
+      foreach (wfArray::get($data, 'settings/rewrite_globals') as $v) {
         $GLOBALS = wfArray::set($GLOBALS, $v['key'], $v['value']);
       }
     }
