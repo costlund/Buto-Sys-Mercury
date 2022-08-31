@@ -1201,16 +1201,28 @@ class wfDocument {
    * @throws Exception
    */
   public static function mergeLayout($page){
+    /**
+     * error handling
+     */
     if(!wfArray::get($GLOBALS, 'sys/layout_path')){
       throw new Exception("Param sys/layout_path is not set!");
     }
     if(!wfArray::isKey($page, 'content')){
       return null;
     }
+    /**
+     * 
+     */
     $path = null;
     $layout_path = wfArray::get($GLOBALS, 'sys/app_dir').'/'.wfArray::get($GLOBALS, 'sys/layout_path');
     if(!wfRequest::get('_time')){
+      /**
+       * page
+       */
       if(wfArray::isKey($page, 'settings/layout') && $layout_path){
+        /**
+         * layouts
+         */
         $layouts = wfArray::get($page, 'settings/layout');
         $temp = null;
         foreach ($layouts as $key => $value) {
@@ -1234,46 +1246,45 @@ class wfDocument {
               throw new Exception("Key settings/path is not set in $filename!");
             }
             if(!$temp){
-              //First layout.
+              /**
+               * First layout.
+               */
               $temp = $layout['content'];
               $path = $layout['settings']['path'];
             }else{
-              //Other layouts.
+              /**
+               * Other layouts.
+               */
               $temp = wfArray::set($temp, $path, $layout['content']);
               $path = $path.'/'.$layout['settings']['path'];
             }
-            if(wfArray::get($layout, 'settings/rewrite_globals')){
-              foreach (wfArray::get($layout, 'settings/rewrite_globals') as $key2 => $value2) {
-                $GLOBALS = wfArray::set($GLOBALS, $value2['key'], $value2['value']);
-              }
-            }
+            wfDocument::rewrite_globals($page);
           }else{
             throw new Exception("Could not find file $filename!");
           }
           $temp = wfArray::set($temp, $path, wfArray::get($page, 'content'));
         }
         $page['content'] = $temp;
-        if(wfArray::get($page, 'settings/rewrite_globals')){
-          foreach (wfArray::get($page, 'settings/rewrite_globals') as $key2 => $value2) {
-            $GLOBALS = wfArray::set($GLOBALS, $value2['key'], $value2['value']);
-          }
-        }
+        wfDocument::rewrite_globals($page);
       }else{
-        if(wfArray::get($page, 'settings/rewrite_globals')){
-          foreach (wfArray::get($page, 'settings/rewrite_globals') as $key2 => $value2) {
-            $GLOBALS = wfArray::set($GLOBALS, $value2['key'], $value2['value']);
-          }
-        }
+        wfDocument::rewrite_globals($page);
       }
     }else{
-      if(wfArray::get($page, 'settings/rewrite_globals')){
-        foreach (wfArray::get($page, 'settings/rewrite_globals') as $key2 => $value2) {
-          $GLOBALS = wfArray::set($GLOBALS, $value2['key'], $value2['value']);
-        }
-      }
+      /**
+       * An ajax request due to _time param.
+       */
+      wfDocument::rewrite_globals($page);
     }
     wfArray::set($GLOBALS, 'sys/page', $page);
     wfArray::set($GLOBALS, 'sys/path_to_content', $path);
+    return null;
+  }
+  private static function rewrite_globals($page){
+    if(wfArray::get($page, 'settings/rewrite_globals')){
+      foreach (wfArray::get($page, 'settings/rewrite_globals') as $v) {
+        $GLOBALS = wfArray::set($GLOBALS, $v['key'], $v['value']);
+      }
+    }
     return null;
   }
   /**

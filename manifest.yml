@@ -1,5 +1,9 @@
-version: 2.62.0
+version: 2.62.1
 history:
+  2.62.1:
+    date: '2022-08-31'
+    title: 'Code'
+    description: 'Code improvements.'
   2.62.0:
     date: '2022-08-30'
     title: 'Title'
