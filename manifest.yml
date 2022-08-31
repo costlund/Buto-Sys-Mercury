@@ -1,5 +1,9 @@
-version: 2.62.1
+version: 2.62.2
 history:
+  2.62.2:
+    date: '2022-08-31'
+    title: 'Meta'
+    description: 'Event document_render_string should be running if meta element. Removed block statement.'
   2.62.1:
     date: '2022-08-31'
     title: 'Code'

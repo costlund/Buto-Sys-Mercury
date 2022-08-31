@@ -489,7 +489,7 @@ class wfDocument {
         $document_render_string = false;
       }elseif(isset($element['settings']['event']['document_render_string']['disabled']) && $element['settings']['event']['document_render_string']['disabled']==true){
         $document_render_string = false;
-      }elseif(in_array($element['type'], array('meta', 'script'))){
+      }elseif(in_array($element['type'], array('script'))){
         $document_render_string = false;
       }
       if(isset($element['attribute'])){
