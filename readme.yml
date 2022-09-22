@@ -763,6 +763,10 @@ readme:
             type: span
             innerHTML: 'globals:_SESSION/username'
             ```
+            ```
+            type: span
+            innerHTML: 'globals:sys/theme'
+            ```
         -
           name: Render
           date: '2021-05-01'

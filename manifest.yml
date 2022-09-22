@@ -1,5 +1,9 @@
-version: 2.63.0
+version: 2.63.1
 history:
+  2.63.1:
+    date: '2022-09-22'
+    title: 'Readme'
+    description: 'Improvement about globals.'
   2.63.0:
     date: '2022-09-01'
     title: 'Event'
