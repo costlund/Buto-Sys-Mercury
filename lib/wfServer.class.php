@@ -55,4 +55,16 @@ class wfServer{
       return wfServer::calcProtocol().'://'.wfServer::getHttpHost();
     }
   }
+  public static function typeOfAccept(){
+    $v = wfServer::getHttpAccept();
+    if(strstr($v, 'text/html')){
+      return 'page';
+    }elseif(strstr($v, 'text/javascript')){
+      return 'json';
+    }elseif(strstr($v, '*/*')){
+      return 'ajax';
+    }else{
+      return 'unknown';
+    }
+  }
 }

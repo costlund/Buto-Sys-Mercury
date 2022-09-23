@@ -1007,6 +1007,19 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 ### wfServer
 
+<a name="key_8_14_0"></a>
+
+#### typeOfAccept <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-09-23">2022-09-23</span>
+
+<p>Check server variable HTTP_ACCEPT for in string.
+Returns.</p>
+<ul>
+<li>page (text/html).</li>
+<li>ajax (text/javascript).</li>
+<li>json (&#42;/&#42;).</li>
+<li>unknown (no match). </li>
+</ul>
+
 <a name="key_8_15"></a>
 
 ### wfSettings

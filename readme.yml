@@ -1027,6 +1027,17 @@ readme:
                 ```
         -
           name: wfServer
+          item:
+            -
+              name: typeOfAccept
+              date: '2022-09-23'
+              description: |
+                Check server variable HTTP_ACCEPT for in string.
+                Returns.
+                - page (text/html).
+                - ajax (text/javascript).
+                - json (&#42;/&#42;).
+                - unknown (no match). 
         -
           name: wfSettings
           item:
