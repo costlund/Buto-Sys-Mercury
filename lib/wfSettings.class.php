@@ -422,6 +422,29 @@ class wfSettings {
       return $str;
     }
   }
+  public static function getFileContent($file){
+    if(is_array($file)){
+      return $file;
+    }
+    if(substr($file, 0, 5)!='file:'){
+      return $file;
+    }
+    /**
+     * 
+     */
+    $file = wfSettings::replaceDir($file);
+    $temp = preg_split('/:/', $file);
+    /**
+     * 
+     */
+    if(sizeof($temp)!=2){
+      return $file;
+    }
+    /**
+     * 
+     */
+    return wfFilesystem::getContents($temp['1']);
+  }
   /**
    * Run method via string 'method:_plugin_:_method_:data(optional)'.
    * If using this when render elements one must set param settings/method as true because of security reasons.

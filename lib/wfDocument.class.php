@@ -477,6 +477,8 @@ class wfDocument {
             }else{
               wfDocument::renderElement($temp);
             }
+          }elseif(substr($element['innerHTML'], 0, 5)=='file:'){
+            echo wfSettings::getFileContent($element['innerHTML']);
           }  else {
             $this->_echo_($element['innerHTML']);
           }
@@ -530,6 +532,7 @@ class wfDocument {
         $innerHTML = $element['innerHTML'];
         $innerHTML = wfSettings::replaceTheme($innerHTML);
         $innerHTML = wfSettings::getSettingsFromYmlString($innerHTML);
+        $innerHTML = wfSettings::getFileContent($innerHTML);
         if(isset($element['settings']['method']) && $element['settings']['method']){
           $innerHTML = wfSettings::getSettingsFromMethod($innerHTML);
         }

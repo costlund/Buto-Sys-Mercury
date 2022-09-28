@@ -722,6 +722,12 @@ readme:
                 settings:
                   innerHTML: 'globals:_SESSION/user_id'
                 ```
+                Add innerHTML content from file.
+                ```
+                type: div
+                settings:
+                  innerHTML: file:/theme/[theme]/content/file.html
+                ```
             -
               name: file_exist
               description: |

@@ -48,7 +48,7 @@ class wfFilesystem {
    * @param bool $root
    * @return string
    */
-  public static function getContents($filename, $root = false){ //Not used 190909.
+  public static function getContents($filename, $root = false){
     if($root){
       return file_get_contents($filename);
     }else{

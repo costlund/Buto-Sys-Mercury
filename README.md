@@ -700,6 +700,10 @@ settings:
 <pre><code>type: h1
 settings:
   innerHTML: 'globals:_SESSION/user_id'</code></pre>
+<p>Add innerHTML content from file.</p>
+<pre><code>type: div
+settings:
+  innerHTML: file:/theme/[theme]/content/file.html</code></pre>
 
 <a name="key_6_1_9"></a>
 
