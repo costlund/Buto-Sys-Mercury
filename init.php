@@ -62,6 +62,7 @@ include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfGlobals.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfConfig.class.php";
 include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPhpinfo.class.php";
+include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfWidget.class.php";
 wfEvent::run('sys_start');
 /**
  * Set sys/version

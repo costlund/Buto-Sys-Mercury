@@ -1073,6 +1073,24 @@ readme:
             ```
             /?phpinfo=globals.
             ```
+        -
+          name: wfWidget
+          date: '2022-10-03'
+          item:
+            -
+              name: handle_data
+              description: |
+                Handle data passed to widget.
+                ```
+                $wData = wfWidget::handle_data($data);
+                ```
+                Passing default data.
+                ```
+                $defalt = array(
+                  'height' => '400px'
+                );
+                $wData = wfWidget::handle_data($data, $defalt);
+                ```
     -
       name: Special requests
       description: |

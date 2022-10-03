@@ -1054,6 +1054,22 @@ Replace [la] with wfI18n::getLanguage().</p>
 <p>Show info if user has role webmaster.</p>
 <pre><code>/?phpinfo=globals.</code></pre>
 
+<a name="key_8_18"></a>
+
+### wfWidget <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-10-03">2022-10-03</span>
+
+<a name="key_8_18_0"></a>
+
+#### handle_data
+
+<p>Handle data passed to widget.</p>
+<pre><code>$wData = wfWidget::handle_data($data);</code></pre>
+<p>Passing default data.</p>
+<pre><code>$defalt = array(
+  'height' =&gt; '400px'
+);
+$wData = wfWidget::handle_data($data, $defalt);</code></pre>
+
 <a name="key_9"></a>
 
 ## Special requests
