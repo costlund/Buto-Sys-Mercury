@@ -44,25 +44,10 @@ ini_set('display_errors', $GLOBALS['sys']['display_errors']);
 /**
  * Include files.
  */
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfEvent.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/yaml/sfYaml.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfSettings.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfArray.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfHelp.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfDocument.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfRequest.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfFilesystem.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfCrypt.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfUser.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfElement.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPlugin.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfDate.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfI18n.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfGlobals.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfServer.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfConfig.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfPhpinfo.class.php";
-include_once "../sys/".$GLOBALS['sys']['version']."/lib/wfWidget.class.php";
+foreach (glob("../sys/".$GLOBALS['sys']['version']."/lib/*.php") as $filename)
+{
+  include_once $filename;
+}
 wfEvent::run('sys_start');
 /**
  * Set sys/version

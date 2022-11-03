@@ -1,5 +1,9 @@
-version: 2.66.1
+version: 2.66.2
 history:
+  2.66.2:
+    date: '2022-11-03'
+    title: 'Init'
+    description: 'Add all lib files in foreach loop. Add new file wfYml.'
   2.66.1:
     date: '2022-11-03'
     title: 'wfPlugin'
