@@ -1,5 +1,9 @@
-version: 2.66.0
+version: 2.66.1
 history:
+  2.66.1:
+    date: '2022-11-03'
+    title: 'wfPlugin'
+    description: 'Improved exception message.'
   2.66.0:
     date: '2022-10-03'
     title: 'wfWidget'

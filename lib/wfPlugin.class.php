@@ -97,7 +97,7 @@ class wfPlugin {
       include_once wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php';
       return wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.$plugin.'/action.class.php';
     }else{
-      throw new Exception('Could not find plugin file ('.$plugin.')');
+      throw new Exception(__CLASS__.' says: Could not find plugin file ('.$plugin.')');
     }
   }
   /**
