@@ -1013,7 +1013,7 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_14_0"></a>
 
-#### typeOfAccept <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-09-23">2022-09-23</span>
+#### typeOfAccept
 
 <p>Check server variable HTTP_ACCEPT for in string.
 Returns.</p>
@@ -1056,7 +1056,7 @@ Replace [la] with wfI18n::getLanguage().</p>
 
 <a name="key_8_18"></a>
 
-### wfWidget <span class="badge badge-pill badge-success" style="font-size:10px" title="2022-10-03">2022-10-03</span>
+### wfWidget
 
 <a name="key_8_18_0"></a>
 
