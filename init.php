@@ -3,7 +3,7 @@
  * Version check.
  */
 if(!isset($GLOBALS['sys']['version'])){
-  throw new Exception('Param $GLOBALS[\'sys\'][\'version\'] must be set in index.php!');
+  throw new Exception('Buto says: Param $GLOBALS[\'sys\'][\'version\'] must be set in index.php!');
 }
 /**
  * i18n (should be removed?)
@@ -171,6 +171,12 @@ if(isset($_REQUEST['webmaster_plugin']) && $_REQUEST['webmaster_plugin'] && wfUs
   wfGlobals::set('settings/plugin_modules/webmaster_plugin', array('plugin' => $_REQUEST['webmaster_plugin']));
   wfGlobals::set('class', 'webmaster_plugin');
   wfGlobals::set('method', $_REQUEST['page']);
+}
+/**
+ * Check if param sys/settings/plugin_modules is set.
+ */
+if(!wfArray::get($GLOBALS, 'sys/settings/plugin_modules')){
+  throw new Exception('Buto says: Param sys/settings/plugin_modules must be set!');
 }
 /**
  * Plugin param.

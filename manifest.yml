@@ -1,5 +1,9 @@
-version: 2.66.2
+version: 2.67.0
 history:
+  2.67.0:
+    date: '2022-11-15'
+    title: 'Param plugin_modules'
+    description: 'Throw an exception if param plugin_modules is not set.'
   2.66.2:
     date: '2022-11-03'
     title: 'Init'
