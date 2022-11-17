@@ -78,6 +78,13 @@ readme:
             sh git_fileMode.sh
             ```
         -
+          name: Repo
+          description: |
+            Download from Github.com.
+            ```
+            https://github.com/costlund/Buto-Sys-Mercury.git
+            ```
+        -
           name: Time zone
           date: '2022-06-29'
           description: |
@@ -1139,10 +1146,22 @@ readme:
           name: Webmaster page
           description: |
             Webmaster can go to /?webmaster_plugin=chart/amcharts_v3&page=demo to view a page and there is no need of setup in theme settings.yml.
-
-
-
-
-
-
-
+    -
+      name: Mandatory plugin
+      description: |
+        Thera are two plugins who has to be included.
+      item:
+        -
+          name: wf/array
+          description: |
+            Download from Github.com.
+            ```
+            https://github.com/costlund/Buto-Plugin-WfArray.git
+            ```
+        -
+          name: wf/arraysearch
+          description: |
+            Download from Github.com.
+            ```
+            https://github.com/costlund/Buto-Plugin-WfArraysearch.git
+            ```

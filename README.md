@@ -77,6 +77,13 @@ sh git_pull.sh</code></pre>
 
 <a name="key_0_3"></a>
 
+### Repo
+
+<p>Download from Github.com.</p>
+<pre><code>https://github.com/costlund/Buto-Sys-Mercury.git</code></pre>
+
+<a name="key_0_4"></a>
+
 ### Time zone
 
 <p>In /config/settings.yml one could set time zone for application (optional).
@@ -1135,4 +1142,24 @@ $wData = wfWidget::handle_data($data, $defalt);</code></pre>
 ### Webmaster page
 
 <p>Webmaster can go to /?webmaster_plugin=chart/amcharts_v3&amp;page=demo to view a page and there is no need of setup in theme settings.yml.</p>
+
+<a name="key_10"></a>
+
+## Mandatory plugin
+
+<p>Thera are two plugins who has to be included.</p>
+
+<a name="key_10_0"></a>
+
+### wf/array
+
+<p>Download from Github.com.</p>
+<pre><code>https://github.com/costlund/Buto-Plugin-WfArray.git</code></pre>
+
+<a name="key_10_1"></a>
+
+### wf/arraysearch
+
+<p>Download from Github.com.</p>
+<pre><code>https://github.com/costlund/Buto-Plugin-WfArraysearch.git</code></pre>
 

@@ -1,5 +1,9 @@
-version: 2.67.1
+version: 2.67.2
 history:
+  2.67.2:
+    date: '2022-11-15'
+    title: 'Readme'
+    description: 'Readme update.'
   2.67.1:
     date: '2022-11-15'
     title: 'Readme'
