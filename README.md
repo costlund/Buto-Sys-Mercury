@@ -546,21 +546,20 @@ innerHTML: This element is only rendered if user has role client. </code></pre>
 
 #### Date
 
-<p>Restrict rendering element regarding to dates or times.</p>
+<p>Restrict rendering element regarding to date.</p>
 <pre><code>type: span
 settings:
   date:
-    from: '2020-01-01 12:00:00'
+    from: '2020-01-01 00:00:00'
     to: '2020-12-31 23:59:59'
-innerHTML: This element is NOT rendered year 2020 from 12.00.  </code></pre>
-<p>Set param allow to false to restrict by dates. Default value is true.</p>
+innerHTML: Render this element year 2020.  </code></pre>
 <pre><code>type: span
 settings:
   date:
     allow: false
     from: '2020-01-01'
     to: '2020-12-31 23:59:59'
-innerHTML: This element is only rendered year 2020. </code></pre>
+innerHTML: Do not render this element year 2020. </code></pre>
 
 <a name="key_6_1_2"></a>
 
