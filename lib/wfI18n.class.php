@@ -37,28 +37,37 @@ class wfI18n{
   }
   public static function autoSelectLanguage(){
     /**
+     * 
+     */
+    $auto_select = true;
+    if(wfGlobals::get('settings/i18n/auto_select')===false){
+      $auto_select = false;
+    }
+    /**
      * Run only once per session.
      */
     if(!wfUser::getSession()->get('i18n/auto_select') && !wfUser::getSession()->get('i18n/language')){
-      /**
-       * Get language from HTTP_ACCEPT_LANGUAGE.
-       */
-      $language = wfI18n::getHttpAccept_Language_Languages();
-      if(strpos($language, '_')){
-        $language = substr($language, 0, strpos($language, '_'));
+      if($auto_select){
+        /**
+         * Get language from HTTP_ACCEPT_LANGUAGE.
+         */
+        $language = wfI18n::getHttpAccept_Language_Languages();
+        if(strpos($language, '_')){
+          $language = substr($language, 0, strpos($language, '_'));
+        }
+        /**
+         * Set language if exist.
+         */
+        if(wfI18n::hasLanguage($language)){
+          wfUser::setSession('i18n/language', $language);
+        }else{
+          wfUser::setSession('i18n/language', wfI18n::getLanguage());
+        }
       }
       /**
        * Set only once param.
        */
       wfUser::setSession('i18n/auto_select', true);
-      /**
-       * Set language if exist.
-       */
-      if(wfI18n::hasLanguage($language)){
-        wfUser::setSession('i18n/language', $language);
-      }else{
-        wfUser::setSession('i18n/language', wfI18n::getLanguage());
-      }
     }
   }
   public static function getHttpAccept_Language_Languages(){

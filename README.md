@@ -976,9 +976,14 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 #### Auto select
 
-<p>Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.</p>
-<pre><code>i18n/auto_select (true on the set)</code></pre>
-<pre><code>i18n/language (param to set)</code></pre>
+<p>Session params.
+Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.</p>
+<pre><code>i18n:
+  auto_select: (true on the set)
+  language: (param to set)</code></pre>
+<p>To avoid to set param i18n/language in theme settings.</p>
+<pre><code>i18n:
+  auto_select: false</code></pre>
 
 <a name="key_8_11_1"></a>
 

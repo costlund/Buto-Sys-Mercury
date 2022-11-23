@@ -996,12 +996,17 @@ readme:
             -
               name: Auto select
               description: |
+                Session params.
                 Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.
                 ```
-                i18n/auto_select (true on the set)
+                i18n:
+                  auto_select: (true on the set)
+                  language: (param to set)
                 ```
+                To avoid to set param i18n/language in theme settings.
                 ```
-                i18n/language (param to set)
+                i18n:
+                  auto_select: false
                 ```
             -
               name: getLanguagesMore

@@ -1,5 +1,9 @@
-version: 2.67.3
+version: 2.68.0
 history:
+  2.68.0:
+    date: '2022-11-23'
+    title: 'I18N'
+    description: 'One could turn of auto select language by set theme param i18n/auto_select to false.'
   2.67.3:
     date: '2022-11-22'
     title: 'Readme'
