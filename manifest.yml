@@ -1,5 +1,9 @@
-version: 2.68.0
+version: 2.69.0
 history:
+  2.69.0:
+    date: '2022-11-23'
+    title: 'PHP info'
+    description: 'One could go to http://localhost/?phpinfo=session if localhost.'
   2.68.0:
     date: '2022-11-23'
     title: 'I18N'

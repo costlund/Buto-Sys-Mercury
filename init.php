@@ -162,6 +162,7 @@ wfRequest::rewrite();
 wfEvent::run('request_rewrite_after');
 /**
  * webmaster or webadmin can view phpinfo via /?phpinfo=_param_name_.
+ * or if localhost.
  */
 wfPhpinfo::show_info();
 /**

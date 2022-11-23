@@ -2,7 +2,7 @@
 class wfPhpinfo{
   public static function show_info(){
     if(isset($_REQUEST['phpinfo'])){
-      if(wfUser::hasRole('webmaster') || wfUser::hasRole('webadmin')){
+      if(wfUser::hasRole('webmaster') || wfUser::hasRole('webadmin') || wfHelp::isLocalhost()){
         /**
          * /?phpinfo=phpinfo.
          */
