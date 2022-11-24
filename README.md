@@ -1085,67 +1085,69 @@ $wData = wfWidget::handle_data($data, $defalt);</code></pre>
 
 ## Special requests
 
-<p>One could run some params to get special methods.</p>
+<p>One could run some params to get special methods.
+This works only if user has role webmaster or if on localhost.</p>
 
 <a name="key_9_0"></a>
 
 ### Phpinfo
 
-<p>Webmaster can view phpinfo via /?phpinfo=phpinfo.</p>
+<pre><code>/?phpinfo=phpinfo</code></pre>
 
 <a name="key_9_1"></a>
 
 ### Session
 
-<p>Webmaster can view session via /?phpinfo=session.</p>
+<pre><code>/?phpinfo=session</code></pre>
 
 <a name="key_9_2"></a>
 
 ### Server
 
-<p>Webmaster can view server via /?phpinfo=server.</p>
+<pre><code>/?phpinfo=server</code></pre>
 
 <a name="key_9_3"></a>
 
 ### Globals
 
-<p>Webmaster can view globals via /?phpinfo=globals.</p>
+<pre><code>/?phpinfo=globals</code></pre>
 
 <a name="key_9_4"></a>
 
 ### Error fatal
 
-<p>Webmaster can render fatal error via /?phpinfo=error_fatal.</p>
+<pre><code>/?phpinfo=error_fatal</code></pre>
 
 <a name="key_9_5"></a>
 
 ### Error deprecated
 
-<p>Webmaster can render deprecated error via /?phpinfo=error_deprecated.</p>
+<pre><code>/?phpinfo=error_deprecated</code></pre>
 
 <a name="key_9_6"></a>
 
 ### Error notice
 
-<p>Webmaster can render notice error via /?phpinfo=error_notice.</p>
+<pre><code>/?phpinfo=error_notice</code></pre>
 
 <a name="key_9_7"></a>
 
 ### Load theme
 
-<p>Webmaster can change theme via /?loadtheme=<em>folder</em>/<em>folder</em>.</p>
+<pre><code>/?loadtheme=_folder_/_folder_</code></pre>
 
 <a name="key_9_8"></a>
 
 ### Sign out
 
-<p>One could sign out via /?signout=1.</p>
+<pre><code>/?signout=1</code></pre>
 
 <a name="key_9_9"></a>
 
-### Webmaster page
+### Plugin page
 
-<p>Webmaster can go to /?webmaster_plugin=chart/amcharts_v3&amp;page=demo to view a page and there is no need of setup in theme settings.yml.</p>
+<p>If a developer needs to run plugin code without using theme settings.</p>
+<pre><code>/?webmaster_plugin=chart/amcharts_v3&amp;page=demo</code></pre>
 
 <a name="key_10"></a>
 

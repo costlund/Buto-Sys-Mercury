@@ -1,5 +1,9 @@
-version: 2.69.0
+version: 2.70.0
 history:
+  2.70.0:
+    date: '2022-11-24'
+    title: 'Webmaster page'
+    description: 'Enable running /webmaster_page on localhost without need if webmaster role.'
   2.69.0:
     date: '2022-11-23'
     title: 'PHP info'

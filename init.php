@@ -166,9 +166,9 @@ wfEvent::run('request_rewrite_after');
  */
 wfPhpinfo::show_info();
 /**
- * Webmaster plugin page.
+ * Webmaster plugin page (or localhost).
  */
-if(isset($_REQUEST['webmaster_plugin']) && $_REQUEST['webmaster_plugin'] && wfUser::hasRole('webmaster')){
+if(isset($_REQUEST['webmaster_plugin']) && $_REQUEST['webmaster_plugin'] && (wfUser::hasRole('webmaster') || wfHelp::isLocalhost())){
   wfGlobals::set('settings/plugin_modules/webmaster_plugin', array('plugin' => $_REQUEST['webmaster_plugin']));
   wfGlobals::set('class', 'webmaster_plugin');
   wfGlobals::set('method', $_REQUEST['page']);

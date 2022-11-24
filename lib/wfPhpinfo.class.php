@@ -2,7 +2,7 @@
 class wfPhpinfo{
   public static function show_info(){
     if(isset($_REQUEST['phpinfo'])){
-      if(wfUser::hasRole('webmaster') || wfUser::hasRole('webadmin') || wfHelp::isLocalhost()){
+      if(wfUser::hasRole('webmaster') || wfHelp::isLocalhost()){
         /**
          * /?phpinfo=phpinfo.
          */
@@ -35,7 +35,7 @@ class wfPhpinfo{
           exit;
         }
       }
-      if(wfUser::hasRole('webmaster')){
+      if(wfUser::hasRole('webmaster') || wfHelp::isLocalhost()){
         /**
          * /?phpinfo=globals.
          */

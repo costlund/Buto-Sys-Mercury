@@ -1106,50 +1106,72 @@ readme:
       name: Special requests
       description: |
         One could run some params to get special methods.
+        This works only if user has role webmaster or if on localhost.
       item:
         -
           name: Phpinfo
           description: |
-            Webmaster can view phpinfo via /?phpinfo=phpinfo.
+            ```
+            /?phpinfo=phpinfo
+            ```
         -
           name: Session
           description: |
-            Webmaster can view session via /?phpinfo=session.
+            ```
+            /?phpinfo=session
+            ```
         -
           name: Server
           description: |
-            Webmaster can view server via /?phpinfo=server.
+            ```
+            /?phpinfo=server
+            ```
         -
           name: Globals
           description: |
-            Webmaster can view globals via /?phpinfo=globals.
+            ```
+            /?phpinfo=globals
+            ```
         -
           name: Error fatal
           date: '2021-10-27'
           description: |
-            Webmaster can render fatal error via /?phpinfo=error_fatal.
+            ```
+            /?phpinfo=error_fatal
+            ```
         -
           name: Error deprecated
           date: '2021-10-27'
           description: |
-            Webmaster can render deprecated error via /?phpinfo=error_deprecated.
+            ```
+            /?phpinfo=error_deprecated
+            ```
         -
           name: Error notice
           date: '2021-10-27'
           description: |
-            Webmaster can render notice error via /?phpinfo=error_notice.
+            ```
+            /?phpinfo=error_notice
+            ```
         -
           name: Load theme
           description: |
-            Webmaster can change theme via /?loadtheme=_folder_/_folder_.
+            ```
+            /?loadtheme=_folder_/_folder_
+            ```
         -
           name: Sign out
           description: |
-            One could sign out via /?signout=1.
+            ```
+            /?signout=1
+            ```
         -
-          name: Webmaster page
+          name: Plugin page
           description: |
-            Webmaster can go to /?webmaster_plugin=chart/amcharts_v3&page=demo to view a page and there is no need of setup in theme settings.yml.
+            If a developer needs to run plugin code without using theme settings.
+            ```
+            /?webmaster_plugin=chart/amcharts_v3&page=demo
+            ```
     -
       name: Mandatory plugin
       description: |
