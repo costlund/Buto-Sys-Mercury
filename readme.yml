@@ -859,6 +859,7 @@ readme:
               document_render_element
                 document_render_innerhtml
             document_render_after
+            document_render_title
             sys_close
             ```
         -
@@ -1191,3 +1192,30 @@ readme:
             ```
             https://github.com/costlund/Buto-Plugin-WfArraysearch.git
             ```
+    -
+      name: Title
+      description: |
+        Page title are set from layout and page files. 
+        
+        Layout.
+        ```
+        settings:
+          title: My layout title
+        ```
+        Page.
+        ```
+        settings:
+          title: My page title
+        ```
+        Title.
+        ```
+        My page title - My layout title
+        ```
+        Event example using plugin i18n/translate_v1 will translate between hyphen.
+        ```
+        events:
+          document_render_title:
+            -
+              plugin: i18n/translate_v1
+              method: translate_title
+        ```

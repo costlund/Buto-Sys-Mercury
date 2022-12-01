@@ -5,6 +5,14 @@ class wfDocument {
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
   private $element_one_line = array('script', 'h1');
   private $element_globals = array();
+  public static $title = null;
+  public static function add_title($title){
+    if(!wfDocument::$title){
+      wfDocument::$title = $title;
+    }else{
+      wfDocument::$title = wfDocument::$title.' - '.$title;
+    }
+  }
   public static $mode = 'html';
   /**
    * Set to 1 if capture html in content param and also render.
@@ -413,7 +421,16 @@ class wfDocument {
      * title
      */
     if($element['type']=='title'){
+      if(!isset($element['innerHTML'])){
+        $element['innerHTML'] = null;
+      }
       $element['innerHTML'] = wfGlobals::getGlobalsFromString($element['innerHTML']);
+      if($element['innerHTML']){
+        $element['innerHTML'] = $element['innerHTML'].' - '.wfDocument::$title;
+      }else{
+        $element['innerHTML'] = wfDocument::$title;
+      }
+      $element = wfEvent::run('document_render_title', $element);
     }
     /**
      * Replace attribute/src [theme] in attribute/(src/style).
@@ -1214,10 +1231,17 @@ class wfDocument {
       return null;
     }
     /**
+     * title
+     */
+    if(wfArray::isKey($page, 'settings/title')){
+      wfDocument::add_title(wfSettings::getSettingsFromYmlString(wfArray::get($page, 'settings/title')));
+    }
+    /**
      * 
      */
     $path = null;
     $layout_path = wfArray::get($GLOBALS, 'sys/app_dir').'/'.wfArray::get($GLOBALS, 'sys/layout_path');
+    $layout_title = null;
     if(!wfRequest::get('_time')){
       /**
        * page
@@ -1248,6 +1272,16 @@ class wfDocument {
             if(!isset($layout['settings']['path'])){
               throw new Exception("Key settings/path is not set in $filename!");
             }
+            /**
+             * title
+             */
+            if(isset($layout['settings']['title'])){
+              if(!$layout_title){
+                $layout_title = wfSettings::getSettingsFromYmlString($layout['settings']['title']);
+              }else{
+                $layout_title = wfSettings::getSettingsFromYmlString($layout['settings']['title']).' - '.$layout_title;
+              }
+            }
             if(!$temp){
               /**
                * First layout.
@@ -1267,6 +1301,13 @@ class wfDocument {
           }
           $temp = wfArray::set($temp, $path, wfArray::get($page, 'content'));
         }
+        /**
+         * title
+         */
+        wfDocument::add_title($layout_title);
+        /**
+         * 
+         */
         $page['content'] = $temp;
         wfDocument::rewrite_globals($page);
       }else{

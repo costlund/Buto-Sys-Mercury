@@ -43,7 +43,7 @@ class wfEvent {
     /**
      * Some event should return data.
      */
-    if($event == 'document_render_element' || $event == 'document_render_element_innerhtml' || $event == 'document_render_string'){
+    if($event == 'document_render_element' || $event == 'document_render_element_innerhtml' || $event == 'document_render_string' || $event == 'document_render_title'){
       return $data;
     }
     /**

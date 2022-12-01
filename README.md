@@ -826,6 +826,7 @@ document_render_before
   document_render_element
     document_render_innerhtml
 document_render_after
+document_render_title
 sys_close</code></pre>
 
 <a name="key_7_3"></a>
@@ -1168,4 +1169,24 @@ This works only if user has role webmaster or if on localhost.</p>
 
 <p>Download from Github.com.</p>
 <pre><code>https://github.com/costlund/Buto-Plugin-WfArraysearch.git</code></pre>
+
+<a name="key_11"></a>
+
+## Title
+
+<p>Page title are set from layout and page files. </p>
+<p>Layout.</p>
+<pre><code>settings:
+  title: My layout title</code></pre>
+<p>Page.</p>
+<pre><code>settings:
+  title: My page title</code></pre>
+<p>Title.</p>
+<pre><code>My page title - My layout title</code></pre>
+<p>Event example using plugin i18n/translate_v1 will translate between hyphen.</p>
+<pre><code>events:
+  document_render_title:
+    -
+      plugin: i18n/translate_v1
+      method: translate_title</code></pre>
 

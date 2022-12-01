@@ -1,5 +1,9 @@
-version: 2.70.0
+version: 2.71.0
 history:
+  2.71.0:
+    date: '2022-12-01'
+    title: 'Title'
+    description: 'Handle layout and page title from param settings/title. Add method wfDocument::add_title. Add event document_render_title.'
   2.70.0:
     date: '2022-11-24'
     title: 'Webmaster page'
