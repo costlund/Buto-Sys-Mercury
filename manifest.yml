@@ -1,5 +1,9 @@
-version: 2.71.0
+version: 2.72.0
 history:
+  2.72.0:
+    date: '2022-12-05'
+    title: 'File exist'
+    description: 'Replace tag in wfFilesystem method fileExist.'
   2.71.0:
     date: '2022-12-01'
     title: 'Title'
