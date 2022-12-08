@@ -768,6 +768,13 @@ readme:
                 innerHTML: 'Show this if tag match.'
                 ```
         -
+          name: innerHTML
+          description: |
+            One can embed text from any file.
+            ```
+            innerHTML: file:/_path_/any_text.txt
+            ```
+        -
           name: Globals
           description: |
             Globals data can be picked up by a string.

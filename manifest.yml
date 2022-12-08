@@ -1,5 +1,9 @@
-version: 2.72.0
+version: 2.72.1
 history:
+  2.72.1:
+    date: '2022-12-08'
+    title: 'Readme'
+    description: 'Readme update.'
   2.72.0:
     date: '2022-12-05'
     title: 'File exist'

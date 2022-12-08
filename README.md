@@ -743,6 +743,13 @@ innerHTML: 'Show this if tag match.'</code></pre>
 
 <a name="key_6_2"></a>
 
+### innerHTML
+
+<p>One can embed text from any file.</p>
+<pre><code>innerHTML: file:/_path_/any_text.txt</code></pre>
+
+<a name="key_6_3"></a>
+
 ### Globals
 
 <p>Globals data can be picked up by a string.</p>
@@ -751,7 +758,7 @@ innerHTML: 'globals:_SESSION/username'</code></pre>
 <pre><code>type: span
 innerHTML: 'globals:sys/theme'</code></pre>
 
-<a name="key_6_3"></a>
+<a name="key_6_4"></a>
 
 ### Render
 
@@ -767,7 +774,7 @@ $content = wfDocument::getContent();</code></pre>
 <p>Render a file direct from a folder.</p>
 <pre><code>wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);</code></pre>
 
-<a name="key_6_4"></a>
+<a name="key_6_5"></a>
 
 ### Comment
 
