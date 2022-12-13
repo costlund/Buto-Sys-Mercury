@@ -136,6 +136,7 @@ class wfFilesystem {
    * @return bool
    */
   public static function copyFile($source, $dest){
+    $source = wfSettings::replaceDir($source);
     $dirname = dirname($dest);
     $dest = wfSettings::replaceTheme($dest);
     $dirname = wfSettings::replaceTheme($dirname);
