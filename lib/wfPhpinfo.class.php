@@ -15,7 +15,12 @@ class wfPhpinfo{
          */
         if($_REQUEST['phpinfo']=='session'){
           echo '<pre>';
-          echo wfHelp::getYmlDump($_SESSION);
+          if(!wfRequest::get('path')){
+            echo wfHelp::getYmlDump($_SESSION);
+          }else{
+            $temp = wfArray::get($_SESSION, wfRequest::get('path'));
+            echo wfHelp::getYmlDump($temp);
+          }
           exit;
         }
         /**
