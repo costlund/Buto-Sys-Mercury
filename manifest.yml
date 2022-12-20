@@ -1,5 +1,9 @@
-version: 2.74.0
+version: 2.75.0
 history:
+  2.75.0:
+    date: '2022-12-20'
+    title: 'wfElement'
+    description: 'Clean up. Add method get().'
   2.74.0:
     date: '2022-12-13'
     title: 'wfFilesystem'
