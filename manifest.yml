@@ -1,5 +1,17 @@
-version: 2.72.1
+version: 2.75.0
 history:
+  2.75.0:
+    date: '2022-12-20'
+    title: 'wfElement'
+    description: 'Clean up. Add method get().'
+  2.74.0:
+    date: '2022-12-13'
+    title: 'wfFilesystem'
+    description: 'Replace in source in method copyFile.'
+  2.73.0:
+    date: '2022-12-05'
+    title: 'Session data'
+    description: 'Run session data with path param like /?phpinfo=session&path=plugin/my/data.'
   2.72.1:
     date: '2022-12-08'
     title: 'Readme'
