@@ -1,5 +1,9 @@
-version: 2.75.0
+version: 2.76.0
 history:
+  2.76.0:
+    date: '2022-12-23'
+    title: 'wfHelp'
+    description: 'Run var_dump in method print if object does not have method get.'
   2.75.0:
     date: '2022-12-20'
     title: 'wfElement'

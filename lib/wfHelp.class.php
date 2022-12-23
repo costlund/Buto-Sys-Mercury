@@ -52,6 +52,9 @@ class wfHelp {
      * 
      */
     if(gettype($arr)=='object'){
+      if(!method_exists($arr, 'get')){
+        echo '<pre>'; var_dump($arr); exit;
+      }
       $arr = $arr->get();
     }
     /**
