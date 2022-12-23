@@ -1,5 +1,9 @@
-version: 2.76.0
+version: 2.77.0
 history:
+  2.77.0:
+    date: '2022-12-23'
+    title: 'wfPlugin'
+    description: 'New method validateParams.'
   2.76.0:
     date: '2022-12-23'
     title: 'wfHelp'

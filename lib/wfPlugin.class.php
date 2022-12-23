@@ -294,4 +294,25 @@ class wfPlugin {
     }
     return null;
   }
+  /**
+   * Validate params.
+   * @param string $class, pass __CLASS__
+   * @param string $function, pass __FUNCTION__
+   * @param array  $validate, array('my/key' => 'My error message!')
+   * @param array  $data, array data to validate.
+   * @return null
+   * 
+   */
+  public static function validateParams($class, $function, $validate, $data){
+    $data = new PluginWfArray($data);
+    foreach($validate as $k => $v){
+      $i = new PluginWfArray($v);
+      $k = str_replace('$', '/', $k);
+      if($i->get('type')=='exist'){
+        if(!$data->get($k)){
+          exit($class.'.'.$function.' says: '.str_replace('[key]', $k, $i->get('message')));
+        }
+      }
+    }
+  }
 }

@@ -1009,6 +1009,24 @@ Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.<
 
 ### wfPlugin
 
+<a name="key_8_12_0"></a>
+
+#### validateParams
+
+<p>Validate params in array.</p>
+<pre><code>wfPlugin::validateParams(__CLASS__, __FUNCTION__, (array with validation settings), (array to validate));</code></pre>
+<p>Validation settings (example).</p>
+<pre><code>mysql: 
+  message: Param [key] is missing!
+  type: exist
+mail: 
+  message: Param [key] is missing!
+  type: exist</code></pre>
+<p>Replace / (slash) with $.</p>
+<pre><code>mail$subject: 
+  message: Param [key] is missing!
+  type: exist</code></pre>
+
 <a name="key_8_13"></a>
 
 ### wfRequest

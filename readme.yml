@@ -1030,6 +1030,33 @@ readme:
                 ```
         -
           name: wfPlugin
+          item:
+            -
+              name: validateParams
+              description: |
+                Validate params in array.
+                ```
+                wfPlugin::validateParams(__CLASS__, __FUNCTION__, (array with validation settings), (array to validate));
+                ```
+                Validation settings (example).
+                ```
+                mysql: 
+                  message: Param [key] is missing!
+                  type: exist
+                mail: 
+                  message: Param [key] is missing!
+                  type: exist
+                ```
+                Replace / (slash) with $.
+                ```
+                mail$subject: 
+                  message: Param [key] is missing!
+                  type: exist
+                ```
+                Output (php exit)(example).
+                ```
+                PluginMailQueue_create.__construct says: Param mail/subject is missing!
+                ```
         -
           name: wfRequest
           description: |
