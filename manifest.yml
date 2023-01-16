@@ -1,5 +1,9 @@
-version: 2.77.0
+version: 2.78.0
 history:
+  2.78.0:
+    date: '2023-01-16'
+    title: 'wfDocument'
+    description: 'New method wfDocument::getElementFromFolder.'
   2.77.0:
     date: '2022-12-23'
     title: 'wfPlugin'

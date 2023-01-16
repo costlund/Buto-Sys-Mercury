@@ -1026,6 +1026,8 @@ mail:
 <pre><code>mail$subject: 
   message: Param [key] is missing!
   type: exist</code></pre>
+<p>Output (php exit)(example).</p>
+<pre><code>PluginMailQueue_create.__construct says: Param mail/subject is missing!</code></pre>
 
 <a name="key_8_13"></a>
 

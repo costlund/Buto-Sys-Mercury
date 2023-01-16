@@ -781,6 +781,10 @@ class wfDocument {
     $element = new PluginWfYml("$dir/$folder/$filename.yml");
     wfDocument::renderElement($element);
   }
+  public static function getElementFromFolder($dir, $filename, $folder = 'element'){
+    $element = new PluginWfYml("$dir/$folder/$filename.yml");
+    return $element;
+  }
   /**
    * Render elements.
    * If param capture is true one could pick up html in param content once.
