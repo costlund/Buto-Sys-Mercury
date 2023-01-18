@@ -1,5 +1,9 @@
-version: 2.78.0
+version: 2.79.0
 history:
+  2.79.0:
+    date: '2023-01-18'
+    title: 'Session sys'
+    description: 'Add data to session sys.'
   2.78.0:
     date: '2023-01-16'
     title: 'wfDocument'

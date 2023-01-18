@@ -1119,6 +1119,35 @@ readme:
             ```
             /?phpinfo=globals.
             ```
+          item:
+            -
+              name: session
+              description: |
+                ````
+                i18n: (i18n data)
+                  language: sv
+                  auto_select: true
+                sys:
+                  id: 211195832863c819d939f97400611891 (Last page id)
+                  page: (Page data, only ten latest)
+                plugin: (Plugin data)
+                  twitter:
+                    bootstrap413v:
+                      include: true
+                secure: true (User has sign in)
+                email: (User email)
+                username: (User username)
+                user_id: (User user_id)
+                role: (User roles)
+                  - webmaster
+                  - webadmin
+                details: (User details)
+                  log_count_except_this: 96
+                  last_login_before_today: '2023-01-17 18:38:54'
+                  days_login_before_today: 1
+                theme_data:
+                  version: (Theme version)
+                ````
         -
           name: wfWidget
           date: '2022-10-03'

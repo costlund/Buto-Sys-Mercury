@@ -229,6 +229,23 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
     wfEvent::run('page_not_found', array('description' => 'Method '.$method.' does not exist in '.wfArray::get($GLOBALS, 'sys/plugin').'!'));
   }
   wfEvent::run('module_method_before');
+  /**
+   * session sys
+   */
+  if(wfUser::getSession()->get('sys/page')){
+    wfUser::setSession('sys/page', array_slice(wfUser::getSession()->get('sys/page'), sizeof(wfUser::getSession()->get('sys/page'))-9 ));
+  }
+  wfUser::setSession('sys/id', wfCrypt::getUid());
+  wfUser::setSession('sys/page/'.wfUser::getSession()->get('sys/id'), array(
+    'REQUEST_URI' => wfServer::getRequestUri(), 
+    'plugin' => wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/plugin'), 
+    'method' => $method,
+    'time' => date('Y-m-d H:i:s'),
+    'get' => wfRequest::getAll()
+  ));
+  /**
+   * 
+   */
   $obj->$method();
   wfEvent::run('module_method_after');
   unset($obj);
