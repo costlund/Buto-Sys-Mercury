@@ -479,9 +479,9 @@ class wfDocument {
         throw new Exception('Widget '.$data['method'].' in plugin '.$data['plugin'].' does not exist.');
       }
       /**
-       * session sys
+       * session pages
        */
-      wfUser::setSession("sys/page/".wfUser::getSession()->get('sys/id')."/widget/", array(
+      wfUser::setSession("pages/item/".wfUser::getSession()->get('pages/id')."/widget/", array(
         'plugin' => $data['plugin'], 
         'method' => $method,
         'time' => date('Y-m-d H:i:s')

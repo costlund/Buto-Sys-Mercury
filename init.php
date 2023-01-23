@@ -232,16 +232,30 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
   /**
    * session sys
    */
-  if(wfUser::getSession()->get('sys/page')){
-    wfUser::setSession('sys/page', array_slice(wfUser::getSession()->get('sys/page'), sizeof(wfUser::getSession()->get('sys/page'))-9 ));
+  if(!wfUser::getSession()->get('sys')){
+    wfUser::setSession('sys', wfGlobals::get('sys'));
+  }else{
+    if(wfUser::getSession()->get('sys/version') != wfGlobals::get('sys/version')){
+      // System version has changed.
+    }
   }
-  wfUser::setSession('sys/id', wfCrypt::getUid());
-  wfUser::setSession('sys/page/'.wfUser::getSession()->get('sys/id'), array(
+  /**
+   * session pages
+   */
+  if(wfUser::getSession()->get('pages/item')){
+    wfUser::setSession('pages/item', array_slice(wfUser::getSession()->get('pages/item'), sizeof(wfUser::getSession()->get('pages/item'))-9 ));
+  }
+  wfUser::setSession('pages/id', wfCrypt::getUid());
+  $temp = new PluginWfArray(wfRequest::getAll());
+  if($temp->get('password')){
+    $temp->set('password', '****');
+  }
+  wfUser::setSession('pages/item/'.wfUser::getSession()->get('pages/id'), array(
     'REQUEST_URI' => wfServer::getRequestUri(), 
     'plugin' => wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/plugin'), 
     'method' => $method,
     'time' => date('Y-m-d H:i:s'),
-    'get' => wfRequest::getAll()
+    'get' => $temp->get()
   ));
   /**
    * 

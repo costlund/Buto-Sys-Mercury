@@ -1,5 +1,9 @@
-version: 2.81.0
+version: 2.82.0
 history:
+  2.82.0:
+    date: '2023-01-23'
+    title: 'Session sys'
+    description: 'Adjustments in param names.'
   2.81.0:
     date: '2023-01-23'
     title: 'wfRequest'
