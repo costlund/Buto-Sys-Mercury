@@ -902,6 +902,17 @@ readme:
           name: wfConfig
         -
           name: wfCrypt
+          date: '2023-01-22'
+          description: |
+            Methods.
+          item:
+            -
+              name: getOpensslRandomPseudoBytes
+              description: |
+                Returns uniq id using openssl_random_pseudo_bytes.
+                ```
+                6e04-96da-5f50-572e-bc6d-b610
+                ```
         -
           name: wfDate
         -

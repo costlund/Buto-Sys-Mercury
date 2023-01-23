@@ -1,5 +1,9 @@
-version: 2.79.0
+version: 2.80.0
 history:
+  2.80.0:
+    date: '2023-01-22'
+    title: 'wfCrypt'
+    description: 'Add method getOpensslRandomPseudoBytes.'
   2.79.0:
     date: '2023-01-18'
     title: 'Session sys'

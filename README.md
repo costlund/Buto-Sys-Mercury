@@ -874,7 +874,16 @@ sys_close</code></pre>
 
 <a name="key_8_3"></a>
 
-### wfCrypt
+### wfCrypt <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-01-22">2023-01-22</span>
+
+<p>Methods.</p>
+
+<a name="key_8_3_0"></a>
+
+#### getOpensslRandomPseudoBytes
+
+<p>Returns uniq id using openssl_random_pseudo_bytes.</p>
+<pre><code>6e04-96da-5f50-572e-bc6d-b610</code></pre>
 
 <a name="key_8_4"></a>
 
@@ -1102,7 +1111,7 @@ Replace [la] with wfI18n::getLanguage().</p>
   auto_select: true
 sys:
   id: 211195832863c819d939f97400611891 (Last page id)
-  page: (Page data)
+  page: (Page data, only ten latest)
 plugin: (Plugin data)
   twitter:
     bootstrap413v:

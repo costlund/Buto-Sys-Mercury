@@ -24,6 +24,12 @@ class wfCrypt {
     return str_replace('.', '', uniqid(mt_rand(), true));
   }
   /**
+   * 
+   */
+  public static function getOpensslRandomPseudoBytes(){
+    return join('-', str_split(bin2hex(openssl_random_pseudo_bytes(12)), 4));
+  }
+  /**
     * Encrypt.
     * @param string $string
     * @param string $key Optional (trying to get from /config/crypt.yml).
