@@ -100,6 +100,7 @@ class wfRequest {
       $url = str_replace('?', '', $url);
       $url = str_replace('=', '/', $url);
       $url = str_replace('&', '/', $url);
+      $url = str_replace("'", '', $url);
       $url = explode('/', $url);
       /**
        * Handle slash.
