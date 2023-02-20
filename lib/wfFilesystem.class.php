@@ -26,6 +26,19 @@ class wfFilesystem {
     closedir($dir); 
     rmdir($src);
   }
+  public static function delete_in_dir($dir){
+    $dir_of_file = wfFilesystem::getScandir(($dir));
+    foreach($dir_of_file as $k => $v){
+      if(wfFilesystem::isDir($dir.'/'.$v)){
+        wfFilesystem::delete_dir($dir.'/'.$v);
+      }else{
+        wfFilesystem::delete($dir.'/'.$v);
+      }
+    }
+  }
+  public static function isDir($dir){
+    return is_dir($dir);
+  }
   /**
    * Get textfile to array per line break.
    * @param string $file From system root.

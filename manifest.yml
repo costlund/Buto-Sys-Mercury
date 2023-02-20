@@ -1,5 +1,9 @@
-version: 2.82.0
+version: 2.83.0
 history:
+  2.83.0:
+    date: '2023-02-20'
+    title: 'wfFilesystem'
+    description: 'Add method delete_in_dir.'
   2.82.0:
     date: '2023-01-23'
     title: 'Session sys'

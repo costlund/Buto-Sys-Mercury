@@ -1000,6 +1000,22 @@ readme:
             ```
         -
           name: wfFilesystem
+          date: '2023-02-20'
+          item:
+            -
+              name: isDir
+              description: |
+                Return true if a dir or false if a file.
+                ```
+                wfFilesystem::isDir('/full/path/to/dir_or_file');
+                ```
+            -
+              name: delete_in_dir
+              description: |
+                Delete all files and folders in dir.
+                ```
+                wfFilesystem::delete_in_dir('/full/path/to/dir');
+                ```
         -
           name: wfGlobals
           description: |

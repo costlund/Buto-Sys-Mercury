@@ -971,7 +971,21 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_8"></a>
 
-### wfFilesystem
+### wfFilesystem <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-02-20">2023-02-20</span>
+
+<a name="key_8_8_0"></a>
+
+#### isDir
+
+<p>Return true if a dir or false if a file.</p>
+<pre><code>wfFilesystem::isDir('/full/path/to/dir_or_file');</code></pre>
+
+<a name="key_8_8_1"></a>
+
+#### delete_in_dir
+
+<p>Delete all files and folders in dir.</p>
+<pre><code>wfFilesystem::delete_in_dir('/full/path/to/dir');</code></pre>
 
 <a name="key_8_9"></a>
 
