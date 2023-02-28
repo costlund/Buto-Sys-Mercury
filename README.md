@@ -874,7 +874,7 @@ sys_close</code></pre>
 
 <a name="key_8_3"></a>
 
-### wfCrypt <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-01-22">2023-01-22</span>
+### wfCrypt
 
 <p>Methods.</p>
 

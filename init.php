@@ -268,6 +268,15 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
    * Render element.
    */
   wfEvent::run('document_render_before');
+  /**
+   * sys/page/content
+   */
+  if(wfArray::get($GLOBALS, 'sys/page') && !wfArray::get($GLOBALS, 'sys/page/content')){
+    throw new Exception(__FILE__.' says: param sys/page/content is not set in globals (filename '.wfArray::get($GLOBALS, 'sys/filename').')!');
+  }
+  /**
+   * 
+   */
   wfDocument::renderElement((wfArray::get($GLOBALS, 'sys/page/content')));
   wfEvent::run('document_render_after');
 }else{
