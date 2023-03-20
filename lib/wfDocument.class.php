@@ -1369,7 +1369,7 @@ class wfDocument {
   /**
    * Convert array to key1:value1;key2:value2; to render element style attributes.
    */
-  private function array_to_string($data){
+  public static function array_to_string($data){
     $str = null;
     foreach ($data as $key => $value) {
       $str .= "$key:$value;";
