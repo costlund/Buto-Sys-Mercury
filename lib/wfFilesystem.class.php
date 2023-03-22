@@ -203,8 +203,7 @@ class wfFilesystem {
    * @return type
    */
   public static function fileExist($filename){
-    $filename = wfSettings::replaceTheme($filename);
-    $filename = wfSettings::replaceTag($filename);
+    $filename = wfSettings::replaceDir($filename);
     return file_exists($filename);
   }
   public static function fileTime($filename){

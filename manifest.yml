@@ -1,5 +1,9 @@
-version: 2.86.0
+version: 2.87.0
 history:
+  2.87.0:
+    date: '2023-03-22'
+    title: 'wfFilesystem'
+    description: 'Change method fileExist to better replacing of tags.'
   2.86.0:
     date: '2023-03-22'
     title: 'Error handling'
