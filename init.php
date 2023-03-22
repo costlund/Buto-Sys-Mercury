@@ -272,7 +272,12 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
    * sys/page/content
    */
   if(wfArray::get($GLOBALS, 'sys/page') && !wfArray::get($GLOBALS, 'sys/page/content')){
-    throw new Exception(__FILE__.' says: param sys/page/content is not set in globals (filename '.wfArray::get($GLOBALS, 'sys/filename').')!');
+    if(false){
+      /**
+       * Not sure of this (230322, CÖ);
+       */
+      throw new Exception(__FILE__.' says: param sys/page/content is not set in globals (filename '.wfArray::get($GLOBALS, 'sys/filename').')!');
+    }
   }
   /**
    * 

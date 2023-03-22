@@ -1,5 +1,9 @@
-version: 2.85.0
+version: 2.86.0
 history:
+  2.86.0:
+    date: '2023-03-22'
+    title: 'Error handling'
+    description: 'Remove exception in init.'
   2.85.0:
     date: '2023-03-20'
     title: 'wfDocument'
