@@ -971,7 +971,7 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_8"></a>
 
-### wfFilesystem <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-02-20">2023-02-20</span>
+### wfFilesystem
 
 <a name="key_8_8_0"></a>
 

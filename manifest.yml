@@ -1,5 +1,9 @@
-version: 2.87.0
+version: 2.87.1
 history:
+  2.87.1:
+    date: '2023-03-27'
+    title: 'Readme'
+    description: 'Readme update.'
   2.87.0:
     date: '2023-03-22'
     title: 'wfFilesystem'
