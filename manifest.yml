@@ -1,5 +1,9 @@
-version: 2.87.1
+version: 2.88.0
 history:
+  2.88.0:
+    date: '2023-04-12'
+    title: 'Url'
+    description: 'Handle if url (REQUEST_URI or HTTP_X_ORIGINAL_URL) start with "/?" or "?", we add default class and method.'
   2.87.1:
     date: '2023-03-27'
     title: 'Readme'

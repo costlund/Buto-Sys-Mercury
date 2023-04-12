@@ -1090,20 +1090,30 @@ readme:
             Handle request params.
           item:
             -
-              name: Usage
+              name: get
               description: |
                 Print variable name.
                 ```
                 print_r(wfRequest::get('name'));
                 ```
+            -
+              name: getAll
+              description: |
                 Print all.
                 ```
                 print_r(wfRequest::getAll());
                 ```
+            -
+              name: set
+              description: |
                 Set variable name.
                 ```
                 wfRequest::set('name', 'James');
                 ```
+            -
+              name: rewrite
+              description: |
+                Handle server variable REQUEST_URI (or HTTP_X_ORIGINAL_URL for windows).
         -
           name: wfServer
           item:

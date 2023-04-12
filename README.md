@@ -1054,20 +1054,36 @@ mail:
 
 <a name="key_8_13"></a>
 
-### wfRequest
+### wfRequest <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-04-12">2023-04-12</span>
 
 <p>Handle request params.</p>
 
 <a name="key_8_13_0"></a>
 
-#### Usage
+#### get <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-04-12">2023-04-12</span>
 
 <p>Print variable name.</p>
 <pre><code>print_r(wfRequest::get('name'));</code></pre>
+
+<a name="key_8_13_1"></a>
+
+#### getAll
+
 <p>Print all.</p>
 <pre><code>print_r(wfRequest::getAll());</code></pre>
+
+<a name="key_8_13_2"></a>
+
+#### set
+
 <p>Set variable name.</p>
 <pre><code>wfRequest::set('name', 'James');</code></pre>
+
+<a name="key_8_13_3"></a>
+
+#### rewrite
+
+<p>Handle server variable REQUEST_URI (or HTTP_X_ORIGINAL_URL for windows).</p>
 
 <a name="key_8_14"></a>
 

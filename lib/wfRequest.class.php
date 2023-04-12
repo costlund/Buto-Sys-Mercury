@@ -70,6 +70,12 @@ class wfRequest {
       $url = $_SERVER["HTTP_X_ORIGINAL_URL"];
     }
     /**
+     * Handle if url (REQUEST_URI or HTTP_X_ORIGINAL_URL) start with '/?' or '?', we add default class and method.
+     */
+    if(substr($url, 0, 2) == '/?' || substr($url, 0, 1) == '?'){
+      $url = '/'.$GLOBALS['sys']['settings']['default_class'].'/'.$GLOBALS['sys']['settings']['default_method'].$url;
+    }
+    /**
      * 
      */
     $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
