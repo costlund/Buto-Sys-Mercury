@@ -1,5 +1,9 @@
-version: 2.88.0
+version: 2.88.1
 history:
+  2.88.1:
+    date: '2023-04-14'
+    title: 'Readme'
+    description: 'Readme update.'
   2.88.0:
     date: '2023-04-12'
     title: 'Url'

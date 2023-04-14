@@ -33,7 +33,7 @@ Default value is 0.</p>
 
 <a name="key_0_0_1"></a>
 
-#### Error reporting
+#### Error reporting <span class="badge text-bg-info" style="font-size:10px" title="2023-04-13">2023-04-13</span>
 
 <p>Default value is E_ALL to catch all errors.</p>
 <pre><code>error_reporting: 'E_ALL'</code></pre>
@@ -1054,13 +1054,13 @@ mail:
 
 <a name="key_8_13"></a>
 
-### wfRequest <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-04-12">2023-04-12</span>
+### wfRequest
 
 <p>Handle request params.</p>
 
 <a name="key_8_13_0"></a>
 
-#### get <span class="badge badge-pill badge-success" style="font-size:10px" title="2023-04-12">2023-04-12</span>
+#### get
 
 <p>Print variable name.</p>
 <pre><code>print_r(wfRequest::get('name'));</code></pre>
