@@ -33,7 +33,7 @@ Default value is 0.</p>
 
 <a name="key_0_0_1"></a>
 
-#### Error reporting <span class="badge text-bg-info" style="font-size:10px" title="2023-04-13">2023-04-13</span>
+#### Error reporting
 
 <p>Default value is E_ALL to catch all errors.</p>
 <pre><code>error_reporting: 'E_ALL'</code></pre>

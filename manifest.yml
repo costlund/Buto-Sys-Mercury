@@ -1,5 +1,9 @@
-version: 2.88.1
+version: 2.88.2
 history:
+  2.88.2:
+    date: '2023-05-08'
+    title: 'Readme'
+    description: 'Readme update.'
   2.88.1:
     date: '2023-04-14'
     title: 'Readme'
