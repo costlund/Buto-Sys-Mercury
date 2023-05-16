@@ -195,7 +195,9 @@ if(!wfArray::isKey($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBAL
   unset($temp);
 }
 if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/plugin')){
-  //If param secure is set user must pass throw validation, one false is enough.
+  /**
+   * If param secure is set user must pass throw validation, one false is enough.
+   */
   $stop = true;
   if(wfArray::isKey($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/secure')){
     $secure = wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/secure');
@@ -217,7 +219,7 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
     $stop = false;
   }
   if($stop){
-    wfEvent::run('security_issue', array('description' => 'Security issue!'));
+    wfEvent::run('page_not_found');
   }
   /**
    * Run the page plugin.

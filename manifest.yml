@@ -1,5 +1,9 @@
-version: 2.88.2
+version: 2.89.0
 history:
+  2.89.0:
+    date: '2023-05-16'
+    title: 'Security check'
+    description: 'Run event page_not_found intead of security_issue in security check.'
   2.88.2:
     date: '2023-05-08'
     title: 'Readme'
