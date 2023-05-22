@@ -1,5 +1,9 @@
-version: 2.89.0
+version: 2.90.0
 history:
+  2.90.0:
+    date: '2023-05-22'
+    title: ''
+    description: 'Add param $element in method wfEvent:run. Using this for event document_render_string.'
   2.89.0:
     date: '2023-05-16'
     title: 'Security check'

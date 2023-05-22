@@ -543,13 +543,13 @@ class wfDocument {
              * We should consider to translate attributes via element settings (also)...
              */
             if(($attribute == 'content'  || $attribute == 'lang'  || $attribute == 'data-original-title'  || strstr($attribute, 'data-content') ) && $document_render_string){
-              $value = wfEvent::run('document_render_string', $value);
+              $value = wfEvent::run('document_render_string', $value, $element);
             }
             /**
              * Attribute value if input type button.
              */
             if($element['type'] == 'input' && isset($element['attribute']['type']) && $element['attribute']['type']=='button' && $attribute=='value' && $document_render_string){
-              $value = wfEvent::run('document_render_string', $value);
+              $value = wfEvent::run('document_render_string', $value, $element);
             }
           }
           $this->_echo_(' '.$attribute.'="'.$value.'"');
@@ -566,7 +566,7 @@ class wfDocument {
         }
         if(!is_array($innerHTML)){
           if(!in_array($element['type'], array('script', 'style')) && $document_render_string){
-            $innerHTML = wfEvent::run('document_render_string', $innerHTML);
+            $innerHTML = wfEvent::run('document_render_string', $innerHTML, $element);
           }
           /**
            * title 

@@ -1,6 +1,6 @@
 <?php
 class wfEvent {
-  public static function run($event, $data = array()) {
+  public static function run($event, $data = array(), $element = array()) {
     if(wfArray::isKey($GLOBALS, 'sys/settings/events/'.$event)){
       foreach (wfArray::get($GLOBALS, 'sys/settings/events/'.$event) as $key => $value) {
         $run = true;
@@ -36,7 +36,7 @@ class wfEvent {
           wfPlugin::includeonce($plugin);
           $obj = wfSettings::getPluginObj($plugin);
           $method = 'event_'.wfArray::get($value, 'method', "Method is not set in sys/settings/events/$event/$key!");
-          $data = $obj->$method($value, $data);
+          $data = $obj->$method($value, $data, $element);
         }
       }
     }
