@@ -1242,7 +1242,7 @@ This works only if user has role webmaster or if on localhost.</p>
 ### Plugin page
 
 <p>If a developer needs to run plugin code without using theme settings.</p>
-<pre><code>/?webmaster_plugin=chart/amcharts_v3&amp;page=demo</code></pre>
+<pre><code>/?webmaster_plugin=chart/amcharts_v3&amp;page=demo_serial</code></pre>
 
 <a name="key_10"></a>
 

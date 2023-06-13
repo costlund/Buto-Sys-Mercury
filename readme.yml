@@ -1271,7 +1271,7 @@ readme:
           description: |
             If a developer needs to run plugin code without using theme settings.
             ```
-            /?webmaster_plugin=chart/amcharts_v3&page=demo
+            /?webmaster_plugin=chart/amcharts_v3&page=demo_serial
             ```
     -
       name: Mandatory plugin
