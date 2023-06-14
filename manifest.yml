@@ -1,5 +1,9 @@
-version: 2.90.1
+version: 2.91.0
 history:
+  2.91.0:
+    date: '2023-06-14'
+    title: 'Element settings/methods'
+    description: 'Add settings/methods to element to be able to manipulate an element.'
   2.90.1:
     date: '2023-06-13'
     title: 'Readme'

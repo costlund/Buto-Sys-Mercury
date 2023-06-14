@@ -293,12 +293,14 @@ readme:
                 ```
     -
       name: Plugin
+      date: '2023-06-14'
       description: |
         Plugins can have one or many of this purposes. A theme must make use of at least one plugin to work properly.
         - Widgets
         - Pages
         - Events
         - Methods
+        - Element methods
         
         Some plugins are like a complete application. And some are designed just to include a javascript file with a widget.
       item:
@@ -314,6 +316,30 @@ readme:
         -
           name: Methods
           description: Methods used from other plugins. 
+        -
+          name: Element methods
+          date: '2023-06-14'
+          description: |
+            Methods used from an element.
+            Example.
+            ````
+            type: body
+            settings:
+              methods:
+                -
+                  plugin: element/style
+                  method: background_cover
+                  data:
+                    src: /theme/[theme]/background.jpg
+            ````
+            Method example.
+            ````
+            public function element_background_cover($element, $data){
+              //Handle element as needed and return it.
+              return $element;
+            }
+            ````
+
     -
       name: Application dir
       description: |

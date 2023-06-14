@@ -351,6 +351,13 @@ class wfDocument {
     }
     return $element;
   }
+  private function isPluginEnabled($plugin){
+    if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin.'/enabled')){
+      return false;
+    }else{
+      return true;
+    }
+  }
   /**
    * Render start tag.
    * @param mixed $element Array or string.
@@ -469,8 +476,8 @@ class wfDocument {
       if(wfArray::get($data, 'data') && !is_array(wfArray::get($data, 'data'))){
         $data['data'] = wfSettings::getSettingsFromYmlString(wfArray::get($data, 'data'));
       }
-      if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$data['plugin'].'/enabled')){
-        throw new Exception('Plugin '.$data['plugin'].' is not enabled.');
+      if(!$this->isPluginEnabled($data['plugin'])){
+        throw new Exception('Widget plugin '.$data['plugin'].' is not enabled.');
       }
       $data['file'] = wfPlugin::includeonce($data['plugin']);
       $obj = wfSettings::getPluginObj($data['plugin']) ;
@@ -513,6 +520,31 @@ class wfDocument {
         }
         return true;
       }
+      /**
+       * Element plugin.
+       */
+      if(isset($element['settings']['methods'])){
+        foreach($element['settings']['methods'] as $k => $v){
+          if(!$this->isPluginEnabled($v['plugin'])){
+            throw new Exception('Element plugin '.$v['plugin'].' is not enabled.');
+          }
+          wfPlugin::includeonce($v['plugin']);
+          $obj = wfSettings::getPluginObj($v['plugin']) ;
+          $method = 'element_'.$v['method'];
+          $data = array();
+          if(isset($v['data'])){
+            $data = $v['data'];
+          }
+          if(!method_exists($obj, $method)){
+            throw new Exception('Method '.$method.' in plugin '.$v['plugin'].' does not exist.');
+          }else{
+            $element = $obj->$method($element, $data);
+          }
+        }
+      }
+      /**
+       * 
+       */
       $this->_echo_(str_repeat(" ", $i*2)."<".$element['type']);
       $document_render_string = true;
       if(isset($element['settings']['i18n']) && $element['settings']['i18n']===false){

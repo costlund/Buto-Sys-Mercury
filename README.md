@@ -276,7 +276,7 @@ default_method: home</code></pre>
 
 <a name="key_2"></a>
 
-## Plugin
+## Plugin <span class="badge text-bg-info" style="font-size:10px" title="2023-06-14">2023-06-14</span>
 
 <p>Plugins can have one or many of this purposes. A theme must make use of at least one plugin to work properly.</p>
 <ul>
@@ -284,6 +284,7 @@ default_method: home</code></pre>
 <li>Pages</li>
 <li>Events</li>
 <li>Methods</li>
+<li>Element methods</li>
 </ul>
 <p>Some plugins are like a complete application. And some are designed just to include a javascript file with a widget.</p>
 
@@ -310,6 +311,26 @@ default_method: home</code></pre>
 ### Methods
 
 <p>Methods used from other plugins.</p>
+
+<a name="key_2_4"></a>
+
+### Element methods <span class="badge text-bg-info" style="font-size:10px" title="2023-06-14">2023-06-14</span>
+
+<p>Methods used from an element.
+Example.</p>
+<pre><code>type: body
+settings:
+  methods:
+    -
+      plugin: element/style
+      method: background_cover
+      data:
+        src: /theme/[theme]/background.jpg</code></pre>
+<p>Method example.</p>
+<pre><code>public function element_background_cover($element, $data){
+  //Handle element as needed and return it.
+  return $element;
+}</code></pre>
 
 <a name="key_3"></a>
 
