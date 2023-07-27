@@ -1160,8 +1160,18 @@ readme:
               name: replaceTag
               date: '2022-06-03'
               description: |
-                Replace [tag] with wfGlobals::get('tag').
-                Replace [la] with wfI18n::getLanguage().
+                - Replace [tag] with wfGlobals::get('tag').
+            -
+              name: replaceDir
+              date: '2022-07-27'
+              description: |
+                - Replace [app_dir]' with wfArray::get($GLOBALS, 'sys/app_dir').
+                - Replace [web_dir]' with wfArray::get($GLOBALS, 'sys/web_dir').
+                - Replace [class]' with wfArray::get($GLOBALS, 'sys/class').
+                - Replace [theme]' with wfSettings::getTheme().
+                - Replace [tag]' with wfGlobals::get('tag').
+                - Replace [la]' with wfI18n::getLanguage().
+                - Replace [host]' with wfServer::getHttpHost().
         -
           name: wfUser
         -

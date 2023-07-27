@@ -276,7 +276,7 @@ default_method: home</code></pre>
 
 <a name="key_2"></a>
 
-## Plugin <span class="badge text-bg-info" style="font-size:10px" title="2023-06-14">2023-06-14</span>
+## Plugin
 
 <p>Plugins can have one or many of this purposes. A theme must make use of at least one plugin to work properly.</p>
 <ul>
@@ -314,7 +314,7 @@ default_method: home</code></pre>
 
 <a name="key_2_4"></a>
 
-### Element methods <span class="badge text-bg-info" style="font-size:10px" title="2023-06-14">2023-06-14</span>
+### Element methods
 
 <p>Methods used from an element.
 Example.</p>
@@ -1131,8 +1131,23 @@ Returns.</p>
 
 #### replaceTag
 
-<p>Replace [tag] with wfGlobals::get('tag').
-Replace [la] with wfI18n::getLanguage().</p>
+<ul>
+<li>Replace [tag] with wfGlobals::get('tag').</li>
+</ul>
+
+<a name="key_8_15_1"></a>
+
+#### replaceDir
+
+<ul>
+<li>Replace [app_dir]' with wfArray::get($GLOBALS, 'sys/app_dir').</li>
+<li>Replace [web_dir]' with wfArray::get($GLOBALS, 'sys/web_dir').</li>
+<li>Replace [class]' with wfArray::get($GLOBALS, 'sys/class').</li>
+<li>Replace [theme]' with wfSettings::getTheme().</li>
+<li>Replace [tag]' with wfGlobals::get('tag').</li>
+<li>Replace [la]' with wfI18n::getLanguage().</li>
+<li>Replace [host]' with wfServer::getHttpHost().</li>
+</ul>
 
 <a name="key_8_16"></a>
 
