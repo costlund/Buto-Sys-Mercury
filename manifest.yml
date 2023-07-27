@@ -1,5 +1,9 @@
-version: 2.91.0
+version: 2.92.0
 history:
+  2.92.0:
+    date: '2023-07-27'
+    title: 'Host tag'
+    description: 'Replace tag [host] in method wfSettings::replaceDir.'
   2.91.0:
     date: '2023-06-14'
     title: 'Element settings/methods'

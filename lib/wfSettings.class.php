@@ -378,6 +378,7 @@ class wfSettings {
     $str = str_replace('[theme]', wfSettings::getTheme(), $str);
     $str = str_replace('[tag]', wfGlobals::get('tag'), $str);
     $str = str_replace('[la]', wfI18n::getLanguage(), $str);
+    $str = str_replace('[host]', wfServer::getHttpHost(), $str);
     return $str;
   }
   /**
