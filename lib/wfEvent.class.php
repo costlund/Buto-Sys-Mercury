@@ -54,7 +54,7 @@ class wfEvent {
       exit('Security issue!');
     }elseif($event == 'page_not_found'){
       header("HTTP/1.0 404 Not Found");
-      exit('Could not find this page. Please go to <a href="/">Start page</a>.');
+      exit('Could not find this page ('.wfServer::getRequestUri().'). Please go to <a href="/">Start page</a>.');
     }
   }
 }

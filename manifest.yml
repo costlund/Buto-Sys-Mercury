@@ -1,5 +1,9 @@
-version: 2.92.0
+version: 2.92.1
 history:
+  2.92.1:
+    date: '2023-07-28'
+    title: 'wfEvent'
+    description: 'Error message in wfEvent, add REQUEST_URI.'
   2.92.0:
     date: '2023-07-27'
     title: 'Host tag'
