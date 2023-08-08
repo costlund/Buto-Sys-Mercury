@@ -1,5 +1,9 @@
-version: 2.92.1
+version: 2.93.0
 history:
+  2.93.0:
+    date: '2023-08-08'
+    title: 'PHP version 8.2'
+    description: 'Adjustments according to PHP version 8.2.'
   2.92.1:
     date: '2023-07-28'
     title: 'wfEvent'

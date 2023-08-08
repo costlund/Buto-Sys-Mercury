@@ -117,7 +117,7 @@ class wfPlugin {
    * Enable plugin for widget usage.
    */
   public static function enable($plugin){
-    $GLOBALS = wfArray::set($GLOBALS, "sys/settings/plugin/$plugin/enabled", true);
+    wfGlobals::setSys("sys/settings/plugin/$plugin/enabled", true);
   }
   /**
    * Get plugin settings from theme settings.yml param plugin.
@@ -282,15 +282,15 @@ class wfPlugin {
     return $plugins;
   }
   public static function event_remove($name, $plugin){
-    $g = new PluginWfArray($GLOBALS);
+    $g = new PluginWfArray($GLOBALS['sys']);
     $events = $g->get("sys/settings/events/$name");
     if($events){
       foreach ($events as $key => $value) {
         if($value['plugin']==$plugin){
-          $g->setUnset("sys/settings/events/$name/$key");
+          $g->setUnset("settings/events/$name/$key");
         }
       }
-      $GLOBALS = $g->get();
+      $GLOBALS['sys'] = $g->get();
     }
     return null;
   }

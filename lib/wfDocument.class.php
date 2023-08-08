@@ -422,7 +422,7 @@ class wfDocument {
       $element['attribute']['href']='#!';
     }
     if($element['type']=='a'){
-      $element['attribute']['href'] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
+      $element['attribute']['href'] = wfSettings::strReplace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
     /**
      * title
@@ -442,17 +442,17 @@ class wfDocument {
     /**
      * Replace attribute/src [theme] in attribute/(src/style).
      */
-    if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
-    if(isset($element['attribute']['src'])){$element['attribute']['src'] = str_replace('[tag]', wfGlobals::get('tag'), $element['attribute']['src']);}
-    if(isset($element['attribute']['style'])){$element['attribute']['style'] = str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
+    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfSettings::strReplace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
+    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfSettings::strReplace('[tag]', wfGlobals::get('tag'), $element['attribute']['src']);}
+    if(isset($element['attribute']['style'])){$element['attribute']['style'] = wfSettings::strReplace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
     /**
      * Replace innerHTML [[class]] for special usage to pick up from javascript.
      */
     if(wfArray::isKey($element, 'innerHTML') && !is_array(wfArray::get($element, 'innerHTML'))){
-      $element['innerHTML'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
+      $element['innerHTML'] = wfSettings::strReplace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
     }
     if(wfArray::isKey($element, 'attribute/onclick')){
-      $element['attribute']['onclick'] = str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), wfArray::get($element, 'attribute/onclick'));
+      $element['attribute']['onclick'] = wfSettings::strReplace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), wfArray::get($element, 'attribute/onclick'));
     }
     /**
      * Replace [theme] in attribute/href.
@@ -756,12 +756,12 @@ class wfDocument {
     if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
       if(substr($array['innerHTML'], 0, 5)=='load:'){
         $temp = preg_split('/:/', $array['innerHTML']);
-        $temp[1] = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $temp[1]);
+        $temp[1] = wfSettings::strReplace('[class]', wfArray::get($GLOBALS, 'sys/class'), $temp[1]);
         /**
          * 
          */
         foreach(wfRequest::getAll() as $k => $v){
-          $temp[1] = str_replace("[$k]", $v, $temp[1]);
+          $temp[1] = wfSettings::strReplace("[$k]", $v, $temp[1]);
         }
         /**
          * 
@@ -1068,8 +1068,8 @@ class wfDocument {
    * @return string
    */
   public static function formatArrayKeyId($id){
-    $id = str_replace("[" ,"['", $id);
-    $id = str_replace("]" ,"']", $id);
+    $id = wfSettings::strReplace("[" ,"['", $id);
+    $id = wfSettings::strReplace("]" ,"']", $id);
     return $id;
   }
   /**
@@ -1178,90 +1178,6 @@ class wfDocument {
     return $widget;
   }
   /**
-   * Hanlde execute.
-   * @param string $method
-   * @throws Exception
-   */
-  public static function handleExecute($method){
-    $module = $GLOBALS['class'];
-    $method = strtolower(substr($method, 7));
-    if(!wfArray::get($GLOBALS, 'settings/plugin/class_is_plugin')){
-      $module_settings = wfSettings::getModuleSettings($module);
-    }else{
-      $filename = wfSettings::getAppDir().'/plugin/'.$module.'/config/settings.yml';
-      if(file_exists($filename)){
-        $module_settings = sfYaml::load($filename);
-      }else{
-        throw new Exception("Could not find $filename!");
-      }
-    }
-    if(wfArray::isKey($module_settings, 'doc/'.$method.'/settings/_rewrite_globals')){
-      wfArray::set($GLOBALS, '_rewrite', wfArray::get($module_settings, 'doc/'.$method.'/settings/_rewrite_globals'));
-      $module_settings = wfArray::setUnset($module_settings, 'doc/'.$method.'/settings/_rewrite_globals');
-      $GLOBALS = wfArray::rewrite($GLOBALS);
-    }
-    if(!array_key_exists($method, $module_settings['doc'])){
-      wfDocument::setById('body', array(wfSettings::loadThemeConfigSettings('could_not_find_the_page')));
-    }else{
-      //Unset values.
-      if(isset($module_settings['doc'][$method]['settings']['unset'])){
-        foreach ($module_settings['doc'][$method]['settings']['unset'] as $key => $value) {
-          wfArray::setUnset($GLOBALS, $value);
-        }
-      }
-      if(wfRequest::get('_time')){
-        wfDocument::setDocument(array($module_settings['doc'][$method]));
-      }else{
-        $content_id = 'body';
-        if(isset($module_settings['doc'][$method]['settings']['layout'])){
-          if(!is_array($module_settings['doc'][$method]['settings']['layout'])){
-            throw new Exception('Param layout is not an array.');
-          }
-          foreach ($module_settings['doc'][$method]['settings']['layout'] as $key => $value) {
-            $layout = wfArray::get($module_settings, 'settings/layout/'.$value);
-            if($layout){
-              if(isset($layout['innerHTML'])){
-                wfDocument::setById($content_id, $layout['innerHTML']);
-              }  else {
-                throw new Exception('innerHTML is not set in layout.');
-              }
-              $content_id = $layout['content_id'];
-            }else{
-              throw new Exception('Could not find layout '.$value.'.');
-            }
-          }
-        }
-        wfDocument::setById($content_id, array($module_settings['doc'][$method]));
-        //Document rewrite.
-        if(wfArray::get($module_settings, 'document_rewrite')){
-          foreach (wfArray::get($module_settings, 'document_rewrite') as $key => $value) {
-            if(isset($value['disabled']) && $value['disabled']){continue;}
-            $arr = wfDocument::getId($value['id']);
-            $item_key = null;
-            if(isset($value['key'])){
-              $item_key = $value['key'];
-              if(strstr($item_key, '[')){
-                //From start vi formate key as ['attribute']['style'].
-              }else{
-                //Later we do it as attribute/style.
-                $item_key = wfArray::formatPathToKey($item_key);
-              }
-            }
-            $item_value = $value['value'];
-            if(is_array($item_value)){
-              eval("\$arr$item_key = \$item_value;");
-            }else{
-              eval("\$arr$item_key = '$item_value';");
-            }
-            if($arr){
-              wfDocument::setId($value['id'], $arr);
-            }
-          }
-        }
-      }
-    }
-  }
-  /**
    * Merge layout.
    * @param type $page
    * @return type
@@ -1366,14 +1282,14 @@ class wfDocument {
        */
       wfDocument::rewrite_globals($page);
     }
-    wfArray::set($GLOBALS, 'sys/page', $page);
-    wfArray::set($GLOBALS, 'sys/path_to_content', $path);
+    wfGlobals::setSys('page', $page);
+    wfGlobals::setSys('path_to_content', $path);
     return null;
   }
   private static function rewrite_globals($data){
     if(wfArray::get($data, 'settings/rewrite_globals')){
       foreach (wfArray::get($data, 'settings/rewrite_globals') as $v) {
-        $GLOBALS = wfArray::set($GLOBALS, $v['key'], $v['value']);
+        wfGlobals::setSys($v['key'], $v['value']);
       }
     }
     return null;

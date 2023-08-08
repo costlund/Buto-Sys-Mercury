@@ -33,7 +33,7 @@ class wfRequest {
     }
     if(!is_array($return)){
       if(wfRequest::$trim){
-        $return = trim($return);
+        $return = wfSettings::trim($return);
       }
     }
     return $return;

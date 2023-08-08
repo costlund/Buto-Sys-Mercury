@@ -19,6 +19,18 @@ class wfGlobals{
     $GLOBALS['sys'] = $g->get();
     return null;
   }
+  public static function setSys($key, $value){
+    /**
+     * Remove if key begin with sys/.
+     */
+    if(wfSettings::sub_str($key, 0, 4)=='sys/'){
+      $key = wfSettings::sub_str($key, 4);
+    }
+    /**
+     * 
+     */
+    $GLOBALS['sys'] = wfArray::set($GLOBALS['sys'], $key, $value);
+  }
   public static function getVersion()           {return wfGlobals::get('version');}
   public static function getMicrotime()         {
     wfGlobals::setMicrotimeEnd();
@@ -44,7 +56,7 @@ class wfGlobals{
    * @return string
    */
   public static function getWebFolder()         {
-    return substr(wfGlobals::get('web_dir'), strlen(dirname(wfGlobals::get('web_dir')))+1);
+    return wfSettings::sub_str(wfGlobals::get('web_dir'), strlen(dirname(wfGlobals::get('web_dir')))+1);
   }
   public static function getAppDir()            {return wfGlobals::get('app_dir');}
   public static function getSysDir()            {return wfGlobals::get('sys_dir');}
@@ -61,7 +73,7 @@ class wfGlobals{
     return null;
   }
   public static function getGlobalsFromString($str){
-    if(substr($str, 0, 8)=='globals:'){
+    if(wfSettings::sub_str($str, 0, 8)=='globals:'){
       $temp = preg_split('/:/', $str);
       $str = wfGlobals::get($temp[1]);
     }
