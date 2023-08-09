@@ -422,7 +422,7 @@ class wfDocument {
       $element['attribute']['href']='#!';
     }
     if($element['type']=='a'){
-      $element['attribute']['href'] = wfSettings::strReplace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
+      $element['attribute']['href'] = wfPhpfunc::str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
     }
     /**
      * title
@@ -442,17 +442,17 @@ class wfDocument {
     /**
      * Replace attribute/src [theme] in attribute/(src/style).
      */
-    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfSettings::strReplace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
-    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfSettings::strReplace('[tag]', wfGlobals::get('tag'), $element['attribute']['src']);}
-    if(isset($element['attribute']['style'])){$element['attribute']['style'] = wfSettings::strReplace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
+    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfPhpfunc::str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
+    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfPhpfunc::str_replace('[tag]', wfGlobals::get('tag'), $element['attribute']['src']);}
+    if(isset($element['attribute']['style'])){$element['attribute']['style'] = wfPhpfunc::str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
     /**
      * Replace innerHTML [[class]] for special usage to pick up from javascript.
      */
     if(wfArray::isKey($element, 'innerHTML') && !is_array(wfArray::get($element, 'innerHTML'))){
-      $element['innerHTML'] = wfSettings::strReplace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
+      $element['innerHTML'] = wfPhpfunc::str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), $element['innerHTML']);
     }
     if(wfArray::isKey($element, 'attribute/onclick')){
-      $element['attribute']['onclick'] = wfSettings::strReplace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), wfArray::get($element, 'attribute/onclick'));
+      $element['attribute']['onclick'] = wfPhpfunc::str_replace("[[class]]", wfArray::get($GLOBALS, 'sys/class'), wfArray::get($element, 'attribute/onclick'));
     }
     /**
      * Replace [theme] in attribute/href.
@@ -756,12 +756,12 @@ class wfDocument {
     if(isset($array['innerHTML']) && !is_array($array['innerHTML'])){
       if(substr($array['innerHTML'], 0, 5)=='load:'){
         $temp = preg_split('/:/', $array['innerHTML']);
-        $temp[1] = wfSettings::strReplace('[class]', wfArray::get($GLOBALS, 'sys/class'), $temp[1]);
+        $temp[1] = wfPhpfunc::str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $temp[1]);
         /**
          * 
          */
         foreach(wfRequest::getAll() as $k => $v){
-          $temp[1] = wfSettings::strReplace("[$k]", $v, $temp[1]);
+          $temp[1] = wfPhpfunc::str_replace("[$k]", $v, $temp[1]);
         }
         /**
          * 
@@ -1068,8 +1068,8 @@ class wfDocument {
    * @return string
    */
   public static function formatArrayKeyId($id){
-    $id = wfSettings::strReplace("[" ,"['", $id);
-    $id = wfSettings::strReplace("]" ,"']", $id);
+    $id = wfPhpfunc::str_replace("[" ,"['", $id);
+    $id = wfPhpfunc::str_replace("]" ,"']", $id);
     return $id;
   }
   /**

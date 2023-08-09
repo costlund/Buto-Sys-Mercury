@@ -877,9 +877,9 @@ sys_close</code></pre>
 
 <a name="key_8"></a>
 
-## Lib
+## Lib <span class="badge text-bg-info" style="font-size:10px" title="2023-08-09">2023-08-09</span>
 
-<p>Methods.</p>
+<p>Class files loaded from /sys/(name)/lib.</p>
 
 <a name="key_8_0"></a>
 
@@ -1155,6 +1155,30 @@ Returns.</p>
 
 <a name="key_8_17"></a>
 
+### wfPhpfunc <span class="badge text-bg-info" style="font-size:10px" title="2023-08-09">2023-08-09</span>
+
+<p>Created to handle PHP version 8.2.</p>
+
+<a name="key_8_17_0"></a>
+
+#### str_replace
+
+<p>Handle if param replace is null.</p>
+
+<a name="key_8_17_1"></a>
+
+#### strstr
+
+<p>Handle if param haystack is null.</p>
+
+<a name="key_8_17_2"></a>
+
+#### substr
+
+<p>Handle if param string is null.</p>
+
+<a name="key_8_18"></a>
+
 ### wfPhpinfo
 
 <p>Show info if user has role webmaster or webadmin.</p>
@@ -1168,7 +1192,7 @@ Returns.</p>
 <p>Show info if user has role webmaster.</p>
 <pre><code>/?phpinfo=globals.</code></pre>
 
-<a name="key_8_17_0"></a>
+<a name="key_8_18_0"></a>
 
 #### session
 
@@ -1196,11 +1220,11 @@ details: (User details)
 theme_data:
   version: (Theme version)</code></pre>
 
-<a name="key_8_18"></a>
+<a name="key_8_19"></a>
 
 ### wfWidget
 
-<a name="key_8_18_0"></a>
+<a name="key_8_19_0"></a>
 
 #### handle_data
 

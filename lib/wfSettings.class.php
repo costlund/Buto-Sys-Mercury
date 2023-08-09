@@ -356,7 +356,7 @@ class wfSettings {
     return str_replace('[theme]', wfSettings::getTheme(), $str);
   }
   public static function replaceTag($str){
-    return wfSettings::strReplace('[tag]', wfGlobals::get('tag'), $str);
+    return wfPhpfunc::str_replace('[tag]', wfGlobals::get('tag'), $str);
   }
   /**
    * Add root to path if start with "/theme".
@@ -364,9 +364,9 @@ class wfSettings {
    * @return string
    */
   public static function addRoot($file){
-    if(wfSettings::sub_str($file, 0, 6) == '/theme'){
+    if(wfPhpfunc::substr($file, 0, 6) == '/theme'){
       return wfArray::get($GLOBALS, 'sys/app_dir'). $file;
-    }elseif(wfSettings::sub_str($file, 0, 7) == '/plugin'){
+    }elseif(wfPhpfunc::substr($file, 0, 7) == '/plugin'){
       return wfArray::get($GLOBALS, 'sys/app_dir'). $file;
     }  else {
       return $file;
@@ -382,22 +382,10 @@ class wfSettings {
     $str = str_replace('[web_dir]', wfArray::get($GLOBALS, 'sys/web_dir'), $str);
     $str = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $str);
     $str = str_replace('[theme]', wfSettings::getTheme(), $str);
-    $str = wfSettings::strReplace('[tag]', wfGlobals::get('tag'), $str);
-    $str = wfSettings::strReplace('[la]', wfI18n::getLanguage(), $str);
-    $str = wfSettings::strReplace('[host]', wfServer::getHttpHost(), $str);
+    $str = wfPhpfunc::str_replace('[tag]', wfGlobals::get('tag'), $str);
+    $str = wfPhpfunc::str_replace('[la]', wfI18n::getLanguage(), $str);
+    $str = wfPhpfunc::str_replace('[host]', wfServer::getHttpHost(), $str);
     return $str;
-  }
-  public static function strReplace($search, $replace, $subject){
-    if(is_null($replace)){
-      $replace = '';
-    }
-    return str_replace($search, $replace, $subject);
-  }
-  public static function strstr($haystack, $needle){
-    if(is_null($haystack)){
-      $haystack = '';
-    }
-    return strstr($haystack, $needle);
   }
   /**
    * Replace [class].
@@ -420,7 +408,7 @@ class wfSettings {
     if(is_object($str)){
       return $str;
     }
-    if(wfSettings::sub_str($str, 0, 4)=='yml:'){
+    if(wfPhpfunc::substr($str, 0, 4)=='yml:'){
       $str = wfSettings::replaceDir($str);
       $temp = preg_split('/:/', $str);
       /**
@@ -451,7 +439,7 @@ class wfSettings {
     if(is_array($file)){
       return $file;
     }
-    if(wfSettings::sub_str($file, 0, 5)!='file:'){
+    if(wfPhpfunc::substr($file, 0, 5)!='file:'){
       return $file;
     }
     /**
@@ -493,7 +481,7 @@ class wfSettings {
     if(is_array($str)){
       return $str;
     }
-    if(wfSettings::sub_str($str, 0, 7)=='method:'){
+    if(wfPhpfunc::substr($str, 0, 7)=='method:'){
       $temp = preg_split('/:/', $str);
       /**
        * Check parts.
@@ -522,19 +510,13 @@ class wfSettings {
     }
     return $str;
   }
-  public static function sub_str($string, $offset, $length = null){
-    if(is_null($string)){
-      $string = '';
-    }
-    return substr($string, $offset, $length);
-  }
   /**
    * Get globals from string.
    * @param string $str
    * @return string
    */
   public static function getGlobalsFromString($str){
-    if(wfSettings::sub_str($str, 0, 8)=='globals:'){
+    if(wfPhpfunc::substr($str, 0, 8)=='globals:'){
       $temp = preg_split('/:/', $str);
       $str = wfArray::get($GLOBALS, $temp[1]);
     }
@@ -546,7 +528,7 @@ class wfSettings {
    * @return string
    */
   public static function getServerFromString($str){
-    if(wfSettings::sub_str($str, 0, 7)=='server:'){
+    if(wfPhpfunc::substr($str, 0, 7)=='server:'){
       $temp = preg_split('/:/', $str);
       $str = wfArray::get($_SERVER, $temp[1]);
     }
