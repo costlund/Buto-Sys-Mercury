@@ -117,7 +117,7 @@ class wfPlugin {
    * Enable plugin for widget usage.
    */
   public static function enable($plugin){
-    wfGlobals::setSys("sys/settings/plugin/$plugin/enabled", true);
+    wfGlobals::setSys("settings/plugin/$plugin/enabled", true);
   }
   /**
    * Get plugin settings from theme settings.yml param plugin.
