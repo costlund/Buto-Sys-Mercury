@@ -185,7 +185,7 @@ class sfYamlParser
             $c = $this->getRealCurrentLineNb() + 1;
             $parser = new sfYamlParser($c);
             $parser->refs =& $this->refs;
-            $data[$key] = $parser->parse($this->getNextEmbedBlock());
+            $data[(string) $key] = $parser->parse($this->getNextEmbedBlock());
           }
         }
         else

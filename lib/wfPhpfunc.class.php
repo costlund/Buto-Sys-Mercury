@@ -4,6 +4,9 @@ class wfPhpfunc{
     if(is_null($replace)){
       $replace = '';
     }
+    if(is_null($subject)){
+      $subject = '';
+    }
     return str_replace($search, $replace, $subject);
   }
   public static function strstr($haystack, $needle){
@@ -39,5 +42,17 @@ class wfPhpfunc{
        */
       return substr($string, $offset, $length);
     }
+  }
+  public static function strlen($string){
+    /**
+     * 
+     */
+    if(is_null($string)){
+      $string = '';
+    }
+    /**
+     * 
+     */
+    return strlen($string);
   }
 }
