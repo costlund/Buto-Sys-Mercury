@@ -132,8 +132,8 @@ class wfCrypt {
     * @return string
     */
   public static function decryptFromString($string){
-    if(substr($string, 0, 6)=='crypt:'){
-      return wfCrypt::decrypt(substr($string, 6));
+    if(substr((string) $string, 0, 6)=='crypt:'){
+      return wfCrypt::decrypt(substr((string) $string, 6));
     }else{
       return $string;
     }

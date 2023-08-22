@@ -206,7 +206,7 @@ class wfSettings {
        * Run rewrite in root settings.
        */
       if(wfArray::isKey($return, '_rewrite_globals')){
-        wfArray::set($GLOBALS, '_rewrite', wfArray::get($return, '_rewrite_globals'));
+        wfGlobals::setSys('_rewrite', wfArray::get($return, '_rewrite_globals'));
         $return = wfArray::setUnset($return, '_rewrite_globals');
         if(false){
           /**

@@ -190,14 +190,14 @@ if(!wfArray::get($GLOBALS, 'sys/settings/plugin_modules')){
  * Plugin param.
  * Set sys/plugin.
  */
-wfArray::set($GLOBALS, 'sys/plugin', wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/plugin'));
+wfGlobals::setSys('plugin', wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/plugin'));
 /**
  * If no secure param is set in plugin_modules for theme we check in file /config/secure.yml exist in plugin dir.
  */
 if(!wfArray::isKey($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/secure')){
   $temp = wfFilesystem::loadYml(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/'.wfArray::get($GLOBALS, 'sys/plugin').'/config/secure.yml', false);
   if($temp){
-    wfArray::set($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/secure', $temp);
+    wfGlobals::setSys('settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/secure', $temp);
   }
   unset($temp);
 }
