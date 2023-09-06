@@ -3,6 +3,11 @@
  * Buto class to get data from theme settings.yml.
  */
 class wfConfig{
+  /**
+   * Get data form theme settings.yml.
+   * @param string $key
+   * @return array
+   */
   public static function get($key = null){
     wfPlugin::includeonce('wf/array');
     $g = new PluginWfArray(wfSettings::getSettings('/theme/'.wfGlobals::getTheme().'/config/settings.yml'));

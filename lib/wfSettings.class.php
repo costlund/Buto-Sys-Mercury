@@ -502,7 +502,7 @@ class wfSettings {
       $obj = wfSettings::getPluginObj($temp[1]);
       $method = $temp[2];
       $data = $temp[3];
-      $data = str_replace("$", ":", $data);
+      $data = str_replace("$", ":", (string) $data);
       $data = json_decode($data, true);
       return $obj->$method($data);
     }else{

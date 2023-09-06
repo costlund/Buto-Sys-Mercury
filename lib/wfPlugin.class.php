@@ -120,7 +120,7 @@ class wfPlugin {
     wfGlobals::setSys("settings/plugin/$plugin/enabled", true);
   }
   /**
-   * Get plugin settings from theme settings.yml param plugin.
+   * Get plugin settings from theme settings.yml param plugin (plugin/_/_).
    * @param string $plugin
    * @param boolean $as_object
    * @param array $default Default values.
