@@ -380,7 +380,7 @@ class wfSettings {
   public static function replaceDir($str){
     $str = str_replace('[app_dir]', wfArray::get($GLOBALS, 'sys/app_dir'), $str);
     $str = str_replace('[web_dir]', wfArray::get($GLOBALS, 'sys/web_dir'), $str);
-    $str = str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $str);
+    $str = str_replace('[class]', (string)wfArray::get($GLOBALS, 'sys/class'), $str);
     $str = str_replace('[theme]', wfSettings::getTheme(), $str);
     $str = wfPhpfunc::str_replace('[tag]', wfGlobals::get('tag'), $str);
     $str = wfPhpfunc::str_replace('[la]', wfI18n::getLanguage(), $str);
