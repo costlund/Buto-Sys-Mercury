@@ -903,7 +903,7 @@ sys_close</code></pre>
 
 <a name="key_8"></a>
 
-## Lib <span class="badge text-bg-info" style="font-size:10px" title="2023-08-09">2023-08-09</span>
+## Lib
 
 <p>Class files loaded from /sys/(name)/lib.</p>
 
@@ -1199,7 +1199,7 @@ Returns.</p>
 
 <a name="key_8_17"></a>
 
-### wfPhpfunc <span class="badge text-bg-info" style="font-size:10px" title="2023-08-09">2023-08-09</span>
+### wfPhpfunc
 
 <p>Created to handle PHP version 8.2.</p>
 
