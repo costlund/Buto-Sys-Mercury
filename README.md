@@ -1298,6 +1298,8 @@ This works only if user has role webmaster or if on localhost.</p>
 ### Session
 
 <pre><code>/?phpinfo=session</code></pre>
+<p>Filter by path parameter.</p>
+<pre><code>/?phpinfo=session&amp;path=plugin</code></pre>
 
 <a name="key_9_2"></a>
 

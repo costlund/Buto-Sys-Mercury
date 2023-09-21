@@ -46,7 +46,11 @@ class wfPhpinfo{
          */
         if($_REQUEST['phpinfo']=='globals'){
           echo '<pre>';
-          echo wfHelp::getYmlDump(wfGlobals::get());
+          if(!wfRequest::get('path')){
+            echo wfHelp::getYmlDump(wfGlobals::get());
+          }else{
+            echo wfHelp::getYmlDump(wfGlobals::get(wfRequest::get('path')));
+          }
           exit;
         }
         /**

@@ -1273,6 +1273,10 @@ readme:
             ```
             /?phpinfo=session
             ```
+            Filter by path parameter.
+            ```
+            /?phpinfo=session&path=plugin
+            ```
         -
           name: Server
           description: |
@@ -1284,6 +1288,10 @@ readme:
           description: |
             ```
             /?phpinfo=globals
+            ```
+            Filter by path parameter.
+            ```
+            /?phpinfo=globals&path=settings
             ```
         -
           name: Error fatal

@@ -1,5 +1,9 @@
-version: 2.99.1
+version: 2.99.2
 history:
+  2.99.2:
+    date: '2023-09-21'
+    title: 'Readme'
+    description: 'Readme improvement about path param in Special requests.'
   2.99.1:
     date: '2023-09-13'
     title: 'Readme'
