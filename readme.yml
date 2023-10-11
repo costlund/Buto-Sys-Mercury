@@ -1154,6 +1154,12 @@ readme:
                 - ajax (text/javascript).
                 - json (&#42;/&#42;).
                 - unknown (no match). 
+            -
+              name: isHost
+              date: '2023-10-11'
+              description: |
+                Check if host by name (typical localhost for developer purpose).
+                Returns boolean.
         -
           name: wfSettings
           item:

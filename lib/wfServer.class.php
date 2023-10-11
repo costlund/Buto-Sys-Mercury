@@ -67,4 +67,11 @@ class wfServer{
       return 'unknown';
     }
   }
+  public static function isHost($value){
+    if(wfServer::getHttpHost()==$value){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

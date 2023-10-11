@@ -1,5 +1,9 @@
-version: 2.99.2
+version: 2.99.3
 history:
+  2.99.3:
+    date: '2023-10-11'
+    title: 'Is host'
+    description: 'Add method wfServer::isHost().'
   2.99.2:
     date: '2023-09-21'
     title: 'Readme'

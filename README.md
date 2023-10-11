@@ -1123,6 +1123,13 @@ Returns.</p>
 <li>unknown (no match). </li>
 </ul>
 
+<a name="key_8_14_1"></a>
+
+#### isHost <span class="badge text-bg-info" style="font-size:10px" title="2023-10-11">2023-10-11</span>
+
+<p>Check if host by name (typical localhost for developer purpose).
+Returns boolean.</p>
+
 <a name="key_8_15"></a>
 
 ### wfSettings
