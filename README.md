@@ -49,28 +49,18 @@ Default value is 0.</p>
 <p>Roles visitor, unknown and client are handled by the system.</p>
 <ul>
 <li>visitor (always)</li>
-</ul>
-<ul>
 <li>unknown (if user NOT signed in)</li>
-</ul>
-<ul>
 <li>client (if user signed in)</li>
 </ul>
 <p>Roles normaly used by theme builders.</p>
 <ul>
 <li>webmaster (user has full access)</li>
-</ul>
-<ul>
 <li>webadmin (application administrator)</li>
-</ul>
-<ul>
 <li>developer (user is in developer team)</li>
 </ul>
 <p>Along with this roles plugin can handle custom roles depending on purpose. For example.</p>
 <ul>
 <li>invoice (user should handle invoices)</li>
-</ul>
-<ul>
 <li>moderator (user is a moderator)</li>
 </ul>
 
@@ -291,17 +281,9 @@ default_method: home</code></pre>
 <p>Plugins can have one or many of this purposes. A theme must make use of at least one plugin to work properly.</p>
 <ul>
 <li>Widgets</li>
-</ul>
-<ul>
 <li>Pages</li>
-</ul>
-<ul>
 <li>Events</li>
-</ul>
-<ul>
 <li>Methods</li>
-</ul>
-<ul>
 <li>Element methods</li>
 </ul>
 <p>Some plugins are like a complete application. And some are designed just to include a javascript file with a widget.</p>
@@ -357,17 +339,9 @@ settings:
 <p>Application dir contains this folders.</p>
 <ul>
 <li>config</li>
-</ul>
-<ul>
 <li>plugin</li>
-</ul>
-<ul>
 <li>sys</li>
-</ul>
-<ul>
 <li>theme</li>
-</ul>
-<ul>
 <li>public_html</li>
 </ul>
 
@@ -1144,14 +1118,8 @@ mail:
 Returns.</p>
 <ul>
 <li>page (text/html).</li>
-</ul>
-<ul>
 <li>ajax (text/javascript).</li>
-</ul>
-<ul>
 <li>json (&#42;/&#42;).</li>
-</ul>
-<ul>
 <li>unknown (no match). </li>
 </ul>
 
@@ -1173,23 +1141,11 @@ Returns.</p>
 
 <ul>
 <li>Replace [app_dir]' with wfArray::get($GLOBALS, 'sys/app_dir').</li>
-</ul>
-<ul>
 <li>Replace [web_dir]' with wfArray::get($GLOBALS, 'sys/web_dir').</li>
-</ul>
-<ul>
 <li>Replace [class]' with wfArray::get($GLOBALS, 'sys/class').</li>
-</ul>
-<ul>
 <li>Replace [theme]' with wfSettings::getTheme().</li>
-</ul>
-<ul>
 <li>Replace [tag]' with wfGlobals::get('tag').</li>
-</ul>
-<ul>
 <li>Replace [la]' with wfI18n::getLanguage().</li>
-</ul>
-<ul>
 <li>Replace [host]' with wfServer::getHttpHost().</li>
 </ul>
 
@@ -1312,6 +1268,8 @@ This works only if user has role webmaster or if on localhost.</p>
 ### Globals
 
 <pre><code>/?phpinfo=globals</code></pre>
+<p>Filter by path parameter.</p>
+<pre><code>/?phpinfo=globals&amp;path=settings</code></pre>
 
 <a name="key_9_4"></a>
 
