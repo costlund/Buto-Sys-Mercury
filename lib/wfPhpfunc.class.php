@@ -55,4 +55,16 @@ class wfPhpfunc{
      */
     return strlen($string);
   }
+  public static function preg_split($pattern, $subject){
+    if(is_null($subject)){
+      $subject = '';
+    }
+    return preg_split($pattern, $subject);
+  }
+  public static function urlencode($string){
+    if(is_null($string)){
+      $string = '';
+    }
+    return urlencode($string);
+  }
 }
