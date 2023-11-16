@@ -191,6 +191,7 @@ class wfFilesystem {
     }
   }
   public static function saveFile($path_to_file, $text, $append = false){
+    $path_to_file = wfSettings::replaceDir($path_to_file);
     if(!$append){
       file_put_contents($path_to_file, $text);
     }else{

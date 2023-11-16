@@ -1,5 +1,9 @@
-version: 2.99.5
+version: 2.99.6
 history:
+  2.99.6:
+    date: '2023-11-16'
+    title: 'Replace dir'
+    description: 'Replace dir in method wfFilesystem::saveFile.'
   2.99.5:
     date: '2023-11-13'
     title: 'Readme'
