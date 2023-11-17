@@ -781,7 +781,7 @@ innerHTML: 'globals:sys/theme'</code></pre>
 
 <a name="key_6_4"></a>
 
-### Render
+### Renderzzz
 
 <p>Render element from plugin.</p>
 <pre><code>wfDocument::renderElement($element);</code></pre>
@@ -918,7 +918,46 @@ sys_close</code></pre>
 
 <a name="key_8_5_0"></a>
 
-#### Globals
+#### renderElement
+
+<p>Render element from plugin.</p>
+<pre><code>wfDocument::renderElement($element);</code></pre>
+
+<a name="key_8_5_1"></a>
+
+#### getContent
+
+<p>Set capture to 1 or 2 to be able to get content via getContent method. Good for send email usage.
+Set to 1 if capture html in content param and also render.
+Set to 2 if capture html in content param only and NOT render.</p>
+<pre><code>$element = new PluginWfYml(__DIR__.'/element/mail_registrate.yml');
+wfDocument::$capture=2;
+wfDocument::renderElement($element-&gt;get());
+$content = wfDocument::getContent();</code></pre>
+
+<a name="key_8_5_2"></a>
+
+#### renderElementFromFolder
+
+<p>Render a file direct from a folder where filename is the same as method name.</p>
+<pre><code>wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);</code></pre>
+
+<a name="key_8_5_3"></a>
+
+#### setModeSvg
+
+<p>Default mode is HTML but could also be SVG. SVG mode render text elements.</p>
+<pre><code>wfDocument::setModeSvg();
+wfDocument::renderElement($svg-&gt;get());
+wfDocument::setModeHtml();</code></pre>
+
+<a name="key_8_5_4"></a>
+
+#### renderStartTag
+
+<a name="key_8_5_4_0"></a>
+
+##### Globals
 
 <p>Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.</p>
 <pre><code>type: div
@@ -946,14 +985,21 @@ innerHTML:
     type: div
     innerHTML: Hello World</code></pre>
 
-<a name="key_8_5_1"></a>
+<a name="key_8_5_4_1"></a>
 
-#### Mode
+##### Confirm
 
-<p>Default mode is HTML but could also be SVG. SVG mode render text elements.</p>
-<pre><code>wfDocument::setModeSvg();
-wfDocument::renderElement($svg-&gt;get());
-wfDocument::setModeHtml();</code></pre>
+<p>Add confirm handle for A element in method renderStartTag if attribute data-content-confirm is set.</p>
+<pre><code>type: a
+attribute: 
+  data-content-confirm: Are you sure to run this href?
+  href: '/d/test_button?works=yes'
+innerHTML: Confirm href</code></pre>
+<pre><code>type: a
+attribute: 
+  data-content-confirm: Are you sure to run this onclick?
+  onclick: alert('You clicked OK in the prompt!')
+innerHTML: Confirm onclick</code></pre>
 
 <a name="key_8_6"></a>
 

@@ -813,27 +813,6 @@ readme:
             innerHTML: 'globals:sys/theme'
             ```
         -
-          name: Render
-          date: '2021-05-01'
-          description: |
-            Render element from plugin.
-            ```
-            wfDocument::renderElement($element);
-            ```
-            Set capture to 1 or 2 to be able to get content via getContent method. Good for send email usage.
-            Set to 1 if capture html in content param and also render.
-            Set to 2 if capture html in content param only and NOT render.
-            ```
-            $element = new PluginWfYml(__DIR__.'/element/mail_registrate.yml');
-            wfDocument::$capture=2;
-            wfDocument::renderElement($element->get());
-            $content = wfDocument::getContent();
-            ```
-            Render a file direct from a folder.
-            ```
-            wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);
-            ```
-        -
           name: Comment
           date: '2021-04-01'
           description: |
@@ -944,44 +923,38 @@ readme:
           name: wfDate
         -
           name: wfDocument
+          date: '2023-11-17'
           description: |
             Handle elements.
           item:
             -
-              name: Globals
-              date: '2022-05-03'
+              name: renderElement
               description: |
-                Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.
+                Render element from plugin.
                 ```
-                type: div
-                innerHTML:
-                  -
-                    type: div
-                    innerHTML: Hello World
-                  -
-                    type: div
-                    settings:
-                      globals:
-                        -
-                          path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
-                          value: '/plugin/invoice/invoice_v1/i18n'
-                    innerHTML: Hello World
-                ```
-                This example disable i18n if using plugin PluginI18nTranslate_v1.
-                ```
-                type: div
-                settings:
-                  globals:
-                    -
-                      path_to_key: 'settings/plugin/i18n/translate_v1/settings/disabled'
-                      value: true
-                innerHTML:
-                  -
-                    type: div
-                    innerHTML: Hello World
+                wfDocument::renderElement($element);
                 ```
             -
-              name: Mode
+              name: getContent
+              description: |
+                Set capture to 1 or 2 to be able to get content via getContent method. Good for send email usage.
+                Set to 1 if capture html in content param and also render.
+                Set to 2 if capture html in content param only and NOT render.
+                ```
+                $element = new PluginWfYml(__DIR__.'/element/mail_registrate.yml');
+                wfDocument::$capture=2;
+                wfDocument::renderElement($element->get());
+                $content = wfDocument::getContent();
+                ```
+            -
+              name: renderElementFromFolder
+              description: |
+                Render a file direct from a folder where filename is the same as method name.
+                ```
+                wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);
+                ```
+            -
+              name: setModeSvg
               description: |
                 Default mode is HTML but could also be SVG. SVG mode render text elements.
                 ```
@@ -989,6 +962,61 @@ readme:
                 wfDocument::renderElement($svg->get());
                 wfDocument::setModeHtml();
                 ```
+            -
+              name: renderStartTag
+              date: '2023-11-17'
+              item:
+                -
+                  name: Globals
+                  date: '2022-05-03'
+                  description: |
+                    Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.
+                    ```
+                    type: div
+                    innerHTML:
+                      -
+                        type: div
+                        innerHTML: Hello World
+                      -
+                        type: div
+                        settings:
+                          globals:
+                            -
+                              path_to_key: 'settings/plugin/i18n/translate_v1/settings/path'
+                              value: '/plugin/invoice/invoice_v1/i18n'
+                        innerHTML: Hello World
+                    ```
+                    This example disable i18n if using plugin PluginI18nTranslate_v1.
+                    ```
+                    type: div
+                    settings:
+                      globals:
+                        -
+                          path_to_key: 'settings/plugin/i18n/translate_v1/settings/disabled'
+                          value: true
+                    innerHTML:
+                      -
+                        type: div
+                        innerHTML: Hello World
+                    ```
+                -
+                  name: Confirm
+                  description: |
+                    Add confirm handle for A element in method renderStartTag if attribute data-content-confirm is set.
+                    ```
+                    type: a
+                    attribute: 
+                      data-content-confirm: Are you sure to run this href?
+                      href: '/d/test_button?works=yes'
+                    innerHTML: Confirm href
+                    ```
+                    ```
+                    type: a
+                    attribute: 
+                      data-content-confirm: Are you sure to run this onclick?
+                      onclick: alert('You clicked OK in the prompt!')
+                    innerHTML: Confirm onclick
+                    ```
         -
           name: wfElement
         -

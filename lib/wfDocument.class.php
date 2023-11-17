@@ -416,13 +416,23 @@ class wfDocument {
      */
     $element = $this->renderInnerHTML($element);
     /**
-     * Special for tag A.
+     * Special for tag A, href.
      */
     if($element['type']=='a' && !isset($element['attribute']['href'])){
       $element['attribute']['href']='#!';
     }
     if($element['type']=='a'){
       $element['attribute']['href'] = wfPhpfunc::str_replace('[class]', wfArray::get($GLOBALS, 'sys/class'), $element['attribute']['href']);
+    }
+    /**
+     * Special for tag A, confirm.
+     */
+    if(isset($element['attribute']['data-content-confirm'])){
+      if(isset($element['attribute']['onclick'])){
+        $element['attribute']['onclick'] = "if(confirm(this.getAttribute('data-content-confirm'))){".$element['attribute']['onclick'].";}else{return false;}";
+      }else{
+        $element['attribute']['onclick'] = "if(!confirm(this.getAttribute('data-content-confirm'))){return false;}";
+      }
     }
     /**
      * title

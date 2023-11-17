@@ -1,5 +1,9 @@
-version: 2.99.6
+version: 2.99.7
 history:
+  2.99.7:
+    date: '2023-11-17'
+    title: 'Confirm'
+    description: 'Add confirm handle for A element in wfDocument::renderStartTag if attribute data-content-confirm is set.'
   2.99.6:
     date: '2023-11-16'
     title: 'Replace dir'
