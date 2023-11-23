@@ -1,5 +1,9 @@
-version: 2.99.7
+version: 2.99.8
 history:
+  2.99.8:
+    date: '2023-11-23'
+    title: 'Event'
+    description: 'Run event document_render_string if element attribute is title or attribute like data-bs-content.'
   2.99.7:
     date: '2023-11-17'
     title: 'Confirm'
