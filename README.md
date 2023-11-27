@@ -781,22 +781,6 @@ innerHTML: 'globals:sys/theme'</code></pre>
 
 <a name="key_6_4"></a>
 
-### Renderzzz
-
-<p>Render element from plugin.</p>
-<pre><code>wfDocument::renderElement($element);</code></pre>
-<p>Set capture to 1 or 2 to be able to get content via getContent method. Good for send email usage.
-Set to 1 if capture html in content param and also render.
-Set to 2 if capture html in content param only and NOT render.</p>
-<pre><code>$element = new PluginWfYml(__DIR__.'/element/mail_registrate.yml');
-wfDocument::$capture=2;
-wfDocument::renderElement($element-&gt;get());
-$content = wfDocument::getContent();</code></pre>
-<p>Render a file direct from a folder.</p>
-<pre><code>wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);</code></pre>
-
-<a name="key_6_5"></a>
-
 ### Comment
 
 <p>Add a comment to element.</p>

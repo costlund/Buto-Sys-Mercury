@@ -1,5 +1,9 @@
-version: 2.99.9
+version: 2.99.10
 history:
+  2.99.10:
+    date: '2023-11-27'
+    title: 'Readme'
+    description: 'Readme update.'
   2.99.9:
     date: '2023-11-27'
     title: 'Request params'
