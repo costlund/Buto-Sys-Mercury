@@ -76,6 +76,17 @@ class wfRequest {
       $url = '/'.$GLOBALS['sys']['settings']['default_class'].'/'.$GLOBALS['sys']['settings']['default_method'].$url;
     }
     /**
+     * Handle if.
+     * /method?x=1
+     * Change to.
+     * /class/method?x=1
+     */
+    if(strstr($url, '?')){
+      if(substr_count(substr($url, 0, strpos($url, '?')), '/')==1){
+        $url = '/'.$GLOBALS['sys']['settings']['default_class'].$url;
+      }
+    }
+    /**
      * 
      */
     $GLOBALS['sys']['class'] = $GLOBALS['sys']['settings']['default_class'];
