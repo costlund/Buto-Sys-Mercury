@@ -1,12 +1,15 @@
-# Specification
+# Buto
 
-<p>Mercury is a Buto system software. 
-It runs on any server supporting PHP. 
-It has no dependencies like any type of database. 
-The main configuration of a Buto system is done with yml files.
-Only 22 files with .php extension for the hole framework.
-HTML code is done with yml in the exact same way but with the benefit to add extra Buto system params.
-One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.</p>
+<ul>
+<li>Specification of a Buto system.</li>
+<li>Mercury is the name of this Buto system. </li>
+<li>It runs on any server supporting PHP. </li>
+<li>It has no dependencies like any type of database. </li>
+<li>The main configuration of a Buto system is done with yml files.</li>
+<li>Only 22 files with .php extension for the hole framework.</li>
+<li>HTML code is done with yml in the exact same way but with the benefit to add extra Buto system params.</li>
+<li>One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.</li>
+</ul>
 
 <a name="key_0"></a>
 
@@ -869,13 +872,19 @@ sys_close</code></pre>
 
 ### wfArray
 
+
+
 <a name="key_8_1"></a>
 
 ### wfArraySearch
 
+
+
 <a name="key_8_2"></a>
 
 ### wfConfig
+
+
 
 <a name="key_8_3"></a>
 
@@ -893,6 +902,8 @@ sys_close</code></pre>
 <a name="key_8_4"></a>
 
 ### wfDate
+
+
 
 <a name="key_8_5"></a>
 
@@ -938,6 +949,8 @@ wfDocument::setModeHtml();</code></pre>
 <a name="key_8_5_4"></a>
 
 #### renderStartTag
+
+
 
 <a name="key_8_5_4_0"></a>
 
@@ -989,6 +1002,8 @@ innerHTML: Confirm onclick</code></pre>
 
 ### wfElement
 
+
+
 <a name="key_8_7"></a>
 
 ### wfEvent
@@ -1024,6 +1039,8 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 ### wfFilesystem
 
+
+
 <a name="key_8_8_0"></a>
 
 #### isDir
@@ -1047,6 +1064,8 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 <a name="key_8_10"></a>
 
 ### wfHelp
+
+
 
 <a name="key_8_11"></a>
 
@@ -1082,6 +1101,8 @@ Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.<
 <a name="key_8_12"></a>
 
 ### wfPlugin
+
+
 
 <a name="key_8_12_0"></a>
 
@@ -1140,6 +1161,8 @@ mail:
 
 ### wfServer
 
+
+
 <a name="key_8_14_0"></a>
 
 #### typeOfAccept
@@ -1163,6 +1186,8 @@ Returns boolean.</p>
 <a name="key_8_15"></a>
 
 ### wfSettings
+
+
 
 <a name="key_8_15_0"></a>
 
@@ -1189,6 +1214,8 @@ Returns boolean.</p>
 <a name="key_8_16"></a>
 
 ### wfUser
+
+
 
 <a name="key_8_17"></a>
 
@@ -1260,6 +1287,8 @@ theme_data:
 <a name="key_8_19"></a>
 
 ### wfWidget
+
+
 
 <a name="key_8_19_0"></a>
 
@@ -1349,7 +1378,7 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ## Mandatory plugin
 
-<p>Thera are two plugins who has to be included.</p>
+<p>There are two plugins who has to be included.</p>
 
 <a name="key_10_0"></a>
 

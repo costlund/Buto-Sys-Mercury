@@ -1,13 +1,14 @@
 readme:
-  name: Specification
+  name: Buto
   description: |
-    Mercury is a Buto system software. 
-    It runs on any server supporting PHP. 
-    It has no dependencies like any type of database. 
-    The main configuration of a Buto system is done with yml files.
-    Only 22 files with .php extension for the hole framework.
-    HTML code is done with yml in the exact same way but with the benefit to add extra Buto system params.
-    One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.
+    - Specification of a Buto system.
+    - Mercury is the name of this Buto system. 
+    - It runs on any server supporting PHP. 
+    - It has no dependencies like any type of database. 
+    - The main configuration of a Buto system is done with yml files.
+    - Only 22 files with .php extension for the hole framework.
+    - HTML code is done with yml in the exact same way but with the benefit to add extra Buto system params.
+    - One could work with Buto without any knowledge of PHP when building a theme. Only in plugin development PHP skills are needed.
   item:
     -
       name: System
@@ -1370,7 +1371,7 @@ readme:
     -
       name: Mandatory plugin
       description: |
-        Thera are two plugins who has to be included.
+        There are two plugins who has to be included.
       item:
         -
           name: wf/array
