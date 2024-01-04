@@ -132,6 +132,9 @@ class wfCrypt {
     * @return string
     */
   public static function decryptFromString($string){
+    /**
+     * Should be removed (2024-01-04).
+     */
     if(substr((string) $string, 0, 6)=='crypt:'){
       return wfCrypt::decrypt(substr((string) $string, 6));
     }else{
