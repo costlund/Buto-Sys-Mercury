@@ -1,5 +1,9 @@
-version: 2.99.11
+version: 2.99.12
 history:
+  2.99.12:
+    date: '2024-01-12'
+    title: 'String declaration'
+    description: 'Add string declaration in wfCrypt.'
   2.99.11:
     date: '2023-12-08'
     title: 'Readme'

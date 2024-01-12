@@ -3,11 +3,11 @@ class wfCrypt {
   public static function getHashAndSaltAsString($password){
     $uid = uniqid(mt_rand(), true);
     $salt = crypt($uid, $uid);
-    $hash = crypt($password, $salt);
+    $hash = crypt((string)$password, $salt);
     return $hash.' '.$salt;
   }
   public static function isValid($password, $string){
-    $arr = explode(' ', $string);
+    $arr = explode(' ', (string)$string);
     if(sizeof($arr)==2 && $arr[0]==crypt($password, $arr[1])){
       return true;
     }elseif(sizeof($arr)==1 && $arr[0]==$password){
