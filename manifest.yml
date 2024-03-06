@@ -1,5 +1,9 @@
-version: 2.99.12
+version: 2.99.13
 history:
+  2.99.13:
+    date: '2024-03-06'
+    title: 'Theme data'
+    description: 'Add data to session param theme_data if not exist in method wfSettings::loadThemeConfigSettings.'
   2.99.12:
     date: '2024-01-12'
     title: 'String declaration'

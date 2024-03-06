@@ -103,6 +103,23 @@ class wfSettings {
    */
   public static function loadThemeConfigSettings($path_to_key = null){
     $serialize = wfSettings::getAppDir().'/theme/'.wfSettings::getTheme().'/cache/settings.yml.serialize';
+    /**
+     * Set theme_data in session if not set.
+     */
+    if(!wfUser::getSession()->get('theme_data')){
+      $filename = wfArray::get($GLOBALS, 'sys/theme_dir').'/config/manifest.yml';
+      if(wfFilesystem::fileExist($filename)){
+        $manifest = sfYaml::load($filename);
+        wfUser::setSession('theme_data/version', null);
+        if(isset($manifest['version'])){
+          wfUser::setSession('theme_data/version', $manifest['version']);
+        }
+        wfUser::setSession('theme_data/theme', wfGlobals::getTheme());
+      }
+    }
+    /**
+     * 
+     */
     if($GLOBALS['sys']['cache'] && file_exists($serialize)){
       $settings = unserialize(file_get_contents($serialize));
     }else{
