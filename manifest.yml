@@ -1,5 +1,9 @@
-version: 2.99.13
+version: 2.100.0
 history:
+  2.100.0:
+    date: '2024-03-07'
+    title: 'Page methods'
+    description: 'Add page methods in method wfDocument::mergeLayout.'
   2.99.13:
     date: '2024-03-06'
     title: 'Theme data'

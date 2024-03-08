@@ -301,7 +301,46 @@ default_method: home</code></pre>
 
 ### Pages
 
-<p>A page where there could be layout pages involved.</p>
+<p>A page where there could be layout pages involved. </p>
+<pre><code>settings:
+  layout:
+    - html
+    - main
+  title: 'My title'
+  methods:
+    -
+      plugin: vote/vote_public
+      method: set_title
+      data:
+        test: 1234
+content:
+  -
+    type: div
+    attribute:
+      class: row
+    innerHTML:
+      -
+        type: div
+        attribute:
+          class: col-md-12
+          id: panel_content
+        innerHTML:
+          -
+            type: widget
+            data:
+              plugin: vote/vote_public
+              method: org</code></pre>
+
+<a name="key_2_1_0"></a>
+
+#### Methods
+
+<p>On could set methods to be running for a page.</p>
+<pre><code>public function set_title($page, $data){
+  $page = new PluginWfArray($page);
+  // Do something...
+  return $page-&gt;get();
+}</code></pre>
 
 <a name="key_2_2"></a>
 

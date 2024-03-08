@@ -310,7 +310,51 @@ readme:
           description: A widget should be some HTML element on a page.
         -
           name: Pages
-          description: A page where there could be layout pages involved. 
+          description: |
+            A page where there could be layout pages involved. 
+            ````
+            settings:
+              layout:
+                - html
+                - main
+              title: 'My title'
+              methods:
+                -
+                  plugin: vote/vote_public
+                  method: set_title
+                  data:
+                    test: 1234
+            content:
+              -
+                type: div
+                attribute:
+                  class: row
+                innerHTML:
+                  -
+                    type: div
+                    attribute:
+                      class: col-md-12
+                      id: panel_content
+                    innerHTML:
+                      -
+                        type: widget
+                        data:
+                          plugin: vote/vote_public
+                          method: org
+            ````
+
+          item:
+            -
+              name: Methods
+              description: |
+                On could set methods to be running for a page.
+                ````
+                public function set_title($page, $data){
+                  $page = new PluginWfArray($page);
+                  // Do something...
+                  return $page->get();
+                }
+                ````
         -
           name: Events
           description: Buto system or plugins can fire events. 

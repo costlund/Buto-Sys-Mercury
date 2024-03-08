@@ -351,7 +351,7 @@ class wfDocument {
     }
     return $element;
   }
-  private function isPluginEnabled($plugin){
+  private static function isPluginEnabled($plugin){
     if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin.'/enabled')){
       return false;
     }else{
@@ -1210,6 +1210,28 @@ class wfDocument {
     }
     if(!wfArray::isKey($page, 'content')){
       return null;
+    }
+    /**
+     * settings/methods
+     */
+    if(isset($page['settings']['methods'])){
+      foreach($page['settings']['methods'] as $k => $v){
+        if(!  wfDocument::isPluginEnabled($v['plugin'])){
+          throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: Element plugin '.$v['plugin'].' is not enabled.');
+        }
+        wfPlugin::includeonce($v['plugin']);
+        $obj = wfSettings::getPluginObj($v['plugin']) ;
+        $method = $v['method'];
+        $data = array();
+        if(isset($v['data'])){
+          $data = $v['data'];
+        }
+        if(!method_exists($obj, $method)){
+          throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: Method '.$method.' in plugin '.$v['plugin'].' does not exist.');
+        }else{
+          $page = $obj->$method($page, $data);
+        }
+      }
     }
     /**
      * title
