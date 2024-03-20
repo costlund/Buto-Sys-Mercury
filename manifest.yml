@@ -1,5 +1,9 @@
-version: 2.100.0
+version: 2.100.1
 history:
+  2.100.1:
+    date: '2024-03-20'
+    title: 'PHP version 8.2'
+    description: 'Adjustments according to PHP version 8.2.'
   2.100.0:
     date: '2024-03-07'
     title: 'Page methods'

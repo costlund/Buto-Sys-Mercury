@@ -370,7 +370,7 @@ class wfSettings {
    * @return string
    */
   public static function replaceTheme($str){
-    return str_replace('[theme]', wfSettings::getTheme(), $str);
+    return str_replace('[theme]', wfSettings::getTheme(), (string)$str);
   }
   public static function replaceTag($str){
     return wfPhpfunc::str_replace('[tag]', wfGlobals::get('tag'), $str);
