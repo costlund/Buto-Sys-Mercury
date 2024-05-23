@@ -60,6 +60,7 @@ class wfGlobals{
   }
   public static function getAppDir()            {return wfGlobals::get('app_dir');}
   public static function getSysDir()            {return wfGlobals::get('sys_dir');}
+  public static function getThemeDir()          {return wfGlobals::get('theme_dir');}
   public static function getThemeDataWebDir()   {return wfGlobals::get('theme_data_web_dir');}
   public static function getThemeDataDir()      {return wfGlobals::get('theme_data_dir');}
   public static function getThemeButoDataDir()  {return wfGlobals::get('theme_buto_data_dir');}

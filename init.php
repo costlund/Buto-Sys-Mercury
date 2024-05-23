@@ -30,6 +30,7 @@ $GLOBALS['sys']['web_dir'] = str_replace("\\", "/", str_replace(array('\index.ph
 $GLOBALS['sys']['app_dir'] = dirname($GLOBALS['sys']['web_dir']);
 $GLOBALS['sys']['host_dir'] = dirname($GLOBALS['sys']['app_dir']);
 $GLOBALS['sys']['sys_dir'] = dirname($GLOBALS['sys']['web_dir']).'/sys/'.$GLOBALS['sys']['version'];
+$GLOBALS['sys']['theme_dir'] = null;
 $GLOBALS['sys']['theme_buto_data_dir'] = null;
 $GLOBALS['sys']['theme_data_web_dir'] = null;
 $GLOBALS['sys']['theme_data_dir'] = null;

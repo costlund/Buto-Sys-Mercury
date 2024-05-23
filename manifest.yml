@@ -1,5 +1,9 @@
-version: 2.100.1
+version: 2.101.0
 history:
+  2.101.0:
+    date: '2024-05-22'
+    title: 'Globals'
+    description: 'Add param theme_dir to globals.'
   2.100.1:
     date: '2024-03-20'
     title: 'PHP version 8.2'
