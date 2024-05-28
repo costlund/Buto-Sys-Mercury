@@ -1,5 +1,9 @@
-version: 2.101.0
+version: 2.102.0
 history:
+  2.102.0:
+    date: '2024-05-28'
+    title: 'Errors'
+    description: 'Add static variable errors.'
   2.101.0:
     date: '2024-05-22'
     title: 'Globals'

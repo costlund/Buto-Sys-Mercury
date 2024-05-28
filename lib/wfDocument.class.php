@@ -1,5 +1,6 @@
 <?php
 class wfDocument {
+  public static $errors = array();
   private static $find_and_get_by_id = null;
   private static $find_and_get_id = null;
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
@@ -410,6 +411,13 @@ class wfDocument {
       }
       $this->element_globals[$i] = $from;
       unset($from);
+    }
+    /**
+     * 
+     */
+    if(!isset($element['type'])){
+      wfDocument::$errors[] = array('message' => 'Param type is not set.', 'element' => $element);
+      return false;
     }
     /**
      * settings/innerHTML
