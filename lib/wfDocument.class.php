@@ -1,6 +1,7 @@
 <?php
 class wfDocument {
   public static $errors = array();
+  public static $checkIsPluginEnabled = true;
   private static $find_and_get_by_id = null;
   private static $find_and_get_id = null;
   private $element_one_tag = array('meta', 'link', 'img', 'text', 'input');
@@ -353,6 +354,15 @@ class wfDocument {
     return $element;
   }
   private static function isPluginEnabled($plugin){
+    /**
+     * 
+     */
+    if(!wfDocument::$checkIsPluginEnabled){
+      return true;
+    }
+    /**
+     * 
+     */
     if(!wfArray::get($GLOBALS, 'sys/settings/plugin/'.$plugin.'/enabled')){
       return false;
     }else{

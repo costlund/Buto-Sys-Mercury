@@ -1,5 +1,9 @@
-version: 2.102.0
+version: 2.103.0
 history:
+  2.103.0:
+    date: '2024-05-29'
+    title: 'wfDocument'
+    description: 'Add static variable checkIsPluginEnabled (default true) to be able to turn of to check for enabled plugins.'
   2.102.0:
     date: '2024-05-28'
     title: 'Errors'
