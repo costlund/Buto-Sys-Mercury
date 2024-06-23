@@ -1,5 +1,9 @@
-version: 2.103.0
+version: 2.104.0
 history:
+  2.104.0:
+    date: '2024-06-23'
+    title: 'wfFilesystem'
+    description: 'Run wfSettings::replaceDir in method delete_dir.'
   2.103.0:
     date: '2024-05-29'
     title: 'wfDocument'

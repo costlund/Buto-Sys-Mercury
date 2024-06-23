@@ -13,6 +13,7 @@ class wfFilesystem {
    * @param string $src
    */
   public static function delete_dir($src) { 
+    $src = wfSettings::replaceDir($src);
     $dir = opendir($src);
     while(false !== ( $file = readdir($dir)) ){
       if (( $file != '.' ) && ( $file != '..' )) { 
