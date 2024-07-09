@@ -76,6 +76,13 @@ class wfUser {
     wfPlugin::includeonce('wf/array');
     return new PluginWfArray($_SESSION);
   }
+  public static function getSessionArray($path_to_key){
+    if(wfUser::getSession()->get($path_to_key)){
+      return wfUser::getSession()->get($path_to_key);
+    }else{
+      return array();
+    }
+  }
   public static function setSession($path, $value){
     $user = wfUser::getSession();
     $user->set($path, $value);

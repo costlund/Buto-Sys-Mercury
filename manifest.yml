@@ -1,5 +1,9 @@
-version: 2.104.0
+version: 2.105.0
 history:
+  2.105.0:
+    date: '2024-07-09'
+    title: 'wfUser::getSessionArray'
+    description: 'Add new method wfUser::getSessionArray.'
   2.104.0:
     date: '2024-06-23'
     title: 'wfFilesystem'
