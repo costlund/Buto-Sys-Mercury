@@ -221,5 +221,11 @@ class wfRequest {
       }
     }
     return $temp;
-  }  
+  }
+  public static function replaceString($str){
+    foreach(wfRequest::getAll() as $k => $v){
+      $str = wfPhpfunc::str_replace('['.$k.']', $v, $str);
+    }
+    return $str;
+  }
 }

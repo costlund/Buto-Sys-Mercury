@@ -1,5 +1,9 @@
-version: 2.105.0
+version: 2.106.0
 history:
+  2.106.0:
+    date: '2024-07-11'
+    title: 'wfRequest::replaceString'
+    description: 'Add new method wfRequest::replaceString.'
   2.105.0:
     date: '2024-07-09'
     title: 'wfUser::getSessionArray'
