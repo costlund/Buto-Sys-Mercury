@@ -1,5 +1,9 @@
-version: 2.106.0
+version: 2.107.0
 history:
+  2.107.0:
+    date: '2024-08-29'
+    title: 'Load'
+    description: 'Load content in div in method renderEndTag with plugin wf/ajax if attribute wf_ajax_load is set.'
   2.106.0:
     date: '2024-07-11'
     title: 'wfRequest::replaceString'

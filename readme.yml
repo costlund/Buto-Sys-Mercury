@@ -123,7 +123,7 @@ readme:
                 ```
             -
               name: Page
-              date: '2022-05-05'
+              date: '2024-08-29'
               description: |
                 In /page/home.yml
                 ```
@@ -145,6 +145,11 @@ readme:
                 Use request params if needed.
                 ```
                         innerHTML: load:/any/page/id/[id]
+                ```
+                Or use attribute.
+                ```
+                        attribute:
+                          wf_ajax_load: /any/page
                 ```
             -
               name: Result

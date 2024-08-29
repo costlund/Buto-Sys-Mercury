@@ -805,6 +805,19 @@ class wfDocument {
         return $temp[1];
       }
     }
+    if(isset($array['attribute']['wf_ajax_load'])){
+      /**
+       *
+       */
+      $temp = $array['attribute']['wf_ajax_load'];
+      foreach(wfRequest::getAll() as $k => $v){
+        $temp = wfPhpfunc::str_replace("[$k]", $v, $temp);
+      }
+      /**
+       *
+       */
+      return $temp;
+    }
     return null;
   }
   public static function setBySessionTag($element){

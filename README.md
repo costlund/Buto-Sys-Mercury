@@ -139,6 +139,9 @@ default_method: home</code></pre>
 <pre><code>        innerHTML: load:/any/page</code></pre>
 <p>Use request params if needed.</p>
 <pre><code>        innerHTML: load:/any/page/id/[id]</code></pre>
+<p>Or use attribute.</p>
+<pre><code>        attribute:
+          wf_ajax_load: /any/page</code></pre>
 
 <a name="key_1_0_2"></a>
 
