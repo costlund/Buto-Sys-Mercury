@@ -1,5 +1,9 @@
-version: 2.107.0
+version: 2.107.1
 history:
+  2.107.1:
+    date: '2024-09-10'
+    title: 'Null values'
+    description: 'Handle null values in method wfSettings::match_wildcard.'
   2.107.0:
     date: '2024-08-29'
     title: 'Load'

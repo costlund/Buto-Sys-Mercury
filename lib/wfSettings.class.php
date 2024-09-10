@@ -66,7 +66,7 @@ class wfSettings {
    */
   public static function match_wildcard($sw, $haystack){
      $regex = str_replace(array("\*", "\?"), array('.*','.'), preg_quote($sw));
-     return preg_match('#^'.$regex.'$#is', $haystack);
+     return preg_match('#^'.$regex.'$#is', (string)$haystack);
   }
   /**
    * Not in use?
