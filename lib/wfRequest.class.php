@@ -120,6 +120,12 @@ class wfRequest {
       $url = str_replace("'", '', $url);
       $url = explode('/', $url);
       /**
+       * 
+       */
+      if(sizeof($url)<2){
+        throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: Param url should always start with a slash (/). Check server parameter REQUEST_URI.');
+      }
+      /**
        * Handle slash.
        */
       foreach($url as $k => $v){

@@ -1,5 +1,9 @@
-version: 2.107.1
+version: 2.107.2
 history:
+  2.107.2:
+    date: '2024-09-12'
+    title: 'Throw error'
+    description: 'Throw error in method wfRequest::rewrite if server parameter REQUEST_URI not includes a slash (/).'
   2.107.1:
     date: '2024-09-10'
     title: 'Null values'
