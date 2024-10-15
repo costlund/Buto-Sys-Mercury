@@ -1,6 +1,10 @@
 <?php
 class wfSettings {
   /**
+   * 
+   */
+  public static $safe_mode = true;
+  /**
    * Load ini settings.
    */
   public static function loadIniSettings(){
@@ -353,7 +357,7 @@ class wfSettings {
     /**
      * Handle if one is trying to save php code.
      */
-    if(strstr($array, '<?php')){
+    if(wfSettings::$safe_mode && strstr($array, '<?php')){
       throw new Exception("Could not save to file $filename because of illegal text.");
     }
     file_put_contents($filename, $array);

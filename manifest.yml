@@ -1,5 +1,9 @@
-version: 2.107.2
+version: 2.107.3
 history:
+  2.107.3:
+    date: '2024-10-15'
+    title: 'wfSettings'
+    description: 'Add variable public static $safe_mode=true. Check this in method setSettings.'
   2.107.2:
     date: '2024-09-12'
     title: 'Throw error'
