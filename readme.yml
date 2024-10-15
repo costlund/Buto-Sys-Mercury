@@ -1242,6 +1242,11 @@ readme:
           name: wfSettings
           item:
             -
+              name: safe_mode
+              date: '2024-10-15'
+              description: |
+                - Public static variable to turn off safe mode by change from true to false.
+            -
               name: replaceTag
               date: '2022-06-03'
               description: |
