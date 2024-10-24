@@ -1233,13 +1233,21 @@ Returns boolean.</p>
 
 <a name="key_8_15_0"></a>
 
+#### safe_mode
+
+<ul>
+<li>Public static variable to turn off safe mode by change from true to false.</li>
+</ul>
+
+<a name="key_8_15_1"></a>
+
 #### replaceTag
 
 <ul>
 <li>Replace [tag] with wfGlobals::get('tag').</li>
 </ul>
 
-<a name="key_8_15_1"></a>
+<a name="key_8_15_2"></a>
 
 #### replaceDir
 
