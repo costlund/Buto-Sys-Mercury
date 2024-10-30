@@ -353,7 +353,7 @@ class wfDocument {
     }
     return $element;
   }
-  private static function isPluginEnabled($plugin){
+  public static function isPluginEnabled($plugin){
     /**
      * 
      */
@@ -505,7 +505,7 @@ class wfDocument {
         $data['data'] = wfSettings::getSettingsFromYmlString(wfArray::get($data, 'data'));
       }
       if(!$this->isPluginEnabled($data['plugin'])){
-        throw new Exception('Widget plugin '.$data['plugin'].' is not enabled.');
+        throw new Exception('Plugin '.$data['plugin'].' is not enabled.');
       }
       $data['file'] = wfPlugin::includeonce($data['plugin']);
       $obj = wfSettings::getPluginObj($data['plugin']) ;

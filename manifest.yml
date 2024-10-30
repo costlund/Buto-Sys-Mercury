@@ -1,5 +1,9 @@
-version: 2.107.3
+version: 2.108.0
 history:
+  2.108.0:
+    date: '2024-10-30'
+    title: 'Enabled'
+    description: 'Add system param enabled=widget.'
   2.107.3:
     date: '2024-10-15'
     title: 'wfSettings'

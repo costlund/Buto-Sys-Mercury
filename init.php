@@ -36,6 +36,7 @@ $GLOBALS['sys']['theme_data_web_dir'] = null;
 $GLOBALS['sys']['theme_data_dir'] = null;
 $GLOBALS['sys']['error_reporting'] = E_ALL;
 $GLOBALS['sys']['display_errors'] = 0;
+$GLOBALS['sys']['enabled'] = 'widget';
 /**
  * Error settings.
  * This settings can be changed in settings.yml.
@@ -228,6 +229,12 @@ if(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 
   }
   if($stop){
     wfEvent::run('page_not_found');
+  }
+  /**
+   * Check enabled.
+   */
+  if(wfGlobals::get('enabled')=='all' && !wfDocument::isPluginEnabled(wfGlobals::get('plugin'))){
+    throw new Exception('Plugin '.wfGlobals::get('plugin').' is not enabled.');
   }
   /**
    * Run the page plugin.

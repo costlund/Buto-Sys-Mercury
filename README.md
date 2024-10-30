@@ -97,6 +97,20 @@ Change type from TIMESTAMP to DATETIME to apply time zone setting.</p>
 <p>Read more about different time zones.</p>
 <pre><code>https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</code></pre>
 
+<a name="key_0_5"></a>
+
+### Enabled
+
+<p>As default only widgets has to have the enabled param to true in theme settings.</p>
+<pre><code>plugin:
+  my:
+    plugin:
+      enabled: true
+</code></pre>
+<p>However this could also be applied to pages by setting system param enabled to all.</p>
+<pre><code>enabled: all
+enabled: widget (default)</code></pre>
+
 <a name="key_1"></a>
 
 ## Theme

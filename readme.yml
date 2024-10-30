@@ -101,6 +101,23 @@ readme:
             ```
             https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
             ```
+        -
+          name: Enabled
+          date: '2024-10-30'
+          description: |
+            As default only widgets has to have the enabled param to true in theme settings.
+            ```
+            plugin:
+              my:
+                plugin:
+                  enabled: true
+                
+            ```
+            However this could also be applied to pages by setting system param enabled to all.
+            ```
+            enabled: all
+            enabled: widget (default)
+            ```
     -
       name: Theme
       description: |
