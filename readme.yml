@@ -314,6 +314,89 @@ readme:
                     plugin: 'wf/account2'
                     settings: 'yml:/../buto_data/theme/[theme]/config/plugin_wf_account2.yml'
                 ```
+        -
+          name: Hello Buto from scratch
+          date: '2024-11-25'
+          description: |
+            - Create Hello Buto application from scratch.
+            - Name of theme is demo/demo
+            - Create a Buto system folder.
+            - Open terminal and go to folder.
+          item:
+            -
+              name: System setup
+              item:
+                -
+                  name: Make dir
+                  description: |
+                    ````
+                    mkdir config
+                    mkdir sys
+                    mkdir web
+                    mkdir web/plugin
+                    mkdir web/theme
+                    mkdir plugin
+                    mkdir theme
+                    mkdir theme/demo
+                    mkdir theme/demo/demo
+                    mkdir plugin/wf
+                    ````
+                -
+                  name: Create config file 
+                  description: |
+                    ````
+                    touch config/settings.yml
+                    echo "theme: demo/demo" >> config/settings.yml
+                    ````
+                -
+                  name: Clone Buto system 
+                  description: |
+                    ````
+                    git clone https://github.com/costlund/Buto-Sys-Mercury.git sys/mercury
+                    cp sys/mercury/root/* web
+                    cp sys/mercury/root/.htaccess web
+                    ````
+                -
+                  name: Clone plugin
+                  description: |
+                    ````
+                    git clone https://github.com/costlund/Buto-Plugin-WfArray.git plugin/wf/array
+                    git clone https://github.com/costlund/Buto-Plugin-WfArraysearch.git plugin/wf/arraysearch
+                    ````
+            -
+              name: Create theme
+              description: |
+                - Go to theme folder.
+                - Create folder config.
+                - Add file settings.yml.
+                - Add content.
+
+                ````
+                default_class: d
+                default_method: hello
+                plugin_modules:
+                  d:
+                    plugin: my/plugin
+                ````
+
+                - Got to plugin folder.
+                - Create folder my/plugin.
+                - Go to the folder.
+                - Create file PluginMyPlugin.php.
+                - Add content.
+
+                ````
+                class PluginMyPlugin{
+                  public function page_hello(){
+                    echo "Hello Buto!";
+                  }
+                }
+                ````
+            -
+              name: Run application
+              description: |
+                - If using MAMP set Document Root to the web folder.
+                - Run application.
     -
       name: Plugin
       date: '2023-06-14'

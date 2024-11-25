@@ -293,6 +293,96 @@ default_method: home</code></pre>
     plugin: 'wf/account2'
     settings: 'yml:/../buto_data/theme/[theme]/config/plugin_wf_account2.yml'</code></pre>
 
+<a name="key_1_3"></a>
+
+### Hello Buto from scratch
+
+<ul>
+<li>Create Hello Buto application from scratch.</li>
+<li>Name of theme is demo/demo</li>
+<li>Create a Buto system folder.</li>
+<li>Open terminal and go to folder.</li>
+</ul>
+
+<a name="key_1_3_0"></a>
+
+#### System setup
+
+
+
+<a name="key_1_3_0_0"></a>
+
+##### Make dir
+
+<pre><code>mkdir config
+mkdir sys
+mkdir web
+mkdir web/plugin
+mkdir web/theme
+mkdir plugin
+mkdir theme
+mkdir theme/demo
+mkdir theme/demo/demo
+mkdir plugin/wf</code></pre>
+
+<a name="key_1_3_0_1"></a>
+
+##### Create config file
+
+<pre><code>touch config/settings.yml
+echo "theme: demo/demo" &gt;&gt; config/settings.yml</code></pre>
+
+<a name="key_1_3_0_2"></a>
+
+##### Clone Buto system
+
+<pre><code>git clone https://github.com/costlund/Buto-Sys-Mercury.git sys/mercury
+cp sys/mercury/root/* web
+cp sys/mercury/root/.htaccess web</code></pre>
+
+<a name="key_1_3_0_3"></a>
+
+##### Clone plugin
+
+<pre><code>git clone https://github.com/costlund/Buto-Plugin-WfArray.git plugin/wf/array
+git clone https://github.com/costlund/Buto-Plugin-WfArraysearch.git plugin/wf/arraysearch</code></pre>
+
+<a name="key_1_3_1"></a>
+
+#### Create theme
+
+<ul>
+<li>Go to theme folder.</li>
+<li>Create folder config.</li>
+<li>Add content.</li>
+</ul>
+<pre><code>default_class: d
+default_method: hello
+plugin_modules:
+  d:
+    plugin: my/plugin</code></pre>
+<ul>
+<li>Got to plugin folder.</li>
+<li>Create folder my/plugin.</li>
+<li>Go to plugin folder.</li>
+<li>Create file PluginMyPlugin.php.</li>
+<li>Add content.</li>
+</ul>
+<pre><code>class PluginMyPlugin{
+  public function page_hello(){
+    echo "Hello Buto!";
+  }
+}</code></pre>
+
+<a name="key_1_3_2"></a>
+
+#### Run application
+
+<ul>
+<li>If using MAMP set Document Root to the web folder.</li>
+<li>Run application.</li>
+</ul>
+
 <a name="key_2"></a>
 
 ## Plugin
