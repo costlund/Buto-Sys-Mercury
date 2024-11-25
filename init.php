@@ -44,13 +44,6 @@ $GLOBALS['sys']['enabled'] = 'widget';
 error_reporting($GLOBALS['sys']['error_reporting']);
 ini_set('display_errors', $GLOBALS['sys']['display_errors']);
 /**
- * Set this temporarly to true to debug Buto system files.
- */
-if(false){
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);  
-}
-/**
  * Include files.
  */
 foreach (glob("../sys/".$GLOBALS['sys']['version']."/lib/*.php") as $filename)

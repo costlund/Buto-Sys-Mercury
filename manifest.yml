@@ -1,5 +1,9 @@
-version: 2.109.0
+version: 2.109.1
 history:
+  2.109.1:
+    date: '2024-11-25'
+    title: 'Clean up'
+    description: 'Removed unused code.'
   2.109.0:
     date: '2024-11-25'
     title: 'Display errors'
