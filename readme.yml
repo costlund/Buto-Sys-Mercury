@@ -23,9 +23,9 @@ readme:
           item:
             -
               name: Display errors
+              date: '2024-11-25'
               description: |
-                If to display errors. 
-                Default value is 0.
+                Default value is 1.
                 ```
                 display_errors: 1
                 ```

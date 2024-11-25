@@ -28,8 +28,7 @@ In production mode we can change this in /config/settings.yml file.</p>
 
 #### Display errors
 
-<p>If to display errors. 
-Default value is 0.</p>
+<p>Default value is 1.</p>
 <pre><code>display_errors: 1</code></pre>
 <p>Set value to 0 to hide errors. </p>
 <pre><code>display_errors: 0</code></pre>

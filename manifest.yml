@@ -1,5 +1,9 @@
-version: 2.108.0
+version: 2.109.0
 history:
+  2.109.0:
+    date: '2024-11-25'
+    title: 'Display errors'
+    description: 'Change default from 0 to 1 for param display_errors.'
   2.108.0:
     date: '2024-10-30'
     title: 'Enabled'
