@@ -5,11 +5,7 @@ class wfHelp {
    * @return boolean
    */
   public static function isLocalhost(){
-    $is_localhost = false;
-    if(isset($GLOBALS['sys']['settings']['is_localhost']) && $GLOBALS['sys']['settings']['is_localhost']){
-      $is_localhost = true;
-    }
-    if(strstr(wfArray::get($_SERVER, 'HTTP_HOST'), 'localhost') || wfArray::get($_SERVER, 'REMOTE_ADDR') == '127.0.0.1' || $is_localhost){
+    if(wfGlobals::get('settings/host')=='localhost'){
       return true;
     }else{
       return false;

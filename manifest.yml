@@ -1,5 +1,9 @@
-version: 2.109.2
+version: 2.110.0
 history:
+  2.110.0:
+    date: '2024-12-09'
+    title: 'Host'
+    description: 'Using settings to determite if application is in development mode.'
   2.109.2:
     date: '2024-11-25'
     title: 'Readme'

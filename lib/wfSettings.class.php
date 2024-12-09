@@ -168,6 +168,12 @@ class wfSettings {
         }
       }
       /**
+       * host
+       */
+      if(!wfArray::get($settings, 'host')){
+        $settings = wfArray::set($settings, 'host', '_not_set_');
+      }
+      /**
        * Save cache file
        */
       if($GLOBALS['sys']['cache']){

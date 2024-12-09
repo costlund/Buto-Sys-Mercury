@@ -644,6 +644,31 @@ readme:
                           user_name: '_username_'
                           password: '_password_'
                 ```
+        -
+          name: host
+          date: '2024-12-09'
+          description: |
+            Param host could be used to determite if application is in a development invironment. 
+            This value is checked in method wfHelp::isLocalhost() or wfGlobals::get('settings/host').
+            
+            Default value.
+            ```
+            host: _not_set_
+            ```
+            Then if host has a value in theme buto_data settings file via rewrite registration.
+            Here one should use localhost if in development mode. If in production mode one should set the domain name of the application or leave empty.
+            ```
+            rewrite:
+              set:
+                -
+                  path_to_key: host
+                  value: localhost
+            ```
+            One could also set host in theme settings file. This is not recomended due to the same file could end up in production mode.
+            ```
+            host: 'world.com'
+            ```
+            We can not rely on server paramter HTTP_HOST due to one could set localhost in host header and use ip in the url request.
     -
       name: Element
       description: |

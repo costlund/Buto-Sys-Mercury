@@ -354,6 +354,7 @@ git clone https://github.com/costlund/Buto-Plugin-WfArraysearch.git plugin/wf/ar
 <ul>
 <li>Go to theme folder.</li>
 <li>Create folder config.</li>
+<li>Add file settings.yml.</li>
 <li>Add content.</li>
 </ul>
 <pre><code>default_class: d
@@ -364,7 +365,7 @@ plugin_modules:
 <ul>
 <li>Got to plugin folder.</li>
 <li>Create folder my/plugin.</li>
-<li>Go to plugin folder.</li>
+<li>Go to the folder.</li>
 <li>Create file PluginMyPlugin.php.</li>
 <li>Add content.</li>
 </ul>
@@ -641,6 +642,25 @@ One should use plugin i18n/url_rewrite when using this param to add language pre
           database: '_my_db_'
           user_name: '_username_'
           password: '_password_'</code></pre>
+
+<a name="key_5_2"></a>
+
+### host
+
+<p>Param host could be used to determite if application is in a development invironment. 
+This value is checked in method wfHelp::isLocalhost() or wfGlobals::get('settings/host').</p>
+<p>Default value.</p>
+<pre><code>host: _not_set_</code></pre>
+<p>Then if host has a value in theme buto_data settings file via rewrite registration.
+Here one should use localhost if in development mode. If in production mode one should set the domain name of the application or leave empty.</p>
+<pre><code>rewrite:
+  set:
+    -
+      path_to_key: host
+      value: localhost</code></pre>
+<p>One could also set host in theme settings file. This is not recomended due to the same file could end up in production mode.</p>
+<pre><code>host: 'world.com'</code></pre>
+<p>We can not rely on server paramter HTTP_HOST due to one could set localhost in host header and use ip in the url request.</p>
 
 <a name="key_6"></a>
 
