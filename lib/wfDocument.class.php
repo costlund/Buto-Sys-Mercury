@@ -871,6 +871,15 @@ class wfDocument {
    */
   public static function renderElementFromFolder($dir, $filename, $folder = 'element'){
     $element = new PluginWfYml("$dir/$folder/$filename.yml");
+    /**
+     * 
+     */
+    if(!$element->file_exists){
+      throw new Exception(__CLASS__.'::'.__FUNCTION__.' says: Could not find file '.$element->file.'!');
+    }
+    /**
+     * 
+     */
     wfDocument::renderElement($element);
   }
   public static function getElementFromFolder($dir, $filename, $folder = 'element'){

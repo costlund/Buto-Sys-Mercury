@@ -1,5 +1,9 @@
-version: 2.110.1
+version: 2.110.2
 history:
+  2.110.2:
+    date: '2025-02-24'
+    title: 'wfDocument'
+    description: 'Handle if file not exist in method wfDocument::renderElementFromFolder.'
   2.110.1:
     date: '2025-02-24'
     title: 'Globals'
