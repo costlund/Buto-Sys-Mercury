@@ -37,6 +37,7 @@ $GLOBALS['sys']['theme_data_dir'] = null;
 $GLOBALS['sys']['error_reporting'] = E_ALL;
 $GLOBALS['sys']['display_errors'] = 1;
 $GLOBALS['sys']['enabled'] = 'widget';
+$GLOBALS['sys']['session_id'] = null;
 /**
  * Error settings.
  * This settings can be changed in settings.yml.
@@ -71,6 +72,7 @@ wfEvent::run('load_ini_settings_after');
  * Session start.
  */
 session_start();
+$GLOBALS['sys']['session_id'] = session_id();
 /**
  * Webmaster can change theme.
  */
