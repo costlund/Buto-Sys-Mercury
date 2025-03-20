@@ -121,6 +121,13 @@ class wfFilesystem {
     return $array;
   }
   public static function createDir($dir){
+    /**
+     * Also full path and file name could be passed.
+     */
+    $dir = dirname($dir);
+    /**
+     * 
+     */
     if(!file_exists($dir)){
       /**
        * Create dir if not exist.
