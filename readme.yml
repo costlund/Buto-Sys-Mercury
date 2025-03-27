@@ -1464,10 +1464,10 @@ readme:
                 ```
                 Passing default data.
                 ```
-                $defalt = array(
+                $default = array(
                   'height' => '400px'
                 );
-                $wData = wfWidget::handle_data($data, $defalt);
+                $wData = wfWidget::handle_data($data, $default);
                 ```
     -
       name: Special requests

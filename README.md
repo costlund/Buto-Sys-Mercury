@@ -1470,10 +1470,10 @@ theme_data:
 <p>Handle data passed to widget.</p>
 <pre><code>$wData = wfWidget::handle_data($data);</code></pre>
 <p>Passing default data.</p>
-<pre><code>$defalt = array(
+<pre><code>$default = array(
   'height' =&gt; '400px'
 );
-$wData = wfWidget::handle_data($data, $defalt);</code></pre>
+$wData = wfWidget::handle_data($data, $default);</code></pre>
 
 <a name="key_9"></a>
 
