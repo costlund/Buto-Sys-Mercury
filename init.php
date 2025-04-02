@@ -27,6 +27,7 @@ $GLOBALS['sys']['microtime']['start'] = microtime(true);
 $GLOBALS['sys']['cache'] = false;
 $GLOBALS['sys']['timezone'] = 'Europe/Paris';
 $GLOBALS['sys']['web_dir'] = str_replace("\\", "/", str_replace(array('\index.php', '/index.php'), '', $_SERVER['SCRIPT_FILENAME']));
+$GLOBALS['sys']['web_folder'] = substr($GLOBALS['sys']['web_dir'], strlen(dirname( $GLOBALS['sys']['web_dir']))+1);
 $GLOBALS['sys']['app_dir'] = dirname($GLOBALS['sys']['web_dir']);
 $GLOBALS['sys']['host_dir'] = dirname($GLOBALS['sys']['app_dir']);
 $GLOBALS['sys']['sys_dir'] = dirname($GLOBALS['sys']['web_dir']).'/sys/'.$GLOBALS['sys']['version'];

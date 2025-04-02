@@ -1,5 +1,9 @@
-version: 2.110.3
+version: 2.110.4
 history:
+  2.110.4:
+    date: '2025-04-02'
+    title: 'Globals'
+    description: 'Add web_folder.'
   2.110.3:
     date: '2025-03-20'
     title: 'wfFilesystem::createDir'
