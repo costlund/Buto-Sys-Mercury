@@ -1,5 +1,9 @@
-version: 2.110.4
+version: 2.110.5
 history:
+  2.110.5:
+    date: '2025-04-14'
+    title: 'Session params'
+    description: 'Run replace yml params before replace session params to make included yml files work.'
   2.110.4:
     date: '2025-04-02'
     title: 'Globals'

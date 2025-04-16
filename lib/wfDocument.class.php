@@ -905,13 +905,13 @@ class wfDocument {
       throw new Exception('Error in wfDocument::renderElement() because param is not an array!');
     }
     /**
-     * Replace session params.
-     */
-    $element = wfDocument::setBySessionTag($element);
-    /**
      * Replace yml params.
      */
     $element = wfDocument::setElementYml($element);
+    /**
+     * Replace session params.
+     */
+    $element = wfDocument::setBySessionTag($element);
     /**
      * 
      */
