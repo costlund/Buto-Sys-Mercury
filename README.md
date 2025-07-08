@@ -1202,43 +1202,50 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 <a name="key_8_8"></a>
 
+### wfException
+
+<p>Use this to show exceptions.</p>
+<pre><code>wfException::getException(__CLASS__, __FUNCTION__, 'In this class we have a problem in a function!');</code></pre>
+
+<a name="key_8_9"></a>
+
 ### wfFilesystem
 
 
 
-<a name="key_8_8_0"></a>
+<a name="key_8_9_0"></a>
 
 #### isDir
 
 <p>Return true if a dir or false if a file.</p>
 <pre><code>wfFilesystem::isDir('/full/path/to/dir_or_file');</code></pre>
 
-<a name="key_8_8_1"></a>
+<a name="key_8_9_1"></a>
 
 #### delete_in_dir
 
 <p>Delete all files and folders in dir.</p>
 <pre><code>wfFilesystem::delete_in_dir('/full/path/to/dir');</code></pre>
 
-<a name="key_8_9"></a>
+<a name="key_8_10"></a>
 
 ### wfGlobals
 
 <p>Handle Globals variable.</p>
 
-<a name="key_8_10"></a>
+<a name="key_8_11"></a>
 
 ### wfHelp
 
 
 
-<a name="key_8_11"></a>
+<a name="key_8_12"></a>
 
 ### wfI18n
 
 <p>Handle I18N.</p>
 
-<a name="key_8_11_0"></a>
+<a name="key_8_12_0"></a>
 
 #### Auto select
 
@@ -1251,7 +1258,7 @@ Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.<
 <pre><code>i18n:
   auto_select: false</code></pre>
 
-<a name="key_8_11_1"></a>
+<a name="key_8_12_1"></a>
 
 #### getLanguagesMore
 
@@ -1263,13 +1270,13 @@ Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.<
   name: en
   label: English</code></pre>
 
-<a name="key_8_12"></a>
+<a name="key_8_13"></a>
 
 ### wfPlugin
 
 
 
-<a name="key_8_12_0"></a>
+<a name="key_8_13_0"></a>
 
 #### validateParams
 
@@ -1289,46 +1296,46 @@ mail:
 <p>Output (php exit)(example).</p>
 <pre><code>PluginMailQueue_create.__construct says: Param mail/subject is missing!</code></pre>
 
-<a name="key_8_13"></a>
+<a name="key_8_14"></a>
 
 ### wfRequest
 
 <p>Handle request params.</p>
 
-<a name="key_8_13_0"></a>
+<a name="key_8_14_0"></a>
 
 #### get
 
 <p>Print variable name.</p>
 <pre><code>print_r(wfRequest::get('name'));</code></pre>
 
-<a name="key_8_13_1"></a>
+<a name="key_8_14_1"></a>
 
 #### getAll
 
 <p>Print all.</p>
 <pre><code>print_r(wfRequest::getAll());</code></pre>
 
-<a name="key_8_13_2"></a>
+<a name="key_8_14_2"></a>
 
 #### set
 
 <p>Set variable name.</p>
 <pre><code>wfRequest::set('name', 'James');</code></pre>
 
-<a name="key_8_13_3"></a>
+<a name="key_8_14_3"></a>
 
 #### rewrite
 
 <p>Handle server variable REQUEST_URI (or HTTP_X_ORIGINAL_URL for windows).</p>
 
-<a name="key_8_14"></a>
+<a name="key_8_15"></a>
 
 ### wfServer
 
 
 
-<a name="key_8_14_0"></a>
+<a name="key_8_15_0"></a>
 
 #### typeOfAccept
 
@@ -1341,20 +1348,20 @@ Returns.</p>
 <li>unknown (no match). </li>
 </ul>
 
-<a name="key_8_14_1"></a>
+<a name="key_8_15_1"></a>
 
 #### isHost
 
 <p>Check if host by name (typical localhost for developer purpose).
 Returns boolean.</p>
 
-<a name="key_8_15"></a>
+<a name="key_8_16"></a>
 
 ### wfSettings
 
 
 
-<a name="key_8_15_0"></a>
+<a name="key_8_16_0"></a>
 
 #### safe_mode
 
@@ -1362,7 +1369,7 @@ Returns boolean.</p>
 <li>Public static variable to turn off safe mode by change from true to false.</li>
 </ul>
 
-<a name="key_8_15_1"></a>
+<a name="key_8_16_1"></a>
 
 #### replaceTag
 
@@ -1370,7 +1377,7 @@ Returns boolean.</p>
 <li>Replace [tag] with wfGlobals::get('tag').</li>
 </ul>
 
-<a name="key_8_15_2"></a>
+<a name="key_8_16_2"></a>
 
 #### replaceDir
 
@@ -1384,37 +1391,37 @@ Returns boolean.</p>
 <li>Replace [host]' with wfServer::getHttpHost().</li>
 </ul>
 
-<a name="key_8_16"></a>
+<a name="key_8_17"></a>
 
 ### wfUser
 
 
 
-<a name="key_8_17"></a>
+<a name="key_8_18"></a>
 
 ### wfPhpfunc
 
 <p>Created to handle PHP version 8.2.</p>
 
-<a name="key_8_17_0"></a>
+<a name="key_8_18_0"></a>
 
 #### str_replace
 
 <p>Handle if param replace is null.</p>
 
-<a name="key_8_17_1"></a>
+<a name="key_8_18_1"></a>
 
 #### strstr
 
 <p>Handle if param haystack is null.</p>
 
-<a name="key_8_17_2"></a>
+<a name="key_8_18_2"></a>
 
 #### substr
 
 <p>Handle if param string is null.</p>
 
-<a name="key_8_18"></a>
+<a name="key_8_19"></a>
 
 ### wfPhpinfo
 
@@ -1429,7 +1436,7 @@ Returns boolean.</p>
 <p>Show info if user has role webmaster.</p>
 <pre><code>/?phpinfo=globals.</code></pre>
 
-<a name="key_8_18_0"></a>
+<a name="key_8_19_0"></a>
 
 #### session
 
@@ -1457,13 +1464,13 @@ details: (User details)
 theme_data:
   version: (Theme version)</code></pre>
 
-<a name="key_8_19"></a>
+<a name="key_8_20"></a>
 
 ### wfWidget
 
 
 
-<a name="key_8_19_0"></a>
+<a name="key_8_20_0"></a>
 
 #### handle_data
 

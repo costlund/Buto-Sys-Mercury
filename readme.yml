@@ -1229,6 +1229,14 @@ readme:
                   data: 'some data...'
             ```
         -
+          name: wfException
+          date: '2025-07-08'
+          description: |
+            Use this to show exceptions.
+            ```
+            wfException::getException(__CLASS__, __FUNCTION__, 'In this class we have a problem in a function!');
+            ```
+        -
           name: wfFilesystem
           date: '2023-02-20'
           item:

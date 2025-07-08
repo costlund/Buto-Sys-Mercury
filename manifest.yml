@@ -1,5 +1,9 @@
-version: 2.110.5
+version: 2.111.0
 history:
+  2.111.0:
+    date: '2025-07-08'
+    title: 'Exception'
+    description: 'Add new lib file wfException.class.php.'
   2.110.5:
     date: '2025-04-14'
     title: 'Session params'
