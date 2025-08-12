@@ -470,9 +470,12 @@ class wfDocument {
     /**
      * Replace attribute/src [theme] in attribute/(src/style).
      */
-    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfPhpfunc::str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['src']);}
-    if(isset($element['attribute']['src'])){$element['attribute']['src'] = wfPhpfunc::str_replace('[tag]', wfGlobals::get('tag'), $element['attribute']['src']);}
-    if(isset($element['attribute']['style'])){$element['attribute']['style'] = wfPhpfunc::str_replace('[theme]', wfSettings::getTheme(), $element['attribute']['style']);}
+    if(isset($element['attribute']['src'])){
+      $element['attribute']['src'] = wfSettings::replaceDir($element['attribute']['src']);
+    }
+    if(isset($element['attribute']['style']) && !is_array($element['attribute']['style'])){
+      $element['attribute']['style'] = wfSettings::replaceDir($element['attribute']['style']);
+    }
     /**
      * Replace innerHTML [[class]] for special usage to pick up from javascript.
      */

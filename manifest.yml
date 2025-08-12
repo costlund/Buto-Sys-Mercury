@@ -1,5 +1,9 @@
-version: 2.111.0
+version: 2.111.1
 history:
+  2.111.1:
+    date: '2025-08-12'
+    title: 'wfDocument::renderStartTag'
+    description: 'Improvements in replace in strings.'
   2.111.0:
     date: '2025-07-08'
     title: 'Exception'
