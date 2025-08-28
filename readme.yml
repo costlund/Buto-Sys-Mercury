@@ -1254,6 +1254,13 @@ readme:
                 ```
                 wfFilesystem::delete_in_dir('/full/path/to/dir');
                 ```
+            -
+              name: scanAllDir
+              description: |
+                Scan dir recursive.
+                ```
+                wfFilesystem::scanAllDir('/full/path/to/dir');
+                ```
         -
           name: wfGlobals
           description: |

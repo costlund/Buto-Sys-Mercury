@@ -1227,6 +1227,13 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 <p>Delete all files and folders in dir.</p>
 <pre><code>wfFilesystem::delete_in_dir('/full/path/to/dir');</code></pre>
 
+<a name="key_8_9_2"></a>
+
+#### scanAllDir
+
+<p>Scan dir recursive.</p>
+<pre><code>wfFilesystem::scanAllDir('/full/path/to/dir');</code></pre>
+
 <a name="key_8_10"></a>
 
 ### wfGlobals

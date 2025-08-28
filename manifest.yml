@@ -1,5 +1,9 @@
-version: 2.111.1
+version: 2.111.2
 history:
+  2.111.2:
+    date: '2025-08-28'
+    title: 'wfFilesystem::scanAllDir'
+    description: 'New method to scan dir recursive.'
   2.111.1:
     date: '2025-08-12'
     title: 'wfDocument::renderStartTag'
