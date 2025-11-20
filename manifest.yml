@@ -1,5 +1,9 @@
-version: 2.111.2
+version: 2.111.3
 history:
+  2.111.3:
+    date: '2025-11-20'
+    title: 'Readme'
+    description: 'Add System/HTTP Sever.'
   2.111.2:
     date: '2025-08-28'
     title: 'wfFilesystem::scanAllDir'

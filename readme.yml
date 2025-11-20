@@ -15,6 +15,43 @@ readme:
       description: |
         Buto system is located in folder sys/mercury
       item:
+        - 
+          name: HTTP Server
+          date: '2025-11-20'
+          description: |
+            Buto works on this servers.
+            - Apache
+            - Nginx
+            - IIS
+          item:
+            -
+              name: Apache
+              description: |
+                File /.htacces is in usage.
+            -
+              name: Nginx
+              description: |
+                When using Nginx we have to edit configuration file.
+                - On a Mac using MAMP it is located in /Applications/MAMP/conf/nginx/nginx.conf.
+                  - Add it first in this location http/server/location(/).
+                - On Azure Web App service it is located in /etc/nginx/sites-available/default.
+                  - Add it first in this location server/location(/).
+
+                ````
+                location / {
+
+                  // This three lines.
+                  if (!-e $request_filename){
+                    rewrite ^(.*)$ /index.php;
+                  }
+
+                }
+                ````
+            -
+              name: IIS
+              description: |
+                File /web.config is in usage.
+
         -
           name: Errors
           description: |

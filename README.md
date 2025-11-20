@@ -19,12 +19,59 @@
 
 <a name="key_0_0"></a>
 
+### HTTP Server
+
+<p>Buto works on this servers.</p>
+<ul>
+<li>Apache</li>
+<li>Nginx</li>
+<li>IIS</li>
+</ul>
+
+<a name="key_0_0_0"></a>
+
+#### Apache
+
+<p>File /.htacces is in usage.</p>
+
+<a name="key_0_0_1"></a>
+
+#### Nginx
+
+<p>When using Nginx we have to edit configuration file.</p>
+<ul>
+<li>On a Mac using MAMP it is located in /Applications/MAMP/conf/nginx/nginx.conf.<ul>
+<li>Add it first in this location http/server/location(/).</li>
+</ul>
+</li>
+<li>On Azure Web App service it is located in /etc/nginx/sites-available/default.<ul>
+<li>Add it first in this location server/location(/).</li>
+</ul>
+</li>
+</ul>
+<pre><code>location / {
+
+  // This three lines.
+  if (!-e $request_filename){
+    rewrite ^(.*)$ /index.php;
+  }
+
+}</code></pre>
+
+<a name="key_0_0_2"></a>
+
+#### IIS
+
+<p>File /web.config is in usage.</p>
+
+<a name="key_0_1"></a>
+
 ### Errors
 
 <p>As default errors will be shown along with deprecated notice. 
 In production mode we can change this in /config/settings.yml file.</p>
 
-<a name="key_0_0_0"></a>
+<a name="key_0_1_0"></a>
 
 #### Display errors
 
@@ -33,7 +80,7 @@ In production mode we can change this in /config/settings.yml file.</p>
 <p>Set value to 0 to hide errors. </p>
 <pre><code>display_errors: 0</code></pre>
 
-<a name="key_0_0_1"></a>
+<a name="key_0_1_1"></a>
 
 #### Error reporting
 
@@ -44,7 +91,7 @@ In production mode we can change this in /config/settings.yml file.</p>
 <p>To hide deprecated errors and notice one could set it like this.</p>
 <pre><code>error_reporting: 'E_ALL ^ E_DEPRECATED ^ E_NOTICE'</code></pre>
 
-<a name="key_0_1"></a>
+<a name="key_0_2"></a>
 
 ### Roles
 
@@ -66,7 +113,7 @@ In production mode we can change this in /config/settings.yml file.</p>
 <li>moderator (user is a moderator)</li>
 </ul>
 
-<a name="key_0_2"></a>
+<a name="key_0_3"></a>
 
 ### GIT
 
@@ -77,14 +124,14 @@ sh git_pull.sh</code></pre>
 <p>Sometimes when clone a git repo files get status changes. One could solve this issue by running this command.</p>
 <pre><code>sh git_fileMode.sh</code></pre>
 
-<a name="key_0_3"></a>
+<a name="key_0_4"></a>
 
 ### Repo
 
 <p>Download from Github.com.</p>
 <pre><code>https://github.com/costlund/Buto-Sys-Mercury.git</code></pre>
 
-<a name="key_0_4"></a>
+<a name="key_0_5"></a>
 
 ### Time zone
 
@@ -96,7 +143,7 @@ Change type from TIMESTAMP to DATETIME to apply time zone setting.</p>
 <p>Read more about different time zones.</p>
 <pre><code>https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</code></pre>
 
-<a name="key_0_5"></a>
+<a name="key_0_6"></a>
 
 ### Enabled
 
