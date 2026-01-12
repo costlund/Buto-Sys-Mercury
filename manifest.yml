@@ -1,5 +1,9 @@
-version: 2.111.3
+version: 2.111.4
 history:
+  2.111.4:
+    date: '2026-01-12'
+    title: 'wfDocument'
+    description: 'Including plugin wf/yml in wfDocument::renderElementFromFolder.'
   2.111.3:
     date: '2025-11-20'
     title: 'Readme'

@@ -873,6 +873,7 @@ class wfDocument {
    * @param string Optional foldername, default is element.
    */
   public static function renderElementFromFolder($dir, $filename, $folder = 'element'){
+    wfPlugin::includeonce('wf/yml');
     $element = new PluginWfYml("$dir/$folder/$filename.yml");
     /**
      * 
