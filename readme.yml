@@ -449,7 +449,19 @@ readme:
       item:
         -
           name: Widgets
-          description: A widget should be some HTML element on a page.
+          description: |
+            A widget should be some HTML element on a page.
+            ````
+            type: widget
+            data:
+              plugin: form/form_v1
+              method: render
+              data: yml:/plugin/any/plugin/element/form_user.yml
+            ````
+            One could replace "any/plugin" with "[plugin]" (for plugin in page request).
+            ````
+              data: yml:/plugin/[plugin]/element/form_user.yml
+            ````
         -
           name: Pages
           description: |

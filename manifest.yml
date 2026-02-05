@@ -1,5 +1,9 @@
-version: 2.111.4
+version: 2.112.0
 history:
+  2.112.0:
+    date: '2026-01-26'
+    title: 'wfDocument'
+    description: 'In method setElementYml we pick up plugin from Globals and replace in widgets data/data attribute.'
   2.111.4:
     date: '2026-01-12'
     title: 'wfDocument'

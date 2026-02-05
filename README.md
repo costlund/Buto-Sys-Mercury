@@ -450,6 +450,13 @@ plugin_modules:
 ### Widgets
 
 <p>A widget should be some HTML element on a page.</p>
+<pre><code>type: widget
+data:
+  plugin: form/form_v1
+  method: render
+  data: yml:/plugin/any/plugin/element/form_user.yml</code></pre>
+<p>One could replace "any/plugin" with "[plugin]" (for plugin in page request).</p>
+<pre><code>  data: yml:/plugin/[plugin]/element/form_user.yml</code></pre>
 
 <a name="key_2_1"></a>
 

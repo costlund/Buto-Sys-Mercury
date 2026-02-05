@@ -849,6 +849,20 @@ class wfDocument {
   public static function setElementYml($element){
     $element = new PluginWfArray($element);
     /**
+     * Find all widgets and replace param data/data (string).
+     * Replace "[plugin]" with globals plugin.
+     */
+    wfPlugin::includeonce('wf/arraysearch');
+    $search = new PluginWfArraysearch(true);
+    $search->data = array('key_name' => 'type', 'key_value' => 'widget', 'data' => $element->get());
+    foreach($search->get() as $k => $v){
+      $v = substr($v, 1);
+      $v = substr($v, 0, strlen($v)-5);
+      if(is_string($element->get($v.'/data/data'))){
+        $element->set($v.'/data/data', str_replace('[plugin]', (string)wfGlobals::get('plugin'), (string)$element->get($v.'/data/data')));
+      }
+    }
+    /**
      * Search keys.
      */
     wfPlugin::includeonce('wf/arraysearch');
