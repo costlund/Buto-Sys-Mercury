@@ -135,11 +135,16 @@ class wfFilesystem {
     }
     return $result;
   }
-  public static function createDir($dir){
-    /**
-     * Also full path and file name could be passed.
-     */
-    $dir = dirname($dir);
+  /**
+   * Create dir from full path with filename.
+   * @param string $dir Full path with filename or only full path .
+   * @param string $dirname Set to false if $dir is without filename.
+   * @return null
+   */
+  public static function createDir($dir, $dirname = true){
+    if($dirname){
+      $dir = dirname($dir);
+    }
     /**
      * 
      */

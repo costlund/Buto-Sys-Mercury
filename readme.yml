@@ -1310,6 +1310,17 @@ readme:
                 ```
                 wfFilesystem::scanAllDir('/full/path/to/dir');
                 ```
+            -
+              name: createDir
+              description: |
+                Create dir with filename.
+                ```
+                wfFilesystem::createDir('/full/path/to/dir/file.yml');
+                ```
+                Create dir withouth filename.
+                ```
+                wfFilesystem::createDir('/full/path/to/dir', false);
+                ```
         -
           name: wfGlobals
           description: |

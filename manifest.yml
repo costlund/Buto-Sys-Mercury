@@ -1,5 +1,9 @@
-version: 2.112.0
+version: 2.113.0
 history:
+  2.113.0:
+    date: '2026-04-07'
+    title: 'wfFilesystem'
+    description: 'Improvement in method createDir.'
   2.112.0:
     date: '2026-01-26'
     title: 'wfDocument'

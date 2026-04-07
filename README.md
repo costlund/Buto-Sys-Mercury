@@ -15,11 +15,15 @@
 
 ## System
 
+
+
 <p>Buto system is located in folder sys/mercury</p>
 
 <a name="key_0_0"></a>
 
 ### HTTP Server
+
+
 
 <p>Buto works on this servers.</p>
 <ul>
@@ -32,11 +36,15 @@
 
 #### Apache
 
+
+
 <p>File /.htacces is in usage.</p>
 
 <a name="key_0_0_1"></a>
 
 #### Nginx
+
+
 
 <p>When using Nginx we have to edit configuration file.</p>
 <ul>
@@ -62,11 +70,15 @@
 
 #### IIS
 
+
+
 <p>File /web.config is in usage.</p>
 
 <a name="key_0_1"></a>
 
 ### Errors
+
+
 
 <p>As default errors will be shown along with deprecated notice. 
 In production mode we can change this in /config/settings.yml file.</p>
@@ -74,6 +86,8 @@ In production mode we can change this in /config/settings.yml file.</p>
 <a name="key_0_1_0"></a>
 
 #### Display errors
+
+
 
 <p>Default value is 1.</p>
 <pre><code>display_errors: 1</code></pre>
@@ -83,6 +97,8 @@ In production mode we can change this in /config/settings.yml file.</p>
 <a name="key_0_1_1"></a>
 
 #### Error reporting
+
+
 
 <p>Default value is E_ALL to catch all errors.</p>
 <pre><code>error_reporting: 'E_ALL'</code></pre>
@@ -94,6 +110,8 @@ In production mode we can change this in /config/settings.yml file.</p>
 <a name="key_0_2"></a>
 
 ### Roles
+
+
 
 <p>Roles visitor, unknown and client are handled by the system.</p>
 <ul>
@@ -117,6 +135,8 @@ In production mode we can change this in /config/settings.yml file.</p>
 
 ### GIT
 
+
+
 <p>In folder sys/mercury/git there are sh files to run git status/pull/fetch for all repos. Navigate in terminal to this folder and run commands.</p>
 <pre><code>sh git_status.sh
 sh git_fetch.sh
@@ -128,12 +148,16 @@ sh git_pull.sh</code></pre>
 
 ### Repo
 
+
+
 <p>Download from Github.com.</p>
 <pre><code>https://github.com/costlund/Buto-Sys-Mercury.git</code></pre>
 
 <a name="key_0_5"></a>
 
 ### Time zone
+
+
 
 <p>In /config/settings.yml one could set time zone for application (optional).
 Default value is Europe/Paris.</p>
@@ -146,6 +170,8 @@ Change type from TIMESTAMP to DATETIME to apply time zone setting.</p>
 <a name="key_0_6"></a>
 
 ### Enabled
+
+
 
 <p>As default only widgets has to have the enabled param to true in theme settings.</p>
 <pre><code>plugin:
@@ -161,17 +187,23 @@ enabled: widget (default)</code></pre>
 
 ## Theme
 
+
+
 <p>Buto can have multiple themes. But in most cases there is only one involved when an application is in production.</p>
 
 <a name="key_1_0"></a>
 
 ### Hello World
 
+
+
 <p>An Hello World example where theme is in location /theme/hello/world. This theme only make use of one plugin wf/doc to render a page.</p>
 
 <a name="key_1_0_0"></a>
 
 #### Config
+
+
 
 <p>In /config/settings.yml</p>
 <pre><code>plugin_modules:
@@ -183,6 +215,8 @@ default_method: home</code></pre>
 <a name="key_1_0_1"></a>
 
 #### Page
+
+
 
 <p>In /page/home.yml</p>
 <pre><code>content:
@@ -207,6 +241,8 @@ default_method: home</code></pre>
 
 #### Result
 
+
+
 <p>Access your theme like this.</p>
 <pre><code>http://localhost</code></pre>
 <p>Or.</p>
@@ -216,6 +252,8 @@ default_method: home</code></pre>
 
 ### Hello Buto
 
+
+
 <p>One could have layout pages. 
 I this example we show how to use two layout files. 
 Also how to use plugin theme/include wich include other plugins one need to build a complet site.</p>
@@ -223,6 +261,8 @@ Also how to use plugin theme/include wich include other plugins one need to buil
 <a name="key_1_1_0"></a>
 
 #### Config
+
+
 
 <p>In /config/settings.yml</p>
 <pre><code>default_class: d
@@ -238,6 +278,8 @@ plugin:
 <a name="key_1_1_1"></a>
 
 #### Layout files
+
+
 
 <p>In /layout/html.yml</p>
 <pre><code>settings:
@@ -280,6 +322,8 @@ content:
 
 #### Page
 
+
+
 <p>In /page/home.yml</p>
 <pre><code>settings:
   title: 'Hello Buto'
@@ -300,6 +344,8 @@ content:
 
 #### Result
 
+
+
 <p>Adress.</p>
 <pre><code>http://localhost</code></pre>
 <p>Browser output.</p>
@@ -311,11 +357,15 @@ footer...</code></pre>
 
 ### Theme configuration
 
+
+
 <p>Like in Hello World example there is not much data a Theme need.</p>
 
 <a name="key_1_2_0"></a>
 
 #### Settings file
+
+
 
 <p>In /config/settings.yml</p>
 <p>This is basic data.</p>
@@ -334,6 +384,8 @@ default_method: home</code></pre>
 
 #### Folder buto_data
 
+
+
 <p>In some case you do not want to include sensitive data in a buto project. One could use a buto_data folder in same folder as a Buto project. Access shoud be like this.                </p>
 <pre><code>plugin_modules:
   account:
@@ -343,6 +395,8 @@ default_method: home</code></pre>
 <a name="key_1_3"></a>
 
 ### Hello Buto from scratch
+
+
 
 <ul>
 <li>Create Hello Buto application from scratch.</li>
@@ -357,9 +411,13 @@ default_method: home</code></pre>
 
 
 
+
+
 <a name="key_1_3_0_0"></a>
 
 ##### Make dir
+
+
 
 <pre><code>mkdir config
 mkdir sys
@@ -376,12 +434,16 @@ mkdir plugin/wf</code></pre>
 
 ##### Create config file
 
+
+
 <pre><code>touch config/settings.yml
 echo "theme: demo/demo" &gt;&gt; config/settings.yml</code></pre>
 
 <a name="key_1_3_0_2"></a>
 
 ##### Clone Buto system
+
+
 
 <pre><code>git clone https://github.com/costlund/Buto-Sys-Mercury.git sys/mercury
 cp sys/mercury/root/* web
@@ -391,12 +453,16 @@ cp sys/mercury/root/.htaccess web</code></pre>
 
 ##### Clone plugin
 
+
+
 <pre><code>git clone https://github.com/costlund/Buto-Plugin-WfArray.git plugin/wf/array
 git clone https://github.com/costlund/Buto-Plugin-WfArraysearch.git plugin/wf/arraysearch</code></pre>
 
 <a name="key_1_3_1"></a>
 
 #### Create theme
+
+
 
 <ul>
 <li>Go to theme folder.</li>
@@ -426,6 +492,8 @@ plugin_modules:
 
 #### Run application
 
+
+
 <ul>
 <li>If using MAMP set Document Root to the web folder.</li>
 <li>Run application.</li>
@@ -434,6 +502,8 @@ plugin_modules:
 <a name="key_2"></a>
 
 ## Plugin
+
+
 
 <p>Plugins can have one or many of this purposes. A theme must make use of at least one plugin to work properly.</p>
 <ul>
@@ -449,6 +519,8 @@ plugin_modules:
 
 ### Widgets
 
+
+
 <p>A widget should be some HTML element on a page.</p>
 <pre><code>type: widget
 data:
@@ -461,6 +533,8 @@ data:
 <a name="key_2_1"></a>
 
 ### Pages
+
+
 
 <p>A page where there could be layout pages involved. </p>
 <pre><code>settings:
@@ -496,6 +570,8 @@ content:
 
 #### Methods
 
+
+
 <p>On could set methods to be running for a page.</p>
 <pre><code>public function set_title($page, $data){
   $page = new PluginWfArray($page);
@@ -507,17 +583,23 @@ content:
 
 ### Events
 
+
+
 <p>Buto system or plugins can fire events.</p>
 
 <a name="key_2_3"></a>
 
 ### Methods
 
+
+
 <p>Methods used from other plugins.</p>
 
 <a name="key_2_4"></a>
 
 ### Element methods
+
+
 
 <p>Methods used from an element.
 Example.</p>
@@ -539,6 +621,8 @@ settings:
 
 ## Application dir
 
+
+
 <p>Application dir contains this folders.</p>
 <ul>
 <li>config</li>
@@ -552,11 +636,15 @@ settings:
 
 ## Folders
 
+
+
 <p>Folder descriptions.</p>
 
 <a name="key_4_0"></a>
 
 ### config
+
+
 
 <p>Must have system settings file settings.yml.</p>
 
@@ -564,11 +652,15 @@ settings:
 
 ### plugin
 
+
+
 <p>Plugins is stored in two folder levels. In first level there should only be folders. In second level there is plugin data files.</p>
 
 <a name="key_4_2"></a>
 
 ### sys
+
+
 
 <p>Buto system folder.</p>
 
@@ -576,11 +668,15 @@ settings:
 
 ### theme
 
+
+
 <p>Themes is stored in two folder levels. In first level there should only be folders. In second level there is theme data files.</p>
 
 <a name="key_4_4"></a>
 
 ### public_html
+
+
 
 <p>Web root folder. One should point your web server Apache/IIS to this folder. This folder can have any name.</p>
 
@@ -588,11 +684,15 @@ settings:
 
 ## Settings
 
+
+
 <p>File /config/settings.yml tells Buto which theme to render along with a few params.</p>
 
 <a name="key_5_0"></a>
 
 ### System
+
+
 
 <p>This file is read before theme settings file.</p>
 <pre><code>/config/settings.yml.</code></pre>
@@ -600,6 +700,8 @@ settings:
 <a name="key_5_0_0"></a>
 
 #### Basic settings
+
+
 
 <p>The file must contain this settings. This theme has location /theme/my/theme.</p>
 <pre><code>theme: my/theme
@@ -610,6 +712,8 @@ timezone: Europe/Paris</code></pre>
 <a name="key_5_0_1"></a>
 
 #### HTTP_USER_AGENT
+
+
 
 <p>One could change theme depending on user agent. Example to rewrite theme param from my/theme to my/next_theme if HTTP_USER_AGENT contains chrome.</p>
 <pre><code>theme: my/theme
@@ -627,6 +731,8 @@ http_user_agent:
 
 #### Domain
 
+
+
 <p>One could change theme depending on domain name. Example to rewrite theme param from my/theme to my/next_theme if domain is localhost.</p>
 <pre><code>theme: my/theme
 domain:
@@ -643,12 +749,16 @@ domain:
 
 ### Theme
 
+
+
 <p>This file contains plugin settings for widget, pages, events.</p>
 <pre><code>/theme/xxx/yyy/config/settings.yml</code></pre>
 
 <a name="key_5_1_0"></a>
 
 #### I18N
+
+
 
 <p>I18N settings.</p>
 <pre><code>i18n:
@@ -673,6 +783,8 @@ One should use plugin i18n/url_rewrite when using this param to add language pre
 <a name="key_5_1_1"></a>
 
 #### buto_data folder
+
+
 
 <p>Rewrite settings.yml if this file also exist in (app dir) /../buto_data/theme/(theme)/settings.yml</p>
 <pre><code>rewrite:
@@ -701,6 +813,8 @@ One should use plugin i18n/url_rewrite when using this param to add language pre
 
 ### host
 
+
+
 <p>Param host could be used to determite if application is in a development invironment. 
 This value is checked in method wfHelp::isLocalhost() or wfGlobals::get('settings/host').</p>
 <p>Default value.</p>
@@ -720,6 +834,8 @@ Here one should use localhost if in development mode. If in production mode one 
 
 ## Element
 
+
+
 <p>Elements are just as any HTML element but with extra settings attribute for Buto to handle.</p>
 <pre><code>type: p
 settings:
@@ -732,6 +848,8 @@ innerHTML: Hello World</code></pre>
 
 ### Attribute
 
+
+
 <p>Attributes are set in same way as HTML.</p>
 <pre><code>type: span
 attribute:
@@ -742,6 +860,8 @@ innerHTML: Hello World</code></pre>
 <a name="key_6_0_0"></a>
 
 #### Style
+
+
 
 <p>This element has attribute style from array to string.</p>
 <pre><code>type: div
@@ -757,6 +877,8 @@ innerHTML: This element has attribute style from array to string.</code></pre>
 
 #### JSON
 
+
+
 <p>This element has attribute data from array to json.</p>
 <pre><code>type: span
 attribute:
@@ -771,11 +893,15 @@ innerHTML: Hello World</code></pre>
 
 ### Settings
 
+
+
 <p>Settings params are used by Buto and not to be rendered in browser.</p>
 
 <a name="key_6_1_0"></a>
 
 #### Role
+
+
 
 <p>Restrict rendering element regarding to user role.</p>
 <pre><code>type: span
@@ -788,6 +914,8 @@ innerHTML: This element is only rendered if user has role client. </code></pre>
 <a name="key_6_1_1"></a>
 
 #### Date
+
+
 
 <p>Restrict rendering element regarding to date.</p>
 <pre><code>type: span
@@ -808,6 +936,8 @@ innerHTML: Do not render this element year 2020. </code></pre>
 
 #### Enabled
 
+
+
 <pre><code>type: span
 settings:
   enabled: true
@@ -819,6 +949,8 @@ innerHTML: Hello World</code></pre>
 
 #### Disabled
 
+
+
 <pre><code>type: span
 settings:
   disabled: true
@@ -829,6 +961,8 @@ innerHTML: Hello World</code></pre>
 <a name="key_6_1_4"></a>
 
 #### I18N
+
+
 
 <p>Disable I18N.</p>
 <pre><code>type: span
@@ -856,6 +990,8 @@ attribute:
 
 #### Server name
 
+
+
 <p>Show element depending on server name.</p>
 <pre><code>type: span
 settings:
@@ -868,6 +1004,8 @@ innerHTML: Hello World</code></pre>
 <a name="key_6_1_6"></a>
 
 #### Page
+
+
 
 <p>Show element depending on page (wfServer::getRequestUri()).</p>
 <pre><code>type: span
@@ -895,6 +1033,8 @@ innerHTML: Show if value contact is in page adress.</code></pre>
 <a name="key_6_1_7"></a>
 
 #### Param
+
+
 
 <p>Show element depending on param value.</p>
 <pre><code>-
@@ -932,6 +1072,8 @@ innerHTML: Show if value contact is in page adress.</code></pre>
 
 #### innerHTML
 
+
+
 <p>Add innerHTML content (string only) from a file. Stop on first existing file.</p>
 <pre><code>type: h1
 settings:
@@ -958,6 +1100,8 @@ settings:
 
 #### file_exist
 
+
+
 <p>Render element if a file exist only.</p>
 <pre><code>type: widget
 settings:
@@ -970,6 +1114,8 @@ data:
 <a name="key_6_1_10"></a>
 
 #### tag
+
+
 
 <p>Render element if tag match.</p>
 <pre><code>type: div
@@ -988,12 +1134,16 @@ innerHTML: 'Show this if tag match.'</code></pre>
 
 ### innerHTML
 
+
+
 <p>One can embed text from any file.</p>
 <pre><code>innerHTML: file:/_path_/any_text.txt</code></pre>
 
 <a name="key_6_3"></a>
 
 ### Globals
+
+
 
 <p>Globals data can be picked up by a string.</p>
 <pre><code>type: span
@@ -1005,6 +1155,8 @@ innerHTML: 'globals:sys/theme'</code></pre>
 
 ### Comment
 
+
+
 <p>Add a comment to element.</p>
 <pre><code>-
   _: 'This is a comment one could use in yml. This comment will not be removed if yml file is updated by system.'
@@ -1015,11 +1167,15 @@ innerHTML: 'globals:sys/theme'</code></pre>
 
 ## Events
 
+
+
 <p>Events are fired by system or plugins.</p>
 
 <a name="key_7_0"></a>
 
 ### Settings
+
+
 
 <p>Events are methods registrared in theme settings file.</p>
 <pre><code>events:
@@ -1034,6 +1190,8 @@ innerHTML: 'globals:sys/theme'</code></pre>
 
 ### Method
 
+
+
 <p>Method example.</p>
 <pre><code>public function event_handler(){
   // Do stuff...
@@ -1042,6 +1200,8 @@ innerHTML: 'globals:sys/theme'</code></pre>
 <a name="key_7_2"></a>
 
 ### System events
+
+
 
 <p>Lisf of events in system.</p>
 <pre><code>sys_start
@@ -1067,12 +1227,16 @@ sys_close</code></pre>
 
 ### Fire event
 
+
+
 <p>A plugin can fire event like this.</p>
 <pre><code>wfEvent::run('_any_name_', array('some_data' =&gt; null));</code></pre>
 
 <a name="key_7_4"></a>
 
 ### Globals
+
+
 
 <p>Last event is stored in globals to be detected later. Can be detected in __construct method for security reasons.</p>
 <pre><code>$GLOBALS['sys']['event'] = array('plugin' =&gt; 'wf/pagenotfound', 'method' =&gt; 'handler');</code></pre>
@@ -1085,11 +1249,15 @@ sys_close</code></pre>
 
 ## Lib
 
+
+
 <p>Class files loaded from /sys/(name)/lib.</p>
 
 <a name="key_8_0"></a>
 
 ### wfArray
+
+
 
 
 
@@ -1099,9 +1267,13 @@ sys_close</code></pre>
 
 
 
+
+
 <a name="key_8_2"></a>
 
 ### wfConfig
+
+
 
 
 
@@ -1109,11 +1281,15 @@ sys_close</code></pre>
 
 ### wfCrypt
 
+
+
 <p>Methods.</p>
 
 <a name="key_8_3_0"></a>
 
 #### getOpensslRandomPseudoBytes
+
+
 
 <p>Returns uniq id using openssl_random_pseudo_bytes.</p>
 <pre><code>6e04-96da-5f50-572e-bc6d-b610</code></pre>
@@ -1124,9 +1300,13 @@ sys_close</code></pre>
 
 
 
+
+
 <a name="key_8_5"></a>
 
 ### wfDocument
+
+
 
 <p>Handle elements.</p>
 
@@ -1134,12 +1314,16 @@ sys_close</code></pre>
 
 #### renderElement
 
+
+
 <p>Render element from plugin.</p>
 <pre><code>wfDocument::renderElement($element);</code></pre>
 
 <a name="key_8_5_1"></a>
 
 #### getContent
+
+
 
 <p>Set capture to 1 or 2 to be able to get content via getContent method. Good for send email usage.
 Set to 1 if capture html in content param and also render.
@@ -1153,12 +1337,16 @@ $content = wfDocument::getContent();</code></pre>
 
 #### renderElementFromFolder
 
+
+
 <p>Render a file direct from a folder where filename is the same as method name.</p>
 <pre><code>wfDocument::renderElementFromFolder(__DIR__, __FUNCTION__);</code></pre>
 
 <a name="key_8_5_3"></a>
 
 #### setModeSvg
+
+
 
 <p>Default mode is HTML but could also be SVG. SVG mode render text elements.</p>
 <pre><code>wfDocument::setModeSvg();
@@ -1171,9 +1359,13 @@ wfDocument::setModeHtml();</code></pre>
 
 
 
+
+
 <a name="key_8_5_4_0"></a>
 
 ##### Globals
+
+
 
 <p>Set globals for an element and it´s child elements. This example change path settings for PluginI18nTranslate_v1.</p>
 <pre><code>type: div
@@ -1205,6 +1397,8 @@ innerHTML:
 
 ##### Confirm
 
+
+
 <p>Add confirm handle for A element in method renderStartTag if attribute data-content-confirm is set.</p>
 <pre><code>type: a
 attribute: 
@@ -1223,9 +1417,13 @@ innerHTML: Confirm onclick</code></pre>
 
 
 
+
+
 <a name="key_8_7"></a>
 
 ### wfEvent
+
+
 
 <p>This events is handled by system along with custom events.</p>
 <pre><code>sys_start
@@ -1258,6 +1456,8 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 ### wfException
 
+
+
 <p>Use this to show exceptions.</p>
 <pre><code>wfException::getException(__CLASS__, __FUNCTION__, 'In this class we have a problem in a function!');</code></pre>
 
@@ -1267,9 +1467,13 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 
 
+
+
 <a name="key_8_9_0"></a>
 
 #### isDir
+
+
 
 <p>Return true if a dir or false if a file.</p>
 <pre><code>wfFilesystem::isDir('/full/path/to/dir_or_file');</code></pre>
@@ -1278,6 +1482,8 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 #### delete_in_dir
 
+
+
 <p>Delete all files and folders in dir.</p>
 <pre><code>wfFilesystem::delete_in_dir('/full/path/to/dir');</code></pre>
 
@@ -1285,12 +1491,27 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 #### scanAllDir
 
+
+
 <p>Scan dir recursive.</p>
 <pre><code>wfFilesystem::scanAllDir('/full/path/to/dir');</code></pre>
+
+<a name="key_8_9_3"></a>
+
+#### createDir
+
+
+
+<p>Create dir with filename.</p>
+<pre><code>wfFilesystem::createDir('/full/path/to/dir/file.yml');</code></pre>
+<p>Create dir withouth filename.</p>
+<pre><code>wfFilesystem::createDir('/full/path/to/dir', false);</code></pre>
 
 <a name="key_8_10"></a>
 
 ### wfGlobals
+
+
 
 <p>Handle Globals variable.</p>
 
@@ -1300,15 +1521,21 @@ For example using plugin wf/errorhandling method shutdown when event shutdown is
 
 
 
+
+
 <a name="key_8_12"></a>
 
 ### wfI18n
+
+
 
 <p>Handle I18N.</p>
 
 <a name="key_8_12_0"></a>
 
 #### Auto select
+
+
 
 <p>Session params.
 Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.</p>
@@ -1322,6 +1549,8 @@ Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.<
 <a name="key_8_12_1"></a>
 
 #### getLanguagesMore
+
+
 
 <p>Returns array.</p>
 <pre><code>-
@@ -1337,9 +1566,13 @@ Trying to set language once per session from server param HTTP_ACCEPT_LANGUAGE.<
 
 
 
+
+
 <a name="key_8_13_0"></a>
 
 #### validateParams
+
+
 
 <p>Validate params in array.</p>
 <pre><code>wfPlugin::validateParams(__CLASS__, __FUNCTION__, (array with validation settings), (array to validate));</code></pre>
@@ -1361,11 +1594,15 @@ mail:
 
 ### wfRequest
 
+
+
 <p>Handle request params.</p>
 
 <a name="key_8_14_0"></a>
 
 #### get
+
+
 
 <p>Print variable name.</p>
 <pre><code>print_r(wfRequest::get('name'));</code></pre>
@@ -1374,6 +1611,8 @@ mail:
 
 #### getAll
 
+
+
 <p>Print all.</p>
 <pre><code>print_r(wfRequest::getAll());</code></pre>
 
@@ -1381,12 +1620,16 @@ mail:
 
 #### set
 
+
+
 <p>Set variable name.</p>
 <pre><code>wfRequest::set('name', 'James');</code></pre>
 
 <a name="key_8_14_3"></a>
 
 #### rewrite
+
+
 
 <p>Handle server variable REQUEST_URI (or HTTP_X_ORIGINAL_URL for windows).</p>
 
@@ -1396,9 +1639,13 @@ mail:
 
 
 
+
+
 <a name="key_8_15_0"></a>
 
 #### typeOfAccept
+
+
 
 <p>Check server variable HTTP_ACCEPT for in string.
 Returns.</p>
@@ -1413,6 +1660,8 @@ Returns.</p>
 
 #### isHost
 
+
+
 <p>Check if host by name (typical localhost for developer purpose).
 Returns boolean.</p>
 
@@ -1422,9 +1671,13 @@ Returns boolean.</p>
 
 
 
+
+
 <a name="key_8_16_0"></a>
 
 #### safe_mode
+
+
 
 <ul>
 <li>Public static variable to turn off safe mode by change from true to false.</li>
@@ -1434,6 +1687,8 @@ Returns boolean.</p>
 
 #### replaceTag
 
+
+
 <ul>
 <li>Replace [tag] with wfGlobals::get('tag').</li>
 </ul>
@@ -1441,6 +1696,8 @@ Returns boolean.</p>
 <a name="key_8_16_2"></a>
 
 #### replaceDir
+
+
 
 <ul>
 <li>Replace [app_dir]' with wfArray::get($GLOBALS, 'sys/app_dir').</li>
@@ -1458,9 +1715,13 @@ Returns boolean.</p>
 
 
 
+
+
 <a name="key_8_18"></a>
 
 ### wfPhpfunc
+
+
 
 <p>Created to handle PHP version 8.2.</p>
 
@@ -1468,11 +1729,15 @@ Returns boolean.</p>
 
 #### str_replace
 
+
+
 <p>Handle if param replace is null.</p>
 
 <a name="key_8_18_1"></a>
 
 #### strstr
+
+
 
 <p>Handle if param haystack is null.</p>
 
@@ -1480,11 +1745,15 @@ Returns boolean.</p>
 
 #### substr
 
+
+
 <p>Handle if param string is null.</p>
 
 <a name="key_8_19"></a>
 
 ### wfPhpinfo
+
+
 
 <p>Show info if user has role webmaster or webadmin.</p>
 <pre><code>/?phpinfo=phpinfo.
@@ -1500,6 +1769,8 @@ Returns boolean.</p>
 <a name="key_8_19_0"></a>
 
 #### session
+
+
 
 <pre><code>i18n: (i18n data)
   language: sv
@@ -1531,9 +1802,13 @@ theme_data:
 
 
 
+
+
 <a name="key_8_20_0"></a>
 
 #### handle_data
+
+
 
 <p>Handle data passed to widget.</p>
 <pre><code>$wData = wfWidget::handle_data($data);</code></pre>
@@ -1547,6 +1822,8 @@ $wData = wfWidget::handle_data($data, $default);</code></pre>
 
 ## Special requests
 
+
+
 <p>One could run some params to get special methods.
 This works only if user has role webmaster or if on localhost.</p>
 
@@ -1554,11 +1831,15 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ### Phpinfo
 
+
+
 <pre><code>/?phpinfo=phpinfo</code></pre>
 
 <a name="key_9_1"></a>
 
 ### Session
+
+
 
 <pre><code>/?phpinfo=session</code></pre>
 <p>Filter by path parameter.</p>
@@ -1568,11 +1849,15 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ### Server
 
+
+
 <pre><code>/?phpinfo=server</code></pre>
 
 <a name="key_9_3"></a>
 
 ### Globals
+
+
 
 <pre><code>/?phpinfo=globals</code></pre>
 <p>Filter by path parameter.</p>
@@ -1582,11 +1867,15 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ### Error fatal
 
+
+
 <pre><code>/?phpinfo=error_fatal</code></pre>
 
 <a name="key_9_5"></a>
 
 ### Error deprecated
+
+
 
 <pre><code>/?phpinfo=error_deprecated</code></pre>
 
@@ -1594,11 +1883,15 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ### Error notice
 
+
+
 <pre><code>/?phpinfo=error_notice</code></pre>
 
 <a name="key_9_7"></a>
 
 ### Load theme
+
+
 
 <pre><code>/?loadtheme=_folder_/_folder_</code></pre>
 
@@ -1606,11 +1899,15 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ### Sign out
 
+
+
 <pre><code>/?signout=1</code></pre>
 
 <a name="key_9_9"></a>
 
 ### Plugin page
+
+
 
 <p>If a developer needs to run plugin code without using theme settings.</p>
 <pre><code>/?webmaster_plugin=chart/amcharts_v3&amp;page=demo_serial</code></pre>
@@ -1619,11 +1916,15 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ## Mandatory plugin
 
+
+
 <p>There are two plugins who has to be included.</p>
 
 <a name="key_10_0"></a>
 
 ### wf/array
+
+
 
 <p>Download from Github.com.</p>
 <pre><code>https://github.com/costlund/Buto-Plugin-WfArray.git</code></pre>
@@ -1632,12 +1933,16 @@ This works only if user has role webmaster or if on localhost.</p>
 
 ### wf/arraysearch
 
+
+
 <p>Download from Github.com.</p>
 <pre><code>https://github.com/costlund/Buto-Plugin-WfArraysearch.git</code></pre>
 
 <a name="key_11"></a>
 
 ## Title
+
+
 
 <p>Page title are set from layout and page files. </p>
 <p>Layout.</p>
