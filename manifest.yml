@@ -1,5 +1,9 @@
-version: 2.113.0
+version: 2.114.0
 history:
+  2.114.0:
+    date: '2026-06-09'
+    title: 'wfFilesystem'
+    description: 'Using wfSettings::replaceDir in method createFile.'
   2.113.0:
     date: '2026-04-07'
     title: 'wfFilesystem'

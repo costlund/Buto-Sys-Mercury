@@ -163,6 +163,7 @@ class wfFilesystem {
    * @return null
    */
   public static function createFile($filename, $content){
+    $filename = wfSettings::replaceDir($filename);
     $dirname = dirname($filename);
     if(!wfFilesystem::fileExist($dirname)){
       mkdir($dirname, 0777, true);
